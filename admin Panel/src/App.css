@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* background-color: black; */
+}
+
+/* ==================== 
+      Navbar CSS
+ =====================*/
+
+nav {
+  width: 80%;
+  height: 50px;
+  background-color: #191c24;
+  padding: 10px;
+  position: fixed;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.364);
+  z-index: 1;
+}
+
+.nav_icon {
+  padding: 8px;
+  text-align: center;
+  font-size: 20px;
+  background-color: rgb(108 114 147 / 20%);
+  border-radius: 50%;
+}
+
+nav input {
+  border: none;
+}
+
+.nav_message {
+  display: flex;
+  gap: 50px;
+}
+
+.nav_dropdown {
+  display: flex;
+}
+
+/* ==================== 
+      AsideBar CSS
+ =====================*/
+
+aside {
+  width: 300px;  
+  height: 100vh;
+  position: fixed;
+  background-color: #191c24;
+}
+
+
+aside ul {
+  list-style: none;
+  cursor: pointer;
+}
+
+aside a {
+  color: #6c7293;
+  text-decoration: none;
+  line-height: 50px;
+  font-size: 18px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.Setting {
+  margin-top: 75vh;
+}
+
+/* ==================== 
+      Main CSS
+ =====================*/
+
+.main {
+  width: auto;
+  height: 100vh;
+  color: white;
+  overflow-y: scroll;
+  background-color: #191c24;
+  background-attachment: fixed;
+}
+
+.main input {
+  background-color: #191c24;
+}
+
+.main input::placeholder {
+  color: #6c7293;
+}
+
+.Routes {
+  margin-top: 8vh;
+}
+
+
+/* ==================== 
+      Foarm CSS
+ =====================*/
+#formBasicBookName::placeholder,
+#formBasicBookAuthor::placeholder,
+#formBasicBookYear::placeholder,
+#formBasicBookISBIN::placeholder,
+#formBasicBookLanguage::placeholder,
+#formBasicBookDescription::placeholder,
+#formFile {
+  color: #6c7293;
+}
