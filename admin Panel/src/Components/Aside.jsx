@@ -36,12 +36,8 @@ export default function Aside() {
                 <li><a href="#" onClick={gotoForm}><i class="bi bi-ui-checks-grid"></i> Form</a></li>
                 <li><a href="#" onClick={gotoTable}><i class="bi bi-table"></i> Books</a></li>
                 <li><a href="#" onClick={gotoUser}><i class="bi bi-person-circle"></i> User</a></li>
-            </ul>
-
-            <ul className='Setting'>
                 <li><a href=""><i class="bi bi-gear-fill"></i> Setting</a></li>
             </ul>
-
         </aside>
     )
 }

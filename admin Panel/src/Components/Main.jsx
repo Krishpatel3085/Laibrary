@@ -4,48 +4,61 @@ import Dashboard from "../Pages/Dashboard";
 import User from "../Pages/User";
 import FormP from "../Pages/Form";
 import Books from "../Pages/Books"
+
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+
+
 export default function Main() {
   return (
     <>
       <div className="container-fluid">
         <div className="row">
           <div className="main">
-            <div className="col-md-10">
-              <nav className="d-flex gap-4">
-                <div className="button">
-                  <div className="icon">
-                    <i class="bi bi-list"></i>
-                  </div>
-                </div>
-                <input
-                  className="form-control"
-                  type="search"
-                  placeholder="Search"
-                />
-                <div className="nav_message">
-                  <i class="bi bi-grid"></i>
-                  <i class="bi bi-envelope"></i>
-                  <i class="bi bi-bell-fill"></i>
-                </div>
+            <div className="nav">
 
-                <div className="nav_dropdown pe-2">
-                    <img src="" alt="avtar" />
-                    <span>hello</span>
-                </div>
-              </nav>
+              <Navbar expand="lg" className=" mt-2 Navbar w-100  ">
+                <Container fluid>
+                  <Navbar.Brand href="#" className="icon"><i class="bi bi-toggles"></i></Navbar.Brand>
+
+                  <Form className="d-flex ms-2 search" >
+                    <Form.Control
+                      type="search"
+                      placeholder="Search"
+                      className="me-2"
+                      aria-label="Search"
+                    />
+                  </Form>
+                  <Navbar.Toggle aria-controls="navbarScroll" />
+                  <Navbar.Collapse id="navbarScroll" className="icons_set">
+                   
+                      <Nav.Link href="#" className="icon"><i class="bi bi-grid-fill"></i></Nav.Link>
+                      <Nav.Link href="#" className="icon"><i class="bi bi-envelope"></i></Nav.Link>
+                      <Nav.Link href="#" className="icon"> <i class="bi bi-bell-fill"></i></Nav.Link>
+                      <Nav.Link href="#" className="icon"> <i class="bi bi-person-circle"> hello</i> </Nav.Link>
+                    
+
+                  </Navbar.Collapse>
+                </Container>
+              </Navbar>
+
             </div>
-
             <div className="Routes">
               <Routes>
                 <Route path="/" element={<Dashboard />} />
                 <Route path="/form" element={<FormP />} />
-                <Route path="/book" element={<Books/>} />
+                <Route path="/book" element={<Books />} />
                 <Route path="/user" element={<User />} />
               </Routes>
             </div>
           </div>
         </div>
       </div>
+
     </>
   );
 }
