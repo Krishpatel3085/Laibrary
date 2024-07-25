@@ -121,3 +121,16 @@ aside a {
   background-color: #67bc45;
   border: none;
 }
+
+/* ==================== 
+      Book CSS
+ =====================*/
+
+ .book-card{
+  width: 500px;
+  height: 900px;
+ }
+ .book-card img{
+  width: 300px;
+  height: 250px; 
+ }
