@@ -19,7 +19,7 @@ export default function Main() {
           <div className="main">
             <div className="nav">
 
-              <Navbar expand="lg" className=" mt-2 Navbar w-100  ">
+              <Navbar expand="lg" className=" mt-2 Navbar w-75 ms-4 position-fixed ">
                 <Container fluid>
                   <Navbar.Brand href="#" className="icon"><i class="bi bi-toggles"></i></Navbar.Brand>
 
