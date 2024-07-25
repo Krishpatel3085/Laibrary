@@ -46,7 +46,7 @@ export default function FormP() {
   return (
     <>
       <h1>Form</h1>
-      <Form onSubmit={handleAddData} className="m-0 p-0 form">
+      <Form onSubmit={handleAddData} className="m-0 py-4 form">
         <Form.Group className="mb-3" controlId="formBasicBookName">
           <Form.Label>Book Title</Form.Label>
           <Form.Control

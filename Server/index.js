@@ -4,6 +4,7 @@ const Books = require("./Model")
 const cors = require('cors')
 const multer = require('multer')
 const path = require('path');
+const fs = require('fs')
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -23,32 +24,31 @@ app.use(express.json())
 app.use(cors());
 app.use('/upload', express.static('upload'));
 
-app.get("/", async (req, res) => {  
-    const data = await Books.find()
-    res.json({ data: data })
-    
-})  
 
-app.post('/',upload.single('url'), async (req, res) => {
-    const req_body = req.body
-    console.log(req.body.json_data)
-    console.log(req.file)
-    const title = req_body["title"]
-    const author = req_body["author"]
-    const year = req_body["year"]
-    const description = req_body["description"]
-    const isbin = req_body["isbin"]
-    const language = req_body['language']
-    let url = '';
-    if (req.file) {
-        url =  req.file.filename;
-    }
-    console.log(url)
-    await Books.create({ title, author, year, description, isbin, language, url });  
-    
-    res.json({ Msg: "Post Succefully" })
 
-})
+// Data Get
+app.get("/", async (req, res) => {
+  try {
+    const data = await Books.find();
+    res.json({ data });
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+// Data Create
+app.post("/", upload.single("url"), async (req, res) => {
+  try {
+    const { title, author, year, description, isbin, language } = req.body;
+    const url = req.file ? req.file.filename : "";
+    await Books.create({ title, author, year, description, isbin, language, url });
+    res.json({ Msg: "Post Successfully" });
+  } catch (error) {
+    console.error("Error posting data:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
 
 // app.put('/:id', async (req, res) => {
 //     const id = req.params['id']
@@ -65,11 +65,31 @@ app.post('/',upload.single('url'), async (req, res) => {
 
 // })
 
-// app.delete('/:id',async (req, res) => {
-//     const id = req.params['id']
-//     await Books.deleteOne({ _id: id })
-//     res.json({ Msg: "Delete Succefully" })
-// })
+
+// Data Delete
+app.delete("/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    const book = await Books.findOne({ _id: id });
+    if (!book) {
+      return res.status(404).json({ Msg: "Book not found" });
+    }
+    const imgPath = path.join(__dirname, "upload", book.url);
+    fs.unlink(imgPath, async (err) => {
+      if (err) {
+        console.error(`Error removing file: ${err}`);
+      } else {
+        console.log(`File ${imgPath} has been successfully removed.`);
+      }
+      await Books.deleteOne({ _id: id });
+      res.json({ Msg: "Delete Successfully" });
+    });
+  } catch (error) {
+    console.error("Error deleting data:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 
 app.listen(8085, async () => {
     await mongoose.connect("mongodb://localhost:27017/Book-Details")
