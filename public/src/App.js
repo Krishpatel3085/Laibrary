@@ -1,5 +1,8 @@
 import './App.css';
-import NavBar from './component/Nav';
+// import NavBar from './component/NavBar/Nav';
+// import Login from './component/User/Login';
+import Registration from './component/User/Registration'
+
 
 
 function App() {
@@ -7,7 +10,9 @@ function App() {
 
   return (
     <>
-     <NavBar/>
+     {/* <NavBar/> */}
+     <Registration/>
+     {/* <Login/> */}
     </>
   );
 }
