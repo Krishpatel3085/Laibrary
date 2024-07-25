@@ -38,11 +38,10 @@ export default function Book() {
           <div className="col-md-12 d-flex gap-3 flex-wrap">
             {items.map((item, index) => {
               return (
-                <Card style={{ width: "18rem" }} key={index}>
-                  <Card.Img variant="top" src={'https://ldfs6814-8085.inc1.devtunnels.ms/upload/'+item.url} />
+                <Card style={{ width: "18rem", height:"650px" }} key={index} className="p-2">
+                  <Card.Img variant="top" src={'https://ldfs6814-8085.inc1.devtunnels.ms/upload/'+item.url} style={{width:"270px" , height:"300px"}} />
                   <Card.Body>
                     <Card.Title>{item.title}</Card.Title>
-                    <Card.Text>{item.description}</Card.Text>
                   </Card.Body>
                   <ListGroup className="list-group-flush">
                     <ListGroup.Item>{item.author}</ListGroup.Item>
@@ -50,6 +49,7 @@ export default function Book() {
                     <ListGroup.Item>{item.isbin}</ListGroup.Item>
                     <ListGroup.Item>{item.language}</ListGroup.Item>
                   </ListGroup>
+                    <Card.Text className="h-25 overflow-hidden">{item.description}</Card.Text> 
                   <Card.Body>
                     <Card.Link href="#">Edit</Card.Link>
                     <Card.Link href="#">
