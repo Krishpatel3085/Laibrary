@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-
+import logo from '../img/admin-logo.png'
 export default function Aside() {
     const navigate = useNavigate()
 
@@ -30,6 +30,9 @@ export default function Aside() {
 
     return (
         <aside>
+        <div className="logo">
+            <img src={logo} alt=""  className='w-50 m-4 ' />
+        </div>
 
             <ul>
                 <li><a href="#" onClick={gotoDashboard}><i class="bi bi-house-fill"></i> Deshboard</a></li>
