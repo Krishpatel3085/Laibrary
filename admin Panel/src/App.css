@@ -117,7 +117,7 @@ aside a {
   color: #6c7293;
 }
 
-.form Button{
+.form Button {
   background-color: #67bc45;
   border: none;
 }
@@ -126,11 +126,25 @@ aside a {
       Book CSS
  =====================*/
 
- .book-card{
-  width: 500px;
-  height: 900px;
- }
- .book-card img{
-  width: 300px;
-  height: 250px; 
- }
+.book-card {
+  width: 550px;
+}
+.book-card img {
+  height: 270px;
+}
+
+.mas {
+  height: 300px;
+}
+.card button{
+  width: 70px;
+  padding: 2px;
+  background-color: rgb(187, 150, 65);
+  color: black;
+  font-weight: 500;
+}
+.summary{
+  width: auto;
+  height: 50px;
+  overflow: hidden;
+} 

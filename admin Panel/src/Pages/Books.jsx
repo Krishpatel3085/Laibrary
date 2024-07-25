@@ -18,22 +18,33 @@ export default function Book() {
       });
   }, []);
 
+  const deleteItem = (id) => {
+    axios
+      .delete(`https://ldfs6814-8085.inc1.devtunnels.ms/${id}`)
+      .then((response) => {
+        // Remove the deleted item from state
+        setItems(items.filter(item => item._id !== id));
+      })
+      .catch((error) => {
+        console.error("There was an error deleting the item!", error);
+      });
+  };
 
   return (
-    <div className=" container py-2   ">
+    <div className=" container">
       <h1>Books</h1>
       <br />
-      <div className="mas d-flex px-5 ms-2 gap-5">
+      <div className="mas d-flex px-4 gap-4 flex-wrap">
         {items.map((item, index) => {
           return (
             <>
-              <div className="card book-card ">
+              <div className="card book-card p-3 bg-dark text-white ">
                 <div className="row no-gutters">
                   <div className="col-md-4">
                     <img src={'https://ldfs6814-8085.inc1.devtunnels.ms/upload/' + item.url} className="img-fluid" />
                   </div>
                   <div className="col-md-8">
-                    <div className="card-body">
+                    <div className="card-body ">
                       <h5 className="card-title"><strong>Book Title: </strong>{item.title}</h5>
                       <p className="card-text">
                         <strong>Author:</strong>  {item.author}
@@ -44,9 +55,14 @@ export default function Book() {
                       <p className="card-text">
                         <strong>Isbin:</strong> {item.isbin}
                       </p>
-                      <p className="card-text ">
+                      <p className="card-text summary ">
                         <strong>Summary:</strong> {item.description}
                       </p>
+                      <div className="button-group d-flex gap-2">
+
+                        <button>Edite</button>
+                        <button onClick={() => deleteItem(item._id)}>Delete</button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -60,18 +76,3 @@ export default function Book() {
   );
 }
 
-// <div className="col-md-12">
-//   <div className=" col-md-5 ">
-//     <img src={'https://ldfs6814-8085.inc1.devtunnels.ms/upload/' + item.url} alt="" />
-//   </div>
-//   <div className="col-md-7">
-//     <h3>{item.title}</h3>
-//     <p>{item.author}</p>
-//     <p>{item.year}</p>
-//     <p>{item.isbin}</p>
-//     <p>{item.language}</p>
-//     <p>{item.description}</p>
-//     <button>Edit</button>
-//     <button>Delete</button>
-//   </div>
-// </div>
