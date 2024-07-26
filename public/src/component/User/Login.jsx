@@ -1,7 +1,7 @@
 import React from 'react'
 import './user.css'
 import main_img from '../images/main_login.jpg'
-import logo from '../images/web logo1.png'
+import logo from '../images/main_logo.png'
 
 function Login() {
   return (
@@ -62,5 +62,4 @@ function Login() {
     </section>
   )
 }
-
 export default Login
