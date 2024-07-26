@@ -28,7 +28,7 @@ function NavBar() {
             <Nav.Link href="#">SHOP</Nav.Link>
           </Nav>
           <Form className="d-flex me-3">
-            <Form.Control  type="search"  placeholder="Search...."  className="  me-2 rounded-pill"  aria-label="Search" />
+            <Form.Control  type="search"  placeholder="Search...."  className="me-2 rounded-pill"  aria-label="Search" style={{background:"#f8f8f8"}}/>
           </Form>
           <Nav>
           <Nav.Link href="#addToCart" className='me-3'>

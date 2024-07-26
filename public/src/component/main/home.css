@@ -4,7 +4,46 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 /* carousel part */
-.Carousel_img{
-  
+.main-section {
+  width: 100%;
+  height: 100vh;
+  background-image: url('../images/main_home.jpg');
+  background-color: rgba(0, 0, 0, 0.399);
+  background-blend-mode: hue;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+.main_description {
+  padding: 150px 0 0 160px;
+}
+
+.description h1 {
+  font-size: 70px;
+ line-height: 68px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.description p{
+  font-size: 18px;
+  line-height: 23px;
+
+}
+.go-to-button {
+  margin-top: 20px;
+  text-transform: uppercase;
+  display: inline-flex;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.go-to-button i {
+  margin-right: 8px;
 }
