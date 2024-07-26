@@ -1,0 +1,24 @@
+
+@media (min-width:1200px) and (max-width:1400px) {
+  
+}
+
+/* Laptop */
+@media (min-width:992px) and (max-width:1199px) {
+  
+}
+
+
+/* tablet */
+@media (min-width:768px) and (max-width:991px) {
+  .main_description {
+    padding: 136px 0 0 53px;
+  }
+}
+
+/* mobile */
+@media (min-width:576px) and (max-width:767px) {
+  .main_description {
+    padding: 136px 0 0 53px;
+  }
+}

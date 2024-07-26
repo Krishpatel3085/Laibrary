@@ -1,43 +1,43 @@
-import React from 'react'
-// import { useState } from 'react';
-import Carousel from 'react-bootstrap/Carousel';
-import img_one from '../images/main_img1.jpg';
-import img_two from '../images/Main_img2.jpg'
+import React from 'react';
+import './home.css'
+import '../MediaQurey/media.css'
 
 function Home() {
-  // const [index, setIndex] = useState(0);
-
-  // const handleSelect = (selectedIndex) => {
-  //   setIndex(selectedIndex);
-  // };
-
   return (
-    <Carousel>
-      <Carousel.Item>
-        <img src={img_two}  id='Carousel_img'/>
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img src={img_two} />
-        <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img src={img_two}  />
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
-        </Carousel.Caption>
-      </Carousel.Item>
-    </Carousel>
-  )
+    <>
+
+      <div className="container-fluid ">
+        <div className="row">
+          <div className="main-section">
+            <div className="col-md-12 ">
+              <div className="main_description d-grid">
+                <div className="description p-5 ">
+                  <p className='text-white ms-2'>Sale Up To 20% OFF</p>
+                  <h1 className='text-white'>Grab your next <br /> favorite book</h1>
+                  <p className='text-white'>Books are the quietest and most constant of friends; they are <br /> the most accessible and wisest of counselors, and the most <br /> patient of teachers</p>
+                  <a href="#target-section" className="btn btn-primary go-to-button "> <i class="fa-solid fa-cart-shopping"></i> Go to Shop </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col-md-3">
+              <div className="delivery">
+                <div className="icon_bar">
+
+                </div>
+                <div className="info-section ">
+                  <span>Free Delivery</span>
+                  <span>For all member community</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }
 
-export default Home
+export default Home;
