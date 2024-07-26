@@ -148,3 +148,20 @@ aside a {
   height: 50px;
   overflow: hidden;
 } 
+
+.book-card-2{
+  width: 750px;
+}
+
+.book-card-2 input{
+  margin-inline-start: 10px;
+  padding-left: 10px;
+  color: #6c7293;
+  border: none;
+}
+.book-card-2 textarea{
+  color: #6c7293;
+  
+  border: none;
+  background-color: #191c24;
+}
