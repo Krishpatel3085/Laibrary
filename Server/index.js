@@ -50,20 +50,39 @@ app.post("/", upload.single("url"), async (req, res) => {
   }
 });
 
-// app.put('/:id', async (req, res) => {
-//     const id = req.params['id']
-//     const req_body = req.body
-//     const title = req_body["title"]
-//     const author = req_body["author"]
-//     const publicationYear = req_body["publicationYear"]
-//     const description = req_body["description"]
-//     const Isbin = req_body["Isbin"]
-//     const language = req_body['language']
-//     const url = req_body['url']
-//     await Books.findOneAndUpdate({ _id: id }, { title, author, publicationYear, description, Isbin, language ,url})
-//     res.json({ Msg: "Put Succefully" })
+// Data Update
+app.put('/:id', upload.single("url"), async (req, res) => {
+  const id = req.params['id'];
+  const { title, author, year, description, isbin, language } = req.body;
+  let url;
 
-// })
+  try {
+    if (req.file) {
+      const book = await Books.findById(id);
+      if (book.url) {
+        const oldImgPath = path.join(__dirname, "upload", book.url);
+        fs.unlink(oldImgPath, (err) => {
+          if (err) console.error(`Error removing old file: ${err}`);
+        });
+      }
+      url = req.file.filename;
+    } else {
+      const book = await Books.findById(id);
+      url = book.url;
+    }
+
+    const updatedBook = await Books.findByIdAndUpdate(
+      id,
+      { title, author, year, description, isbin, language, url },
+      { new: true }
+    );
+
+    res.json({ Msg: "Put Successfully", updatedBook });
+  } catch (error) {
+    console.error("Error updating data:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
 
 
 // Data Delete
