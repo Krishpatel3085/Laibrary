@@ -8,7 +8,7 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* carousel part */
+/*First section */
 .main-section {
   width: 100%;
   height: 100vh;
@@ -21,20 +21,48 @@ body {
   background-position: center;
 }
 
+.description p {
+  font-size: 13px;
+}
+
 .main_description {
-  padding: 150px 0 0 160px;
+  padding: 150px 0 0 290px;
 }
 
 .description h1 {
   font-size: 70px;
- line-height: 68px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 68px;
+  font-family: sans-serif;
 }
-.description p{
-  font-size: 18px;
-  line-height: 23px;
 
+#pading_id {
+  padding: 90px 0px;
 }
+
+.delivery {
+  padding: 20px;
+  background-color: #FAF9F5;
+  margin: 10px 0;
+  border-radius: 19px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.icon_bar img {
+  width: 45px;
+  height: 45px;
+}
+
+.icon_bar {
+  font-size: 24px;
+  color: #000;
+  margin-right: 10px;
+}
+
+.info-section li {
+  list-style: none;
+  font-size: 14px;
+}
+
 .go-to-button {
   margin-top: 20px;
   text-transform: uppercase;
@@ -46,4 +74,153 @@ body {
 
 .go-to-button i {
   margin-right: 8px;
+}
+
+/* second section */
+.Lorem {
+  width: 400px;
+  height: 250px;
+  background: url('../images/main_home.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: hue;
+  background-color: #00000030;
+  border-radius: 20px;
+
+}
+
+.new_release {
+  height: 250px;
+  border-radius: 20px;
+  background-color: #00000040;
+  padding: 50px 0 0 60px;
+}
+
+.new_release:hover {
+  transition: all linear 0.5s;
+  background-color: transparent;
+}
+
+.new_release h2 {
+  font-family: "Lora";
+  font-size: 36px;
+}
+
+.new_release p {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.shop_btn {
+  width: 100px;
+  height: 42px;
+  border: 1px solid white;
+  background: transparent;
+  padding: 5px;
+  color: white;
+  border-radius: 18px;
+}
+
+.shop_btn:hover {
+  color: #F13B3A;
+  background: #FFFFFF;
+}
+
+/* section three book api */
+
+.card_sell_img {
+  width: 306px;
+  height: 404px;
+  padding: 6px;
+ aspect-ratio: 3/2;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  object-fit: contain;
+}
+
+.add_to_cart {
+  width: 118px;
+  height: 43px;
+  color: red;
+  border-radius: 20px;
+  background: transparent;
+  border: 2px solid red;
+  margin: auto;
+}
+
+.add_to_cart:hover{
+  border: none;
+  background-color: black;
+}
+
+
+/* section three */
+.flash_sale {
+  width: 100%;
+  height: 300px;
+  background: url('../images/group-of-books.jpg') center;
+  background-size: cover;
+  background-blend-mode: hue;
+  background-color: #00000071;
+  background-repeat: no-repeat;
+  padding: 50px 250px 50px 300px;
+  border-radius: 20px;
+}
+
+.flash_sale h2 {
+  font-family: "Lora";
+  font-weight: 500;
+  font-size: 48px;
+}
+
+.flash_sale:hover {
+  transition: all ease-in-out 0.7s;
+  background-color: #00000097;
+}
+
+/* four section */
+.custom-container {
+  background: #FAF9F5;
+  border-radius: 15px;
+}
+
+.custom-container .row {
+  align-items: center;
+}
+
+.about_author h6 {
+  font-size: 17px;
+}
+
+.about_author span {
+  font-size: 16px;
+}
+
+.about_author p {
+  padding-top: 10px;
+  font-size: 18px;
+  font-family: 'Lora', serif;
+  color: #7e8486;
+}
+
+.about_author h2 {
+  padding-top: 10px;
+  font-size: 48px;
+  font-family: 'Lora', serif;
+}
+
+.author_btn {
+  width: 160px;
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  background-color: #F13B3A;
+  color: white;
+  font-size: 17px;
+}
+
+.custom-img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
 }
