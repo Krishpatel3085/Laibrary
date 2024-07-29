@@ -1,0 +1,17 @@
+const express = require("express");
+const {
+  deleteData,
+  addData,
+  updateData,
+  upload,
+  getData,
+} = require("../Controlers/Book");
+
+const book_routes = express.Router();
+
+book_routes.get("/", getData);
+book_routes.post("/", upload.single("url"), addData);
+book_routes.put("/:id", upload.single("url"), updateData);
+book_routes.delete("/", deleteData);
+
+module.exports = { book_routes };
