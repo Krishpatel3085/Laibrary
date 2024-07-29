@@ -24,19 +24,7 @@ function Home() {
       });
   }, []);
 
-  const history = useHistory();
 
-  const handleImageClick = (item) => {
-    history.push({
-      pathname: '/image-detail',
-      state: {
-        image: 'https://ldfs6814-8085.inc1.devtunnels.ms/upload/' + item.url,
-        title: item.title,
-        author: item.author,
-        price: item.price,
-      },
-    });
-  };
   return (
     <>
       <div className="container-fluid">
@@ -146,32 +134,33 @@ function Home() {
           </div>
         </div>
         <div className="row pb-4">
-          {items.map((item, index) => (
-            <div className="col-md-3 col-lg-3" key={index}>
-              <Card style={{ width: 'auto', fontFamily: 'lora' }} className="api_card border-0 text-center">
-                <Card.Img
-                  variant="top"
-                  className="card_sell_img img-fluid"
-                  src={'https://ldfs6814-8085.inc1.devtunnels.ms/upload/' + item.url}
-                  onClick={() => handleImageClick(item)}
-                />
-                <Card.Body>
-                  <Card.Title>{item.title}</Card.Title>
-                  <Card.Title>{item.author}</Card.Title>
-                  <Card.Text>
-                    <span className="text-dark fs-6">
-                      <strike>${item.price2}.00</strike>
-                    </span>{' '}
-                    <span className="text-danger fw-bold fs-5">
-                      <u>${item.price}.00</u>
-                    </span>
-                  </Card.Text>
-                  <Button className="add_to_cart">Add to Cart</Button>
-                </Card.Body>
-              </Card>
-            </div>
-          ))}
+          {
+            items.map((item, index) => {
+              return (
+                <>
+                  <div className="col-md-3 col-lg-3 " key={index}>
+                    <Card style={{ width: 'auto', fontFamily: "lora" }} className='api_card border-0  text-center ' >
+                      <Card.Img
+                        variant="top"
+                        className='card_sell_img img-fluid '
+                        src={'https://ldfs6814-8085.inc1.devtunnels.ms/upload/' + item.url}
+                      />
+                      <Card.Body>
+                        <Card.Title>{item.title}</Card.Title>
+                        <Card.Title>{item.author}</Card.Title>
+                        <Card.Text >
+                          <span className='text-dark fs-6'><strike>${item.price2}.00</strike></span> <span className='text-danger fw-bold fs-5'><u>${item.price}.00</u></span>
+                        </Card.Text>
+                        <Button className='add_to_cart'>Add to Cart</Button>
+                      </Card.Body>
+                    </Card>
+                  </div>
+                </>
+              )
+            })
+          }
         </div>
+
       </div>
 
 
