@@ -9,6 +9,8 @@ import fast from '../images/Fast_online_payment-1.png';
 import delivery from '../images/Express_mail_service-1.png';
 import refund from '../images/Product_refund-1.png';
 import writing from '../images/hand_writing.jpg';
+import Hand_book from '../images/hand_book.jpg'
+import chid from '../images/father_book.png'
 
 function Home() {
   const [items, setItems] = useState([])
@@ -24,19 +26,7 @@ function Home() {
       });
   }, []);
 
-  const history = useHistory();
 
-  const handleImageClick = (item) => {
-    history.push({
-      pathname: '/image-detail',
-      state: {
-        image: 'https://ldfs6814-8085.inc1.devtunnels.ms/upload/' + item.url,
-        title: item.title,
-        author: item.author,
-        price: item.price,
-      },
-    });
-  };
   return (
     <>
       <div className="container-fluid">
@@ -140,43 +130,44 @@ function Home() {
 
       <div className="container">
         <div className="row border-top py-3">
-          <div className="next col-md-12">
-            <span>Discover Your Next Book</span>
+          <div className="next col-md-12 d-flex ">
+            <span >Discover Your Next Book</span>
             <span>View All Book</span>
           </div>
         </div>
         <div className="row pb-4">
-          {items.map((item, index) => (
-            <div className="col-md-3 col-lg-3" key={index}>
-              <Card style={{ width: 'auto', fontFamily: 'lora' }} className="api_card border-0 text-center">
-                <Card.Img
-                  variant="top"
-                  className="card_sell_img img-fluid"
-                  src={'https://ldfs6814-8085.inc1.devtunnels.ms/upload/' + item.url}
-                  onClick={() => handleImageClick(item)}
-                />
-                <Card.Body>
-                  <Card.Title>{item.title}</Card.Title>
-                  <Card.Title>{item.author}</Card.Title>
-                  <Card.Text>
-                    <span className="text-dark fs-6">
-                      <strike>${item.price2}.00</strike>
-                    </span>{' '}
-                    <span className="text-danger fw-bold fs-5">
-                      <u>${item.price}.00</u>
-                    </span>
-                  </Card.Text>
-                  <Button className="add_to_cart">Add to Cart</Button>
-                </Card.Body>
-              </Card>
-            </div>
-          ))}
+          {
+            items.map((item, index) => {
+              return (
+                <>
+                  <div className="col-md-3 col-lg-3 " key={index}>
+                    <Card style={{ width: 'auto', fontFamily: "lora" }} className='api_card border-0  text-center ' >
+                      <Card.Img
+                        variant="top"
+                        className='card_sell_img img-fluid '
+                        src={'https://ldfs6814-8085.inc1.devtunnels.ms/upload/' + item.url}
+                      />
+                      <Card.Body>
+                        <Card.Title>{item.title}</Card.Title>
+                        <Card.Title>{item.author}</Card.Title>
+                        <Card.Text >
+                          <span className='text-dark fs-6'><strike>${item.price2}.00</strike></span> <span className='text-danger fw-bold fs-5'><u>${item.price}.00</u></span>
+                        </Card.Text>
+                        <Button className='add_to_cart'>Add to Cart</Button>
+                      </Card.Body>
+                    </Card>
+                  </div>
+                </>
+              )
+            })
+          }
         </div>
+
       </div>
 
 
       {/* // third section */}
-      {/* <div className="container">
+       <div className="container">
         <div className="row mb-5">
           <div className="col-md-12">
             <div className="flash_sale text-center text-light">
@@ -186,11 +177,11 @@ function Home() {
             </div>
           </div>
         </div>
-      </div> */}
+      </div>
 
 
       {/* four section */}
-      {/* <div className="container-fluid mb-4">
+      <div className="container-fluid mb-4">
         <div className="container p-5 custom-container">
           <div className="row align-items-center">
             <div className="col-md-6">
@@ -207,11 +198,66 @@ function Home() {
             </div>
           </div>
         </div>
-      </div> */}
+      </div> 
 
+      {/* five section */}
+      <div class="container">
+        <div class="row py-5">
+          <div class="col-md-6 col-lg-6">
+            <img src={Hand_book} class="img-fluid custom-img h-100 w-100" alt="Handbook" />
+          </div>
+          <div class="col-md-6 col-lg-6">
+            <div class="content ps-3">
+              <h2>It is more than just <br /> writing books</h2>
+              <p className='text-dark fs-6'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <i class="fa-solid fa-rocket text-danger mb-2"></i>
+                  <span>Publishing</span>
+                  <p>Maecenas etiam platea et hac viverra aliquam magnis sapien.</p>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <i class="fa-solid fa-cart-arrow-down text-danger mb-2"></i>
+                  <span>Selling Book</span>
+                  <p>Maecenas etiam platea et hac viverra aliquam magnis sapien.</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <i class="fa-solid fa-book text-danger mb-2"></i>
+                  <span>Editing</span>
+                  <p>Maecenas etiam platea et hac viverra aliquam magnis sapien.</p>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <i class="fa-solid fa-users text-danger mb-2"></i>
+                  <span>Community</span>
+                  <p>Maecenas etiam platea et hac viverra aliquam magnis sapien.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-
-
+      {/* setion six */}
+      <section className='mb-3' id='back_images' >
+        <div className="container">
+          <div className="container">
+          </div><div className="row">
+            <div className="col-md-6">
+              <h6>New Release</h6>
+              <h3>Me & My Dad </h3>
+              <h5>A novelette book by John Doe</h5>
+              <p>Morbi proin condimentum litora duis lectus vivamus parturient torquent. Phasellus fames lectus molestie iaculis lacus condimentum duis. Ac ligula etiam magna efficitur quisque in. Malesuada mattis integer congue nulla id ipsum vestibulum mollis fames neque dictum. Ex vivamus vehicula natoque porta ipsum dis. Interdum viverra semper dolor dignissim urna habitasse orci. Elementum ullamcorper libero magna montes ut orci suspendisse magnis nam id ligula.</p>
+              <span>Price :$40.00</span><br />
+              <Button className='add_to_cart'>Add to Cart</Button>
+            </div>
+            <div className="col-md-6">
+              <img src={chid}  className='img-fluid w-100 h-100'/>
+            </div>
+          </div>
+        </div>
+      </section>
 
     </>
   );
