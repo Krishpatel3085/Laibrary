@@ -1,3 +1,6 @@
 library/node_modules/
 admin Panel/node_modules/
 server/node_modules/
+
+#ENV
+.env
