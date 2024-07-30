@@ -4,44 +4,46 @@ import Form from "react-bootstrap/Form";
 import axios from "axios";
 
 export default function FormP() {
-  const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
-  const [year, setYear] = useState('');
-  const [language, setLanguage] = useState('');
-  const [isbin, setIsbin] = useState('');
-  const [description, setDescription] = useState('');
+  const [title, setTitle] = useState("");
+  const [author, setAuthor] = useState("");
+  const [price, setPrice] = useState("");
+  const [price2, setPrice2] = useState("");
+  const [language, setLanguage] = useState("");
+  const [isbin, setIsbin] = useState("");
+  const [description, setDescription] = useState("");
   const [file, setFile] = useState(null);
 
   const handleAddData = async (e) => {
     e.preventDefault();
 
     const formData = new FormData();
-    formData.append('title', title);
-    formData.append('author', author);
-    formData.append('year', year);
-    formData.append('language', language);
-    formData.append('isbin', isbin);
-    formData.append('description', description);
-    formData.append('url', file);
-
+    formData.append("title", title);
+    formData.append("author", author);
+    formData.append("price", price);
+    formData.append("price2", price2);
+    formData.append("language", language);
+    formData.append("isbin", isbin);
+    formData.append("description", description);
+    formData.append("url", file);
 
     try {
       await axios.post("https://ldfs6814-8085.inc1.devtunnels.ms", formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
-        }
+          "Content-Type": "multipart/form-data",
+        },
       });
-      setTitle('');
-      setAuthor('');
-      setYear('');
-      setLanguage('');
-      setIsbin('');
-      setDescription('');
+      setTitle("");
+      setAuthor("");
+      setPrice("");
+      setPrice2("");
+      setLanguage("");
+      setIsbin("");
+      setDescription("");
       setFile(null);
     } catch (error) {
       console.error("Error:", error);
     }
-  }
+  };
 
   return (
     <>
@@ -70,16 +72,26 @@ export default function FormP() {
             onChange={(e) => setAuthor(e.target.value)}
           />
         </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formBasicBookYear">
-          <Form.Label>Book Publication Year</Form.Label>
+        <Form.Group className="mb-3" controlId="formBasicBookYear2">
+          <Form.Label>Book Price2</Form.Label>
           <Form.Control
             type="number"
             className="text-light"
-            placeholder="Enter Publication Year"
+            placeholder="Enter  Book Price2"
             style={{ backgroundColor: "#2a3038" }}
-            value={year}
-            onChange={(e) => setYear(e.target.value)}
+            value={price2}
+            onChange={(e) => setPrice2(e.target.value)}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicBookYear">
+          <Form.Label>Book Price</Form.Label>
+          <Form.Control
+            type="number"
+            className="text-light"
+            placeholder="Enter  Book Price"
+            style={{ backgroundColor: "#2a3038" }}
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
           />
         </Form.Group>
 

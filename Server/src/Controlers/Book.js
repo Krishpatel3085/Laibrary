@@ -16,12 +16,10 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage });
-
 const app = express();
 app.use(express.json());
 
 app.use(cors());
-app.use("/upload", express.static("upload"));
 
 // Data Get
 const getData = async (req, res) => {
@@ -35,7 +33,7 @@ const getData = async (req, res) => {
 };
 
 // Data Create
-const addData = async (req, res) => {
+const addData =  async (req, res) => {
   try {
     const { title, author, year, description, isbin, language } = req.body;
     const url = req.file ? req.file.filename : "";
