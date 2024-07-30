@@ -38,7 +38,8 @@ export default function Book() {
     const formData = new FormData();
     formData.append("title", editedBook.title);
     formData.append("author", editedBook.author);
-    formData.append("year", editedBook.year);
+    formData.append("price", editedBook.price);
+    formData.append("price2", editedBook.price2);
     formData.append("description", editedBook.description);
     formData.append("isbin", editedBook.isbin);
     formData.append("language", editedBook.language);
@@ -91,8 +92,12 @@ export default function Book() {
                   <input type="text" name="author" value={editedBook.author} onChange={handleChange} />
                 </p>
                 <p className="card-text">
-                  <strong>Year:</strong>
-                  <input type="text" name="year" value={editedBook.year} onChange={handleChange} />
+                  <strong>price2:</strong>
+                  <input type="text" name="price2" value={editedBook.price2} onChange={handleChange} />
+                </p>
+                <p className="card-text">
+                  <strong>Price:</strong>
+                  <input type="text" name="price" value={editedBook.price} onChange={handleChange} />
                 </p>
                 <p className="card-text">
                   <strong>Isbin:</strong>
@@ -132,7 +137,10 @@ export default function Book() {
                         <strong>Author:</strong>  {item.author}
                       </p>
                       <p className="card-text">
-                        <strong>Year:</strong>{item.year}
+                        <strong>Price2:</strong> {item.price2}
+                      </p>
+                      <p className="card-text">
+                        <strong>Price:</strong> {item.price}
                       </p>
                       <p className="card-text">
                         <strong>Isbin:</strong> {item.isbin}
