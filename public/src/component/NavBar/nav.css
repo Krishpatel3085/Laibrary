@@ -28,13 +28,15 @@
 .navbar__dropdown-link {
   text-decoration: none;
   color: black;
-  padding: 12px 17px;
-  border-radius: 5px;
+  padding: 10px 22px;
+  border-radius: 20px;
   transition: background-color 0.3s, transform 0.3s;
 }
 
 .navbar__link:hover,
 .navbar__dropdown-link:hover {
+  width: auto;
+  border-radius: 20px;
   background-color: #eedfcc3b;
 }
 

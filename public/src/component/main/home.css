@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'lora', sans-serif;
 }
 
 body {
@@ -32,7 +33,6 @@ body {
 .description h1 {
   font-size: 70px;
   line-height: 68px;
-  font-family: sans-serif;
 }
 
 #pading_id {
@@ -128,6 +128,15 @@ body {
 }
 
 /* section three book api */
+.next h3 {
+  font-size: 45px;
+  font-family: 'lora', sans-serif;
+}
+
+.next span {
+  font-size: 19px;
+}
+
 .card_sell_img {
   width: 306px;
   height: 404px;
@@ -259,11 +268,91 @@ body {
 }
 
 /* new section */
-#back_images{
-  width: 100%;
-  height: 700px;
-  background: url('../images//BG3.jpg');
+#back_images {
+  width: auto;
+  height: auto;
+  padding: 5px;
+  background: url('../images/BG3.jpg');
   background-position: top;
   background-repeat: no-repeat;
-  background-size: cover
+  background-color: #00000016;
+  background-blend-mode: hue;
+  background-size: cover;
+}
+
+.lectus {
+  padding: 120px 0;
+}
+
+.lectus h6 {
+  font-size: 14px;
+  color: #F13B3A;
+  font-family: 'Hind', sans-serif;
+}
+
+.lectus h3 {
+  font-size: 48px;
+  font-family: 'lora', sans-serif;
+}
+
+.lectus h5 {
+  font-size: 18px;
+  font-family: 'lora', sans-serif;
+  color: #7A7A7A;
+}
+
+.lectus p {
+  font-size: 16px;
+  color: #000;
+  font-family: 'Hind', sans-serif;
+}
+
+.lectus span {
+  font-size: 1.2rem;
+  font-family: 'lora';
+}
+
+/* seven section */
+#read_book{
+  border-radius: 17px;
+}
+.btn-danger {
+  width: auto;
+  height: 40px;
+  border: none;
+  font-size: 17px;
+  font-family: sans-serif;
+  border-radius: 20px;
+  background-color: #F13B3A;
+  color: white;
+}
+
+#comment {
+  width: 100%;
+  max-width: 250px;
+  max-height: 180px;
+  border-radius: 16px;
+}
+
+.Bookstagram h3 {
+  font-weight: 600;
+  font-size: 17px;
+  font-family: 'lora' sans-serif;
+}
+
+.Bookstagram span {
+  font-size: 14px;
+  font-family: 'Hind', sans-serif;
+}
+
+.Bookstagram p {
+  color: #777;
+  font-size: 14px;
+  font-family: 'Hind', sans-serif;
+}
+
+
+/* eight section */
+#review_img{
+  border-radius: 17px;
 }

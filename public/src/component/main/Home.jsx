@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios'
+import axios from 'axios';
 import './home.css';
 import '../MediaQurey/media.css';
 import Button from 'react-bootstrap/Button';
@@ -9,12 +9,16 @@ import fast from '../images/Fast_online_payment-1.png';
 import delivery from '../images/Express_mail_service-1.png';
 import refund from '../images/Product_refund-1.png';
 import writing from '../images/hand_writing.jpg';
-import Hand_book from '../images/hand_book.jpg'
-import chid from '../images/father_book.png'
+import Hand_book from '../images/hand_book.jpg';
+import chid from '../images/father_book.png';
+import read_book from '../images/read_book.jpg';
+import one_book from '../images/one_book.jpg';
+import second_book from '../images/second_book.jpg';
+import third_book from '../images/young-woman.jpg';
+import review from '../images/customer_review.jpg'
 
 function Home() {
   const [items, setItems] = useState([])
-
   useEffect(() => {
     axios
       .get("https://ldfs6814-8085.inc1.devtunnels.ms/")
@@ -130,9 +134,9 @@ function Home() {
 
       <div className="container">
         <div className="row border-top py-3">
-          <div className="next col-md-12 d-flex ">
-            <span >Discover Your Next Book</span>
-            <span>View All Book</span>
+          <div className="next col-md-12 d-flex justify-content-between align-content-center">
+            <h3>Discover Your Next Book</h3>
+            <span><a href="#">View All Book</a></span>
           </div>
         </div>
         <div className="row pb-4">
@@ -162,14 +166,12 @@ function Home() {
             })
           }
         </div>
-
       </div>
 
-
       {/* // third section */}
-       <div className="container">
+      <div className="container">
         <div className="row mb-5">
-          <div className="col-md-12">
+          <div className="col-md-12 col-lg-12 col-sm-12">
             <div className="flash_sale text-center text-light">
               <p className='fw-bold'>Flash SALE!</p>
               <h2>Flat 50% OFF, Hurry up before <br /> the stock ends</h2>
@@ -198,7 +200,7 @@ function Home() {
             </div>
           </div>
         </div>
-      </div> 
+      </div>
 
       {/* five section */}
       <div class="container">
@@ -240,24 +242,96 @@ function Home() {
       </div>
 
       {/* setion six */}
-      <section className='mb-3' id='back_images' >
-        <div className="container">
-          <div className="container">
-          </div><div className="row">
-            <div className="col-md-6">
-              <h6>New Release</h6>
-              <h3>Me & My Dad </h3>
-              <h5>A novelette book by John Doe</h5>
-              <p>Morbi proin condimentum litora duis lectus vivamus parturient torquent. Phasellus fames lectus molestie iaculis lacus condimentum duis. Ac ligula etiam magna efficitur quisque in. Malesuada mattis integer congue nulla id ipsum vestibulum mollis fames neque dictum. Ex vivamus vehicula natoque porta ipsum dis. Interdum viverra semper dolor dignissim urna habitasse orci. Elementum ullamcorper libero magna montes ut orci suspendisse magnis nam id ligula.</p>
-              <span>Price :$40.00</span><br />
-              <Button className='add_to_cart'>Add to Cart</Button>
+      <section className='mb-3' id='back_images'>
+        <div className="container  d-flex align-items-center " >
+          <div className="row">
+            <div className="col-md-6 mb-4 mb-md-0">
+              <div className="lectus">
+                <h6 className="text-uppercase font-weight-bold mb-3 text-danger">New Release</h6>
+                <h3 className="font-weight-bold mb-3">Me & My Dad</h3>
+                <h5 className="font-italic mb-4">A novelette book by John Doe</h5>
+                <p className="text-justify mb-4">Morbi proin condimentum litora duis lectus vivamus parturient torquent. Phasellus fames lectus molestie iaculis lacus condimentum duis. Ac ligula etiam magna efficitur quisque in. Malesuada mattis integer congue nulla id ipsum vestibulum mollis fames neque dictum. Ex vivamus vehicula natoque porta ipsum dis. Interdum viverra semper dolor dignissim urna habitasse orci. Elementum ullamcorper libero magna montes ut orci suspendisse magnis nam id ligula.</p>
+                <span className="font-weight-bold mb-2 d-block fs-3">Price : <span className='text-danger fs-3'> $40.00</span> </span>
+                <Button className='add_to_cart'>Add to Cart</Button>
+              </div>
             </div>
             <div className="col-md-6">
-              <img src={chid}  className='img-fluid w-100 h-100'/>
+              <img src={chid} className='img-fluid w-100 h-100' />
             </div>
           </div>
         </div>
       </section>
+
+      {/* seven section */}
+      <div className="container py-4">
+        <div className="row py-3">
+          <div className="col-12 d-flex justify-content-between align-items-center">
+            <h2 className="text-dark">Blog & News</h2>
+            <button className="btn btn-danger">View All Articles</button>
+          </div>
+        </div>
+        <div className="row py-3">
+          <div className="col-md-6">
+            <img src={read_book} alt="Read Book" className="w-100 img-fluid" id='read_book' />
+            <h5 className="py-3">How to Get Started on Bookstagram in 2022</h5>
+            <h6 className="text-danger py-2">May 10, 2022 ~ No Comments</h6>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur</p>
+            <a href="#" className="text-decoration-none text-dark">Continue Reading »</a>
+          </div>
+
+          <div className="col-md-6">
+            <div className="row pb-5">
+              <div className="col-4">
+                <img src={one_book} alt="One Book" className="img-fluid " id="comment" />
+              </div>
+              <div className="Bookstagram col-8">
+                <h5>How to Get Started on Bookstagram in 2022</h5>
+                <span className="text-danger fs-6">May 10, 2022 ~ No Comments</span>
+                <p className="py-2">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
+              </div>
+            </div>
+
+            <div className="row pb-5">
+              <div className="col-4">
+                <img src={second_book} alt="One Book" className="img-fluid " id="comment" />
+              </div>
+              <div className="Bookstagram col-8">
+                <h5>How to Get Started on Bookstagram in 2022</h5>
+                <span className="text-danger fs-6">May 10, 2022 ~ No Comments</span>
+                <p className="py-2">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
+              </div>
+            </div>
+
+            <div className="row pt-3">
+              <div className="col-4">
+                <img src={third_book} alt="One Book" className="img-fluid " id="comment" />
+              </div>
+              <div className="Bookstagram col-8">
+                <h5>How to Get Started on Bookstagram in 2022</h5>
+                <span className="text-danger fs-6">May 10, 2022 ~ No Comments</span>
+                <p className="py-2">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      {/* eight section */}
+      <div className="container py-4">
+        <div className="row">
+          <div className="col-md-6">
+            <img src={review} className='img-fluid w-100 ' id='review_img' />
+          </div>
+          <div className=" col-md-6">
+            <h6 className='text-danger text-capitalize'>Testimonials  </h6>
+            <h2>Customer Reviews</h2>
+            <p>Porttitor eleifend facilisi euismod litora etiam consectetur. Vivamus platea quisque mauris si blandit diam id a primis himenaeos. Natoque vulputate duis nec mauris tristique integer mi. Pharetra libero quam morbi lectus lacinia. Pharetra lacus ut litora mattis cras arcu tortor bibendum vitae.</p>
+          </div>
+        </div>
+      </div>
+
+
 
     </>
   );
