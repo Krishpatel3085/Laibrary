@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* font-family: "Lora",sans-serif; */
+}
+.detail-price {
+    font-size: 26px;
+    display: flex;
+    gap: 15px;
+}
+.detail-card h1{
+    font-family: "Lora", serif;
+    margin-top: 20px;
+    font-size: 48px;
+}
+
+.detail-card p{
+    font-family: "hind" , serif;
+    font-size: 18px;
+}
+.detail-card span b {
+    color: grey;
+}
+.detail-card h5 {
+    display: flex;
+    gap: 20px;
+    font-size: 25px;
+}
+.detail-card button{
+    background-color: #f13b3a;
+    color: white;
+    border: none;
+    padding: 9px;
+    border-radius: 20px;
+}
