@@ -5,15 +5,15 @@ const {
   updateData,
   upload,
   getData,
+  getSingelData
 } = require("../Controlers/Book");
 
 const book_routes = express.Router();
 
-
-
 book_routes.use("/upload", express.static("upload"));
 
 book_routes.get("/", getData);
+book_routes.get("/:id", getSingelData);
 book_routes.post("/", upload.single("url"), addData);
 book_routes.put("/:id", upload.single("url"), updateData);
 book_routes.delete("/:id", deleteData);
