@@ -35,10 +35,10 @@ function Home() {
   const handleImageClick = (id) => {
     navigate(`/details/${id}`);
   };
-
+  
   return (
     <>
-    
+
       <div className="container-fluid">
         <div className="row">
           <div className="main-section">
