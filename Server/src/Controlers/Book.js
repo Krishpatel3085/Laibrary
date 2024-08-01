@@ -32,6 +32,18 @@ const getData = async (req, res) => {
   }
 };
 
+// Data singel Get
+const getSingelData = async (req, res) => {
+  try {
+    const id = req.params["id"]
+    const data = await Books.findOne({_id: id});
+    res.json({ data });
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
 // Data Create
 const addData =  async (req, res) => {
   try {
@@ -111,4 +123,4 @@ const deleteData = async (req, res) => {
   }
 };
 
-module.exports = { deleteData, addData, updateData, upload  ,getData};
+module.exports = { deleteData, addData, updateData, upload  ,getData,  getSingelData};
