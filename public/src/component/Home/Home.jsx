@@ -24,7 +24,7 @@ function Home() {
 
   useEffect(() => {
     axios
-      .get("https://ldfs6814-8085.inc1.devtunnels.ms/")
+      .get("https://ldfs6814-8085.inc1.devtunnels.ms/getbook")
       .then((response) => {
         setItems(response.data.data);
       })
