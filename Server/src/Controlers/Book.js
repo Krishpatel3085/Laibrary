@@ -47,12 +47,13 @@ const getSingelData = async (req, res) => {
 // Data Create
 const addData =  async (req, res) => {
   try {
-    const { title, author, year, description, isbin, language } = req.body;
+    const { title, author, price,price2, description, isbin, language } = req.body;
     const url = req.file ? req.file.filename : "";
     await Books.create({
       title,
       author,
-      year,
+      price,
+      price2,
       description,
       isbin,
       language,
@@ -68,7 +69,7 @@ const addData =  async (req, res) => {
 // Data Update
 const updateData = async (req, res) => {
   const id = req.params["id"];
-  const { title, author, year, description, isbin, language } = req.body;
+  const { title, author, price,price2, description, isbin, language } = req.body;
   let url;
 
   try {
@@ -88,7 +89,7 @@ const updateData = async (req, res) => {
 
     const updatedBook = await Books.findByIdAndUpdate(
       id,
-      { title, author, year, description, isbin, language, url },
+      { title, author, price,price2, description, isbin, language, url },
       { new: true }
     );
 
