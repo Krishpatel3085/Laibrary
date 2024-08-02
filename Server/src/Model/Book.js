@@ -7,7 +7,10 @@ const Books = new mongoose.Schema({
     author: {
         type: String
     },
-    year: {
+    price: {
+        type: Number
+    },
+    price2: {
         type: Number
     },
     description: {

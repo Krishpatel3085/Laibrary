@@ -9,7 +9,7 @@ export default function Book() {
 
   useEffect(() => {
     axios
-      .get("https://ldfs6814-8085.inc1.devtunnels.ms/")
+      .get("https://ldfs6814-8085.inc1.devtunnels.ms/getbook")
       .then((response) => {
         setItems(response.data.data);
       })
@@ -20,7 +20,7 @@ export default function Book() {
 
   const deleteItem = (id) => {
     axios
-      .delete(`https://ldfs6814-8085.inc1.devtunnels.ms/${id}`)
+      .delete(`https://ldfs6814-8085.inc1.devtunnels.ms/delete/${id}`)
       .then((response) => {
         // Remove the deleted item from state
         setItems(items.filter(item => item._id !== id));
@@ -48,7 +48,7 @@ export default function Book() {
     }
 
     axios
-      .put(`https://ldfs6814-8085.inc1.devtunnels.ms/${editedBook._id}`, formData, {
+      .put(`https://ldfs6814-8085.inc1.devtunnels.ms/get1book/${editedBook._id}`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
