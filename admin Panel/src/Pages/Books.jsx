@@ -9,7 +9,7 @@ export default function Book() {
 
   useEffect(() => {
     axios
-      .get("https://ldfs6814-8085.inc1.devtunnels.ms/getbook")
+      .get("https://ldfs6814-8085.inc1.devtunnels.ms/book/getbook")
       .then((response) => {
         setItems(response.data.data);
       })
@@ -20,7 +20,7 @@ export default function Book() {
 
   const deleteItem = (id) => {
     axios
-      .delete(`https://ldfs6814-8085.inc1.devtunnels.ms/delete/${id}`)
+      .delete(`https://ldfs6814-8085.inc1.devtunnels.ms/book/delete/${id}`)
       .then((response) => {
         // Remove the deleted item from state
         setItems(items.filter(item => item._id !== id));
@@ -48,7 +48,7 @@ export default function Book() {
     }
 
     axios
-      .put(`https://ldfs6814-8085.inc1.devtunnels.ms/get1book/${editedBook._id}`, formData, {
+      .put(`https://ldfs6814-8085.inc1.devtunnels.ms/book/get1book/${editedBook._id}`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -79,7 +79,7 @@ export default function Book() {
           <div className="row no-gutters">
             <h2 className="text-center"> --- Update ---</h2>
             <div className="col-md-4">
-              <img src={`https://ldfs6814-8085.inc1.devtunnels.ms/upload/${editedBook.url}`} className="img-fluid" alt='img' />
+              <img src={`https://ldfs6814-8085.inc1.devtunnels.ms/book/upload/${editedBook.url}`} className="img-fluid" alt='img' />
             </div>
             <div className="col-md-8">
               <div className="card-body">
@@ -128,7 +128,7 @@ export default function Book() {
               <div className="card book-card p-3  bg-dark text-white ">
                 <div className="row no-gutters">
                   <div className="col-md-4">
-                    <img src={'https://ldfs6814-8085.inc1.devtunnels.ms/upload/' + item.url} className="img-fluid" />
+                    <img src={'https://ldfs6814-8085.inc1.devtunnels.ms/book/upload/' + item.url} className="img-fluid" />
                   </div>
                   <div className="col-md-8">
                     <div className="card-body ">
