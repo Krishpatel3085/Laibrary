@@ -4,6 +4,8 @@ import Footer from "../component/footer/Footer";
 import Details from "../component/FullBook/Details";
 import { Route, Routes } from "react-router-dom";
 import Home from "../component/Home/Home";
+// import Registration from "../component/User/Registration";
+import Main from "../Main/main.jsx";
 
 export default function main() {
   return (
