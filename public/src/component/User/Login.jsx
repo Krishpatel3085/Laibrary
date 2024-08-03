@@ -1,38 +1,30 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './user.css';
 import main_img from '../images/main_login.jpg';
-import Home from '../Home/Home'
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
 function Login() {
-  const [data, setData] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    axios.get('https://ldfs6814-8085.inc1.devtunnels.ms/user/get')
-      .then((response) => {
-        setData(response.data);
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.error("User Not Found", error);
-      });
-  }, []);
-
-  const LoginUser = (e) => {
+  const LoginUser = async (e) => {
     e.preventDefault();
-
-    const user = data.find(user => user.email === email && user.password === password);
-
-    if (user) {
-      alert('Login successfully 👍');
-      {
-        <Home />
-
+    try {
+      const response = await axios.post('https://ldfs6814-8085.inc1.devtunnels.ms/user/login', {
+        email,
+        password,
+      });
+      if (response.data) {  
+        Cookies.set('userEmail', email, { expires: 7 });
+        alert('Login successfully 👍');
+        navigate('/main'); 
       }
-    } else {
-      alert('User Not Found 👎');
+    } catch (error) {
+      alert(error.response?.data?.message || 'User Not Found or Invalid Credentials 👎');
+      console.error("Login error:", error.response?.data);
     }
   };
 
@@ -58,7 +50,7 @@ function Login() {
                         <i className="fas fa-cubes fa-2x me-3" style={{ color: "#ff6219" }} />
                       </div>
                       <h5 className="fw-normal mb-3 pb-3" style={{ letterSpacing: 1 }}>Sign into your account</h5>
-                      <div data-mdb-input-init="" className="form-outline mb-4">
+                      <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example17">Email address</label>
                         <input
                           type="email"
@@ -67,9 +59,10 @@ function Login() {
                           placeholder="Enter your Email"
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
+                          required
                         />
                       </div>
-                      <div data-mdb-input-init="" className="form-outline mb-4">
+                      <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example27">Password</label>
                         <input
                           type="password"
@@ -78,12 +71,11 @@ function Login() {
                           placeholder="Enter Your Password"
                           value={password}
                           onChange={(e) => setPassword(e.target.value)}
+                          required
                         />
                       </div>
                       <div className="pt-1 mb-4">
                         <button
-                          data-mdb-button-init=""
-                          data-mdb-ripple-init=""
                           className="btn btn-primary btn-lg btn-block"
                           type="submit"
                         >

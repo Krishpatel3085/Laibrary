@@ -18,30 +18,32 @@ function NavBar() {
   //   setActiveLink(href);
   // };
 
+  
+    const gotoLoginpage = (href) => {
+      navigate("/");
+      setActiveLink(href);
+    };
   const gotoHomepage = (href) => {
-    navigate("/");
+    navigate("/home");
     setActiveLink(href);
   };
-
-
-  
   const gotoAbout = (href) => {
-    navigate("/");
+    navigate("/about");
     setActiveLink(href);
   };
   
   const gotoPage = (href) => {
-    navigate("/");
+    navigate("/page");
     setActiveLink(href);
   };
   
   const gotoEvent = (href) => {
-    navigate("/");
+    navigate("/event");
     setActiveLink(href);
   };
   
   const gotoShop = (href) => {
-    navigate("/");
+    navigate("/shop");
     setActiveLink(href);
   };
 
@@ -150,7 +152,7 @@ function NavBar() {
               </span>
             </Nav.Link>
           </Nav>
-          <Button variant="primary me-2 rounded-3">Login</Button>
+          <Button variant="primary me-2 rounded-3" onClick={()=>gotoLoginpage()}>Login</Button>
           <Button variant="primary me-3 rounded-3">Registration</Button>
         </Navbar.Collapse>
       </Container>
