@@ -9,7 +9,7 @@ export default function Book() {
 
   useEffect(() => {
     axios
-      .get("https://ldfs6814-8085.inc1.devtunnels.ms/book/getbook")
+      .get("https://ldfs6814-8085.inc1.devtunnels.ms/book/getbook/")
       .then((response) => {
         setItems(response.data.data);
       })
@@ -48,7 +48,7 @@ export default function Book() {
     }
 
     axios
-      .put(`https://ldfs6814-8085.inc1.devtunnels.ms/book/get1book/${editedBook._id}`, formData, {
+      .put(`https://ldfs6814-8085.inc1.devtunnels.ms/book/updatebook/${editedBook._id}`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -74,12 +74,16 @@ export default function Book() {
   return (
     <div className=" container ">
       <h1>Books</h1>
+
+      {/* ============================
+                  Update Books
+      ================================ */}
       {editedBook && (
         <div className="card book-card-2 p-3 bg-dark text-white m-auto">
           <div className="row no-gutters">
             <h2 className="text-center"> --- Update ---</h2>
             <div className="col-md-4">
-              <img src={`https://ldfs6814-8085.inc1.devtunnels.ms/book/upload/${editedBook.url}`} className="img-fluid" alt='img' />
+              <img src={`https://ldfs6814-8085.inc1.devtunnels.ms/book/updatebook/upload/${editedBook.url}`} className="img-fluid" alt='img' />
             </div>
             <div className="col-md-8">
               <div className="card-body">
@@ -121,6 +125,13 @@ export default function Book() {
         </div>
       )}
       <br />
+
+
+      {/* ============================
+                  Display Books
+      ================================ */}
+
+
       <div className="mas d-flex px-4 gap-4 flex-wrap">
         {items.map((item, index) => {
           return (

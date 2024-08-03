@@ -10,10 +10,10 @@ app.use(cors());
 
 const createUser = async (req, res) => {
     try {
-        const { firstname, lastname, email, password,  } = req.body;
+        const { firstname, lastname, email, password, } = req.body;
 
         // Validate input data
-        if (!firstname || !lastname || !email || !password ) {
+        if (!firstname || !lastname || !email || !password) {
             return res.status(400).json({ message: "All fields are required" });
         }
 
@@ -55,32 +55,31 @@ const getUSer = async (req, res) => {
 
 const loginUser = async (req, res) => {
     try {
-
-        req_body = req.body;
-
-        const email = req_body.email;
-        const password = req_body.password;
-
-        const user_data = await Users.findOne({email:email , password:password  })
-
-        if (user_data) {
-            res.cookie("login", user_data.email);
-            res.json({
-                "msg": "login succesfully"
-            })
-        } else {
-            res.json({
-                "msg": "login failed"
-            })
+        const { email, password } = req.body; 
+        // Validataion input data
+        if (!email || !password) {
+            return res.status(400).json({ message: "Email and password are required" });
         }
+        // Find the user by email
+        const user = await Users.findOne({ email });
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
+        }
+        // Compare the provided password with the stored password
+        if (user.password !== password) {
+            return res.status(400).json({ message: "Invalid credentials" });
+        }
+        // Optionally, exclude the password from the response
+        const { password: _, ...userData } = user.toObject(); // Exclude the password
+
+        res.json(userData);
 
     } catch (error) {
-        console.error("Can't Login User ", error)
-        res.status(400).json({ message: error.message });
+        console.error("Can't Login User ", error);
+        res.status(500).json({ message: error.message });
     }
+};
 
-
-}
 
 
 module.exports = { getUSer, loginUser, createUser, };
