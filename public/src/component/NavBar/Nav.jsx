@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import "./nav.css";
 import logo_main from "../images/main_logo.jpg";
 import Button from "react-bootstrap/Button";
@@ -12,39 +11,27 @@ import { useNavigate } from "react-router-dom";
 function NavBar() {
   const navigate = useNavigate();
 
-  const [activeLink, setActiveLink] = useState("#action1");
 
-  // const handleNavLinkClick = (href) => {
-  //   setActiveLink(href);
-  // };
-
-  
-    const gotoLoginpage = (href) => {
-      navigate("/");
-      setActiveLink(href);
-    };
-  const gotoHomepage = (href) => {
+  const gotoLoginpage = () => {
+    navigate("/");
+  };
+  const gotoHomepage = () => {
     navigate("/home");
-    setActiveLink(href);
   };
-  const gotoAbout = (href) => {
+  const gotoAbout = () => {
     navigate("/about");
-    setActiveLink(href);
   };
-  
-  const gotoPage = (href) => {
+
+  const gotoPage = () => {
     navigate("/page");
-    setActiveLink(href);
   };
-  
-  const gotoEvent = (href) => {
+
+  const gotoEvent = () => {
     navigate("/event");
-    setActiveLink(href);
   };
-  
-  const gotoShop = (href) => {
+
+  const gotoShop = () => {
     navigate("/shop");
-    setActiveLink(href);
   };
 
   return (
@@ -60,77 +47,56 @@ function NavBar() {
             navbarScroll
           >
             <Nav.Link
-              href="#action1"
-              className={`navbar__link text-black ${
-                activeLink === "#action1" ? "active" : ""
-              }`}
-              onClick={() => gotoHomepage("#action1")}
+
+              onClick={() => gotoHomepage()}
             >
               HOME
             </Nav.Link>
             <Nav.Link
-              href="#action2"
-              className={`navbar__link text-black ${
-                activeLink === "#action2" ? "active" : ""
-              }`}
-              onClick={() => gotoAbout("#action2")}
+             
+              onClick={() => gotoAbout()}
             >
               ABOUT US
             </Nav.Link>
             <NavDropdown
               title="PAGES"
               id="navbarScrollingDropdown"
-              className={`navbar__link text-black ${
-                activeLink.startsWith("#action3") ||
-                activeLink.startsWith("#action4") ||
-                activeLink.startsWith("#action5")
-                  ? "active"
-                  : ""
-              }`}
+
             >
               <NavDropdown.Item
                 href="#action3"
-                className={`navbar__dropdown-link text-black ${
-                  activeLink === "#action3" ? "active" : ""
-                }`}
-                onClick={() => gotoPage("#action3")}
+
+
+                onClick={() => gotoPage()}
               >
                 TEAM
               </NavDropdown.Item>
               <NavDropdown.Item
                 href="#action4"
-                className={`navbar__dropdown-link ${
-                  activeLink === "#action4" ? "active" : ""
-                }`}
-                
+
+
               >
                 CONTACT
               </NavDropdown.Item>
               <NavDropdown.Item
                 href="#action5"
-                className={`navbar__dropdown-link ${
-                  activeLink === "#action5" ? "active" : ""
-                }`}
-          
+
+
               >
                 BLOG
               </NavDropdown.Item>
             </NavDropdown>
             <Nav.Link
               href="#event"
-              className={`navbar__link ${
-                activeLink === "#event" ? "active" : ""
-              }`}
-              onClick={() => gotoEvent("#event")}
+
+              onClick={() => gotoEvent()}
             >
               EVENT
             </Nav.Link>
             <Nav.Link
               href="#shop"
-              className={`navbar__link ${
-                activeLink === "#shop" ? "active" : ""
-              }`}
-              onClick={() => gotoShop("#shop")}
+
+              onClick={() => gotoShop()}
             >
               SHOP
             </Nav.Link>
@@ -152,7 +118,7 @@ function NavBar() {
               </span>
             </Nav.Link>
           </Nav>
-          <Button variant="primary me-2 rounded-3" onClick={()=>gotoLoginpage()}>Login</Button>
+          <Button variant="primary me-2 rounded-3" onClick={() => gotoLoginpage()}>Login</Button>
           <Button variant="primary me-3 rounded-3">Registration</Button>
         </Navbar.Collapse>
       </Container>

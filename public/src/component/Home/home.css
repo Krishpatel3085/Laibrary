@@ -136,7 +136,10 @@ body {
 .next span {
   font-size: 19px;
 }
-
+.card{
+  height: auto;
+  box-shadow: none;
+}
 .card_sell_img {
   width: 306px;
   height: 404px;
@@ -313,9 +316,10 @@ body {
 }
 
 /* seven section */
-#read_book{
+#read_book {
   border-radius: 17px;
 }
+
 .btn-danger {
   width: auto;
   height: 40px;
@@ -353,6 +357,11 @@ body {
 
 
 /* eight section */
-#review_img{
+#review_img {
   border-radius: 17px;
+}
+
+.card-body {
+  flex: 0 0 auto ;
+  padding: 1rem 1rem;
 }

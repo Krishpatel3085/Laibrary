@@ -1,0 +1,155 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'lora' serif, ;
+}
+
+/* first */
+#AboutUs {
+  width: 100%;
+  height: 550px;
+  background: url('../images/multicultural-students.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: hue;
+  background-color: rgba(0, 0, 0, 0.307);
+}
+
+#AboutUs h2 {
+  padding-top: 25vh;
+}
+
+/* second */
+.welcome {
+  background-color: #FAF9F5;
+  border-radius: 20px;
+}
+
+#writers h2 {
+  font-size: 40px;
+}
+
+#writers p {
+  font-size: 15px;
+  font-family: 'Hind', sans-serif;
+  padding-bottom: 5px;
+}
+
+#writers h4 {
+  font-size: 17px;
+  text-align: left;
+  padding-bottom: 8px;
+}
+
+#writers a {
+  font-size: 18px;
+  text-align: right;
+  display: block;
+}
+
+img {
+  margin-top: 15px;
+  border-radius: 10px;
+}
+
+/* third */
+.danger-blog h6 {
+  font-size: 16px;
+  color: red;
+}
+
+.danger-blog h2 {
+  font-size: 48px;
+}
+
+.danger-blog p {
+  font-size: 16px;
+  font-family: 'Hind', serif;
+}
+
+.john-blog {
+  display: flex;
+  gap: 1rem;
+}
+
+#img-blog {
+  border: 9px solid #ffffff;
+  box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.25);
+}
+
+.john {
+  position: relative;
+  overflow: hidden;
+}
+
+.john img {
+  display: block;
+  width: 100%;
+}
+
+.overlay {
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.619);
+  color: #ffffff;
+  text-align: center;
+  transition: bottom 0.5s ease;
+  height: 95%;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.john:hover .overlay {
+  bottom: 0;
+}
+
+.overlay p,
+.overlay h6 {
+  margin: 0;
+  padding: 0;
+}
+
+.icon {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.icon i {
+  font-size: 20px;
+  background: #ffffff;
+  color: #000000;
+  border-radius: 50%;
+  padding: 0.5rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+/* 
+.icon i.fa-twitter {
+  background-color: #1DA1F2;
+  color: #ffffff;
+}
+
+.icon i.fa-facebook {
+  background-color: #4267B2;
+  color: #ffffff;
+}
+
+.icon i.fa-instagram {
+  background-color: #C13584;
+  color: #ffffff;
+}
+
+.icon i:hover {
+  background-color: #ffffff;
+  color: #000000;
+} */
+
+/* four  */

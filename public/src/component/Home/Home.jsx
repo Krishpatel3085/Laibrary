@@ -17,6 +17,8 @@ import second_book from "../images/second_book.jpg";
 import third_book from "../images/young-woman.jpg";
 import review from "../images/customer_review.jpg";
 import { useNavigate } from "react-router-dom";
+import NavBar from "../NavBar/Nav";
+import Footer from "../footer/Footer";
 
 function Home() {
   const [items, setItems] = useState([]);
@@ -24,7 +26,7 @@ function Home() {
 
   useEffect(() => {
     axios
-      .get("https://ldfs6814-8085.inc1.devtunnels.ms/getbook")
+      .get("https://ldfs6814-8085.inc1.devtunnels.ms/book/getbook")
       .then((response) => {
         setItems(response.data.data);
       })
@@ -38,6 +40,7 @@ function Home() {
   
   return (
     <>
+    <NavBar/>
 
       <div className="container-fluid">
         <div className="row">
@@ -191,10 +194,10 @@ function Home() {
                   variant="top"
                   className="card_sell_img img-fluid"
                   src={
-                    "https://ldfs6814-8085.inc1.devtunnels.ms/upload/" +
+                    "https://ldfs6814-8085.inc1.devtunnels.ms/book/upload/" +
                     item.url
                   }
-                  alt={item.title}
+
                 />
                 <Card.Body>
                   <Card.Title>{item.title}</Card.Title>
@@ -202,7 +205,7 @@ function Home() {
                   <Card.Text>
                     <span className="text-dark fs-6">
                       <strike>${item.price2}.00</strike>
-                    </span>{" "}
+                    </span>
                     <span className="text-danger fw-bold fs-5">
                       <u>${item.price}.00</u>
                     </span>
@@ -466,6 +469,7 @@ function Home() {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }
