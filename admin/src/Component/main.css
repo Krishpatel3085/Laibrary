@@ -1,0 +1,20 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.topbar .icons i{
+    color: white;
+}
+.topbar input{
+    background-color: #1c2437;
+    border: none;
+}
+
+.main{
+    height: 100vh;
+    background-attachment: fixed;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
