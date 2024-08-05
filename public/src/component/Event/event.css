@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'lora', sans-serif;
+}
+
+#event {
+  width: 100%;
+  height: 400px;
+  background: url('../component/images/students.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: hue;
+  background-color: rgba(0, 0, 0, 0.461);
+}
+
+.upComing {
+  padding-top: 130px;
+}
+
+#event h4 {
+  font-size: 16px;
+}
+
+#event h2 {
+  font-size: 48px;
+}
+
+.Festival h2 {
+  color: #1E1E1E;
+  font-size: 48px;
+}
+
+.Festival p {
+  font-size: 16px;
+  font-family: 'Hind', sans-serif;
+}
+
+/* second  */
+.books {
+  width: 266px;
+  height: 230px;
+  /* background: url('../component/images/students.jpg'); */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-blend-mode: hue;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  background-color: rgba(0, 0, 0, 0.338);
+  padding-top: 90px;
+}
+
+.books:hover {
+  transition: all linear 0.7s;
+  background-color: rgba(0, 0, 0, 0.572);
+}
+
+.reading {
+  width: 550px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.dolor {
+  padding: 12px;
+}
+
+.dolor li {
+  list-style: none;
+  color: #7A7A7A;
+}
+
+.dolor h2 {
+  font-size: 26px;
+}
+
+.dolor p {
+  font-size: 16px;
+  color: #1E1E1E;
+}
+
+/* third */
+
+.question h6 {
+  color: red;
+}
+
+.question h2{
+  font-size: 45px;
+
+}
