@@ -5,14 +5,14 @@ import Main from './Component/Main';
 function App() {
   return (
     <div className="App">
-      <div className="container-fluid">
-        <div className="row p-0 ">
-          <div className="col-md-2 p-0">
+      <div className="container-fluid d-flex p-0">
+        
+          <div >
             <Aside />
           </div>
-          <div className="col-md-10">
+          <div>
             <Main />
-          </div>
+          
         </div>
       </div>
 

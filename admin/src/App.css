@@ -14,6 +14,10 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+::-webkit-scrollbar {
+  width: 8px;
+  
+}
 
 .App-header {
   background-color: #282c34;
@@ -57,7 +61,7 @@
 
 .Boxs {
   margin-inline-start: 10px;
-  width: 282px;
+  width: 328px;
   background-color: #1c2437;
 }
 
@@ -132,7 +136,7 @@
 }
 
 .book-card {
-  width: 575px;
+  width: 700px;
 }
 
 .book-card img {

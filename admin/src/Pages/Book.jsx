@@ -74,7 +74,7 @@ export default function Book() {
   };
   return (
     <>
-    <div className="Books">
+    <div className="Books w-100">
 
       <h1 className='text-start ms-4 mt-2'>Books</h1>
       <p className='text-start ms-4'>Welcome to your Books</p>
