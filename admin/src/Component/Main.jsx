@@ -16,7 +16,7 @@ export default function Main() {
       <div className="main">
 
         <div className='topbar'>
-          <Navbar expand="lg" className="bg-body-tertiary">
+          <Navbar expand="lg" className="bg-body-tertiary ">
             <Container fluid>
               <Navbar.Toggle aria-controls="navbarScroll" />
               <Navbar.Collapse id="navbarScroll">
