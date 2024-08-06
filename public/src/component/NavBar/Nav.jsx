@@ -29,10 +29,14 @@ function NavBar() {
   const gotoEvent = () => {
     navigate("/event");
   };
+  const gotoContact=()=>{
+    navigate("/contact");
+  }
 
   const gotoShop = () => {
     navigate("/shop");
   };
+
 
   return (
     <Navbar expand="lg" className="navbar position-fixed w-100">
@@ -53,7 +57,7 @@ function NavBar() {
               HOME
             </Nav.Link>
             <Nav.Link
-             
+
               onClick={() => gotoAbout()}
             >
               ABOUT US
@@ -64,22 +68,16 @@ function NavBar() {
 
             >
               <NavDropdown.Item
-                href="#action3"
-
-
                 onClick={() => gotoPage()}
               >
                 TEAM
               </NavDropdown.Item>
               <NavDropdown.Item
-                href="#action4"
-
-
+                onClick={() =>gotoContact()}
               >
                 CONTACT
               </NavDropdown.Item>
               <NavDropdown.Item
-                href="#action5"
 
 
               >
@@ -87,15 +85,11 @@ function NavBar() {
               </NavDropdown.Item>
             </NavDropdown>
             <Nav.Link
-              href="#event"
-
               onClick={() => gotoEvent()}
             >
               EVENT
             </Nav.Link>
             <Nav.Link
-              href="#shop"
-
               onClick={() => gotoShop()}
             >
               SHOP
