@@ -2,7 +2,7 @@ import React from 'react';
 import '../About/about.css';
 import NavBar from '../NavBar/Nav';
 import Footer from '../footer/Footer';
-
+import Hand_book from "../images/hand_book.jpg";
 import book2 from '../images/books-2.jpg';
 import book3 from '../images/img_7.jpg';
 import book4 from '../images/img_8.jpg';
@@ -11,7 +11,7 @@ import book5 from '../images/img_9.jpg';
 function About() {
     return (
         <>
-        <NavBar/>
+            <NavBar />
             <section id='AboutUs'>
                 <div className="container-fluid">
                     <div className="row">
@@ -30,8 +30,8 @@ function About() {
                 </div>
             </div>
 
-            <div className="container py-3" id='writers'  >
-                <div className="welcome p-3 mb-3" >
+            <div className="container " id='writers'  >
+                <div className="welcome  mb-3" >
                     <div className="row px-4 pt-4">
                         <div className="col-md-6">
                             <p>Euismod magna dui sagittis curabitur convallis pulvinar. Mollis neque lacinia himenaeos eleifend sit justo convallis augue. Tellus rhoncus euismod vestibulum vehicula parturient sagittis laoreet conubia hac. Tortor faucibus sem facilisi efficitur amet fusce. Consequat facilisis taciti lorem conubia venenatis cursus odio egestas. Neque mattis dis est non augue. Feugiat sed velit ornare ad blandit semper erat congue integer consequat. </p>
@@ -47,6 +47,62 @@ function About() {
                         </div>
                     </div>
 
+                </div>
+            </div>
+
+            {/* third section */}
+            <div class="container">
+                <div class="row py-5">
+                    <div class="col-md-6 col-lg-6">
+                        <img
+                            src={Hand_book}
+                            class="img-fluid custom-img h-100 w-100"
+                            alt="Handbook"
+                        />
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                        <div class="content ps-3">
+                            <h2>
+                                It is more than just <br /> writing books
+                            </h2>
+                            <p className="text-dark fs-6">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
+                                tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                            </p>
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <i class="fa-solid fa-rocket text-danger mb-2"></i>
+                                    <span>Publishing</span>
+                                    <p>
+                                        Maecenas etiam platea et hac viverra aliquam magnis sapien.
+                                    </p>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <i class="fa-solid fa-cart-arrow-down text-danger mb-2"></i>
+                                    <span>Selling Book</span>
+                                    <p>
+                                        Maecenas etiam platea et hac viverra aliquam magnis sapien.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <i class="fa-solid fa-book text-danger mb-2"></i>
+                                    <span>Editing</span>
+                                    <p>
+                                        Maecenas etiam platea et hac viverra aliquam magnis sapien.
+                                    </p>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <i class="fa-solid fa-users text-danger mb-2"></i>
+                                    <span>Community</span>
+                                    <p>
+                                        Maecenas etiam platea et hac viverra aliquam magnis sapien.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -105,7 +161,7 @@ function About() {
                 </div>
             </section>
 
-            <Footer/>
+            <Footer />
         </>
     )
 }

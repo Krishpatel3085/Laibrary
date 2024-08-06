@@ -135,7 +135,7 @@ function Home() {
       <div className="container">
         <div className="row my-5">
           <div className="col-md-4">
-            <div className="Lorem">
+            <div className="Lorem first_img">
               <div className="new_release">
                 <h2 className="text-white">New Release</h2>
                 <p className="text-white">
@@ -147,7 +147,7 @@ function Home() {
             </div>
           </div>
           <div className="col-md-4">
-            <div className="Lorem">
+            <div className="Lorem second_img">
               <div className="new_release">
                 <h2 className="text-white">Pre Order</h2>
                 <p className="text-white">
@@ -159,7 +159,7 @@ function Home() {
             </div>
           </div>
           <div className="col-md-4">
-            <div className="Lorem">
+            <div className="Lorem third_img">
               <div className="new_release">
                 <h2 className="text-white">Best Seller</h2>
                 <p className="text-white">
