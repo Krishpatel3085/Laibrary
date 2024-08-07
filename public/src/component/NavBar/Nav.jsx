@@ -37,6 +37,10 @@ function NavBar() {
     navigate("/shop");
   };
 
+  const gotocart = () => {
+    navigate("/checkout");
+  };
+
 
   return (
     <Navbar expand="lg" className="navbar position-fixed w-100">
@@ -105,9 +109,8 @@ function NavBar() {
             />
           </Form>
           <Nav>
-            <Nav.Link href="#addToCart" className="me-3">
+            <Nav.Link href="#addToCart" className="me-3" onClick={()=>gotocart()}>
               <span className="shopping_icon">
-                {" "}
                 <i className="fa-solid fa-bag-shopping"></i>
               </span>
             </Nav.Link>

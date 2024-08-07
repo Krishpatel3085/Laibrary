@@ -34,6 +34,10 @@ function Home() {
         console.error("There was an error fetching the data!", error);
       });
   }, []);
+
+
+
+
   const handleImageClick = (id) => {
     navigate(`/details/${id}`);
   };
@@ -47,14 +51,15 @@ function Home() {
           itemId: item._id,
           title: item.title,
           price: item.price,
+          imageUrl: item.url,
+          author: item.author, // Added author
           quantity: 1, // Adjust quantity if needed
         }
       );
-
-      // Check if the response indicates success
+  
       if (response.data) {
         alert("Item added to cart successfully");
-        navigate('/checkout');
+        navigate('/checkout', { state: { cartItem: { ...item, quantity: 1 } } });
       } else {
         alert(
           `Failed to add item to cart: ${
@@ -66,6 +71,7 @@ function Home() {
       console.error("Error adding item to cart:", error);
     }
   };
+  
 
   return (
     <>
