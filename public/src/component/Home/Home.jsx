@@ -37,10 +37,39 @@ function Home() {
   const handleImageClick = (id) => {
     navigate(`/details/${id}`);
   };
-  
+
+
+  const addToCart = async (item) => {
+    try {
+      const response = await axios.post(
+        "https://ldfs6814-8085.inc1.devtunnels.ms/checkout/order",
+        {
+          itemId: item._id,
+          title: item.title,
+          price: item.price,
+          quantity: 1, // Adjust quantity if needed
+        }
+      );
+
+      // Check if the response indicates success
+      if (response.data) {
+        alert("Item added to cart successfully");
+        navigate('/checkout');
+      } else {
+        alert(
+          `Failed to add item to cart: ${
+            response.data.message || "Unknown error"
+          }`
+        );
+      }
+    } catch (error) {
+      console.error("Error adding item to cart:", error);
+    }
+  };
+
   return (
     <>
-    <NavBar/>
+      <NavBar />
 
       <div className="container-fluid">
         <div className="row">
@@ -188,11 +217,11 @@ function Home() {
               <Card
                 style={{ width: "auto", fontFamily: "lora" }}
                 className="api_card border-0 text-center"
-                onClick={() => handleImageClick(item._id)}
               >
                 <Card.Img
                   variant="top"
                   className="card_sell_img img-fluid"
+                  onClick={() => handleImageClick(item._id)}
                   src={
                     "https://ldfs6814-8085.inc1.devtunnels.ms/book/upload/" +
                     item.url
@@ -210,7 +239,9 @@ function Home() {
                       <u>${item.price}.00</u>
                     </span>
                   </Card.Text>
-                  <Button className="add_to_cart">Add to Cart</Button>
+                  <Button className="add_to_cart"
+                    onClick={() => addToCart(item)}
+                  >Add to Cart</Button>
                 </Card.Body>
               </Card>
             </div>
@@ -469,7 +500,7 @@ function Home() {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }

@@ -6,6 +6,7 @@ import Event from "./component/Event/Event.jsx";
 import Details from "./component/FullBook/Details.jsx";
 import Home from "./component/Home/Home.jsx";
 import Contact from "./component/Contact/Contact.jsx";
+import Checkout from "./component/Checkout/Checkout.jsx";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Route path="/about" element={<About />} />
       <Route path="/event" element={<Event />} />
       <Route path="/contact" element={<Contact/>}/>
+      <Route path="/checkout" element={<Checkout/>}/>
       <Route path="/details/:_id" element={<Details />} />
     </Routes>
 
