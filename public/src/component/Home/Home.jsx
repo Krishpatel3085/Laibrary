@@ -36,12 +36,9 @@ function Home() {
   }, []);
 
 
-
-
   const handleImageClick = (id) => {
     navigate(`/details/${id}`);
   };
-
 
   const addToCart = async (item) => {
     try {
@@ -59,7 +56,7 @@ function Home() {
   
       if (response.data) {
         alert("Item added to cart successfully");
-        navigate('/checkout', { state: { cartItem: { ...item, quantity: 1 } } });
+        navigate('/checkout', { state: { cartItem: { ...item, quantity:1 } } });
       } else {
         alert(
           `Failed to add item to cart: ${
@@ -96,7 +93,7 @@ function Home() {
                     href="#target-section"
                     className="btn btn-primary go-to-button"
                   >
-                    {" "}
+                  
                     <i className="fa-solid fa-cart-shopping"></i> Go to Shop{" "}
                   </a>
                 </div>

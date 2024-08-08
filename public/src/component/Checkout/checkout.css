@@ -6,3 +6,15 @@
 .cart{
     padding-top: 15vh;
 }
+.cart  table img{
+  width: 40px;
+  height: 50px;
+}
+.cart table{
+  text-align: center;
+}
+
+.cart table a {
+  color: black;
+  font-size: 20px;
+}
