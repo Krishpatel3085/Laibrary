@@ -1,26 +1,38 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./nav.css";
 import logo_main from "../images/main_logo.jpg";
-import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function NavBar() {
   const [active, setActive] = useState("home");
-  const navigate = useNavigate();
+  const [user, setUser] = useState(null);
 
+  const navigate = useNavigate();
   const handleNavigation = (path, name) => {
     navigate(path);
     setActive(name);
   };
 
-    const gotocheckout = () =>{
-      navigate('/checkout')
-  }
+  const gotocheckout = () => {
+    navigate("/checkout");
+  };
+
+  useEffect(() => {
+    axios.get("https://ldfs6814-8085.inc1.devtunnels.ms/user/get")
+      .then((response) => {
+        setUser(response.data.data);
+      })
+      .catch((error) => {
+        console.error("There was an error fetching the data!", error);
+      });
+  }, []);
+
   return (
     <Navbar expand="lg" className="navbar position-fixed w-100">
       <Container fluid className="d-flex align-items-center">
@@ -29,10 +41,7 @@ function NavBar() {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
-          <Nav
-            className="me-auto my-2 my-lg-0 d-flex align-items-center gap-3"
-            navbarScroll
-          >
+          <Nav className="me-auto my-2 my-lg-0 d-flex align-items-center gap-3" navbarScroll>
             <Nav.Link
               onClick={() => handleNavigation("/home", "home")}
               className={`navbar__link ${active === "home" ? "active" : ""}`}
@@ -45,11 +54,7 @@ function NavBar() {
             >
               ABOUT US
             </Nav.Link>
-            <NavDropdown
-              title="PAGES"
-              id="navbarScrollingDropdown"
-              className="navbar__link"
-            >
+            <NavDropdown title="PAGES" id="navbarScrollingDropdown" className="navbar__link">
               <NavDropdown.Item
                 onClick={() => handleNavigation("/team", "team")}
                 className={`navbar__dropdown-link ${active === "team" ? "active" : ""}`}
@@ -85,53 +90,36 @@ function NavBar() {
           <Form className="d-flex me-3">
             <Form.Control
               type="search"
-              placeholder="Search...."
+              placeholder=" Search...."
               className="me-2 rounded-pill"
               aria-label="Search"
               style={{ background: "#f8f8f8" }}
             />
           </Form>
           <Nav>
-            <Nav.Link href="#addToCart" className="me-3" onClick={gotocheckout}>
+            <Nav.Link href="#addToCart" className="me-3" onClick={() => gotocheckout()}>
               <span className="shopping_icon">
                 <i className="fa-solid fa-bag-shopping"></i>
-              </span>
+              </span> 
             </Nav.Link>
+
+            {user.map((items, index) => {
+              return (
+                <NavDropdown key={index} title={<span className="userData">Hi! {items.firstname} <i className="bi bi-person-circle"></i></span>} id="profileDropdown" alignRight>
+                  <NavDropdown.Item>
+                    Profile
+                  </NavDropdown.Item>
+                  <NavDropdown.Item>
+                    Settings
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item>
+                    Logout
+                  </NavDropdown.Item>
+                </NavDropdown>
+              )
+            })}
           </Nav>
-
-          {/* dropdown */}
-          <div className="dropdown">
-            <button
-              className="btn btn-secondary   dropdown-toggle"
-              type="button" id="dropdownMenuButton2"  data-bs-toggle="dropdown"  aria-expanded="false" ><i class="bi bi-person-circle text-dark fs-3 mb-3"></i></button>
-            <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-              <li>
-                <a className="dropdown-item active" href="#">
-                  Action
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  Another action
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  Something else here
-                </a>
-              </li>
-              <li>
-                <hr className="dropdown-divider" />
-              </li>
-              <li>
-                <a className="dropdown-item" href="#">
-                  Separated link
-                </a>
-              </li>
-            </ul>
-          </div>
-
-
         </Navbar.Collapse>
       </Container>
     </Navbar>

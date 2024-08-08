@@ -18,10 +18,11 @@
 .shopping_icon {
   width: 40px;
   height: 40px;
-  font-size: 22px;
-  border-radius: 50%;
+  font-size: 27px;
+
+  color: black;
   padding: 8px;
-  background-color: rgba(128, 128, 128, 0.2);
+  /* background-color: rgba(128, 128, 128, 0.2); */
 }
 
 .navbar__link,
@@ -74,10 +75,25 @@
 }
 
 /* profile  */
-#dropdownMenuButton2{
+#dropdownMenuButton2 {
   background-color: white;
   color: black;
+  padding-bottom: 15px;
   border: none;
   border-radius: 50px
 }
 
+.userData {
+  font-size: 20px;
+  color: black;
+  margin-top: 10px;
+}
+
+.userData i {
+  margin-right: 10px;
+  font-size: 22px;
+}
+
+#profileDropdown {
+  margin-top: 4px;
+}

@@ -45,12 +45,12 @@ function Registration() {
           <div className="row d-flex justify-content-center align-items-center">
             <div className="col">
               <div className="card card-registration my-4">
-                <div className="row g-0">
+                <div className="row g-0 ">
                   <div className="col-xl-6 d-none d-xl-block">
                     <img
                       src={main_img}
                       alt="Sample photo"
-                      className="img-fluid w-100"
+                      className="img-fluid w-100 m-0"
                       id='card-img'
                       style={{
                         borderTopLeftRadius: ".25rem",
@@ -191,13 +191,13 @@ function Registration() {
                           >
                             Submit form
                           </button>
+
+                          <h6 className='pt-3 text-center'>Already have an account? <a href="/">Sing in</a></h6>
+
                         </div>
                       </form>
                     </div>
                   </div> 
-
-
-
                 </div>
               </div>
             </div>
