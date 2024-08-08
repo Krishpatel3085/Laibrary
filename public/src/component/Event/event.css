@@ -18,15 +18,17 @@
 
 .upComing {
   padding-top: 260px;
+  font-family: 'Hind',serif;
 }
 
 #event h4 {
-  font-size: 19px;
+  font-size: 16px;
 }
 
 
 #event h2 {
   font-size: 48px;
+  padding-top: 10px;
 }
 
 .Festival h2 {

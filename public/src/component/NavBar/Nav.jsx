@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import "./nav.css";
 import logo_main from "../images/main_logo.jpg";
 import Button from "react-bootstrap/Button";
@@ -9,38 +10,13 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { useNavigate } from "react-router-dom";
 
 function NavBar() {
+  const [active, setActive] = useState("home");
   const navigate = useNavigate();
 
-
-  const gotoLoginpage = () => {
-    navigate("/");
+  const handleNavigation = (path, name) => {
+    navigate(path);
+    setActive(name);
   };
-  const gotoHomepage = () => {
-    navigate("/home");
-  };
-  const gotoAbout = () => {
-    navigate("/about");
-  };
-
-  const gotoPage = () => {
-    navigate("/page");
-  };
-
-  const gotoEvent = () => {
-    navigate("/event");
-  };
-  const gotoContact=()=>{
-    navigate("/contact");
-  }
-
-  const gotoShop = () => {
-    navigate("/shop");
-  };
-
-  const gotocart = () => {
-    navigate("/checkout");
-  };
-
 
   return (
     <Navbar expand="lg" className="navbar position-fixed w-100">
@@ -55,46 +31,50 @@ function NavBar() {
             navbarScroll
           >
             <Nav.Link
-
-              onClick={() => gotoHomepage()}
+              onClick={() => handleNavigation("/home", "home")}
+              className={`navbar__link ${active === "home" ? "active" : ""}`}
             >
               HOME
             </Nav.Link>
             <Nav.Link
-
-              onClick={() => gotoAbout()}
+              onClick={() => handleNavigation("/about", "about")}
+              className={`navbar__link ${active === "about" ? "active" : ""}`}
             >
               ABOUT US
             </Nav.Link>
             <NavDropdown
               title="PAGES"
               id="navbarScrollingDropdown"
-
+              className="navbar__link"
             >
               <NavDropdown.Item
-                onClick={() => gotoPage()}
+                onClick={() => handleNavigation("/team", "team")}
+                className={`navbar__dropdown-link ${active === "team" ? "active" : ""}`}
               >
                 TEAM
               </NavDropdown.Item>
               <NavDropdown.Item
-                onClick={() =>gotoContact()}
+                onClick={() => handleNavigation("/contact", "contact")}
+                className={`navbar__dropdown-link ${active === "contact" ? "active" : ""}`}
               >
                 CONTACT
               </NavDropdown.Item>
               <NavDropdown.Item
-
-
+                onClick={() => handleNavigation("/blog", "blog")}
+                className={`navbar__dropdown-link ${active === "blog" ? "active" : ""}`}
               >
                 BLOG
               </NavDropdown.Item>
             </NavDropdown>
             <Nav.Link
-              onClick={() => gotoEvent()}
+              onClick={() => handleNavigation("/event", "event")}
+              className={`navbar__link ${active === "event" ? "active" : ""}`}
             >
               EVENT
             </Nav.Link>
             <Nav.Link
-              onClick={() => gotoShop()}
+              onClick={() => handleNavigation("/shop", "shop")}
+              className={`navbar__link ${active === "shop" ? "active" : ""}`}
             >
               SHOP
             </Nav.Link>
@@ -109,14 +89,46 @@ function NavBar() {
             />
           </Form>
           <Nav>
-            <Nav.Link href="#addToCart" className="me-3" onClick={()=>gotocart()}>
+            <Nav.Link href="#addToCart" className="me-3">
               <span className="shopping_icon">
                 <i className="fa-solid fa-bag-shopping"></i>
               </span>
             </Nav.Link>
           </Nav>
-          <Button variant="primary me-2 rounded-3" onClick={() => gotoLoginpage()}>Login</Button>
-          <Button variant="primary me-3 rounded-3">Registration</Button>
+
+          {/* dropdown */}
+          <div className="dropdown">
+            <button
+              className="btn btn-secondary   dropdown-toggle"
+              type="button" id="dropdownMenuButton2"  data-bs-toggle="dropdown"  aria-expanded="false" ><i class="bi bi-person-circle text-dark fs-3 mb-3"></i></button>
+            <ul className="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+              <li>
+                <a className="dropdown-item active" href="#">
+                  Action
+                </a>
+              </li>
+              <li>
+                <a className="dropdown-item" href="#">
+                  Another action
+                </a>
+              </li>
+              <li>
+                <a className="dropdown-item" href="#">
+                  Something else here
+                </a>
+              </li>
+              <li>
+                <hr className="dropdown-divider" />
+              </li>
+              <li>
+                <a className="dropdown-item" href="#">
+                  Separated link
+                </a>
+              </li>
+            </ul>
+          </div>
+
+
         </Navbar.Collapse>
       </Container>
     </Navbar>

@@ -1,0 +1,176 @@
+import React from 'react';
+import './shop.css';
+import axios from 'axios';
+import { useState, useEffect } from "react";
+import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/Button";
+import { useNavigate } from "react-router-dom";
+import chid from "../images/father_book.png";
+import NavBar from '../NavBar/Nav';
+import Footer from '../footer/Footer';
+
+
+function Shop() {
+  const [items, setItems] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    axios
+      .get("https://ldfs6814-8085.inc1.devtunnels.ms/book/getbook")
+      .then((response) => {
+        setItems(response.data.data);
+      })
+      .catch((error) => {
+        console.error("There was an error fetching the data!", error);
+      });
+  }, []);
+
+  const handleImageClick = (id) => {
+    navigate(`/details/${id}`);
+  };
+
+  const addToCart = async (item) => {
+    try {
+      const response = await axios.post(
+        "https://ldfs6814-8085.inc1.devtunnels.ms/checkout/order",
+        {
+          itemId: item._id,
+          title: item.title,
+          price: item.price,
+          quantity: 1,
+        }
+      );
+
+      // Check if the response indicates success
+      if (response.data) {
+        alert("Item added to cart successfully");
+        navigate('/checkout');
+      } else {
+        alert(
+          `Failed to add item to cart: ${response.data.message || "Unknown error"
+          }`
+        );
+      }
+    } catch (error) {
+      console.error("Error adding item to cart:", error);
+    }
+  };
+
+
+  return (
+    <>
+      <NavBar />
+
+      {/* first */}
+      <section id='Shop'>
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-md-12">
+              <h4 className='text-light text-center'><span>Home <span className='mx-3'><i class="bi bi-book fs-5 "></i></span>  Shop</span></h4>
+              <h2 className='text-center text-light'>SHOP</h2>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Second Section */}
+      <div className="container">
+        <div className="row text-center">
+          <div className="Discover col-md-12">
+            <h2>Discover new books</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec <br /> ullamcorper mattis, pulvinar dapibus leo.</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="container py-5">
+        <div className="row border-top py-3">
+          <div className="next col-md-12 d-flex justify-content-between align-content-center">
+            <h3>Discover Your Next Book</h3>
+            <span>
+              <a href="#">View All Book</a>
+            </span>
+          </div>
+        </div>
+        <div className="row pb-4">
+          {items.map((item) => (
+            <div className="col-md-3 col-lg-3" key={item._id}>
+              <Card
+                style={{ width: "auto", fontFamily: "lora" }}
+                className="api_card border-0 text-center"
+              >
+                <Card.Img
+                  variant="top"
+                  className="card_sell_img img-fluid"
+                  onClick={() => handleImageClick(item._id)}
+                  src={
+                    "https://ldfs6814-8085.inc1.devtunnels.ms/book/upload/" +
+                    item.url
+                  }
+
+                />
+                <Card.Body>
+                  <Card.Title>{item.title}</Card.Title>
+                  <Card.Title>{item.author}</Card.Title>
+                  <Card.Text>
+                    <span className="text-dark fs-6">
+                      <strike>${item.price2}.00</strike>
+                    </span>
+                    <span className="text-danger fw-bold fs-5">
+                      <u>${item.price}.00</u>
+                    </span>
+                  </Card.Text>
+                  <Button className="add_to_cart"
+                    onClick={() => addToCart(item)}
+                  >Add to Cart</Button>
+                </Card.Body>
+              </Card>
+            </div>
+          ))}
+        </div>
+      </div>
+
+
+      {/* Third Section */}
+      <section className="mb-3" id="back_images">
+        <div className="container  d-flex align-items-center ">
+          <div className="row">
+            <div className="col-md-6 mb-4 mb-md-0">
+              <div className="lectus">
+                <h6 className="text-uppercase font-weight-bold mb-3 text-danger">
+                  New Release
+                </h6>
+                <h3 className="font-weight-bold mb-3">Me & My Dad</h3>
+                <h5 className="font-italic mb-4">
+                  A novelette book by John Doe
+                </h5>
+                <p className="text-justify mb-4">
+                  Morbi proin condimentum litora duis lectus vivamus parturient
+                  torquent. Phasellus fames lectus molestie iaculis lacus
+                  condimentum duis. Ac ligula etiam magna efficitur quisque in.
+                  Malesuada mattis integer congue nulla id ipsum vestibulum
+                  mollis fames neque dictum. Ex vivamus vehicula natoque porta
+                  ipsum dis. Interdum viverra semper dolor dignissim urna
+                  habitasse orci. Elementum ullamcorper libero magna montes ut
+                  orci suspendisse magnis nam id ligula.
+                </p>
+                <span className="font-weight-bold mb-2 d-block fs-3">
+                  Price : <span className="text-danger fs-3"> $40.00</span>{" "}
+                </span>
+                <Button className="add_to_cart">Add to Cart</Button>
+              </div>
+            </div>
+            <div className="col-md-6">
+              <img src={chid} className="img-fluid w-100 h-100" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <Footer />
+    </>
+  )
+}
+
+export default Shop

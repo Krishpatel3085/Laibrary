@@ -9,7 +9,7 @@ export default function Footer() {
       <footer>
         <div className="container ">
           <div className="row">
-            <div className="col-md-12 py-3">
+            <div className="col-md-12 py-5">
               <h2 className="text-center ">Sign Up for Our NEwsletter</h2>
               <h6 className="text-center">
                 Fermentum tempor cubilia risus tellus massa dis consectetur

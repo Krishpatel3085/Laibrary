@@ -17,9 +17,17 @@
   background-color: rgba(0, 0, 0, 0.307);
 }
 
-#AboutUs h2 {
+#AboutUs h4 {
+  font-size: 16px;
+  font-family: 'Hind', serif;
   padding-top: 25vh;
 }
+
+#AboutUs h2 {
+  font-size: 48px;
+  padding-top: 10px;
+}
+
 
 /* second */
 .welcome {
@@ -95,11 +103,12 @@ img {
   bottom: -100%;
   left: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.619);
-  color: #ffffff;
+  background: #faf9f58c;
+  backdrop-filter: blur(2px);
+  color: black;
   text-align: center;
   transition: bottom 0.5s ease;
-  height: 95%;
+  height: 97%;
   border-radius: 4px;
   display: flex;
   flex-direction: column;
@@ -118,6 +127,9 @@ img {
   padding: 0;
 }
 
+.overlay p{
+  color: white;
+}
 .icon {
   display: flex;
   gap: 0.5rem;
@@ -132,25 +144,13 @@ img {
   padding: 0.5rem;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
-/* 
-.icon i.fa-twitter {
-  background-color: #1DA1F2;
-  color: #ffffff;
-}
 
-.icon i.fa-facebook {
-  background-color: #4267B2;
-  color: #ffffff;
-}
-
-.icon i.fa-instagram {
-  background-color: #C13584;
-  color: #ffffff;
+.icon i {
+  background-color: #EEDFCC;
 }
 
 .icon i:hover {
-  background-color: #ffffff;
-  color: #000000;
-} */
-
-/* four  */
+  transition: all linear 0.4s;
+  color: white;
+  background-color: red;
+}

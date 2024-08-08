@@ -17,10 +17,10 @@
 }
 
 .send_bar {
-  width: 280px;
+  width: 310px;
   height: 250px;
   border-radius: 20px;
-  padding: 32px 35px 32px 35px;
+  padding: 39px 35px 32px 42px;
   border-radius: 30px 30px 30px 30px;
   background-color: #FAF9F5;
 }
@@ -43,4 +43,25 @@
   font-size: 16px;
   font-family: 'Hind', sans-serif;
   color: #7A7A7A;
+}
+
+/*third section */
+.maping {
+ padding:50px  30px;
+}
+
+.maping h6 {
+  font-size: 14px;
+  color: #F13B3A;
+  font-family: 'Hind';
+}
+
+.maping h2 {
+  font-size: 40px;
+  color: #1E1E1E;
+  padding-bottom: 10px;
+}
+#submit{
+  padding: 10px;
+  background-color: #F13B3A;
 }
