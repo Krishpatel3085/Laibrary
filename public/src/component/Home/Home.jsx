@@ -33,12 +33,12 @@ function Home() {
       .catch((error) => {
         console.error("There was an error fetching the data!", error);
       });
-  }, []);
-
+  }, []);   
 
   const handleImageClick = (id) => {
     navigate(`/details/${id}`);
   };
+
 
   const addToCart = async (item) => {
     try {
@@ -49,14 +49,14 @@ function Home() {
           title: item.title,
           price: item.price,
           imageUrl: item.url,
-          author: item.author, // Added author
-          quantity: 1, // Adjust quantity if needed
+          author: item.author, 
+          quantity: 1, 
         }
       );
   
       if (response.data) {
         alert("Item added to cart successfully");
-        navigate('/checkout', { state: { cartItem: { ...item, quantity:1 } } });
+        navigate('/checkout', { state: { cartItem: { ...item, quantity: 1 } } });
       } else {
         alert(
           `Failed to add item to cart: ${
@@ -93,7 +93,7 @@ function Home() {
                     href="#target-section"
                     className="btn btn-primary go-to-button"
                   >
-                  
+                    {" "}
                     <i className="fa-solid fa-cart-shopping"></i> Go to Shop{" "}
                   </a>
                 </div>

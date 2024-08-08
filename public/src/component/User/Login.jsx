@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './user.css';
+import logo_main from "../images/main_logo.jpg";
 import main_img from '../images/main_login.jpg';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -48,7 +49,7 @@ function Login() {
                   <div className="card-body p-lg-5 text-black">
                     <form onSubmit={LoginUser}>
                       <div className="d-flex align-items-center mb-3 pb-1">
-                        <i className="fas fa-cubes fa-2x me-3" style={{ color: "#ff6219" }} />
+                     <img src={logo_main}  style={{width:"100px",height:"120px"}}/>
                       </div>
                       <h5 className="fw-normal mb-3 pb-3" style={{ letterSpacing: 1 }}>Sign into your account</h5>
                       <div className="form-outline mb-4">
@@ -72,7 +73,7 @@ function Login() {
                       <a className="small text-muted" href="#!">Forgot password?</a>
                       <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>
                         Don't have an account?{" "}
-                        <a href="#!" style={{ color: "#393f81" }}>Register here</a>
+                        <a href="/registration" style={{ color: "#393f81" }}>Register here</a>
                       </p>
                       <a href="#!" className="small text-muted">Terms of use.</a>
                       <a href="#!" className="small text-muted">Privacy policy</a>
