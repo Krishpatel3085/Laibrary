@@ -18,6 +18,9 @@ function NavBar() {
     setActive(name);
   };
 
+    const gotocheckout = () =>{
+      navigate('/checkout')
+  }
   return (
     <Navbar expand="lg" className="navbar position-fixed w-100">
       <Container fluid className="d-flex align-items-center">
@@ -89,7 +92,7 @@ function NavBar() {
             />
           </Form>
           <Nav>
-            <Nav.Link href="#addToCart" className="me-3">
+            <Nav.Link href="#addToCart" className="me-3" onClick={gotocheckout}>
               <span className="shopping_icon">
                 <i className="fa-solid fa-bag-shopping"></i>
               </span>

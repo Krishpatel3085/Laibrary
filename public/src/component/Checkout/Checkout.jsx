@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import NavBar from "../NavBar/Nav";
 import Footer from "../footer/Footer";
@@ -8,9 +7,7 @@ import "./checkout.css";
 
 function Checkout() {
   const [cart, setCart] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [gtotal , setGtotal] = useState(0)
-  // const navigate = useNavigate();
+  const [gtotal, setGtotal] = useState(0);
 
   useEffect(() => {
     // Fetch cart data from the backend
@@ -30,17 +27,13 @@ function Checkout() {
           if (existingItem) {
             existingItem.quantity += item.quantity;
             existingItem.subtotal = existingItem.price * existingItem.quantity;
-        
           } else {
-            item.subtotal += item.price * item.quantity;
+            item.subtotal = item.price * item.quantity;
             acc.push(item);
           }
           return acc;
         }, []);
         setCart(mergedCart);
-
-
-
         const total = mergedCart.reduce((sum, item) => sum + item.price * item.quantity, 0);
         setGtotal(total);
 
@@ -49,14 +42,26 @@ function Checkout() {
         alert("There was an error fetching your cart.");
       }
     };
-
+     
     fetchCartData();
   }, []);
+  
+  const DeleteOrder = async (id ) => {
+    try {
+      await axios.delete(`https://ldfs6814-8085.inc1.devtunnels.ms/checkout/orderDelete/${id}`);
+      setCart(cart.filter(item => item._id !== id));
+      
+      window.location.reload()
+    } catch (error) {
+      console.error("Error deleting order:", error);
+    }
+  };
+
   return (
     <>
       <NavBar />
 
-      <div className="cart ">
+      <div className="cart">
         <h1 className="w-25 ms-5 text-center">Cart</h1>
         <Table striped bordered className="w-75 m-auto text-center mb-5">
           <thead>
@@ -72,12 +77,16 @@ function Checkout() {
           <tbody>
             {cart.map((item, index) => (
               <tr key={index}>
-                <td></td>
-                <td>  <img src={`https://ldfs6814-8085.inc1.devtunnels.ms/checkout/upload2/${item.imageUrl}`} className="card-img-top" alt={item.title} /></td>
+                <td> <a href="#">
+
+                 <i className="bi bi-x-circle" onClick={() => DeleteOrder(item._id)}></i>
+                </a> 
+                </td>
+                <td><img src={`https://ldfs6814-8085.inc1.devtunnels.ms/book/upload/${item.imageUrl}`} className="card-img-top" alt={item.title} /></td>
                 <td>{item.title}</td>
                 <td>{item.price.toFixed(2)}</td>
-                <td>  {item.quantity} </td>
-                <td>{item.price * item.quantity}</td>
+                <td>{item.quantity}</td>
+                <td>{(item.price * item.quantity).toFixed(2)}</td>
               </tr>
             ))}
 
@@ -85,25 +94,10 @@ function Checkout() {
               <td colSpan={5}>
                 <b>Grand total</b>
               </td>
-             <td><b>{gtotal.toFixed(2)}</b></td>
+              <td><b>{gtotal.toFixed(2)}</b></td>
             </tr>
           </tbody>
         </Table>
-
-        {/* <Table striped bordered className="w-25 m-auto mb-4">
-          <thead>
-            <tr>
-              <th>Grand Toatl</th>
-              <th>Totla</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td></td>
-              <td colSpan={2}></td>
-            </tr>
-          </tbody>
-        </Table> */}
       </div>
 
       <Footer />
