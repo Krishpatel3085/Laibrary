@@ -34,7 +34,9 @@
 }
 
 .navbar__link:hover,
-.navbar__dropdown-link:hover {
+.navbar__dropdown-link:hover,
+.navbar__link:focus,
+.navbar__dropdown-link:focus {
   width: auto;
   border-radius: 20px;
   background-color: #eedfcc3b;
@@ -53,3 +55,29 @@
 .gap-3 {
   gap: 1rem;
 }
+
+.header-button {
+  background-color: black;
+  border-color: black;
+  color: white;
+}
+
+.header-button:hover {
+  background-color: #333;
+  border-color: #333;
+}
+
+
+.navbar__link.active {
+  background-color: #eedfcc;
+  color: black !important;
+}
+
+/* profile  */
+#dropdownMenuButton2{
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 50px
+}
+

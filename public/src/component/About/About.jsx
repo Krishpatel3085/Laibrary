@@ -16,6 +16,7 @@ function About() {
                 <div className="container-fluid">
                     <div className="row">
                         <div className="col-md-12">
+                        <h4 className='text-light text-center'><span>Home <span className='mx-3 '><i class="bi bi-book fs-5 "></i></span> About</span></h4>
                             <h2 className='text-center text-light'>About Us</h2>
                         </div>
                     </div>
@@ -122,7 +123,7 @@ function About() {
                                 <img src={book3} className='w-100 img-fluid ' id='img-blog' />
                                 <div className="overlay">
                                     <p>John D. Black</p>
-                                    <h6 className='text-secondary'>Director</h6>
+                                    <h6 >Director</h6>
                                     <div className="icon">
                                         <i className='fab fa-twitter'></i>
                                         <i className="fab fa-facebook"></i>
@@ -134,7 +135,7 @@ function About() {
                                 <img src={book5} className='w-100 img-fluid' id='img-blog' />
                                 <div className="overlay">
                                     <p>Amanda Baughn</p>
-                                    <h6 className='text-secondary'>Author</h6>
+                                    <h6 className=''>Author</h6>
                                     <div className="icon">
                                         <i className='fab fa-twitter'></i>
                                         <i className="fab fa-facebook"></i>
@@ -146,7 +147,7 @@ function About() {
                                 <img src={book4} className='w-100 img-fluid' id='img-blog' />
                                 <div className="overlay">
                                     <p>Joehar</p>
-                                    <h6 className='text-secondary'>Author</h6>
+                                    <h6 className=''>Author</h6>
                                     <div className="icon">
                                         <i className='fab fa-twitter'></i>
                                         <i className="fab fa-facebook"></i>
