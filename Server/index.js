@@ -19,23 +19,6 @@ app.use('/user', user_router)
 app.use('/checkout', orderRouter)
 
 
-// app.get('/set', (req, res) => {
-
-//     const time = "data with time 2"
-//     res.cookie('data2', time, { maxAge: 10000 });
-
-//     res.json({
-//         msg: "my server is running"
-//     })
-// })
-
-// app.get('/get', (req, res) => {
-//     res.json({
-//         msg: req.cookies
-//     })
-// })
-
-
 app.listen(process.env.PORT, async () => {
     await mongoose.connect(process.env.MONGO_URL)
     console.log("Connected to MongoDB Succefully")
