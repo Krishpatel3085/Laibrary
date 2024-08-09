@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const { book_routes } = require("./src/Routes/Book");
 const { user_router } = require("./src/Routes/user");
+const { orderRouter } = require('./src/Routes/order');
 const cors = require("cors");
 const dotenv = require('dotenv');
 const cookieParse = require('cookie-parser')
@@ -15,23 +16,24 @@ app.use(cors());
 
 app.use('/book', book_routes)
 app.use('/user', user_router)
+app.use('/checkout', orderRouter)
 
 
-app.get('/set', (req, res) => {
+// app.get('/set', (req, res) => {
 
-    const time = "data with time 2"
-    res.cookie('data2', time, { maxAge: 10000 });
+//     const time = "data with time 2"
+//     res.cookie('data2', time, { maxAge: 10000 });
 
-    res.json({
-        msg: "my server is running"
-    })
-})
+//     res.json({
+//         msg: "my server is running"
+//     })
+// })
 
-app.get('/get', (req, res) => {
-    res.json({
-        msg: req.cookies
-    })
-})
+// app.get('/get', (req, res) => {
+//     res.json({
+//         msg: req.cookies
+//     })
+// })
 
 
 app.listen(process.env.PORT, async () => {
