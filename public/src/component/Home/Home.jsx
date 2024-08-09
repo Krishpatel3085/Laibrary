@@ -33,12 +33,11 @@ function Home() {
       .catch((error) => {
         console.error("There was an error fetching the data!", error);
       });
-  }, []);   
+  }, []);
 
   const handleImageClick = (id) => {
     navigate(`/details/${id}`);
   };
-
 
   const addToCart = async (item) => {
     try {
@@ -49,14 +48,16 @@ function Home() {
           title: item.title,
           price: item.price,
           imageUrl: item.url,
-          author: item.author, 
-          quantity: 1, 
+          author: item.author,
+          quantity: 1,
         }
       );
-  
+
       if (response.data) {
         alert("Item added to cart successfully");
-        navigate('/checkout', { state: { cartItem: { ...item, quantity: 1 } } });
+        navigate("/checkout", {
+          state: { cartItem: { ...item, quantity: 1 } },
+        });
       } else {
         alert(
           `Failed to add item to cart: ${
@@ -68,6 +69,7 @@ function Home() {
       console.error("Error adding item to cart:", error);
     }
   };
+
   
 
   return (
@@ -229,7 +231,6 @@ function Home() {
                     "https://ldfs6814-8085.inc1.devtunnels.ms/book/upload/" +
                     item.url
                   }
-
                 />
                 <Card.Body>
                   <Card.Title>{item.title}</Card.Title>
@@ -242,9 +243,12 @@ function Home() {
                       <u>${item.price}.00</u>
                     </span>
                   </Card.Text>
-                  <Button className="add_to_cart"
+                  <Button
+                    className="add_to_cart"
                     onClick={() => addToCart(item)}
-                  >Add to Cart</Button>
+                  >
+                    Add to Cart
+                  </Button>
                 </Card.Body>
               </Card>
             </div>
