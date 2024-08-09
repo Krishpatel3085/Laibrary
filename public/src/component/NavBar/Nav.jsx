@@ -8,6 +8,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 function NavBar() {
   const [active, setActive] = useState("home");
@@ -22,11 +23,17 @@ function NavBar() {
   const gotocheckout = () => {
     navigate("/checkout");
   };
-
+  const gotologout = () => {
+    navigate("/ ");
+  };
   useEffect(() => {
-    axios.get("https://ldfs6814-8085.inc1.devtunnels.ms/user/get")
+    axios
+      .get("https://ldfs6814-8085.inc1.devtunnels.ms/user/get")
       .then((response) => {
         setUser(response.data.data);
+        const userEmail = Cookies.get("userEmail");
+        setUser(userEmail);
+        console.log(userEmail);
       })
       .catch((error) => {
         console.error("There was an error fetching the data!", error);
@@ -41,7 +48,10 @@ function NavBar() {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
-          <Nav className="me-auto my-2 my-lg-0 d-flex align-items-center gap-3" navbarScroll>
+          <Nav
+            className="me-auto my-2 my-lg-0 d-flex align-items-center gap-3"
+            navbarScroll
+          >
             <Nav.Link
               onClick={() => handleNavigation("/home", "home")}
               className={`navbar__link ${active === "home" ? "active" : ""}`}
@@ -54,22 +64,32 @@ function NavBar() {
             >
               ABOUT US
             </Nav.Link>
-            <NavDropdown title="PAGES" id="navbarScrollingDropdown" className="navbar__link">
+            <NavDropdown
+              title="PAGES"
+              id="navbarScrollingDropdown"
+              className="navbar__link"
+            >
               <NavDropdown.Item
                 onClick={() => handleNavigation("/team", "team")}
-                className={`navbar__dropdown-link ${active === "team" ? "active" : ""}`}
+                className={`navbar__dropdown-link ${
+                  active === "team" ? "active" : ""
+                }`}
               >
                 TEAM
               </NavDropdown.Item>
               <NavDropdown.Item
                 onClick={() => handleNavigation("/contact", "contact")}
-                className={`navbar__dropdown-link ${active === "contact" ? "active" : ""}`}
+                className={`navbar__dropdown-link ${
+                  active === "contact" ? "active" : ""
+                }`}
               >
                 CONTACT
               </NavDropdown.Item>
               <NavDropdown.Item
                 onClick={() => handleNavigation("/blog", "blog")}
-                className={`navbar__dropdown-link ${active === "blog" ? "active" : ""}`}
+                className={`navbar__dropdown-link ${
+                  active === "blog" ? "active" : ""
+                }`}
               >
                 BLOG
               </NavDropdown.Item>
@@ -97,28 +117,32 @@ function NavBar() {
             />
           </Form>
           <Nav>
-            <Nav.Link href="#addToCart" className="me-3" onClick={() => gotocheckout()}>
+            <Nav.Link
+              href="#addToCart"
+              className="me-3"
+              onClick={() => gotocheckout()}
+            >
               <span className="shopping_icon">
                 <i className="fa-solid fa-bag-shopping"></i>
-              </span> 
+              </span>
             </Nav.Link>
 
-            {user.map((items, index) => {
-              return (
-                <NavDropdown key={index} title={<span className="userData">Hi! {items.firstname} <i className="bi bi-person-circle"></i></span>} id="profileDropdown" alignRight>
-                  <NavDropdown.Item>
-                    Profile
-                  </NavDropdown.Item>
-                  <NavDropdown.Item>
-                    Settings
-                  </NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item>
-                    Logout
-                  </NavDropdown.Item>
-                </NavDropdown>
-              )
-            })}
+            <NavDropdown
+              title={
+                <span className="userData">
+                  Hi! {user} <i className="bi bi-person-circle"></i>
+                </span>
+              }
+              id="profileDropdown"
+              alignRight
+            >
+              <NavDropdown.Item> <i className="bi bi-person-circle"></i> &nbsp; Profile</NavDropdown.Item>
+              <NavDropdown.Item> <i class="fa-solid fa-gear"></i> &nbsp;  Settings</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item onClick={() => gotologout()}>
+                <i class="fa-solid fa-right-to-bracket"></i> &nbsp; Logout
+              </NavDropdown.Item>
+            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
       </Container>

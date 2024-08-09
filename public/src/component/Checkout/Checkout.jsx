@@ -38,9 +38,6 @@ function Checkout() {
           return acc;
         }, []);
         setCart(mergedCart);
-
-
-
         const total = mergedCart.reduce((sum, item) => sum + item.price * item.quantity, 0);
         setGtotal(total);
 
@@ -72,8 +69,8 @@ function Checkout() {
           <tbody>
             {cart.map((item, index) => (
               <tr key={index}>
-                <td></td>
-                <td>  <img src={`https://ldfs6814-8085.inc1.devtunnels.ms/checkout/upload2/${item.imageUrl}`} className="card-img-top" alt={item.title} /></td>
+                <td> </td>
+                <td>  <img src={`https://ldfs6814-8085.inc1.devtunnels.ms/checkout/getorder/${item.imageUrl}`} className="card-img-top" alt={item.title} /></td>
                 <td>{item.title}</td>
                 <td>{item.price.toFixed(2)}</td>
                 <td>  {item.quantity} </td>
@@ -90,20 +87,7 @@ function Checkout() {
           </tbody>
         </Table>
 
-        {/* <Table striped bordered className="w-25 m-auto mb-4">
-          <thead>
-            <tr>
-              <th>Grand Toatl</th>
-              <th>Totla</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td></td>
-              <td colSpan={2}></td>
-            </tr>
-          </tbody>
-        </Table> */}
+      
       </div>
 
       <Footer />
