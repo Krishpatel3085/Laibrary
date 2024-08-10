@@ -8,7 +8,34 @@ import book3 from '../images/img_7.jpg';
 import book4 from '../images/img_8.jpg';
 import book5 from '../images/img_9.jpg';
 
+
+import { useState, useEffect } from "react";
+import review from "../images/customer_review.jpg";
+import slide_1 from "../images/slider img-1.jpg"
+import slide_2 from "../images/slider img-2.jpg"
+import slide_3 from "../images/slider img-3.jpg"
+import $ from 'jquery';
+import 'slick-carousel';
+import 'slick-carousel/slick/slick.css'; // Add the CSS for slick
+import 'slick-carousel/slick/slick-theme.css';
 function About() {
+
+    useEffect(() => {
+        $('.sliders').slick({
+            dots: true,
+            infinite: true,
+            autoplay: true,
+            speed: 300,
+            slidesToShow: 1,
+            adaptiveHeight: true
+        });
+
+        // Cleanup function to destroy the slider
+        return () => {
+            $('.sliders').slick('unslick');
+        };
+    }, []);
+
     return (
         <>
             <NavBar />
@@ -16,7 +43,7 @@ function About() {
                 <div className="container-fluid">
                     <div className="row">
                         <div className="col-md-12">
-                        <h4 className='text-light text-center'><span>Home <span className='mx-3 '><i class="bi bi-book fs-5 "></i></span> About</span></h4>
+                            <h4 className='text-light text-center'><span>Home <span className='mx-3 '><i class="bi bi-book fs-5 "></i></span> About</span></h4>
                             <h2 className='text-center text-light'>About Us</h2>
                         </div>
                     </div>
@@ -162,6 +189,65 @@ function About() {
                 </div>
             </section>
 
+
+             {/* eight section */}
+      <div className="container py-4">
+        <div className="row">
+          <div className="col-md-6">
+            <img src={review} className="img-fluid w-100 " id="review_img" />
+          </div>
+          <div className=" col-md-6">
+            <h6 className="text-danger text-capitalize">Testimonials </h6>
+            <h2>Customer Reviews</h2>
+            <p>
+              Porttitor eleifend facilisi euismod litora etiam consectetur.
+              Vivamus platea quisque mauris si blandit diam id a primis
+              himenaeos. Natoque vulputate duis nec mauris tristique integer mi.
+              Pharetra libero quam morbi lectus lacinia. Pharetra lacus ut
+              litora mattis cras arcu tortor bibendum vitae.
+            </p>
+
+            <div className="sliders">
+              <div className="one d-flex gap-3 align-items-start p-2">
+                <div className="imgs">
+                  <img src={slide_1} />
+                </div>
+                <div className="text mt-2 ">
+
+                  <p className="text-secondary fs-5">	<i> "I don't always clop, but when I do, it's because of book. Thank you so much for your help. It's incredible. Thanks to book, we've just launched our 5th website!" </i> </p>
+
+                  <h5>Richerd Berry</h5>
+                  <span className="text-danger">Journalist</span>
+                </div>
+              </div>
+              <div className="one d-flex gap-3 align-items-start p-2">
+                <div className="imgs">
+                  <img src={slide_2} />
+                </div>
+                <div className="text mt-2 ">
+
+                  <p className="text-secondary fs-5">	<i>  "I don't always clop, but when I do, it's because of book. Thank you so much for your help. It's incredible. Thanks to book, we've just launched our 5th website!" </i> </p>
+
+                  <h5>Susan C.Rice</h5>
+                  <span className="text-danger">Journalist</span>
+                </div>
+              </div>
+              <div className="one d-flex gap-3 align-items-start p-2">
+                <div className="imgs">
+                  <img src={slide_3} />
+                </div>
+                <div className="text mt-2 ">
+
+                  <p className="text-secondary fs-5">	<i> "I don't always clop, but when I do, it's because of book. Thank you so much for your help. It's incredible. Thanks to book, we've just launched our 5th website!" </i>  </p>
+
+                  <h5>Gary E</h5>
+                  <span className="text-danger">Journalist</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
             <Footer />
         </>
     )
