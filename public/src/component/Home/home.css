@@ -380,3 +380,17 @@ body {
   flex: 0 0 auto;
   padding: 1rem 1rem;
 }
+
+.sliders {
+  display: flex;
+  gap: 20px;
+}
+.one{
+  width: 400px;
+  /* background-color: red; */
+}
+.one .imgs img{
+width: 80px;
+height: 80px;
+border-radius: 50%;
+}

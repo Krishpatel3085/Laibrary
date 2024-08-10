@@ -19,6 +19,13 @@ import review from "../images/customer_review.jpg";
 import { useNavigate } from "react-router-dom";
 import NavBar from "../NavBar/Nav";
 import Footer from "../footer/Footer";
+import slide_1 from "../images/slider img-1.jpg"
+import slide_2 from "../images/slider img-2.jpg"
+import slide_3 from "../images/slider img-3.jpg"
+import $ from 'jquery';
+import 'slick-carousel';
+import 'slick-carousel/slick/slick.css'; // Add the CSS for slick
+import 'slick-carousel/slick/slick-theme.css';
 
 function Home() {
   const [items, setItems] = useState([]);
@@ -60,8 +67,7 @@ function Home() {
         });
       } else {
         alert(
-          `Failed to add item to cart: ${
-            response.data.message || "Unknown error"
+          `Failed to add item to cart: ${response.data.message || "Unknown error"
           }`
         );
       }
@@ -70,7 +76,22 @@ function Home() {
     }
   };
 
-  
+  useEffect(() => {
+    $('.sliders').slick({
+      dots: true,
+      infinite: true,
+      autoplay: true,
+      speed: 300,
+      slidesToShow: 1,
+      adaptiveHeight: true
+    });
+
+    // Cleanup function to destroy the slider
+    return () => {
+      $('.sliders').slick('unslick');
+    };
+  }, []);
+
 
   return (
     <>
@@ -504,6 +525,45 @@ function Home() {
               Pharetra libero quam morbi lectus lacinia. Pharetra lacus ut
               litora mattis cras arcu tortor bibendum vitae.
             </p>
+
+            <div className="sliders">
+              <div className="one d-flex gap-3 align-items-start p-2">
+                <div className="imgs">
+                  <img src={slide_1} />
+                </div>
+                <div className="text mt-2 ">
+
+                  <p className="text-secondary fs-5">	<i> "I don't always clop, but when I do, it's because of book. Thank you so much for your help. It's incredible. Thanks to book, we've just launched our 5th website!" </i> </p>
+
+                  <h5>Richerd Berry</h5>
+                  <span className="text-danger">Journalist</span>
+                </div>
+              </div>
+              <div className="one d-flex gap-3 align-items-start p-2">
+                <div className="imgs">
+                  <img src={slide_2} />
+                </div>
+                <div className="text mt-2 ">
+
+                  <p className="text-secondary fs-5">	<i>  "I don't always clop, but when I do, it's because of book. Thank you so much for your help. It's incredible. Thanks to book, we've just launched our 5th website!" </i> </p>
+
+                  <h5>Susan C.Rice</h5>
+                  <span className="text-danger">Journalist</span>
+                </div>
+              </div>
+              <div className="one d-flex gap-3 align-items-start p-2">
+                <div className="imgs">
+                  <img src={slide_3} />
+                </div>
+                <div className="text mt-2 ">
+
+                  <p className="text-secondary fs-5">	<i> "I don't always clop, but when I do, it's because of book. Thank you so much for your help. It's incredible. Thanks to book, we've just launched our 5th website!" </i>  </p>
+
+                  <h5>Gary E</h5>
+                  <span className="text-danger">Journalist</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
