@@ -38,7 +38,7 @@ function Team() {
         <div className="container p-5 custom-container">
           <div className="row align-items-center">
             <div className="col-md-6">
-              <img src={writing} className="img-fluid custom-img" />
+              <img src={writing} alt="img" className="img-fluid custom-img" />
             </div>
             <div className="col-md-6">
               <div className="about_author">
@@ -79,7 +79,7 @@ function Team() {
           <div className="row d-flex ">
             <div className="col-md-3">
               <div className="john">
-                <img src={book3} className='w-100 img-fluid ' id='img-blog' />
+                <img src={book3} alt="img" className='w-100 img-fluid ' id='img-blog' />
                 <div className="overlay">
                   <p>John D. Black</p>
                   <h6 className=''>Director</h6>
@@ -93,7 +93,7 @@ function Team() {
             </div>
             <div className="col-md-3">
               <div className="john">
-                <img src={book5} className='w-100 img-fluid' id='img-blog' />
+                <img src={book5} alt="img" className='w-100 img-fluid' id='img-blog' />
                 <div className="overlay">
                   <p>Amanda Baughn</p>
                   <h6>Author</h6>
@@ -107,7 +107,7 @@ function Team() {
             </div>
             <div className="col-md-3">
               <div className="john">
-                <img src={book4} className='w-100 img-fluid' id='img-blog' />
+                <img src={book4} alt="img" className='w-100 img-fluid' id='img-blog' />
                 <div className="overlay">
                   <p>Joehar</p>
                   <h6>Author</h6>
@@ -121,7 +121,7 @@ function Team() {
             </div>
             <div className="col-md-3">
               <div className="john">
-                <img src={book1} className='w-100 img-fluid' id='img-blog' />
+                <img src={book1} alt="img" className='w-100 img-fluid' id='img-blog' />
                 <div className="overlay">
                   <p>Luigi T. Elbert</p>
                   <h6>Marketing</h6>
@@ -137,7 +137,7 @@ function Team() {
           <div className="row d-flex py-4">
             <div className="col-md-3">
               <div className="john">
-                <img src={book2} className='w-100 img-fluid ' id='img-blog' />
+                <img src={book2} alt="img" className='w-100 img-fluid ' id='img-blog' />
                 <div className="overlay">
                   <p>Dennis Dunn</p>
                   <h6>Director</h6>
@@ -151,7 +151,7 @@ function Team() {
             </div>
             <div className="col-md-3">
               <div className="john">
-                <img src={book6} className='w-100 img-fluid' id='img-blog' />
+                <img src={book6} alt="img" className='w-100 img-fluid' id='img-blog' />
                 <div className="overlay">
                   <p>Milissa H</p>
                   <h6>Journalist</h6>
@@ -165,7 +165,7 @@ function Team() {
             </div>
             <div className="col-md-3">
               <div className="john">
-                <img src={book7} className='w-100 img-fluid' id='img-blog' />
+                <img src={book7} alt="img" className='w-100 img-fluid' id='img-blog' />
                 <div className="overlay">
                   <p>Sara J. Smith</p>
                   <h6>Marketing</h6>
@@ -179,7 +179,7 @@ function Team() {
             </div>
             <div className="col-md-3">
               <div className="john">
-                <img src={book8} className='w-100 img-fluid' id='img-blog' />
+                <img src={book8} alt="img" className='w-100 img-fluid' id='img-blog' />
                 <div className="overlay">
                   <p>Alice Jackson</p>
                   <h6>Marketing</h6>
@@ -218,7 +218,7 @@ function Team() {
               commodo ligula eget dolor. Aenean massa. Cum sociis natoque
               penatibus et magnis dis parturient montes, nascetur
             </p>
-            <a href="#" className="text-decoration-none text-dark">
+            <a href="-" className="text-decoration-none text-dark">
               Continue Reading »
             </a>
           </div>

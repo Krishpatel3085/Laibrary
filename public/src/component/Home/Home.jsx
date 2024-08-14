@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./home.css";
-import './HomeMedia.css'
+import "./HomeMedia.css";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import service from "../images/24-hrs_service-1.png";
@@ -19,13 +19,13 @@ import review from "../images/customer_review.jpg";
 import { useNavigate } from "react-router-dom";
 import NavBar from "../NavBar/Nav";
 import Footer from "../footer/Footer";
-import slide_1 from "../images/slider img-1.jpg"
-import slide_2 from "../images/slider img-2.jpg"
-import slide_3 from "../images/slider img-3.jpg"
-import $ from 'jquery';
-import 'slick-carousel';
-import 'slick-carousel/slick/slick.css'; // Add the CSS for slick
-import 'slick-carousel/slick/slick-theme.css';
+import slide_1 from "../images/slider img-1.jpg";
+import slide_2 from "../images/slider img-2.jpg";
+import slide_3 from "../images/slider img-3.jpg";
+import $ from "jquery";
+import "slick-carousel";
+import "slick-carousel/slick/slick.css"; // Add the CSS for slick
+import "slick-carousel/slick/slick-theme.css";
 
 function Home() {
   const [items, setItems] = useState([]);
@@ -67,7 +67,8 @@ function Home() {
         });
       } else {
         alert(
-          `Failed to add item to cart: ${response.data.message || "Unknown error"
+          `Failed to add item to cart: ${
+            response.data.message || "Unknown error"
           }`
         );
       }
@@ -77,21 +78,20 @@ function Home() {
   };
 
   useEffect(() => {
-    $('.sliders').slick({
+    $(".sliders").slick({
       dots: true,
       infinite: true,
       autoplay: true,
       speed: 300,
       slidesToShow: 1,
-      adaptiveHeight: true
+      adaptiveHeight: true,
     });
 
     // Cleanup function to destroy the slider
-    return () => {
-      $('.sliders').slick('unslick');
-    };
+    // return () => {
+    //   $(".sliders").slick("unslick");
+    // };
   }, []);
-
 
   return (
     <>
@@ -127,7 +127,7 @@ function Home() {
                 <div className="col-lg-3 col-md-6">
                   <div className="delivery d-flex align-items-center justify-content-center">
                     <div className="icon_bar pt-1">
-                      <img src={delivery} />
+                      <img src={delivery} alt="img"/>
                     </div>
                     <div className="info-section list-style-none">
                       <li>
@@ -142,7 +142,7 @@ function Home() {
                 <div className="col-lg-3 col-md-6">
                   <div className="delivery d-flex align-items-center justify-content-center">
                     <div className="icon_bar pt-1">
-                      <img src={fast} />
+                      <img src={fast} alt="img" />
                     </div>
                     <div className="info-section">
                       <li>
@@ -157,7 +157,7 @@ function Home() {
                 <div className="col-lg-3 col-md-6">
                   <div className="delivery d-flex align-items-center justify-content-center">
                     <div className="icon_bar pt-1">
-                      <img src={service} />
+                      <img src={service}  alt="img"/>
                     </div>
                     <div className="info-section">
                       <li>
@@ -170,7 +170,7 @@ function Home() {
                 <div className="col-lg-3 col-md-6">
                   <div className="delivery d-flex align-items-center justify-content-center">
                     <div className="icon_bar pt-1">
-                      <img src={refund} />
+                      <img src={refund}  alt="img"/>
                     </div>
                     <div className="info-section">
                       <li>
@@ -233,7 +233,7 @@ function Home() {
           <div className="next col-md-12 d-flex justify-content-between align-content-center">
             <h3>Discover Your Next Book</h3>
             <span>
-              <a href="#">View All Book</a>
+              <a href="-">View All Book</a>
             </span>
           </div>
         </div>
@@ -316,7 +316,7 @@ function Home() {
               <button className="author_btn fw-bold">Discover More</button>
             </div>
             <div className="col-md-6">
-              <img src={writing} className="img-fluid custom-img" />
+              <img src={writing} alt="img" className="img-fluid custom-img" />
             </div>
           </div>
         </div>
@@ -408,7 +408,7 @@ function Home() {
               </div>
             </div>
             <div className="col-md-6">
-              <img src={chid} className="img-fluid w-100 h-100" />
+              <img src={chid} alt="img" className="img-fluid w-100 h-100" />
             </div>
           </div>
         </div>
@@ -437,7 +437,7 @@ function Home() {
               commodo ligula eget dolor. Aenean massa. Cum sociis natoque
               penatibus et magnis dis parturient montes, nascetur
             </p>
-            <a href="#" className="text-decoration-none text-dark">
+            <a href="-" className="text-decoration-none text-dark" >
               Continue Reading »
             </a>
           </div>
@@ -513,7 +513,7 @@ function Home() {
       <div className="container py-4">
         <div className="row">
           <div className="col-md-6">
-            <img src={review} className="img-fluid w-100 " id="review_img" />
+            <img src={review} alt="img" className="img-fluid w-100 " id="review_img" />
           </div>
           <div className=" col-md-6">
             <h6 className="text-danger text-capitalize">Testimonials </h6>
@@ -529,11 +529,18 @@ function Home() {
             <div className="sliders">
               <div className="one d-flex gap-3 align-items-start p-2">
                 <div className="imgs">
-                  <img src={slide_1} />
+                  <img src={slide_1} alt="img"/>
                 </div>
                 <div className="text mt-2 ">
-
-                  <p className="text-secondary fs-5">	<i> "I don't always clop, but when I do, it's because of book. Thank you so much for your help. It's incredible. Thanks to book, we've just launched our 5th website!" </i> </p>
+                  <p className="text-secondary fs-5">
+                    {" "}
+                    <i>
+                      {" "}
+                      "I don't always clop, but when I do, it's because of book.
+                      Thank you so much for your help. It's incredible. Thanks
+                      to book, we've just launched our 5th website!"{" "}
+                    </i>{" "}
+                  </p>
 
                   <h5>Richerd Berry</h5>
                   <span className="text-danger">Journalist</span>
@@ -541,11 +548,18 @@ function Home() {
               </div>
               <div className="one d-flex gap-3 align-items-start p-2">
                 <div className="imgs">
-                  <img src={slide_2} />
+                  <img src={slide_2}  alt="img"/>
                 </div>
                 <div className="text mt-2 ">
-
-                  <p className="text-secondary fs-5">	<i>  "I don't always clop, but when I do, it's because of book. Thank you so much for your help. It's incredible. Thanks to book, we've just launched our 5th website!" </i> </p>
+                  <p className="text-secondary fs-5">
+                    {" "}
+                    <i>
+                      {" "}
+                      "I don't always clop, but when I do, it's because of book.
+                      Thank you so much for your help. It's incredible. Thanks
+                      to book, we've just launched our 5th website!"{" "}
+                    </i>{" "}
+                  </p>
 
                   <h5>Susan C.Rice</h5>
                   <span className="text-danger">Journalist</span>
@@ -553,11 +567,18 @@ function Home() {
               </div>
               <div className="one d-flex gap-3 align-items-start p-2">
                 <div className="imgs">
-                  <img src={slide_3} />
+                  <img src={slide_3} alt="img"/>
                 </div>
                 <div className="text mt-2 ">
-
-                  <p className="text-secondary fs-5">	<i> "I don't always clop, but when I do, it's because of book. Thank you so much for your help. It's incredible. Thanks to book, we've just launched our 5th website!" </i>  </p>
+                  <p className="text-secondary fs-5">
+                    {" "}
+                    <i>
+                      {" "}
+                      "I don't always clop, but when I do, it's because of book.
+                      Thank you so much for your help. It's incredible. Thanks
+                      to book, we've just launched our 5th website!"{" "}
+                    </i>{" "}
+                  </p>
 
                   <h5>Gary E</h5>
                   <span className="text-danger">Journalist</span>

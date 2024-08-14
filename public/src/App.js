@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import {   Routes, Route,  } from "react-router-dom";
 import Login from "./component/User/Login.jsx";
 import About from "./component/About/About.jsx";
 import Event from "./component/Event/Event.jsx";
@@ -15,6 +15,7 @@ import Registration from "./component/User/Registration.jsx";
 
 function App() {
   return (
+    
     <Routes>
       <Route path="/" element={<Login />} />
       <Route path="/home" element={<Home />} />

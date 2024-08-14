@@ -100,7 +100,7 @@ function Shop() {
           <div className="next col-md-12 d-flex justify-content-between align-content-center">
             <h3>Discover Your Next Book</h3>
             <span>
-              <a href="#">View All Book</a>
+              <a href="-">View All Book</a>
             </span>
           </div>
         </div>
@@ -174,7 +174,7 @@ function Shop() {
               </div>
             </div>
             <div className="col-md-6">
-              <img src={chid} className="img-fluid w-100 h-100" />
+              <img src={chid} alt="img" className="img-fluid w-100 h-100" />
             </div>
           </div>
         </div>

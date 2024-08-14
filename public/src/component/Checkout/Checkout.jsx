@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import NavBar from "../NavBar/Nav";
 import Footer from "../footer/Footer";
@@ -80,7 +80,7 @@ function Checkout() {
             {cart.map((item, index) => (
               <tr key={index}>
                 <td>
-                  <a href="#" onClick={() => deleteItem(item._id)}> 
+                  <a href="-" onClick={() => deleteItem(item._id)}> 
                     <i className="bi bi-x-circle"></i> 
                   </a>
                 </td>

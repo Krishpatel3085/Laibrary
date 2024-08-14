@@ -49,7 +49,7 @@ function Login() {
                   <div className="card-body p-lg-5 text-black">
                     <form onSubmit={LoginUser}>
                       <div className="d-flex align-items-center mb-3 pb-1">
-                     <img src={logo_main}  style={{width:"100px",height:"120px"}}/>
+                     <img src={logo_main}  alt="img" style={{width:"100px",height:"120px"}}/>
                       </div>
                       <h5 className="fw-normal mb-3 pb-3" style={{ letterSpacing: 1 }}>Sign into your account</h5>
                       <div className="form-outline mb-4">

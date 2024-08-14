@@ -39,13 +39,13 @@ export default function Footer() {
               <h4>Know More</h4>
               <ul className="list-unstyled">
                 <li>
-                  <a href="#">About Us</a>
+                  <a href="-">About Us</a>
                 </li>
                 <li>
-                  <a href="#">Company Story</a>
+                  <a href="-">Company Story</a>
                 </li>
                 <li>
-                  <a href="#">Our blog</a>
+                  <a href="-">Our blog</a>
                 </li>
               </ul>
             </div>
@@ -54,13 +54,13 @@ export default function Footer() {
               <h4>Shop </h4>
               <ul className="list-unstyled">
                 <li>
-                  <a href="#">Books</a>
+                  <a href="-">Books</a>
                 </li>
                 <li>
-                  <a href="#">Order Status</a>
+                  <a href="-">Order Status</a>
                 </li>
                 <li>
-                  <a href="#">Coupon</a>
+                  <a href="-">Coupon</a>
                 </li>
               </ul>
             </div>
@@ -69,16 +69,16 @@ export default function Footer() {
               <h4>Contact</h4>
               <ul className="list-unstyled">
                 <li>
-                  <a href="#">Meet our Authors</a>
+                  <a href="-">Meet our Authors</a>
                 </li>
                 <li>
-                  <a href="#">Contact Form</a>
+                  <a href="-">Contact Form</a>
                 </li>
                 <li>
-                  <a href="#">FAQS</a>
+                  <a href="-">FAQS</a>
                 </li>
                 <li>
-                  <a href="#">Privacy Policy</a>
+                  <a href="-">Privacy Policy</a>
                 </li>
               </ul>
             </div>
