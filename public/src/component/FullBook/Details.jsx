@@ -52,12 +52,12 @@ function Details() {
         <div className="container">
           <div className="row">
             <div className="Img_url col-md-5">
-              <img
+              <img 
                 src={
                   "https://ldfs6814-8085.inc1.devtunnels.ms/book/upload/" + item.url
                 }
                 width={"500px"} height={"auto"}
-              />
+              alt="img" />
             </div>
             <div className="share_menu col-md-7 p-4">
               <div className="detail-price">
@@ -207,7 +207,7 @@ function Details() {
               <p className="author-description">
                 Nullam venenatis neque dis viverra hendrerit faucibus ornare feugiat urna. Tristique sollicitudin penatibus velit a class auctor himenaeos. Mollis semper luctus sit efficitur nam vitae feugiat enim tortor. Tortor montes integer cras massa donec ex ligula. Aliquet fringilla tellus mattis augue nam dui justo aliquam quisque suspendisse maximus. Pede velit ut dapibus suspendisse vivamus pulvinar nostra morbi curae potenti netus.
               </p>
-              <a href="#" className="author-link">View All My Book</a>
+              <a href="-" className="author-link">View All My Book</a>
             </div>
             <div className="col-md-6">
               <img src={professional} className="author-image w-100  img-fluid" alt="Author" />

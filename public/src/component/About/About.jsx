@@ -10,7 +10,7 @@ import book4 from '../images/img_8.jpg';
 import book5 from '../images/img_9.jpg';
 
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import review from "../images/customer_review.jpg";
 import slide_1 from "../images/slider img-1.jpg"
 import slide_2 from "../images/slider img-2.jpg"
@@ -32,9 +32,9 @@ function About() {
         });
 
         // Cleanup function to destroy the slider
-        return () => {
-            $('.sliders').slick('unslick');
-        };
+        // return () => {
+        //     $('.sliders').slick('unslick');
+        // };
     }, []);
 
     return (
@@ -71,8 +71,8 @@ function About() {
                         </div>
                         <div className="col-md-6">
                             <p>Laoreet gravida congue aliquam etiam facilisi porta mollis. Platea feugiat a scelerisque imperdiet parturient enim venenatis vitae ut sed luctus. Nisl primis vulputate si interdum conubia sit cursus mollis enim. Lacus ridiculus nisi risus quam enim venenatis consectetuer libero lectus.</p>
-                            <a href="#">  Discover More</a>
-                            <img src={book2} className='w-100 h-50 img-fluid' />
+                            <a href="-">  Discover More</a>
+                            <img src={book2} alt="img" className='w-100 h-50 img-fluid' />
                         </div>
                     </div>
 
@@ -148,7 +148,7 @@ function About() {
                         </div>
                         <div className="john-blog col-md-8 d-flex gap-4">
                             <div className="john">
-                                <img src={book3} className='w-100 img-fluid ' id='img-blog' />
+                                <img src={book3} alt="img" className='w-100 img-fluid ' id='img-blog' />
                                 <div className="overlay">
                                     <p>John D. Black</p>
                                     <h6 >Director</h6>
@@ -160,7 +160,7 @@ function About() {
                                 </div>
                             </div>
                             <div className="john">
-                                <img src={book5} className='w-100 img-fluid' id='img-blog' />
+                                <img src={book5} alt="img" className='w-100 img-fluid' id='img-blog' />
                                 <div className="overlay">
                                     <p>Amanda Baughn</p>
                                     <h6 className=''>Author</h6>
@@ -172,7 +172,7 @@ function About() {
                                 </div>
                             </div>
                             <div className="john">
-                                <img src={book4} className='w-100 img-fluid' id='img-blog' />
+                                <img src={book4}  alt="img" className='w-100 img-fluid' id='img-blog' />
                                 <div className="overlay">
                                     <p>Joehar</p>
                                     <h6 className=''>Author</h6>
@@ -195,7 +195,7 @@ function About() {
       <div className="container py-4">
         <div className="row">
           <div className="col-md-6">
-            <img src={review} className="img-fluid w-100 " id="review_img" />
+            <img src={review}  alt="img" className="img-fluid w-100 " id="review_img" />
           </div>
           <div className=" col-md-6">
             <h6 className="text-danger text-capitalize">Testimonials </h6>
@@ -211,7 +211,7 @@ function About() {
             <div className="sliders">
               <div className="one d-flex gap-3 align-items-start p-2">
                 <div className="imgs">
-                  <img src={slide_1} />
+                  <img src={slide_1}  alt="img"/>
                 </div>
                 <div className="text mt-2 ">
 
@@ -223,7 +223,7 @@ function About() {
               </div>
               <div className="one d-flex gap-3 align-items-start p-2">
                 <div className="imgs">
-                  <img src={slide_2} />
+                  <img src={slide_2} alt="img" />
                 </div>
                 <div className="text mt-2 ">
 
@@ -235,7 +235,7 @@ function About() {
               </div>
               <div className="one d-flex gap-3 align-items-start p-2">
                 <div className="imgs">
-                  <img src={slide_3} />
+                  <img src={slide_3} alt="img"/>
                 </div>
                 <div className="text mt-2 ">
 

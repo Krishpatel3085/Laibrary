@@ -32,29 +32,29 @@ function Blog() {
       <div className="container py-5">
         <div className="row gap-4">
           <div className="commited col-md-4 pb-3">
-            <img src={bg} className='img-fluid w-100' id='book-img' />
+            <img src={bg} alt="img" className='img-fluid w-100' id='book-img' />
             <h4>How to Get Started on Bookstagram in 2022</h4>
             <span className='pb-4'>May 10, 2024  No Comments</span>
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,  nascetur</p>
-            <a href="#" className='text-decoration-none text-dark'>Continue Reading »</a>
+            <a href="-" className='text-decoration-none text-dark'>Continue Reading »</a>
           </div>
         
         
           <div className="commited col-md-4 pb-3">
-            <img src={customer} className='img-fluid w-100' id='book-img' />
+            <img src={customer} alt="img" className='img-fluid w-100' id='book-img' />
             <h4>The 61 Greatest Indie Books of All Time</h4>
             <span>May 10, 2024  No Comments</span>
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,  nascetur</p>
-            <a href="#" className='text-decoration-none text-dark'>Continue Reading »</a>
+            <a href="-" className='text-decoration-none text-dark'>Continue Reading »</a>
           </div>
 
 
           <div className="commited col-md-4 pb-3">
-            <img src={young} className='img-fluid w-100' id='book-img' />
+            <img src={young} alt="img" className='img-fluid w-100' id='book-img' />
             <h4>Books you won’t be able to put down on World Book Day</h4>
             <span>May 10, 2024  No Comments</span>
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,  nascetur</p>
-            <a href="#" className='text-decoration-none text-dark'>Continue Reading »</a>
+            <a href="-" className='text-decoration-none text-dark'>Continue Reading »</a>
           </div>
         
         
@@ -64,25 +64,25 @@ function Blog() {
         </div>
         <div className="row mt-3 pt-2 gap-4">
           <div className="commited col-md-4 pb-3">
-            <img src={cropped} className='img-fluid w-100' id='book-img' />
+            <img src={cropped} alt="img" className='img-fluid w-100' id='book-img' />
             <h4>How to Get Started on Bookstagram in 2022</h4>
             <span className='pb-4'>May 10, 2024  No Comments</span>
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,  nascetur</p>
-            <a href="#" className='text-decoration-none text-dark'>Continue Reading »</a>
+            <a href="-" className='text-decoration-none text-dark'>Continue Reading »</a>
           </div>
           <div className="commited col-md-4 pb-3">
-            <img src={man} className='img-fluid w-100' id='book-img' />
+            <img src={man} alt="img" className='img-fluid w-100' id='book-img' />
             <h4>The 61 Greatest Indie Books of All Time</h4>
             <span>May 10, 2024  No Comments</span>
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,  nascetur</p>
-            <a href="#" className='text-decoration-none text-dark'>Continue Reading »</a>
+            <a href="-" className='text-decoration-none text-dark'>Continue Reading »</a>
           </div>
           <div className="commited col-md-4 pb-3">
-            <img src={books} className='img-fluid w-100' id='book-img' />
+            <img src={books} alt="img" className='img-fluid w-100' id='book-img' />
             <h4>Books you won’t be able to put down on World Book Day</h4>
             <span>May 10, 2024  No Comments</span>
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,  nascetur</p>
-            <a href="#" className='text-decoration-none text-dark'>Continue Reading »</a>
+            <a href="-" className='text-decoration-none text-dark'>Continue Reading »</a>
           </div>
         </div>
       </div>

@@ -47,9 +47,9 @@ function Registration() {
               <div className="card card-registration my-4">
                 <div className="row g-0 ">
                   <div className="col-xl-6 d-none d-xl-block">
-                    <img
+                    <img 
                       src={main_img}
-                      alt="Sample photo"
+                      alt="Sample"
                       className="img-fluid w-100 m-0"
                       id='card-img'
                       style={{
