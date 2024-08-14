@@ -257,10 +257,10 @@ function Home() {
                   <Card.Title>{item.title}</Card.Title>
                   <Card.Title>{item.author}</Card.Title>
                   <Card.Text>
-                    <span className=" text-dark fs-6">
+                    <span className="font_extra me-1 text-dark fs-6">
                       <strike>${item.price2}.00</strike>
                     </span>
-                    <span className="text-danger fw-bold fs-5">
+                    <span className="font_extra text-danger fw-bold fs-5">
                       <u>${item.price}.00</u>
                     </span>
                   </Card.Text>
@@ -443,7 +443,7 @@ function Home() {
           </div>
 
           <div className="col-md-6">
-            <div className="row pb-5">
+            <div className="row ">
               <div className="col-4">
                 <img
                   src={one_book}
@@ -464,7 +464,7 @@ function Home() {
               </div>
             </div>
 
-            <div className="row pb-5">
+            <div className="row pt-3">
               <div className="col-4">
                 <img
                   src={second_book}
@@ -485,7 +485,7 @@ function Home() {
               </div>
             </div>
 
-            <div className="row pt-3">
+            <div className="row pt-3 ">
               <div className="col-4">
                 <img
                   src={third_book}

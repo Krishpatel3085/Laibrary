@@ -159,7 +159,13 @@
   .card_sell_img {
     height: 200px;
   }
+  .font_extra strike ,.font_extra u{
+    font-size: 15px;
+  }
 
+  .card-title{
+    font-size: 14px;
+  }
   /* four */
   .about_author h2 {
     font-size: 26px;
