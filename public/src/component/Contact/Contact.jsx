@@ -1,6 +1,7 @@
-import React from 'react'
-import './contact.css'
-import NavBar from '../NavBar/Nav'
+import React from 'react';
+import './contact.css';
+import './ContactMedia.css'
+import NavBar from '../NavBar/Nav';
 import Footer from '../footer/Footer';
 
 function Contact() {

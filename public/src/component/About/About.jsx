@@ -1,5 +1,6 @@
 import React from 'react';
 import '../About/about.css';
+import './AboutMedia.css'
 import NavBar from '../NavBar/Nav';
 import Footer from '../footer/Footer';
 import Hand_book from "../images/hand_book.jpg";

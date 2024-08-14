@@ -1,5 +1,6 @@
 import React from 'react';
 import './blog.css';
+import './BlogMedia.css';
 import NavBar from '../NavBar/Nav';
 import Footer from '../footer/Footer';
 import bg from '../images/one_book.jpg';

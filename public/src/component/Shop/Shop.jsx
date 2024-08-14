@@ -1,14 +1,14 @@
-import React from 'react';
-import './shop.css';
-import axios from 'axios';
+import React from "react";
+import "./shop.css";
+import "./ShopMedia.css";
+import axios from "axios";
 import { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 import chid from "../images/father_book.png";
-import NavBar from '../NavBar/Nav';
-import Footer from '../footer/Footer';
-
+import NavBar from "../NavBar/Nav";
+import Footer from "../footer/Footer";
 
 function Shop() {
   const [items, setItems] = useState([]);
@@ -44,10 +44,11 @@ function Shop() {
       // Check if the response indicates success
       if (response.data) {
         alert("Item added to cart successfully");
-        navigate('/checkout');
+        navigate("/checkout");
       } else {
         alert(
-          `Failed to add item to cart: ${response.data.message || "Unknown error"
+          `Failed to add item to cart: ${
+            response.data.message || "Unknown error"
           }`
         );
       }
@@ -56,18 +57,25 @@ function Shop() {
     }
   };
 
-
   return (
     <>
       <NavBar />
 
       {/* first */}
-      <section id='Shop'>
+      <section id="Shop">
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-12">
-              <h4 className='text-light text-center'><span>Home <span className='mx-3'><i class="bi bi-book fs-5 "></i></span>  Shop</span></h4>
-              <h2 className='text-center text-light'>SHOP</h2>
+              <h4 className="text-light text-center">
+                <span>
+                  Home{" "}
+                  <span className="mx-3">
+                    <i class="bi bi-book fs-5 "></i>
+                  </span>{" "}
+                  Shop
+                </span>
+              </h4>
+              <h2 className="text-center text-light">SHOP</h2>
             </div>
           </div>
         </div>
@@ -78,7 +86,11 @@ function Shop() {
         <div className="row text-center">
           <div className="Discover col-md-12">
             <h2>Discover new books</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec <br /> ullamcorper mattis, pulvinar dapibus leo.</p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
+              tellus, luctus nec <br /> ullamcorper mattis, pulvinar dapibus
+              leo.
+            </p>
           </div>
         </div>
       </div>
@@ -107,7 +119,6 @@ function Shop() {
                     "https://ldfs6814-8085.inc1.devtunnels.ms/book/upload/" +
                     item.url
                   }
-
                 />
                 <Card.Body>
                   <Card.Title>{item.title}</Card.Title>
@@ -120,16 +131,18 @@ function Shop() {
                       <u>${item.price}.00</u>
                     </span>
                   </Card.Text>
-                  <Button className="add_to_cart"
+                  <Button
+                    className="add_to_cart"
                     onClick={() => addToCart(item)}
-                  >Add to Cart</Button>
+                  >
+                    Add to Cart
+                  </Button>
                 </Card.Body>
               </Card>
             </div>
           ))}
         </div>
       </div>
-
 
       {/* Third Section */}
       <section className="mb-3" id="back_images">
@@ -167,10 +180,9 @@ function Shop() {
         </div>
       </section>
 
-
       <Footer />
     </>
-  )
+  );
 }
 
-export default Shop
+export default Shop;

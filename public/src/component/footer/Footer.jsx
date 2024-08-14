@@ -34,7 +34,7 @@ export default function Footer() {
                   <hr className="bg-secondary " style={{height:"2px"}} />
             </div>
           </div>
-          <div className="row mt-5 ">
+          <div className="row mt-5" id='story'>
             <div className="col-md-3 col-sm-6">
               <h4>Know More</h4>
               <ul className="list-unstyled">
@@ -50,7 +50,7 @@ export default function Footer() {
               </ul>
             </div>
 
-            <div className="col-md-3 col-sm-6">
+            <div className="col-md-3 col-sm-6" >
               <h4>Shop </h4>
               <ul className="list-unstyled">
                 <li>
@@ -65,7 +65,7 @@ export default function Footer() {
               </ul>
             </div>
 
-            <div className="col-md-3 col-sm-6">
+            <div className="col-md-3 col-sm-6"  >
               <h4>Contact</h4>
               <ul className="list-unstyled">
                 <li>

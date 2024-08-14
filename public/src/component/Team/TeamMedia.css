@@ -1,0 +1,116 @@
+@media (min-width:1200px) and (max-width:1440px) {}
+
+@media (min-width:992px) and (max-width:2299px) {
+
+    /* first */
+    #team {
+        height: 465px;
+    }
+
+    /* four */
+    .custom-img {
+        height: 400px;
+    }
+
+    #read_book {
+        margin: 0;
+    }
+
+    #comment {
+        margin: 0;
+        height: 150px;
+    }
+
+}
+
+@media (min-width:768px) and (max-width:992px) {
+
+    /* first */
+    #team {
+        height: 379px;
+    }
+
+    /* second */
+    .custom-img {
+        margin: 0px;
+        height: 331px;
+    }
+
+    /* four */
+    #comment,
+    #read_book {
+        margin: 0;
+    }
+
+
+
+
+}
+
+@media (min-width:576px) and (max-width:767px) {
+
+    /* first */
+    #team {
+        height: 350px;
+    }
+
+    /* second */
+    .custom-img {
+        margin-bottom: 10px;
+    }
+
+    /* third */
+
+    .icon {
+        display: flex;
+        gap: 2px;
+    }
+
+    .icon i {
+        font-size: 15px;
+    }
+
+    .overlay p {
+        font-size: 14px;
+    }
+
+    /* footer */
+    .icon li i {
+        width: 27px;
+        height: 27px;
+    }
+
+}
+
+@media (max-width:575px) {
+
+    /* first */
+    #team {
+        height: 359px;
+    }
+
+    #team h2 {
+        font-size: 35px;
+    }
+
+    .author_btn ,.btn_danger{
+        width: 131px;
+        font-size: 15px;
+    }
+
+    /* second */
+    .about_author h6 {
+        padding-top: 10px;
+    }
+
+    /* four */
+    #comment {
+        margin: 0;
+    }
+
+    /* footer */
+    footer .mail {
+        width: auto;
+    }
+
+}

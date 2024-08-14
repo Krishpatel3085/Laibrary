@@ -1,0 +1,130 @@
+@media (min-width:1200px) and (max-width:1440px) {
+
+    /* second */
+    .send_bar {
+        width: 267px;
+    }
+
+    .send_bar h4 {
+        font-size: 22px;
+    }
+
+    /* four */
+    iframe {
+        width: 550px;
+    }
+
+}
+
+@media (min-width:992px) and (max-width:1199px) {
+
+    /* second */
+    .send_bar {
+        width: 209px;
+        height: 214px;
+        padding: 29px 0px 32px 23px;
+    }
+
+    .send_bar h4 {
+        font-size: 20px;
+    }
+
+    .send_bar p {
+        font-size: 15px;
+    }
+
+    /* third */
+    iframe {
+        width: 480px;
+    }
+
+    .maping h2 {
+        font-size: 33px;
+    }
+
+}
+
+
+@media (min-width:768px) and (max-width:991px) {
+
+    /* third */
+    iframe {
+        width: 350px;
+    }
+
+    .maping h2 {
+        font-size: 23px;
+    }
+
+    .maping {
+        padding: 42px 14px;
+    }
+
+}
+
+
+@media (min-width:576px) and (max-width:767px) {
+
+    /* first */
+    #event {
+        height: 350px;
+    }
+
+    .upComing {
+        padding-top: 160px;
+    }
+
+
+    /* second */
+
+    .send_bar {
+        width: 237px;
+        height: 205px;
+    }
+
+    .send_bar h4 {
+        font-size: 18px;
+    }
+
+    .send_bar p {
+        font-size: 13px;
+    }
+
+    /* third */
+
+    iframe {
+        width: 535px;
+        padding: 20px;
+    }
+
+    .maping h2 {
+        font-size: 33px;
+    }
+
+}
+
+@media (max-width:575px) {
+
+    /* first */
+    #event {
+        height: 359px;
+    }
+
+    .upComing {
+        padding-top: 164px;
+    }
+
+    #event h2 {
+        font-size: 40px;
+    }
+
+    /* third */
+    iframe {
+        width: 330px;
+        padding: 20px;
+    }
+
+    .maping h2 {
+        font-size: 33px;
+    }
+}

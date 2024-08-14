@@ -1,0 +1,428 @@
+/* home page media*/
+@media (min-width: 1200px) and (max-width: 1440px) {
+  /* firs section */
+  .main_description {
+    padding: 150px 0 0 60px;
+  }
+
+  #pading_id {
+    padding: 38px 0px;
+  }
+
+  /* second */
+  .new_release {
+    padding: 46px 0 0 40px;
+  }
+
+  .Lorem {
+    width: auto;
+  }
+}
+
+/* Laptop */
+@media (min-width: 992px) and (max-width: 1199px) {
+  /* firs section */
+  .main-section {
+    height: 90vh;
+  }
+
+  .main_description {
+    padding: 113px 0 0 42px;
+  }
+
+  .description p {
+    font-size: 16px;
+  }
+
+  #pading_id {
+    padding: 59px 0px;
+  }
+
+  .description h1 {
+    font-size: 62px;
+  }
+
+  .delivery {
+    width: 222px;
+    height: 103px;
+    padding: 4px 4px;
+  }
+
+  .payment {
+    width: auto;
+    min-width: 200px;
+  }
+
+  /* second */
+  .new_release {
+    padding: 46px 0 0 40px;
+  }
+
+  .Lorem {
+    width: auto;
+  }
+
+  /* third */
+  .flash_sale {
+    padding: 50px 100px 50px 100px;
+  }
+
+  .flash_sale h2 {
+    font-size: 42px;
+    padding-bottom: 14px;
+  }
+
+  .next h3 {
+    font-size: 30px;
+  }
+
+  /* four */
+  .about_author h2,
+  .content h2 {
+    font-size: 32px;
+  }
+
+  /* six*/
+  .lectus {
+    padding: 120px 13px;
+  }
+
+  .lectus p {
+    font-size: 17px;
+  }
+
+  /* eight */
+  #review_img {
+    height: 440px;
+  }
+}
+
+/* tablet */
+@media (min-width: 768px) and (max-width: 991px) {
+  /* firs section */
+  .main-section {
+    height: auto;
+  }
+
+  .main_description {
+    padding: 113px 0 0 26px;
+  }
+
+  .description h1 {
+    font-size: 54px;
+    line-height: 57px;
+  }
+
+  .description p {
+    font-size: 15px;
+  }
+
+  .icon_bar img {
+    margin: 0px;
+  }
+
+  #pading_id {
+    padding: 28px 0px;
+  }
+
+  /* second */
+  .new_release {
+    padding: 30px 0 0 35px;
+  }
+
+  .Lorem {
+    width: auto;
+  }
+
+  .new_release h2 {
+    font-size: 29px;
+  }
+
+  .new_release p {
+    font-size: 16px;
+  }
+
+  /* third */
+  .flash_sale {
+    padding: 50px 100px 50px 100px;
+  }
+
+  .flash_sale h2 {
+    font-size: 33px;
+    padding-bottom: 14px;
+  }
+
+  .next h3 {
+    font-size: 30px;
+  }
+
+  .card_sell_img {
+    height: 200px;
+  }
+
+  /* four */
+  .about_author h2 {
+    font-size: 26px;
+  }
+
+  .about_author p {
+    font-size: 15px;
+  }
+
+  .about_author span {
+    font-size: 15px;
+  }
+
+  .custom-img {
+    height: 371px;
+  }
+
+  /* five */
+  .content h2 {
+    font-size: 28px;
+  }
+
+  .content p,
+  .lectus p {
+    font-size: 13px;
+  }
+
+  .lectus h3 {
+    font-size: 40px;
+  }
+
+  #comment {
+    width: 110px;
+    height: 130px;
+  }
+
+  .sliders p {
+    font-size: 15px;
+  }
+
+  #review_img {
+    height: 455px;
+  }
+}
+
+/* mobile */
+@media (min-width: 576px) and (max-width: 767px) {
+  /* firs section */
+  .main-section {
+    height: auto;
+  }
+
+  .main_description {
+    padding: 112px 0 0 18px;
+  }
+
+  .description h1 {
+    font-size: 43px;
+    line-height: 50px;
+  }
+
+  .description p {
+    font-size: 17px;
+  }
+
+  #pading_id {
+    padding: 10px 0px;
+  }
+
+  /* second */
+  .Lorem {
+    width: auto;
+  }
+
+  .new_release {
+    padding: 50px 0 0 99px;
+  }
+
+  .first_img,
+  .second_img,
+  .third_img {
+    margin-bottom: 23px;
+  }
+
+  .next h3 {
+    font-size: 19px;
+  }
+
+  /* third */
+  .flash_sale {
+    padding: 56px 0px 50px 0px;
+  }
+
+  .flash_sale h2 {
+    padding-bottom: 8px;
+    font-size: 29px;
+  }
+
+  /* forth */
+  .about_author h2 {
+    font-size: 33px;
+  }
+
+  .author_btn {
+    margin-bottom: 10px;
+  }
+
+  .about_author p {
+    font-size: 17px;
+  }
+
+  /* five */
+  .content h2 {
+    padding-top: 27px;
+    font-size: 35px;
+  }
+
+  .content i {
+    font-size: 30px;
+  }
+
+  .content span {
+    font-size: 22px;
+  }
+
+  .content p {
+    font-size: 16px;
+  }
+
+  /* six */
+  .lectus {
+    padding: 100px 0px 0;
+  }
+
+  /* seven */
+  .continus {
+    padding-bottom: 20px;
+  }
+
+  /* eight */
+  #review_img {
+    padding-bottom: 25px;
+  }
+
+  /* footer */
+  .list-unstyled {
+    padding-right: 100px;
+  }
+}
+
+@media (max-width: 575px) {
+  .main-section {
+    height: auto;
+  }
+
+  .main_description {
+    padding: 100px 0 0 10px;
+  }
+
+  #pading_id {
+    padding: 25px 0px;
+  }
+
+  .go-to-button {
+    margin-top: 5px;
+  }
+
+  .description h1 {
+    font-size: 46px;
+    line-height: 49px;
+  }
+  .description {
+    padding: 79px 7px;
+  }
+
+  .description p {
+    font-size: 15px;
+  }
+
+  /* second */
+  .Lorem {
+    width: auto;
+  }
+
+  .first_img,
+  .second_img,
+  .third_img {
+    margin-bottom: 23px;
+  }
+
+  .next h3,
+  .next span a {
+    font-size: 19px;
+  }
+
+  /* third */
+
+  .flash_sale {
+    padding: 56px 0px 50px 0px;
+  }
+
+  .flash_sale h2 {
+    padding-bottom: 8px;
+    font-size: 29px;
+  }
+  #text_new {
+    margin: auto;
+  }
+  .card_sell_img {
+    margin: auto;
+  }
+
+  /* four */
+  .about_author h2 {
+    font-size: 30px;
+  }
+
+  .author_btn {
+    margin-bottom: 10px;
+  }
+
+  .about_author p {
+    font-size: 17px;
+  }
+
+  /* five */
+  .content h2 {
+    padding: 27px 0px 10px 0px;
+    font-size: 32px;
+  }
+
+  .content i {
+    font-size: 30px;
+  }
+
+  .content span {
+    font-size: 22px;
+  }
+
+  .content p {
+    font-size: 16px;
+  }
+
+  /* six */
+  .lectus {
+    padding: 100px 0px 0;
+  }
+
+  /* seven */
+  .continus {
+    padding-bottom: 20px;
+  }
+
+  /* eight */
+  #review_img {
+    padding-bottom: 25px;
+  }
+
+  /* footer */
+  #story {
+    text-align: center;
+  }
+  footer .mail {
+    width: auto;
+  }
+}
