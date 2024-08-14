@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./home.css";
-import "../MediaQurey/media.css";
+import './HomeMedia.css'
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import service from "../images/24-hrs_service-1.png";
@@ -237,7 +237,7 @@ function Home() {
             </span>
           </div>
         </div>
-        <div className="row pb-4">
+        <div className="row pb-4" id="text_new">
           {items.map((item) => (
             <div className="col-md-3 col-lg-3" key={item._id}>
               <Card
@@ -257,7 +257,7 @@ function Home() {
                   <Card.Title>{item.title}</Card.Title>
                   <Card.Title>{item.author}</Card.Title>
                   <Card.Text>
-                    <span className="text-dark fs-6">
+                    <span className=" text-dark fs-6">
                       <strike>${item.price2}.00</strike>
                     </span>
                     <span className="text-danger fw-bold fs-5">

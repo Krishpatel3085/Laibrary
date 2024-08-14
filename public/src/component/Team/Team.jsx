@@ -1,5 +1,6 @@
 import React from 'react';
 import './team.css';
+import './TeamMedia.css';
 import NavBar from '../NavBar/Nav';
 import Footer from '../footer/Footer';
 import book3 from '../images/img_7.jpg';

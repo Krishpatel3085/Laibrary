@@ -1,7 +1,8 @@
 import React from 'react'
 import './event.css';
+import './EventMedia.css';
 import NavBar from '../NavBar/Nav';
-import Footer from '../footer/Footer'
+import Footer from '../footer/Footer';
 
 function Event() {
   return (
