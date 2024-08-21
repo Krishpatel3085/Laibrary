@@ -24,7 +24,7 @@ function NavBar() {
     navigate("/checkout");
   };
   const gotologout = () => {
-    navigate("/ ");
+    navigate("/login ");
   };
   useEffect(() => {
     axios
