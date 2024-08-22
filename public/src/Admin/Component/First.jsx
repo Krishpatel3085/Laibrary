@@ -14,6 +14,11 @@ function First() {
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
     $("#sidebar").toggleClass("sidebar-closed");
+    $(".maina").toggleClass("maina-big");
+    $("#AdminNav ").toggleClass("AdminNav-toggle");
+    $(".book-card").toggleClass("book-card-toggle");
+    $(".Boxs").toggleClass("boxs-toggle");
+    $(".transection").toggleClass("transection-toggle");
   };
 
   return (

@@ -121,7 +121,7 @@ export default function Book() {
                   <input type="file" onChange={handleFileChange} />
                 </p>
                 <div className="button-group d-flex gap-2">
-                  <button onClick={updateItem}>Update</button>
+                  <button className='bg-primary' onClick={updateItem}>Update</button>
                   <button onClick={() => setEditedBook(null)}>Cancel</button>
                 </div>
               </div>
@@ -166,8 +166,8 @@ export default function Book() {
                       </p>
                       <div className="button-group d-flex gap-2">
 
-                        <button onClick={() => editItem(item)}>Edit</button>
-                        <button onClick={() => deleteItem(item._id)} className="bg-danger text-white">Delete</button>
+                        <button className='btn bg-warning' onClick={() => editItem(item)}>Edit</button>
+                        <button onClick={() => deleteItem(item._id)} className="btn bg-danger">Delete</button>
                       </div>
                     </div>
                   </div>
