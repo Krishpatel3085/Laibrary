@@ -9,7 +9,7 @@ export default function AdminNav() {
   return (
     <>
       <div className="topbar">
-        <Navbar expand="lg" className="bg-body-tertiary ">
+        <Navbar expand="lg" className="bg-body-tertiary position-fixed" id='AdminNav'>
           <Container fluid>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">

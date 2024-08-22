@@ -15,7 +15,7 @@ export default function Dashboard() {
           <div className="col-md-3 Boxs">
             <div className="row p-3">
               <div className="col-md-8 text-start">
-                <i class="bi bi-envelope"></i>
+                <i class="bi bi-envelope" id ='dash'></i>
                 <h5>12,361</h5>
                 <p>Emails Sent</p>
               </div>
@@ -31,7 +31,7 @@ export default function Dashboard() {
           <div className="col-md-3 Boxs">
             <div className="row p-3">
               <div className="col-md-8 text-start">
-              <i class="bi bi-laptop-fill"></i>            
+              <i class="bi bi-laptop-fill" id ='dash'></i>            
                 <h5>431,225</h5>
                 <p>Sales Obtained</p>
               </div>
@@ -47,7 +47,7 @@ export default function Dashboard() {
           <div className="col-md-3 Boxs">
             <div className="row p-3">
               <div className="col-md-8 text-start">
-                <i class="bi bi-person-plus-fill"></i>                  
+                <i class="bi bi-person-plus-fill" id ='dash'></i>                  
                 <h5>32,441</h5>
                 <p>New Clients</p>
               </div>
@@ -63,7 +63,7 @@ export default function Dashboard() {
           <div className="col-md-3 Boxs">
             <div className="row p-3">
               <div className="col-md-8 text-start">
-                <i class="bi bi-stoplights-fill"></i>
+                <i class="bi bi-stoplights-fill" id ='dash'></i>
                 <h5>1,325,134</h5>
                 <p>Traffic Received</p>
               </div>
@@ -101,7 +101,7 @@ export default function Dashboard() {
               />
             </div>
           </div>
-          <div className="col-md-5">
+          <div className="col-md-5 p-0 m-0">
             <div className="transection p-2">
 
               <h5>Recent Transactions</h5>

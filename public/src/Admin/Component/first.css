@@ -32,7 +32,8 @@
 }
 
 .maina {
-  width: 86vw;
+  min-width: 86vw;
+  width: 100%;
   height: 100vh;
   overflow-x: hidden;
 }
@@ -42,7 +43,7 @@
 
 .Boxs {
   margin-inline-start: 10px;
-  width: 343px;
+  width: 398px;
   background-color: #1c2437;
 }
 
@@ -69,7 +70,7 @@
   border: none;
 }
 .transection {
-  width: 460px;
+  width: 666px;
   height: 415px;
 }
 .transection tr td button {
@@ -79,6 +80,10 @@
   padding: 4px;
   font-size: 15px;
   border-radius: 5px;
+}
+
+#dash {
+  font-size: 24px;
 }
 /* ==================== 
       Form CSS
@@ -93,7 +98,6 @@
   color: #6c7293;
 }
 
-
 .form Button {
   background-color: #0d614a;
   border: none;
@@ -101,7 +105,7 @@
 
 .BookForm input {
   background-color: #1c2437;
- color: black;
+  color: black;
   border: none;
 }
 
@@ -115,7 +119,7 @@
  =====================*/
 
 .book-card {
-  width: 700px;
+  width: 792px;
   background-color: #1c2437;
 }
 
@@ -175,8 +179,6 @@ tfoot {
   color: white;
   background-color: #1c2437;
 }
-
-
 
 /* =======================
          Admin Nav Css
@@ -263,4 +265,31 @@ aside button span i {
 .sidebar-closed .profile,
 .sidebar-closed .menus p {
   display: none; /* Hide these elements when the sidebar is closed */
+}
+
+#AdminNav {
+  width: 88.5%;
+}
+
+/* main Admin toggle */
+.maina-big {
+  width: 100%;
+}
+.AdminNav-toggle {
+  min-width: 96%;
+}
+
+.book-card-toggle {
+  width: 872px;
+  transition: all linear 0.4s;
+}
+
+.boxs-toggle {
+  transition: all linear 0.4s;
+  width: 431px;
+}
+
+.transection-toggle {
+  width: 714px;
+  transition: all linear 0.4s;
 }
