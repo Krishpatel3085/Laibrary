@@ -9,6 +9,9 @@ export default function Main() {
     navigate("/login");
   };
 
+  const gotoAdmin = () => {
+    navigate("/first");
+  };
   return (
     <>
       <div className="section main">
@@ -23,7 +26,7 @@ export default function Main() {
               </div>
             </div>
             <div className="col-md-6 d-flex justify-content-center">
-              <div className="one">
+              <div className="one" onClick={gotoAdmin}>
                 <h2>
                   <i className="bi bi-person-plus-fill"></i> Admin
                 </h2>

@@ -1,59 +1,65 @@
-import React, { useState } from "react";
+import React from 'react'
+import axios from "axios";
+import  { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import axios from "axios";
+import '../Component/first.css'
+export default function BookForm() {
 
-export default function FormP() {
-  const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
-  const [year, setYear] = useState('');
-  const [language, setLanguage] = useState('');
-  const [isbin, setIsbin] = useState('');
-  const [description, setDescription] = useState('');
+  const [title, setTitle] = useState("");
+  const [author, setAuthor] = useState("");
+  const [price, setPrice] = useState("");
+  const [price2, setPrice2] = useState("");
+  const [language, setLanguage] = useState("");
+  const [isbin, setIsbin] = useState("");
+  const [description, setDescription] = useState("");
   const [file, setFile] = useState(null);
 
   const handleAddData = async (e) => {
     e.preventDefault();
 
     const formData = new FormData();
-    formData.append('title', title);
-    formData.append('author', author);
-    formData.append('year', year);
-    formData.append('language', language);
-    formData.append('isbin', isbin);
-    formData.append('description', description);
-    formData.append('url', file);
-
+    formData.append("title", title);
+    formData.append("author", author);
+    formData.append("price", price);
+    formData.append("price2", price2);
+    formData.append("language", language);
+    formData.append("isbin", isbin);
+    formData.append("description", description);
+    formData.append("url", file);
 
     try {
-      await axios.post("https://ldfs6814-8085.inc1.devtunnels.ms", formData, {
+      await axios.post("https://ldfs6814-8085.inc1.devtunnels.ms/book/createbook", formData, {
         headers: {
-          'Content-Type': 'multipart/form-data'
-        }
+          "Content-Type": "multipart/form-data",
+        },
       });
-      setTitle('');
-      setAuthor('');
-      setYear('');
-      setLanguage('');
-      setIsbin('');
-      setDescription('');
+      setTitle("");
+      setAuthor("");
+      setPrice("");
+      setPrice2("");
+      setLanguage("");
+      setIsbin("");
+      setDescription("");
       setFile(null);
     } catch (error) {
       console.error("Error:", error);
     }
-  }
+  };
 
   return (
-    <>
-      <h1>Form</h1>
-      <Form onSubmit={handleAddData} className="m-0 p-0">
+    <div className="BookForm text-start">
+
+    <h1 className='text-start ms-4 mt-2'>Book Form</h1>
+    <p className='text-start ms-4'>Welcome to your Book Form</p>
+
+    <Form onSubmit={handleAddData} className="m-0 py-4 form m-4 ">
         <Form.Group className="mb-3" controlId="formBasicBookName">
           <Form.Label>Book Title</Form.Label>
           <Form.Control
             type="text"
             placeholder="Enter Title"
-            className="text-light"
-            style={{ backgroundColor: "#2a3038" }}
+            className="text-dark"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
@@ -63,23 +69,30 @@ export default function FormP() {
           <Form.Label>Book Author</Form.Label>
           <Form.Control
             type="text"
-            className="text-light"
+            className="text-dark"
             placeholder="Enter Book Author"
-            style={{ backgroundColor: "#2a3038" }}
             value={author}
             onChange={(e) => setAuthor(e.target.value)}
           />
         </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formBasicBookYear">
-          <Form.Label>Book Publication Year</Form.Label>
+        <Form.Group className="mb-3" controlId="formBasicBookYear2">
+          <Form.Label>Book Price2</Form.Label>
           <Form.Control
             type="number"
-            className="text-light"
-            placeholder="Enter Publication Year"
-            style={{ backgroundColor: "#2a3038" }}
-            value={year}
-            onChange={(e) => setYear(e.target.value)}
+            className="text-dark"
+            placeholder="Enter  Book Price2"
+            value={price2}
+            onChange={(e) => setPrice2(e.target.value)}
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicBookYear">
+          <Form.Label>Book Price</Form.Label>
+          <Form.Control
+            type="number"
+            className="text-dark"
+            placeholder="Enter  Book Price"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
           />
         </Form.Group>
 
@@ -87,9 +100,8 @@ export default function FormP() {
           <Form.Label>Book ISBIN No</Form.Label>
           <Form.Control
             type="number"
-            className="text-light"
+            className="text-dark"
             placeholder="Enter ISBIN Number"
-            style={{ backgroundColor: "#2a3038" }}
             value={isbin}
             onChange={(e) => setIsbin(e.target.value)}
           />
@@ -99,9 +111,8 @@ export default function FormP() {
           <Form.Label>Book Language</Form.Label>
           <Form.Control
             type="text"
-            className="text-light"
+            className="text-dark"
             placeholder="Enter Language"
-            style={{ backgroundColor: "#2a3038" }}
             value={language}
             onChange={(e) => setLanguage(e.target.value)}
           />
@@ -112,9 +123,8 @@ export default function FormP() {
           <Form.Control
             as="textarea"
             rows={3}
-            className="text-light"
+            className="text-dark"
             placeholder="Enter Description"
-            style={{ backgroundColor: "#2a3038" }}
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
@@ -125,16 +135,14 @@ export default function FormP() {
           <Form.Control
             accept="image/*"
             type="file"
-            // value={null}
-            style={{ backgroundColor: "#2a3038" }}
             onChange={(e) => setFile(e.target.files[0])}
           />
         </Form.Group>
 
         <Button variant="primary" type="submit">
-          Submit
+          Add Book
         </Button>
       </Form>
-    </>
-  );
+  </div>
+  )
 }

@@ -238,44 +238,44 @@ function Home() {
           </div>
         </div>
         <div className="row pb-4" id="text_new">
-          {items.map((item) => (
-            <div className="col-md-3 col-lg-3" key={item._id}>
-              <Card
-                style={{ width: "auto", fontFamily: "lora" }}
-                className="api_card border-0 text-center"
-              >
-                <Card.Img
-                  variant="top"
-                  className="card_sell_img img-fluid"
-                  onClick={() => handleImageClick(item._id)}
-                  src={
-                    "https://ldfs6814-8085.inc1.devtunnels.ms/book/upload/" +
-                    item.url
-                  }
-                />
-                <Card.Body>
-                  <Card.Title>{item.title}</Card.Title>
-                  <Card.Title>{item.author}</Card.Title>
-                  <Card.Text>
-                    <span className="font_extra me-1 text-dark fs-6">
-                      <strike>${item.price2}.00</strike>
-                    </span>
-                    <span className="font_extra text-danger fw-bold fs-5">
-                      <u>${item.price}.00</u>
-                    </span>
-                  </Card.Text>
-                  <Button
-                    className="add_to_cart"
-                    onClick={() => addToCart(item)}
+          {items && items.length > 0
+            ? items.map((item) => (
+                <div className="col-md-3 col-lg-3" key={item._id}>
+                  <Card
+                    style={{ width: "auto", fontFamily: "Lora" }}
+                    className="api_card border-0 text-center"
                   >
-                    Add to Cart
-                  </Button>
-                </Card.Body>
-              </Card>
-            </div>
-          ))}
+                    <Card.Img
+                      variant="top"
+                      className="card_sell_img img-fluid"
+                      onClick={() => handleImageClick(item._id)}
+                      src={`https://ldfs6814-8085.inc1.devtunnels.ms/book/upload/${item.url}`}
+                    />
+                    <Card.Body>
+                      <Card.Title>{item.title}</Card.Title>
+                      <Card.Title>{item.author}</Card.Title>
+                      <Card.Text>
+                        <span className="font_extra me-1 text-dark fs-6">
+                          <strike>${item.price2}.00</strike>
+                        </span>
+                        <span className="font_extra text-danger fw-bold fs-5">
+                          <u>${item.price}.00</u>
+                        </span>
+                      </Card.Text>
+                      <Button
+                        className="add_to_cart"
+                        onClick={() => addToCart(item)}
+                      >
+                        Add to Cart
+                      </Button>
+                    </Card.Body>
+                  </Card>
+                </div>
+              ))
+            : <h4><b>Loading Books .....</b></h4>}
         </div>
       </div>
+
 
       {/* // third section */}
       <div className="container">
