@@ -21,6 +21,8 @@ function First() {
     $(".transection").toggleClass("transection-toggle");
   };
 
+  
+
   return (
     <>
       <div class="d-flex align-items-start">
@@ -117,7 +119,6 @@ function First() {
           </div>
         </aside>
         <div class="tab-content maina" id="v-pills-tabContent">
-
           <AdminNav/>
           <div
             class="tab-pane fade show active"

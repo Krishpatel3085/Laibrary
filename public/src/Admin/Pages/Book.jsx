@@ -141,7 +141,7 @@ export default function Book() {
         {items.map((item, index) => {
           return (
             <>
-              <div className="card book-card p-3   text-white ">
+              <div className="card book-card p-3 ">
                 <div className="row no-gutters">
                   <div className="col-md-4">
                     <img src={'https://ldfs6814-8085.inc1.devtunnels.ms/book/upload/' + item.url} alt='img-upload' className="img-fluid" />

@@ -107,10 +107,10 @@ export default function Dashboard() {
               <h5>Recent Transactions</h5>
 
 
-              <Table  className='mt-5' >
+              <Table  className='mt-5 table' >
 
-                <tbody className='text-white '>
-                  <tr>
+                <tbody >
+                  <tr className='tablez'>
                     <td>01e4dsa
                       <p>joh ndoe</p>
                     </td>

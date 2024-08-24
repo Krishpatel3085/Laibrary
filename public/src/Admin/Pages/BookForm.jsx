@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from "axios";
-import  { useState } from "react";
+import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import '../Component/first.css'
@@ -50,16 +50,16 @@ export default function BookForm() {
   return (
     <div className="BookForm text-start">
 
-    <h1 className='text-start ms-4 mt-2'>Book Form</h1>
-    <p className='text-start ms-4'>Welcome to your Book Form</p>
+      <h1 className='text-start ms-4 mt-2'>Book Form</h1>
+      <p className='text-start ms-4'>Welcome to your Book Form</p>
 
-    <Form onSubmit={handleAddData} className="m-0 py-4 form m-4 ">
-        <Form.Group className="mb-3" controlId="formBasicBookName">
+      <Form onSubmit={handleAddData} className="m-0 py-4 form m-4 ">
+        <Form.Group className="mb-3 " controlId="formBasicBookName">
           <Form.Label>Book Title</Form.Label>
           <Form.Control
             type="text"
             placeholder="Enter Title"
-            className="text-dark"
+            className="text-dark inputF"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
@@ -69,7 +69,7 @@ export default function BookForm() {
           <Form.Label>Book Author</Form.Label>
           <Form.Control
             type="text"
-            className="text-dark"
+            className="text-dark inputF"
             placeholder="Enter Book Author"
             value={author}
             onChange={(e) => setAuthor(e.target.value)}
@@ -79,7 +79,7 @@ export default function BookForm() {
           <Form.Label>Book Price2</Form.Label>
           <Form.Control
             type="number"
-            className="text-dark"
+            className="text-dark inputF"
             placeholder="Enter  Book Price2"
             value={price2}
             onChange={(e) => setPrice2(e.target.value)}
@@ -89,7 +89,7 @@ export default function BookForm() {
           <Form.Label>Book Price</Form.Label>
           <Form.Control
             type="number"
-            className="text-dark"
+            className="text-dark inputF"
             placeholder="Enter  Book Price"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
@@ -100,7 +100,7 @@ export default function BookForm() {
           <Form.Label>Book ISBIN No</Form.Label>
           <Form.Control
             type="number"
-            className="text-dark"
+            className="text-dark inputF"
             placeholder="Enter ISBIN Number"
             value={isbin}
             onChange={(e) => setIsbin(e.target.value)}
@@ -111,7 +111,7 @@ export default function BookForm() {
           <Form.Label>Book Language</Form.Label>
           <Form.Control
             type="text"
-            className="text-dark"
+            className="text-dark inputF"
             placeholder="Enter Language"
             value={language}
             onChange={(e) => setLanguage(e.target.value)}
@@ -123,7 +123,7 @@ export default function BookForm() {
           <Form.Control
             as="textarea"
             rows={3}
-            className="text-dark"
+            className="text-dark inputF"
             placeholder="Enter Description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
@@ -133,6 +133,7 @@ export default function BookForm() {
         <Form.Group controlId="formFile" className="mb-3">
           <Form.Label>Book Image</Form.Label>
           <Form.Control
+            className='inputF'
             accept="image/*"
             type="file"
             onChange={(e) => setFile(e.target.files[0])}
@@ -143,6 +144,6 @@ export default function BookForm() {
           Add Book
         </Button>
       </Form>
-  </div>
+    </div>
   )
 }
