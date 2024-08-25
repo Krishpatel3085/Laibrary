@@ -10,10 +10,10 @@ app.use(cors());
 
 const createUser = async (req, res) => {
     try {
-        const { firstname, lastname, email, password, } = req.body;
+        const { firstname, lastname, email, password, username } = req.body;
 
         // Validate input data
-        if (!firstname || !lastname || !email || !password) {
+        if (!firstname || !lastname || !email || !password || !username) {
             return res.status(400).json({ message: "All fields are required" });
         }
 
@@ -29,7 +29,7 @@ const createUser = async (req, res) => {
             lastname,
             email,
             password,
-            // gender
+            username
         });
 
         res.status(201).json({ message: "User created successfully" });

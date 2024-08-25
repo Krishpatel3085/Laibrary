@@ -14,10 +14,9 @@ const Users = new mongoose.Schema({
     password: {
         type: String,
     },
-    // gender :{
-    //     type:String,
-    //     enum:['Male', 'Female', 'Other']
-    // }
+    username :{
+        type:String
+    }
 })
 
 module.exports = mongoose.model('Users', Users)
