@@ -8,6 +8,7 @@ import Cookies from 'js-cookie';
 
 function Login() {
   const [email, setEmail] = useState('');
+  const [userName, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
@@ -16,10 +17,12 @@ function Login() {
     try {
       const response = await axios.post('https://ldfs6814-8085.inc1.devtunnels.ms/user/login', {
         email,
+        userName,
         password,
       });
       if (response.data) {
         Cookies.set('userEmail', email, { expires: 7 });
+        Cookies.set('username', userName, { expires: 7 });
         alert('Login successfully 👍');
         navigate('/home');  
       }
@@ -56,6 +59,11 @@ function Login() {
                         <label className="form-label" htmlFor="form2Example17">Email address</label>
                         <input  type="email"  id="form2Example17" className="form-control form-control-lg" placeholder="Enter your Email"
                           value={email}  onChange={(e) => setEmail(e.target.value)} required />
+                      </div>
+                      <div className="form-outline mb-4">
+                        <label className="form-label" htmlFor="form2Example17">UserName</label>
+                        <input  type="username"  id="form2Example17" className="form-control form-control-lg" placeholder="Enter your Username"
+                          value={userName}  onChange={(e) => setUsername(e.target.value)} required />
                       </div>
                       <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example27">Password</label>

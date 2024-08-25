@@ -8,7 +8,7 @@ function Registration() {
   const [lastname, setLastname] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [gender, setGender] = useState('');
+  const [username, setUsername] = useState('');
 
   const CreateUser = async (e) => {
     e.preventDefault();
@@ -18,7 +18,7 @@ function Registration() {
     formData.append('lastname', lastname);
     formData.append('email', email);
     formData.append('password', password);
-    formData.append('gender', gender);
+    formData.append('username', username);
 
     try {
       await axios.post("https://ldfs6814-8085.inc1.devtunnels.ms/user/register ", formData, {
@@ -31,7 +31,7 @@ function Registration() {
       setLastname('');
       setEmail('');
       setPassword('');
-      setGender('');
+      setUsername('');
 
     } catch (error) {
       console.error("Error:", error);
@@ -138,49 +138,19 @@ function Registration() {
                               />
                             </div>
                           </div>
-                          <div className="d-md-flex justify-content-start align-items-center mb-4 py-2">
-                            <h6 className="mb-0 me-4">Gender: </h6>
-                            <div className="form-check form-check-inline mb-0 me-4">
-                              <input
-                                className="form-check-input"
-                                type="radio"
-                                name="inlineRadioOptions"
-                                id="femaleGender"
-                                value="Female"
-                                checked={gender === 'Female'}
-                                onChange={(e) => setGender(e.target.value)}
-                              />
-                              <label className="form-check-label" htmlFor="femaleGender">
-                                Female
+                          <div className="col-md-12">
+                            <div data-mdb-input-init="" className="form-outline mb-4">
+                              <label className="form-label" htmlFor="inputPassword3">
+                                UserName
                               </label>
-                            </div>
-                            <div className="form-check form-check-inline mb-0 me-4">
                               <input
-                                className="form-check-input"
-                                type="radio"
-                                name="inlineRadioOptions"
-                                id="maleGender"
-                                value="Male"
-                                checked={gender === 'Male'}
-                                onChange={(e) => setGender(e.target.value)}
+                                type="text"
+                                id="form3Example97"
+                                className="form-control form-control-lg"
+                                placeholder='Create User Name'
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
                               />
-                              <label className="form-check-label" htmlFor="maleGender">
-                                Male
-                              </label>
-                            </div>
-                            <div className="form-check form-check-inline mb-0">
-                              <input
-                                className="form-check-input"
-                                type="radio"
-                                name="inlineRadioOptions"
-                                id="otherGender"
-                                value="Other"
-                                checked={gender === 'Other'}
-                                onChange={(e) => setGender(e.target.value)}
-                              />
-                              <label className="form-check-label" htmlFor="otherGender">
-                                Other
-                              </label>
                             </div>
                           </div>
                           <button
@@ -192,7 +162,7 @@ function Registration() {
                             Submit form
                           </button>
 
-                          <h6 className='pt-3 text-center'>Already have an account? <a href="/">Sing in</a></h6>
+                          <h6 className='pt-3 text-center'>Already have an account? <a href="/login">Sing in</a></h6>
 
                         </div>
                       </form>
