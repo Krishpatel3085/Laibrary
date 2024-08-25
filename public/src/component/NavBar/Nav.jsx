@@ -31,9 +31,9 @@ function NavBar() {
       .get("https://ldfs6814-8085.inc1.devtunnels.ms/user/get")
       .then((response) => {
         setUser(response.data.data);
-        const userEmail = Cookies.get("userEmail");
-        setUser(userEmail);
-        console.log(userEmail);
+        const userName = Cookies.get("username");
+        setUser(userName);
+        console.log(userName);
       })
       .catch((error) => {
         console.error("There was an error fetching the data!", error);
