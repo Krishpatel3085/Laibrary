@@ -9,22 +9,21 @@ app.use(cors());
 
 
 const checkout = async (req, res) => {
-    const { title, author, quantity, price, imageUrl } = req.body;
+    const { title, author, quantity, price, imageUrl , username} = req.body;
     const totalAmount = quantity * price; // Calculate total amount based on quantity and price
 
     try {
         // Check if the order already exists
-        const existingOrder = await Order.findOne({ title, author });
+        const existingOrder = await Order.findOne({ title, author, username});
 
         if (existingOrder) {
             existingOrder.quantity += quantity;
             existingOrder.totalAmount = existingOrder.quantity * price;
-
             await existingOrder.save();
             res.status(200).json({ message: 'Order updated successfully', order: existingOrder });
         } else {
 
-            const newOrder = await Order.create({ title, author, quantity, price, totalAmount, imageUrl });
+            const newOrder = await Order.create({ title, author, quantity, price, totalAmount, imageUrl  , username});
             res.status(201).json({ message: 'Order processed successfully', order: newOrder });
         }
     } catch (error) {
