@@ -29,6 +29,7 @@ function Login() {
     } catch (error) {
       alert(error.response?.data?.message || 'User Not Found or Invalid Credentials 👎');
       console.error("Login error:", error.response?.data);
+      navigate('/')
     }
   };
 
