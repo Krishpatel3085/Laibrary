@@ -13,7 +13,7 @@ import Shop from "./component/Shop/Shop.jsx";
 import Registration from "./component/User/Registration.jsx";
 import Main from "./component/Main/main.jsx";
 import First from "./Admin/Component/First.jsx";
-
+import PrivateRoute from "./component/User/PrivetRoute.jsx"; // Import the PrivateRoute component
 
 function App() {
   return (
@@ -22,16 +22,20 @@ function App() {
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<Login />} />
         <Route path="/registration" element={<Registration />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/event" element={<Event />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/team" element={<Team />} />
-        <Route path="/shop" element={<Shop />} />
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="/details/:_id" element={<Details />} />
-        <Route path="/first" element={<First />} />
+
+        {/* Protected Routes */}
+        <Route element={<PrivateRoute />}>
+          <Route path="/home" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/event" element={<Event />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/team" element={<Team />} />
+          <Route path="/shop" element={<Shop />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/details/:_id" element={<Details />} />
+          <Route path="/first" element={<First />} />
+        </Route>
       </Routes>
     </>
   );
