@@ -30,7 +30,7 @@ export default function User() {
             <tr>
               <th>#</th>
               <th>Email</th>
-              <th>Gender</th>
+              <th>UserName</th>
               <th>Password</th>
             </tr>
           </thead>
@@ -40,7 +40,7 @@ export default function User() {
                 <tr>
                   <td>{index + 1}</td>
                   <td>{item.email}</td>
-                  <td>{item.gender}</td>
+                  <td>{item.username}</td>
                   <td>{item.password}</td>
                 </tr>
 
