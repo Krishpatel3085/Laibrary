@@ -33,8 +33,11 @@ function Registration() {
       setPassword('');
       setUsername('');
 
+      alert("Ragistration Success")
     } catch (error) {
       console.error("Error:", error);
+      alert("user alrady exist")
+
     }
   }
 

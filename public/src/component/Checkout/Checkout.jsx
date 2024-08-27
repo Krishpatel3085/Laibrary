@@ -1,36 +1,48 @@
 import React, { useState, useEffect } from "react";
-// import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import NavBar from "../NavBar/Nav";
 import Footer from "../footer/Footer";
 import Table from "react-bootstrap/Table";
 import "./checkout.css";
+import Cookies from "js-cookie";
 
 function Checkout() {
   const [cart, setCart] = useState([]);
   const [gtotal, setGtotal] = useState(0);
-  // const navigate = useNavigate();
 
   useEffect(() => {
-    // Fetch cart data from the backend
     const fetchCartData = async () => {
+      const userName = Cookies.get("username");
+
+      if (!userName) {
+        alert("No user is logged in");
+        return;
+      }
+
       try {
         const response = await axios.get(
-          "https://ldfs6814-8085.inc1.devtunnels.ms/checkout/getorder"
+          `https://ldfs6814-8085.inc1.devtunnels.ms/checkout/getorder`,
+          {
+            params: { username: userName } // Pass username as query parameter
+          }
         );
 
         console.log(response.data);
-
+        
         const fetchedData = response.data || [];
 
-        const mergedCart = fetchedData.reduce((acc, item) => {
+        // Filter items by username (if needed)
+        const filteredData = fetchedData.filter(item => item.username === userName);
+
+        // Merge cart items with the same title
+        const mergedCart = filteredData.reduce((acc, item) => {
           const existingItem = acc.find((i) => i.title === item.title);
 
           if (existingItem) {
             existingItem.quantity += item.quantity;
             existingItem.subtotal = existingItem.price * existingItem.quantity;
           } else {
-            item.subtotal = item.price * item.quantity; // Fixed subtotal calculation
+            item.subtotal = item.price * item.quantity;
             acc.push(item);
           }
           return acc;
@@ -53,7 +65,6 @@ function Checkout() {
       await axios.delete(`https://ldfs6814-8085.inc1.devtunnels.ms/checkout/orderDelete/${id}`);
       // Remove the deleted item from state
       setCart(cart.filter(item => item._id !== id));
-      window.location.reload()
     } catch (error) {
       console.error("There was an error deleting the item!", error);
     }
@@ -80,13 +91,13 @@ function Checkout() {
             {cart.map((item, index) => (
               <tr key={index}>
                 <td>
-                  <a href="-" onClick={() => deleteItem(item._id)}> 
+                  <a href="#" onClick={() => deleteItem(item._id)}> 
                     <i className="bi bi-x-circle"></i> 
                   </a>
                 </td>
                 <td>
                   <img
-                    src={"https://ldfs6814-8085.inc1.devtunnels.ms/book/upload/"  + item.imageUrl }
+                    src={"https://ldfs6814-8085.inc1.devtunnels.ms/book/upload/" + item.imageUrl }
                     className="card-img-top"
                     alt={item.title}
                   />

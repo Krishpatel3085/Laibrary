@@ -26,6 +26,7 @@ import $ from "jquery";
 import "slick-carousel";
 import "slick-carousel/slick/slick.css"; // Add the CSS for slick
 import "slick-carousel/slick/slick-theme.css";
+import Cookies from "js-cookie";
 
 function Home() {
   const [items, setItems] = useState([]);
@@ -47,6 +48,8 @@ function Home() {
   };
 
   const addToCart = async (item) => {
+    const userName = Cookies.get("username");
+
     try {
       const response = await axios.post(
         "https://ldfs6814-8085.inc1.devtunnels.ms/checkout/order",
@@ -57,6 +60,7 @@ function Home() {
           imageUrl: item.url,
           author: item.author,
           quantity: 1,
+          username:userName,
         }
       );
 
@@ -87,10 +91,6 @@ function Home() {
       adaptiveHeight: true,
     });
 
-    // Cleanup function to destroy the slider
-    // return () => {
-    //   $(".sliders").slick("unslick");
-    // };
   }, []);
 
   return (
