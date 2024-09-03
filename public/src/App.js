@@ -22,6 +22,7 @@ function App() {
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<Login />} />
         <Route path="/registration" element={<Registration />} />
+        <Route path="/first" element={<First />} />
 
         {/* Protected Routes */}
         <Route element={<PrivateRoute />}>
@@ -34,7 +35,6 @@ function App() {
           <Route path="/shop" element={<Shop />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/details/:_id" element={<Details />} />
-          <Route path="/first" element={<First />} />
         </Route>
       </Routes>
     </>
