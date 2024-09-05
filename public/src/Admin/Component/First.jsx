@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../img/logo2.png";
 import Dashboard from "../Pages/Dashboard";
 import BookForm from "../Pages/BookForm";
@@ -8,9 +7,17 @@ import User from "../Pages/User";
 import $ from "jquery"; // Import jQuery
 import "./first.css";
 import AdminNav from "./AdminNav";
+import Cookies from "js-cookie";
 
 function First() {
+  const [user, setUser] = useState();
   const [isSidebarOpen, setIsSidebarOpen] = useState(true); // Manage sidebar state
+
+  useEffect(() => {
+    const username = Cookies.get("username");
+    setUser(username);
+  }, []);
+  
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
     $("#sidebar").toggleClass("sidebar-closed");
@@ -20,8 +27,6 @@ function First() {
     $(".Boxs").toggleClass("boxs-toggle");
     $(".transection").toggleClass("transection-toggle");
   };
-
-  
 
   return (
     <>
@@ -34,7 +39,7 @@ function First() {
         >
           <div className="title">
             <h4 className="d-flex justify-content-between">
-              {isSidebarOpen && <span>ADMINS</span>}
+              {isSidebarOpen && <span><u>{user}</u></span>}
               <span onClick={toggleSidebar} style={{ cursor: "pointer" }}>
                 <i className={`bi bi-${isSidebarOpen ? "list" : "list"}`}></i>
               </span>
@@ -119,7 +124,7 @@ function First() {
           </div>
         </aside>
         <div class="tab-content maina" id="v-pills-tabContent">
-          <AdminNav/>
+          <AdminNav />
           <div
             class="tab-pane fade show active"
             id="v-pills-home"

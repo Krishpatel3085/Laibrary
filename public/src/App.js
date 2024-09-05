@@ -14,6 +14,8 @@ import Registration from "./component/User/Registration.jsx";
 import Main from "./component/Main/main.jsx";
 import First from "./Admin/Component/First.jsx";
 import PrivateRoute from "./component/User/PrivetRoute.jsx"; // Import the PrivateRoute component
+import AdminLogin from "./Admin/AdminLogin/AdminLogin.jsx";
+import AdminRegistration from "./Admin/AdminLogin/AdminRegistration.jsx";
 
 function App() {
   return (
@@ -22,7 +24,8 @@ function App() {
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<Login />} />
         <Route path="/registration" element={<Registration />} />
-        <Route path="/first" element={<First />} />
+        <Route path="/adminlogin" element={<AdminLogin />} />
+        <Route path="/adminRegistration" element={<AdminRegistration />} />
 
         {/* Protected Routes */}
         <Route element={<PrivateRoute />}>
@@ -35,6 +38,8 @@ function App() {
           <Route path="/shop" element={<Shop />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/details/:_id" element={<Details />} />
+          
+          <Route path="/first" element={<First />} />
         </Route>
       </Routes>
     </>

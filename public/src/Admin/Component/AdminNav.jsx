@@ -34,7 +34,7 @@ export default function AdminNav() {
             <Form className="d-flex me-auto my-2 my-lg-0">
               <Form.Control
                 type="search"
-                placeholder="Search"
+                placeholder="Search.."
                 className="me-2"
                 aria-label="Search"
               />
