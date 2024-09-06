@@ -1,11 +1,14 @@
 import axios from 'axios';
 import main_img from '../img/registration.jpeg'
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 const AdminRegistration = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [username, setUsername] = useState('');
+    const navigate = useNavigate();
   
     const CreateAdmin = async (e) => {
       e.preventDefault();
@@ -27,6 +30,7 @@ const AdminRegistration = () => {
         setUsername('');
   
         alert("Ragistration Success")
+        navigate("/adminlogin")
       } catch (error) {
         console.error("Error:", error);
         alert("user alrady exist")
