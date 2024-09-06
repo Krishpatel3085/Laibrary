@@ -20,9 +20,13 @@
 .details{
   margin-top: 150px;
 }                             
-
 .maina{
   background-color: #141a28;
   color: white;
+}
+
+/* User CSS */
+h2{
+  color: black;
 }
 

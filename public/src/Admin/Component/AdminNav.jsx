@@ -23,6 +23,7 @@ export default function AdminNav() {
     $(".book-card").toggleClass("dark-them");
     $(".inputF").toggleClass("form-them");
     $(".BookForm").toggleClass("text-them");
+    $("h2").toggleClass("text-them");
   };
 
   return (
@@ -40,16 +41,16 @@ export default function AdminNav() {
               />
             </Form>
             <Nav className="icons">
-              <Nav.Link href="#action1" onClick={toggleTheme}>
+              <Nav.Link href="#Dashboard" onClick={toggleTheme}>
                 <i className="bi bi-moon"></i> {/* Toggle theme on click */}
               </Nav.Link>
-              <Nav.Link href="#action2">
+              <Nav.Link href="#Form">
                 <i className="bi bi-bell"></i>
               </Nav.Link>
-              <Nav.Link href="#action3">
+              <Nav.Link href="#Book">
                 <i className="bi bi-gear"></i>
               </Nav.Link>
-              <Nav.Link href="#action4">
+              <Nav.Link href="#User">
                 <i className="bi bi-person"></i>
               </Nav.Link>
             </Nav>

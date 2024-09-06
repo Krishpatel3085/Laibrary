@@ -74,111 +74,113 @@ export default function Book() {
   };
   return (
     <>
-    <div className="Books w-100">
+      <div className="Books w-100">
 
-      <h1 className='text-start ms-4 mt-2'>Books</h1>
-      <p className='text-start ms-4'>Welcome to your Books</p>
+        <h1 className='text-start ms-4 mt-2'>Books</h1>
+        <p className='text-start ms-4'>Welcome to your Books</p>
 
 
-      {/* ============================
+        {/* ============================
                   Update Books
       ================================ */}
-      {editedBook && (
-        <div className="carda book-card-2 p-3 bg-dark text-white m-auto">
-          <div className="row no-gutters">
-            <h2 className="text-center"> --- Update ---</h2>
-            <div className="col-md-4">
-              <img src={`https://ldfs6814-8085.inc1.devtunnels.ms/book/updatebook/upload/${editedBook.url}`} className="img-fluid" alt='img' />
-            </div>
-            <div className="col-md-8">
-              <div className="card-body">
-                <h5 className="card-title">
-                  <strong>Book Title: </strong>
-                  <input type="text" name="title" value={editedBook.title} onChange={handleChange} />
-                </h5>
-                <p className="card-text">
-                  <strong>Author:</strong>
-                  <input type="text" name="author" value={editedBook.author} onChange={handleChange} />
-                </p>
-                <p className="card-text">
-                  <strong>price2:</strong>
-                  <input type="text" name="price2" value={editedBook.price2} onChange={handleChange} />
-                </p>
-                <p className="card-text">
-                  <strong>Price:</strong>
-                  <input type="text" name="price" value={editedBook.price} onChange={handleChange} />
-                </p>
-                <p className="card-text">
-                  <strong>Isbin:</strong>
-                  <input type="text" name="isbin" value={editedBook.isbin} onChange={handleChange} />
-                </p>
-                <p className="card-text">
-                  <strong>Summary:</strong>
-                  <textarea name="description" rows={3} cols={40} value={editedBook.description} onChange={handleChange}></textarea>
-                </p>
-                <p className="card-text">
-                  <strong>Update Image:</strong>
-                  <input type="file" onChange={handleFileChange} />
-                </p>
-                <div className="button-group d-flex gap-2">
-                  <button className='bg-primary' onClick={updateItem}>Update</button>
-                  <button onClick={() => setEditedBook(null)}>Cancel</button>
+        {editedBook && (
+          <div className="carda book-card-2 p-3 bg-dark text-white m-auto">
+            <div className="row no-gutters">
+              <h2 className="text-center"> --- Update ---</h2>
+              <div className="col-md-4">
+                <img src={`https://ldfs6814-8085.inc1.devtunnels.ms/book/upload/${editedBook.url}`} className="img-fluid" alt='img' />
+              </div>
+              <div className="col-md-8">
+                <div className="card-body">
+                  <h5 className="card-title">
+                    <strong>Book Title: </strong>
+                    <input type="text" name="title" value={editedBook.title} onChange={handleChange} />
+                  </h5>
+                  <p className="card-text">
+                    <strong>Author:</strong>
+                    <input type="text" name="author" value={editedBook.author} onChange={handleChange} />
+                  </p>
+                  <p className="card-text">
+                    <strong>price2:</strong>
+                    <input type="text" name="price2" value={editedBook.price2} onChange={handleChange} />
+                  </p>
+                  <p className="card-text">
+                    <strong>Price:</strong>
+                    <input type="text" name="price" value={editedBook.price} onChange={handleChange} />
+                  </p>
+                  <p className="card-text">
+                    <strong>Isbin:</strong>
+                    <input type="text" name="isbin" value={editedBook.isbin} onChange={handleChange} />
+                  </p>
+                  <p className="card-text">
+                    <strong>Summary:</strong>
+                    <textarea name="description" rows={3} cols={40} value={editedBook.description} onChange={handleChange}></textarea>
+                  </p>
+                  <p className="card-text">
+                    <strong>Update Image:</strong>
+                    <input type="file" onChange={handleFileChange} />
+                  </p>
+                  <div className="button-group d-flex gap-2">
+                    <button className='bg-primary' onClick={updateItem}>Update</button>
+                    <button type='button' onClick={() => setEditedBook(null)}>Cancel</button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      )}
-      <br />
+        )}
+        <br />
 
 
-      {/* ============================
+        {/* ============================
                   Display Books
       ================================ */}
 
+        <div className="section mb-5">
 
-      <div className="mas d-flex ps-4 gap-4 flex-wrap text-start">
-        {items.map((item, index) => {
-          return (
-            <>
-              <div className="card book-card p-3 ">
-                <div className="row no-gutters">
-                  <div className="col-md-4">
-                    <img src={'https://ldfs6814-8085.inc1.devtunnels.ms/book/upload/' + item.url} alt='img-upload' className="img-fluid" />
-                  </div>
-                  <div className="col-md-8">
-                    <div className="card-body ">
-                      <h5 className="card-title"><strong>Book Title: </strong>{item.title}</h5>
-                      <p className="card-text">
-                        <strong>Author:</strong>  {item.author}
-                      </p>
-                      <p className="card-text">
-                        <strong>Price2:</strong> {item.price2}
-                      </p>
-                      <p className="card-text">
-                        <strong>Price:</strong> {item.price}
-                      </p>
-                      <p className="card-text">
-                        <strong>Isbin:</strong> {item.isbin}
-                      </p>
-                      <p className="card-text summary ">
-                        <strong>Summary:</strong> {item.description}
-                      </p>
-                      <div className="button-group d-flex gap-2">
+          <div className="mas d-flex ps-4 gap-4 flex-wrap text-start">
+            {items.map((item, index) => {
+              return (
+                <>
+                  <div className="card book-card p-3 ">
+                    <div className="row no-gutters">
+                      <div className="col-md-4">
+                        <img src={'https://ldfs6814-8085.inc1.devtunnels.ms/book/upload/' + item.url} alt='img-upload' className="img-fluid" />
+                      </div>
+                      <div className="col-md-8">
+                        <div className="card-body ">
+                          <h5 className="card-title"><strong>Book Title: </strong>{item.title}</h5>
+                          <p className="card-text">
+                            <strong>Author:</strong>  {item.author}
+                          </p>
+                          <p className="card-text">
+                            <strong>Price2:</strong> {item.price2}
+                          </p>
+                          <p className="card-text">
+                            <strong>Price:</strong> {item.price}
+                          </p>
+                          <p className="card-text">
+                            <strong>Isbin:</strong> {item.isbin}
+                          </p>
+                          <p className="card-text summary ">
+                            <strong>Summary:</strong> {item.description}
+                          </p>
+                          <div className="button-group d-flex gap-2">
 
-                        <button className='btn bg-warning' onClick={() => editItem(item)}>Edit</button>
-                        <button onClick={() => deleteItem(item._id)} className="btn bg-danger">Delete</button>
+                            <button className='btn bg-warning' onClick={() => editItem(item)}>Edit</button>
+                            <button onClick={() => deleteItem(item._id)} className="btn bg-danger">Delete</button>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
-            </>
-          );
-        })}
-      </div>
+                </>
+              );
+            })}
+          </div>
 
-    </div>
-  </>
+        </div>
+      </div>
+    </>
   )
 }
