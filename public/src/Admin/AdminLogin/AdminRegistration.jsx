@@ -6,69 +6,83 @@ import { useNavigate } from 'react-router-dom';
 const AdminRegistration = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [username, setUsername] = useState('');
   const [otp, setOtp] = useState('');
   const [isOtpSent, setIsOtpSent] = useState(false);
-  const [isOtpVerified, setIsOtpVerified] = useState(false); // New flag for OTP verification
+  const [isOtpVerified, setIsOtpVerified] = useState(false);
   const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const CreateAdmin = async (e) => {
     e.preventDefault();
 
-    // Check if OTP is verified before allowing registration
     if (!isOtpVerified) {
       setMessage('Please verify your OTP before registering.');
       return;
     }
 
-    const formData = new FormData();
-    formData.append('email', email);
-    formData.append('password', password);
-    formData.append('username', username);
+    if (password !== confirmPassword) {
+      setMessage('Passwords do not match.');
+      return;
+    }
+
+    const formData = { email, password, username };
 
     try {
-      await axios.post("https://ldfs6814-8085.inc1.devtunnels.ms/admin/register", formData, {
+      setLoading(true);
+      const response = await axios.post("https://ldfs6814-8085.inc1.devtunnels.ms/admin/register", formData, {
         headers: {
           'Content-Type': 'application/json'
         }
       });
 
+      // Reset form fields
       setEmail('');
       setPassword('');
+      setConfirmPassword('');
       setUsername('');
       setOtp('');
       setIsOtpSent(false);
-      setIsOtpVerified(false); // Reset OTP verification
+      setIsOtpVerified(false);
 
-      alert("Registration Success");
+      alert("Registration Successful.& A confirmation email has been sent.");
       navigate("/adminlogin");
     } catch (error) {
       console.error("Error:", error);
-      alert("User already exists");
+      alert(error.response?.data?.msg || "User already exists or an error occurred.");
+    } finally {
+      setLoading(false);
     }
   };
 
   const sendOtp = async () => {
     try {
+      setLoading(true);
       await axios.post('https://ldfs6814-8085.inc1.devtunnels.ms/send-otp', { email });
       setIsOtpSent(true);
       setMessage('OTP sent to your email');
     } catch (error) {
       console.error("Error sending OTP:", error);
       setMessage('Error sending OTP');
+    } finally {
+      setLoading(false);
     }
   };
 
   const verifyOtp = async () => {
     try {
+      setLoading(true);
       const response = await axios.post('https://ldfs6814-8085.inc1.devtunnels.ms/verify-otp', { email, otp: otp.toString() });
-      setIsOtpVerified(true);  // Set flag to true upon successful verification
+      setIsOtpVerified(true);
       setMessage(response.data.msg);
     } catch (error) {
       console.error("Error verifying OTP:", error);
-      setIsOtpVerified(false);  // Reset flag if OTP verification fails
-      setMessage(error.response.data.msg || 'Error verifying OTP');
+      setIsOtpVerified(false);
+      setMessage(error.response?.data?.msg || 'Error verifying OTP');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -123,7 +137,9 @@ const AdminRegistration = () => {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                               />
-                              <button type="button" className="w-25" onClick={sendOtp}>Send OTP</button>
+                              <button type="button" className="w-25" onClick={sendOtp} disabled={loading}>
+                                {loading ? 'Sending...' : 'Send OTP'}
+                              </button>
                             </div>
                           </div>
                         </div>
@@ -139,7 +155,9 @@ const AdminRegistration = () => {
                                 value={otp}
                                 onChange={(e) => setOtp(e.target.value)}
                               />
-                              <button type="button" onClick={verifyOtp}>Verify OTP</button>
+                              <button type="button" onClick={verifyOtp} disabled={loading}>
+                                {loading ? 'Verifying...' : 'Verify OTP'}
+                              </button>
                             </div>
                           </div>
                         </div>
@@ -164,19 +182,20 @@ const AdminRegistration = () => {
                               id="inputConfirmPassword"
                               className="form-control form-control-lg"
                               placeholder="Enter Confirm Password"
+                              value={confirmPassword}
+                              onChange={(e) => setConfirmPassword(e.target.value)}
                             />
                           </div>
                         </div>
                         <button
                           type="submit"
-                          data-mdb-button-init=""
                           className="btn btn-primary btn-lg ms-2"
-                          disabled={!isOtpVerified} // Disable button until OTP is verified
+                          disabled={!isOtpVerified || loading}
                         >
-                          Submit form
+                          {loading ? 'Submitting...' : 'Submit form'}
                         </button>
 
-                        <h6 className="pt-3 text-center ">
+                        <h6 className="pt-3 text-center">
                           Already have an account? <a href="/adminlogin">Sign in</a>
                         </h6>
                       </div>
