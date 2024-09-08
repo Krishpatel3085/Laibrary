@@ -10,6 +10,7 @@ function Checkout() {
   const [cart, setCart] = useState([]);
   const [gtotal, setGtotal] = useState(0);
 
+  const CheckOutUrl = ("https://ldfs6814-8085.inc1.devtunnels.ms")
   useEffect(() => {
     const fetchCartData = async () => {
       const userName = Cookies.get("username");
@@ -20,15 +21,14 @@ function Checkout() {
       }
 
       try {
-        const response = await axios.get(
-          `https://ldfs6814-8085.inc1.devtunnels.ms/checkout/getorder`,
+        const response = await axios.get(CheckOutUrl + `/checkout/getorder`,
           {
             params: { username: userName } // Pass username as query parameter
           }
         );
 
         console.log(response.data);
-        
+
         const fetchedData = response.data || [];
 
         // Filter items by username (if needed)
@@ -62,7 +62,7 @@ function Checkout() {
 
   const deleteItem = async (id) => {
     try {
-      await axios.delete(`https://ldfs6814-8085.inc1.devtunnels.ms/checkout/orderDelete/${id}`);
+      await axios.delete(CheckOutUrl + `/checkout/orderDelete/${id}`);
       // Remove the deleted item from state
       setCart(cart.filter(item => item._id !== id));
     } catch (error) {
@@ -91,13 +91,13 @@ function Checkout() {
             {cart.map((item, index) => (
               <tr key={index}>
                 <td>
-                  <a href="#" onClick={() => deleteItem(item._id)}> 
-                    <i className="bi bi-x-circle"></i> 
+                  <a href="#" onClick={() => deleteItem(item._id)}>
+                    <i className="bi bi-x-circle"></i>
                   </a>
                 </td>
                 <td>
                   <img
-                    src={"https://ldfs6814-8085.inc1.devtunnels.ms/book/upload/" + item.imageUrl }
+                    src={CheckOutUrl + "/book/upload/" + item.imageUrl}
                     className="card-img-top"
                     alt={item.title}
                   />

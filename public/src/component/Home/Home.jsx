@@ -32,9 +32,11 @@ function Home() {
   const [items, setItems] = useState([]);
   const navigate = useNavigate();
 
+  const backend = ("https://ldfs6814-8085.inc1.devtunnels.ms")
+
   useEffect(() => {
     axios
-      .get("https://ldfs6814-8085.inc1.devtunnels.ms/book/getbook")
+      .get(backend + "/book/getbook")
       .then((response) => {
         setItems(response.data.data);
       })
@@ -51,8 +53,7 @@ function Home() {
     const userName = Cookies.get("username");
 
     try {
-      const response = await axios.post(
-        "https://ldfs6814-8085.inc1.devtunnels.ms/checkout/order",
+      const response = await axios.post(backend + "/checkout/order",
         {
           itemId: item._id,
           title: item.title,
@@ -60,7 +61,7 @@ function Home() {
           imageUrl: item.url,
           author: item.author,
           quantity: 1,
-          username:userName,
+          username: userName,
         }
       );
 
@@ -71,8 +72,7 @@ function Home() {
         });
       } else {
         alert(
-          `Failed to add item to cart: ${
-            response.data.message || "Unknown error"
+          `Failed to add item to cart: ${response.data.message || "Unknown error"
           }`
         );
       }
@@ -127,7 +127,7 @@ function Home() {
                 <div className="col-lg-3 col-md-6">
                   <div className="delivery d-flex align-items-center justify-content-center">
                     <div className="icon_bar pt-1">
-                      <img src={delivery} alt="img"/>
+                      <img src={delivery} alt="img" />
                     </div>
                     <div className="info-section list-style-none">
                       <li>
@@ -157,7 +157,7 @@ function Home() {
                 <div className="col-lg-3 col-md-6">
                   <div className="delivery d-flex align-items-center justify-content-center">
                     <div className="icon_bar pt-1">
-                      <img src={service}  alt="img"/>
+                      <img src={service} alt="img" />
                     </div>
                     <div className="info-section">
                       <li>
@@ -170,7 +170,7 @@ function Home() {
                 <div className="col-lg-3 col-md-6">
                   <div className="delivery d-flex align-items-center justify-content-center">
                     <div className="icon_bar pt-1">
-                      <img src={refund}  alt="img"/>
+                      <img src={refund} alt="img" />
                     </div>
                     <div className="info-section">
                       <li>
@@ -240,38 +240,38 @@ function Home() {
         <div className="row pb-4" id="text_new">
           {items && items.length > 0
             ? items.map((item) => (
-                <div className="col-md-3 col-lg-3" key={item._id}>
-                  <Card
-                    style={{ width: "auto", fontFamily: "Lora" }}
-                    className="api_card border-0 text-center"
-                  >
-                    <Card.Img
-                      variant="top"
-                      className="card_sell_img img-fluid"
-                      onClick={() => handleImageClick(item._id)}
-                      src={`https://ldfs6814-8085.inc1.devtunnels.ms/book/upload/${item.url}`}
-                    />
-                    <Card.Body>
-                      <Card.Title>{item.title}</Card.Title>
-                      <Card.Title>{item.author}</Card.Title>
-                      <Card.Text>
-                        <span className="font_extra me-1 text-dark fs-6">
-                          <strike>${item.price2}.00</strike>
-                        </span>
-                        <span className="font_extra text-danger fw-bold fs-5">
-                          <u>${item.price}.00</u>
-                        </span>
-                      </Card.Text>
-                      <Button
-                        className="add_to_cart"
-                        onClick={() => addToCart(item)}
-                      >
-                        Add to Cart
-                      </Button>
-                    </Card.Body>
-                  </Card>
-                </div>
-              ))
+              <div className="col-md-3 col-lg-3" key={item._id}>
+                <Card
+                  style={{ width: "auto", fontFamily: "Lora" }}
+                  className="api_card border-0 text-center"
+                >
+                  <Card.Img
+                    variant="top"
+                    className="card_sell_img img-fluid"
+                    onClick={() => handleImageClick(item._id)}
+                    src={backend + `/book/upload/${item.url}`}
+                  />
+                  <Card.Body>
+                    <Card.Title>{item.title}</Card.Title>
+                    <Card.Title>{item.author}</Card.Title>
+                    <Card.Text>
+                      <span className="font_extra me-1 text-dark fs-6">
+                        <strike>${item.price2}.00</strike>
+                      </span>
+                      <span className="font_extra text-danger fw-bold fs-5">
+                        <u>${item.price}.00</u>
+                      </span>
+                    </Card.Text>
+                    <Button
+                      className="add_to_cart"
+                      onClick={() => addToCart(item)}
+                    >
+                      Add to Cart
+                    </Button>
+                  </Card.Body>
+                </Card>
+              </div>
+            ))
             : <h4><b>Loading Books .....</b></h4>}
         </div>
       </div>
@@ -529,7 +529,7 @@ function Home() {
             <div className="sliders">
               <div className="one d-flex gap-3 align-items-start p-2">
                 <div className="imgs">
-                  <img src={slide_1} alt="img"/>
+                  <img src={slide_1} alt="img" />
                 </div>
                 <div className="text mt-2 ">
                   <p className="text-secondary fs-5">
@@ -548,7 +548,7 @@ function Home() {
               </div>
               <div className="one d-flex gap-3 align-items-start p-2">
                 <div className="imgs">
-                  <img src={slide_2}  alt="img"/>
+                  <img src={slide_2} alt="img" />
                 </div>
                 <div className="text mt-2 ">
                   <p className="text-secondary fs-5">
@@ -567,7 +567,7 @@ function Home() {
               </div>
               <div className="one d-flex gap-3 align-items-start p-2">
                 <div className="imgs">
-                  <img src={slide_3} alt="img"/>
+                  <img src={slide_3} alt="img" />
                 </div>
                 <div className="text mt-2 ">
                   <p className="text-secondary fs-5">
