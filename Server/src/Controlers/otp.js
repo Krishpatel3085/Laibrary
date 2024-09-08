@@ -13,7 +13,7 @@ const SendOtp = async (req, res) => {
 
         const subject = OTP_DATA.OTP_SUBJECT;
         const msg = OTP_DATA.OTP_TEXT;
-        const otp = Math.floor(100000 + Math.random() * 900000).toString(); 
+        const otp = Math.floor(100000 + Math.random() * 900000).toString();
         const html = `${OTP_DATA.OTP_HTML_1}${otp}${OTP_DATA.OTP_HTML_2}`;
 
         otpStore[to] = otp;  // Store OTP as string
@@ -37,10 +37,26 @@ const VerifyOtp = (req, res) => {
 
     if (storedOtp && storedOtp === otp.toString()) {  // Compare as strings
         delete otpStore[email];  // Remove OTP after successful verification
-        res.json({ msg: "OTP verified successfully" });
+
+        // Registration success email details
+        const subject = 'Registration Successful';
+        const msg = 'You have successfully registered.';
+        const html = '<h1>Registration Successful</h1><p>Thank you for registering with us! LMS Web Portal</p>';
+
+        // Send registration success email
+        sendEmail(email, subject, msg, html)
+            .then(() => {
+                res.json({ msg: "OTP verified successfully " });
+            })
+            .catch(error => {
+                console.error('Error sending registration success email:', error);
+                res.status(500).json({ msg: "OTP verified, but failed to send registration email" });
+            });
     } else {
         res.status(400).json({ msg: "Invalid OTP" });
     }
 };
+
+
 
 module.exports = { SendOtp, VerifyOtp };
