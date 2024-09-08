@@ -8,9 +8,12 @@ export default function Book() {
   const [editedBook, setEditedBook] = useState(null);
   const [imageFile, setImageFile] = useState(null);
 
+  const ServerUrl = ("https://ldfs6814-8085.inc1.devtunnels.ms")
+
+
   useEffect(() => {
     axios
-      .get("https://ldfs6814-8085.inc1.devtunnels.ms/book/getbook/")
+      .get(ServerUrl + "/book/getbook/")
       .then((response) => {
         setItems(response.data.data);
       })
@@ -21,7 +24,7 @@ export default function Book() {
 
   const deleteItem = (id) => {
     axios
-      .delete(`https://ldfs6814-8085.inc1.devtunnels.ms/book/delete/${id}`)
+      .delete(ServerUrl + `/book/delete/${id}`)
       .then((response) => {
         // Remove the deleted item from state
         setItems(items.filter(item => item._id !== id));
@@ -49,7 +52,7 @@ export default function Book() {
     }
 
     axios
-      .put(`https://ldfs6814-8085.inc1.devtunnels.ms/book/updatebook/${editedBook._id}`, formData, {
+      .put(ServerUrl + `/book/updatebook/${editedBook._id}`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -88,7 +91,7 @@ export default function Book() {
             <div className="row no-gutters">
               <h2 className="text-center"> --- Update ---</h2>
               <div className="col-md-4">
-                <img src={`https://ldfs6814-8085.inc1.devtunnels.ms/book/upload/${editedBook.url}`} className="img-fluid" alt='img' />
+                <img src={ServerUrl + `/book/upload/${editedBook.url}`} className="img-fluid" alt='img' />
               </div>
               <div className="col-md-8">
                 <div className="card-body">
@@ -145,7 +148,7 @@ export default function Book() {
                   <div className="card book-card p-3 ">
                     <div className="row no-gutters">
                       <div className="col-md-4">
-                        <img src={'https://ldfs6814-8085.inc1.devtunnels.ms/book/upload/' + item.url} alt='img-upload' className="img-fluid" />
+                        <img src={ServerUrl + '/book/upload/' + item.url} alt='img-upload' className="img-fluid" />
                       </div>
                       <div className="col-md-8">
                         <div className="card-body ">
