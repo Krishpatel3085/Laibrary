@@ -29,7 +29,7 @@ export default function BookForm() {
     formData.append("url", file);
 
     try {
-      await axios.post("https://ldfs6814-8085.inc1.devtunnels.ms/book/createbook", formData, {
+      await axios.post("http://localhost:8085/book/createbook", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

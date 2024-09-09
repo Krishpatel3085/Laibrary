@@ -18,7 +18,7 @@ const AdminLogin = () => {
   const LoginAdmin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://ldfs6814-8085.inc1.devtunnels.ms/admin/login', {
+      const response = await axios.post('http://localhost:8085/admin/login', {
         email,
         userName,
         password,

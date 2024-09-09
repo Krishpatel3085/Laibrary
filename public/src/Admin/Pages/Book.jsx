@@ -8,7 +8,7 @@ export default function Book() {
   const [editedBook, setEditedBook] = useState(null);
   const [imageFile, setImageFile] = useState(null);
 
-  const ServerUrl = ("https://ldfs6814-8085.inc1.devtunnels.ms")
+  const ServerUrl = ("http://localhost:8085/")
 
 
   useEffect(() => {

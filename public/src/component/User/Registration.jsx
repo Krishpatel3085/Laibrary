@@ -21,7 +21,7 @@ function Registration() {
     formData.append('username', username);
 
     try {
-      await axios.post("https://ldfs6814-8085.inc1.devtunnels.ms/user/register ", formData, {
+      await axios.post("http://localhost:8085/user/register ", formData, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -164,7 +164,6 @@ function Registration() {
                           >
                             Submit form
                           </button>
-
                           <h6 className='pt-3 text-center'>Already have an account? <a href="/login">Sing in</a></h6>
 
                         </div>

@@ -14,7 +14,7 @@ function Shop() {
   const [items, setItems] = useState([]);
   const navigate = useNavigate();
 
-  const ShopUrl = ("https://ldfs6814-8085.inc1.devtunnels.ms")
+  const ShopUrl = ("http://localhost:8085/")
   useEffect(() => {
     axios
       .get(ShopUrl + "/book/getbook")

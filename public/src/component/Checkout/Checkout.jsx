@@ -10,7 +10,7 @@ function Checkout() {
   const [cart, setCart] = useState([]);
   const [gtotal, setGtotal] = useState(0);
 
-  const CheckOutUrl = ("https://ldfs6814-8085.inc1.devtunnels.ms")
+  const CheckOutUrl = ("http://localhost:8085/")
   useEffect(() => {
     const fetchCartData = async () => {
       const userName = Cookies.get("username");
@@ -91,7 +91,7 @@ function Checkout() {
             {cart.map((item, index) => (
               <tr key={index}>
                 <td>
-                  <a href="#" onClick={() => deleteItem(item._id)}>
+                  <a href="-" onClick={() => deleteItem(item._id)}>
                     <i className="bi bi-x-circle"></i>
                   </a>
                 </td>
