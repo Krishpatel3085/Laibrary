@@ -24,21 +24,24 @@ function App() {
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<Login />} />
         <Route path="/registration" element={<Registration />} />
+        
+        <Route path="/home" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/event" element={<Event />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/team" element={<Team />} />
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/details/:_id" element={<Details />} />
+
+        {/* admin Login Routes */}
         <Route path="/adminlogin" element={<AdminLogin />} />
         <Route path="/adminRegistration" element={<AdminRegistration />} />
 
+
         {/* Protected Routes */}
         <Route element={<PrivateRoute />}>
-          <Route path="/home" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/event" element={<Event />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/team" element={<Team />} />
-          <Route path="/shop" element={<Shop />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/details/:_id" element={<Details />} />
-          
           <Route path="/first" element={<First />} />
         </Route>
       </Routes>

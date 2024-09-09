@@ -24,8 +24,16 @@ function NavBar() {
     navigate("/checkout");
   };
   const gotologout = () => {
+    Cookies.remove("username");
+    Cookies.remove("userEmail");
+    
     navigate("/login ");
   };
+
+  const gotologin = () => {
+    navigate("/login ");
+  };
+
   useEffect(() => {
     axios
       .get("https://ldfs6814-8085.inc1.devtunnels.ms/user/get")
@@ -136,8 +144,10 @@ function NavBar() {
               id="profileDropdown"
               alignRight
             >
-              <NavDropdown.Item> <i className="bi bi-person-circle"></i> &nbsp; Profile</NavDropdown.Item>
-              <NavDropdown.Item> <i class="fa-solid fa-gear"></i> &nbsp;  Settings</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => gotologin()}>
+                {" "}
+                <i className="bi bi-person-circle"></i> &nbsp; Login
+              </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item onClick={() => gotologout()}>
                 <i class="fa-solid fa-right-to-bracket"></i> &nbsp; Logout
