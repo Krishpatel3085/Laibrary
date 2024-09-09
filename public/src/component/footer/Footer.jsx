@@ -10,13 +10,27 @@ export default function Footer() {
         <div className="container ">
           <div className="row">
             <div className="col-md-12 py-5">
-              <h2 className="text-center text-white" data-aos="fade-down" data-aos-duration="2000">Sign Up for Our NEwsletter</h2>
-              <h6 className="text-center" data-aos="fade-down" data-aos-duration="2000">
+              <h2
+                className="text-center text-white"
+                data-aos="fade-down"
+                data-aos-duration="2000"
+              >
+                Sign Up for Our NEwsletter
+              </h2>
+              <h6
+                className="text-center"
+                data-aos="fade-down"
+                data-aos-duration="2000"
+              >
                 Fermentum tempor cubilia risus tellus massa dis consectetur
                 dolor.
               </h6>
               <br />
-              <Form className="d-flex gap-2 justify-content-center flex-wrap" data-aos="fade-left" data-aos-duration="2000">
+              <Form
+                className="d-flex gap-2 justify-content-center flex-wrap"
+                data-aos="fade-left"
+                data-aos-duration="2000"
+              >
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Control
                     type="email"
@@ -28,14 +42,17 @@ export default function Footer() {
                   <Button variant="" size="md" className="text-white ">
                     SUBSCRIBE
                   </Button>
-
                 </div>
               </Form>
-                  <hr className="bg-secondary " style={{height:"2px"}} />
+              <hr className="bg-secondary " style={{ height: "2px" }} />
             </div>
           </div>
-          <div className="row mt-5" id='story'>
-            <div className="col-md-3 col-sm-6"  data-aos="zoom-out-right" data-aos-duration="2000">
+          <div className="row mt-5" id="story">
+            <div
+              className="col-md-3 col-sm-6"
+              data-aos="zoom-out-right"
+              data-aos-duration="2000"
+            >
               <h4>Know More</h4>
               <ul className="list-unstyled">
                 <li>
@@ -50,7 +67,11 @@ export default function Footer() {
               </ul>
             </div>
 
-            <div className="col-md-3 col-sm-6"  data-aos="zoom-out-right"  data-aos-duration="2000">
+            <div
+              className="col-md-3 col-sm-6"
+              data-aos="zoom-out-right"
+              data-aos-duration="2000"
+            >
               <h4>Shop </h4>
               <ul className="list-unstyled">
                 <li>
@@ -65,7 +86,11 @@ export default function Footer() {
               </ul>
             </div>
 
-            <div className="col-md-3 col-sm-6"  data-aos="zoom-out-left"  data-aos-duration="2000">
+            <div
+              className="col-md-3 col-sm-6"
+              data-aos="zoom-out-left"
+              data-aos-duration="2000"
+            >
               <h4>Contact</h4>
               <ul className="list-unstyled">
                 <li>
@@ -83,31 +108,40 @@ export default function Footer() {
               </ul>
             </div>
 
-            <div className="col-md-3 col-sm-6 " data-aos="zoom-out-left"  data-aos-duration="2000">
+            <div
+              className="col-md-3 col-sm-6 "
+              data-aos="zoom-out-left"
+              data-aos-duration="2000"
+            >
               <h4>Stay Connected</h4>
               <p>Stay connected and get interesting news & coupon</p>
-              <ul className="list-unstyled icon d-flex gap-2 text-center justify-content-center">
+              <ul className="list-unstyled icon d-flex gap-2 text-center "  data-aos="fade-up"
+     data-aos-duration="2000">
                 <li>
-                  <i class="fa-brands fa-facebook-f"></i>
+                  <i class="fa-brands fa-facebook-f"   data-aos="fade-down"  data-aos-duration="3000"></i>
                 </li>
                 <li>
-                  <i class="fa-brands fa-twitter"></i>
+                  <i class="fa-brands fa-twitter"   data-aos="fade-down"  data-aos-duration="3000"></i>
                 </li>
                 <li>
-                  <i class="fa-brands fa-youtube"></i>
+                  <i class="fa-brands fa-youtube"   data-aos="fade-down"  data-aos-duration="3000"></i>
                 </li>
-
                 <li>
-                  <i class="fa-brands fa-instagram"></i>
+                  <i class="fa-brands fa-instagram"   data-aos="fade-down"  data-aos-duration="3000"></i>
                 </li>
               </ul>
             </div>
           </div>
           <div className="row">
             <div className="col-md-12">
-              <p className="text-center" data-aos="flip-left"
-     data-aos-easing="ease-out-cubic"
-     data-aos-duration="2000">Copyright © 2024. All rights reserved.</p>
+              <p
+                className="text-center"
+                data-aos="flip-left"
+                data-aos-easing="ease-out-cubic"
+                data-aos-duration="2000"
+              >
+                Copyright © 2024. All rights reserved.
+              </p>
             </div>
           </div>
         </div>

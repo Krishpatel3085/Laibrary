@@ -14,7 +14,7 @@ function Shop() {
   const [items, setItems] = useState([]);
   const navigate = useNavigate();
 
-  const ShopUrl = ("http://localhost:8085/")
+  const ShopUrl = "http://localhost:8085/";
   useEffect(() => {
     axios
       .get(ShopUrl + "/book/getbook")
@@ -32,14 +32,12 @@ function Shop() {
 
   const addToCart = async (item) => {
     try {
-      const response = await axios.post(ShopUrl + "/checkout/order",
-        {
-          itemId: item._id,
-          title: item.title,
-          price: item.price,
-          quantity: 1,
-        }
-      );
+      const response = await axios.post(ShopUrl + "/checkout/order", {
+        itemId: item._id,
+        title: item.title,
+        price: item.price,
+        quantity: 1,
+      });
 
       // Check if the response indicates success
       if (response.data) {
@@ -47,7 +45,8 @@ function Shop() {
         navigate("/checkout");
       } else {
         alert(
-          `Failed to add item to cart: ${response.data.message || "Unknown error"
+          `Failed to add item to cart: ${
+            response.data.message || "Unknown error"
           }`
         );
       }
@@ -65,7 +64,13 @@ function Shop() {
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-12">
-              <h4 className="text-light text-center">
+              <h4
+                className="text-light text-center"
+                data-aos="fade-right"
+                data-aos-offset="300"
+                data-aos-easing="ease-in-sine"
+                data-aos-duration="1500"
+              >
                 <span>
                   Home{" "}
                   <span className="mx-3">
@@ -74,7 +79,14 @@ function Shop() {
                   Shop
                 </span>
               </h4>
-              <h2 className="text-center text-light">SHOP</h2>
+              <h2
+                className="text-center text-light"
+                data-aos="fade-up"
+                data-aos-anchor-placement="top-bottom"
+                data-aos-duration="2000"
+              >
+                SHOP
+              </h2>
             </div>
           </div>
         </div>
@@ -84,8 +96,18 @@ function Shop() {
       <div className="container">
         <div className="row text-center">
           <div className="Discover col-md-12">
-            <h2>Discover new books</h2>
-            <p>
+            <h2
+              data-aos="fade-left"
+              data-aos-anchor-placement="center-bottom"
+              data-aos-duration="2000"
+            >
+              Discover new books
+            </h2>
+            <p
+              data-aos="fade-left"
+              data-aos-anchor-placement="center-bottom"
+              data-aos-duration="2000"
+            >
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
               tellus, luctus nec <br /> ullamcorper mattis, pulvinar dapibus
               leo.
@@ -97,16 +119,17 @@ function Shop() {
       <div className="container py-5">
         <div className="row border-top py-3">
           <div className="next col-md-12 d-flex justify-content-between align-content-center">
-            <h3>Discover Your Next Book</h3>
+            <h3 data-aos="flip-up" ata-aos-duration="3000">Discover Your Next Book</h3>
             <span>
-              <a href="-">View All Book</a>
+              <a href="-" data-aos="flip-up" ata-aos-duration="3000">View All Book</a>
             </span>
           </div>
         </div>
         <div className="row pb-4" id="text_new">
-          {items && items.length > 0
-            ? items.map((item) => (
-              <div className="col-md-3 col-lg-3" key={item._id}>
+          {items && items.length > 0 ? (
+            items.map((item) => (
+              <div className="col-md-3 col-lg-3" data-aos="fade-up"
+              data-aos-duration="3000" key={item._id}>
                 <Card
                   style={{ width: "auto", fontFamily: "Lora" }}
                   className="api_card border-0 text-center"
@@ -138,7 +161,11 @@ function Shop() {
                 </Card>
               </div>
             ))
-            : <h4><b>Loading Books .....</b></h4>}
+          ) : (
+            <h4>
+              <b>Loading Books .....</b>
+            </h4>
+          )}
         </div>
       </div>
 
@@ -147,15 +174,15 @@ function Shop() {
         <div className="container  d-flex align-items-center ">
           <div className="row">
             <div className="col-md-6 mb-4 mb-md-0">
-              <div className="lectus">
-                <h6 className="text-uppercase font-weight-bold mb-3 text-danger">
+              <div className="lectus" >
+                <h6 className="text-uppercase font-weight-bold mb-3 text-danger" data-aos="zoom-out-down" data-aos-duration="2000">
                   New Release
                 </h6>
-                <h3 className="font-weight-bold mb-3">Me & My Dad</h3>
-                <h5 className="font-italic mb-4">
+                <h3 className="font-weight-bold mb-3" data-aos="zoom-out-down" data-aos-duration="2000">Me & My Dad</h3>
+                <h5 className="font-italic mb-4" data-aos="zoom-out-down" data-aos-duration="2000">
                   A novelette book by John Doe
                 </h5>
-                <p className="text-justify mb-4">
+                <p className="text-justify mb-4" data-aos="zoom-out-down" data-aos-duration="2000">
                   Morbi proin condimentum litora duis lectus vivamus parturient
                   torquent. Phasellus fames lectus molestie iaculis lacus
                   condimentum duis. Ac ligula etiam magna efficitur quisque in.
@@ -165,14 +192,14 @@ function Shop() {
                   habitasse orci. Elementum ullamcorper libero magna montes ut
                   orci suspendisse magnis nam id ligula.
                 </p>
-                <span className="font-weight-bold mb-2 d-block fs-3">
+                <span className="font-weight-bold mb-2 d-block fs-3" data-aos="zoom-out-down" data-aos-duration="2000">
                   Price : <span className="text-danger fs-3"> $40.00</span>{" "}
                 </span>
-                <Button className="add_to_cart">Add to Cart</Button>
+                <Button className="add_to_cart" data-aos="zoom-out-down" data-aos-duration="2000">Add to Cart</Button>
               </div>
             </div>
             <div className="col-md-6">
-              <img src={chid} alt="img" className="img-fluid w-100 h-100" />
+              <img src={chid} alt="img" className="img-fluid w-100 h-100" data-aos="fade-left" data-aos-duration="2000"/>
             </div>
           </div>
         </div>

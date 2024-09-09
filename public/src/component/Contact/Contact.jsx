@@ -15,7 +15,11 @@ function Contact() {
           <div className="row text-center ">
             <div className="col-md-12">
               <div className="upComing">
-                <h4 className="text-light text-center">
+                <h4 className="text-light text-center"
+                data-aos="fade-right"
+                data-aos-offset="300"
+                data-aos-easing="ease-in-sine"
+                data-aos-duration="1500">
                   <span>
                     Home{" "}
                     <span className="mx-3 ">
@@ -24,7 +28,9 @@ function Contact() {
                     Contact
                   </span>
                 </h4>
-                <h2 className="text-center text-light">Keep In Touch</h2>
+                <h2 className="text-center text-light"  data-aos="fade-up"
+                data-aos-anchor-placement="top-bottom"
+                data-aos-duration="2000">Keep In Touch</h2>
               </div>
             </div>
           </div>
@@ -35,7 +41,8 @@ function Contact() {
       {/* second section */}
       <div className="container py-3">
         <div className="row d-flex justify-content-center gap-4 align-content-center">
-          <div className="send_bar col-md-4">
+          <div className="send_bar col-md-4"  data-aos="fade-up"
+     data-aos-anchor-placement="bottom-bottom"  data-aos-duration="2000">
             <h3>
               <i class="fa-regular fa-paper-plane"></i>
             </h3>
@@ -44,7 +51,7 @@ function Contact() {
               Jln Cempaka Wangi No 22, <br /> Jakarta - Indonesia
             </p>
           </div>
-          <div className="send_bar col-md-4">
+          <div className="send_bar col-md-4" data-aos="fade-up"  data-aos-anchor-placement="bottom-bottom"  data-aos-duration="2000">
             <h3>
               <i class="fa-regular fa-building"></i>
             </h3>
@@ -55,7 +62,7 @@ function Contact() {
             </p>
           </div>
 
-          <div className="send_bar col-md-4">
+          <div className="send_bar col-md-4" data-aos="fade-up"  data-aos-anchor-placement="bottom-bottom"  data-aos-duration="2000">
             <h3>
               <i class="bi bi-telephone"></i>
             </h3>
@@ -65,7 +72,7 @@ function Contact() {
             </p>
           </div>
 
-          <div className="send_bar col-md-4">
+          <div className="send_bar col-md-4" data-aos="fade-up"  data-aos-anchor-placement="bottom-bottom"  data-aos-duration="2000">
             <h3>
               <i class="fa-regular fa-envelope"></i>
             </h3>
@@ -78,8 +85,7 @@ function Contact() {
       </div>
 
       {/* third section */}
-      <div
-        className="container my-5"
+      <div className="container my-5"
         style={{ background: "#f8f8f8", borderRadius: "20px" }}
       >
         <div className="row">
@@ -93,24 +99,25 @@ function Contact() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               title="map"
+              data-aos="fade-right"  data-aos-duration="2000"
             />
           </div>
           <div className="maping col-md-6">
             <h6 className="text-uppercase">Send us a message</h6>
-            <h2>We will be in touch shortly</h2>
+            <h2 className="text-start">We will be in touch shortly</h2>
             <div className="row mb-3">
               <div className="col-md-6">
                 <input
                   type="text"
                   className="form-control rounded-pill border-0"
-                  placeholder="Name"
+                  placeholder="Name" data-aos="fade-up-left"  data-aos-duration="2000"
                 />
               </div>
               <div className="col-md-6">
                 <input
                   type="number"
                   className="form-control rounded-pill border-0"
-                  placeholder="Phone"
+                  placeholder="Phone" data-aos="fade-up-left"  data-aos-duration="2000"
                 />
               </div>
             </div>
@@ -119,7 +126,7 @@ function Contact() {
                 <input
                   type="email"
                   className="form-control rounded-pill border-0"
-                  placeholder="Email"
+                  placeholder="Email" data-aos="fade-up-left"  data-aos-duration="2000"
                 />
               </div>
             </div>
@@ -128,7 +135,7 @@ function Contact() {
                 <input
                   type="text"
                   className="form-control rounded-pill border-0"
-                  placeholder="Subject"
+                  placeholder="Subject" data-aos="fade-up-left"  data-aos-duration="2000"
                 />
               </div>
             </div>
@@ -138,14 +145,14 @@ function Contact() {
                   name="Message"
                   className="form-control rounded border-0"
                   rows="4"
-                  placeholder="Message"
+                  placeholder="Message" data-aos="fade-up-left"  data-aos-duration="2000"
                 ></textarea>
               </div>
             </div>
             <button
               type="submit"
               className="form-control rounded-pill border-0 text-light"
-              id="submit"
+              id="submit"  data-aos="flip-up"  data-aos-duration="2000"
             >
               <i class="fa-solid fa-envelope-open-text me-2"></i> Send My
               Message
