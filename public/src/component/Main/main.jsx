@@ -5,8 +5,8 @@ import "./main.css";
 export default function Main() {
   const navigate = useNavigate();
 
-  const gotologin = () => {
-    navigate("/login");
+  const gotohome = () => {
+    navigate("/home");
   };
 
   const gotoAdmin = () => {
@@ -18,7 +18,7 @@ export default function Main() {
         <div className="container m-auto">
           <div className="row m-auto">
             <div className="col-md-6 d-flex justify-content-center">
-              <div className="one" onClick={gotologin}>
+              <div className="one" onClick={gotohome}>
                 <h2>
                   <i className="bi bi-people"></i> {""}
                   User
