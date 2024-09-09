@@ -51,15 +51,17 @@ const getUSer = async (req, res) => {
 // Login User and Generate Token
 const loginUser = async (req, res) => {
     try {
-        const { email, password } = req.body;
-        if (!email || !password) {
-            return res.status(400).json({ message: "Email and password are required" });
+        const { email, password, username } = req.body;
+        if ((!email && !username) || !password ) {
+            return res.status(400).json({ message: "USername , Email and password are required" });
         }
-        const user = await Users.findOne({ email });
+        const user = await Users.findOne({
+            $or: [{ email }, { username }]
+        });
         if (!user) {
             return res.status(404).json({ message: "User not found" });
         }
-        if (user.password !== password) {
+        if (user.password !== password ) {
             return res.status(400).json({ message: "Invalid credentials" });
         }
         const token = jwt.sign({ userId: user._id, email: user.email }, "your_secret_key", { expiresIn: "1h" });
