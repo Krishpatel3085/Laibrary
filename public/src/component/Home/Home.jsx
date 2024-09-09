@@ -32,7 +32,7 @@ function Home() {
   const [items, setItems] = useState([]);
   const navigate = useNavigate();
 
-  const backend = "https://ldfs6814-8085.inc1.devtunnels.ms";
+  const backend = "http://localhost:8085/";
 
   useEffect(() => {
     axios

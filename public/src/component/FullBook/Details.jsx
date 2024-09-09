@@ -18,7 +18,7 @@ function Details() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://ldfs6814-8085.inc1.devtunnels.ms/book/get1book/${_id}`
+          `http://localhost:8085/book/get1book/${_id}`
         );
         console.log("API Response:", response);
         if (response.data && response.data.data) {
@@ -54,7 +54,7 @@ function Details() {
             <div className="Img_url col-md-5">
               <img 
                 src={
-                  "https://ldfs6814-8085.inc1.devtunnels.ms/book/upload/" + item.url
+                  "http://localhost:8085/book/upload/" + item.url
                 }
                 width={"500px"} height={"auto"}
               alt="img" />

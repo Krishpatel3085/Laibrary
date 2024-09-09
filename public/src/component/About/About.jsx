@@ -29,10 +29,6 @@ function About() {
       adaptiveHeight: true,
     });
 
-    // Cleanup function to destroy the slider
-    // return () => {
-    //     $('.sliders').slick('unslick');
-    // };
   }, []);
 
   return (
@@ -78,7 +74,7 @@ function About() {
         <div className="welcome  mb-3">
           <div className="row px-4 pt-4">
             <div className="col-md-6">
-              <p>
+              <p data-aos="fade-down" data-aos-duration="2000">
                 Euismod magna dui sagittis curabitur convallis pulvinar. Mollis
                 neque lacinia himenaeos eleifend sit justo convallis augue.
                 Tellus rhoncus euismod vestibulum vehicula parturient sagittis
@@ -88,14 +84,14 @@ function About() {
                 ornare ad blandit semper erat congue integer consequat.{" "}
               </p>
 
-              <h4>
+              <h4 data-aos="fade-down" data-aos-duration="2000">
                 {" "}
                 Porttitor consectetur ad sed vitae accumsan in maximus commodo
                 semper iaculis. Vel sociosqu mattis quis eros neque fermentum
                 justo bibendum amet.
               </h4>
 
-              <p>
+              <p data-aos="fade-down" data-aos-duration="2000">
                 Dictum quam natoque ridiculus ligula pretium. Magna vel felis
                 dolor nisi tristique viverra platea placerat imperdiet montes.
                 Blandit penatibus imperdiet leo primis ipsum. Suscipit rutrum
@@ -105,7 +101,7 @@ function About() {
               </p>
             </div>
             <div className="col-md-6">
-              <p>
+              <p data-aos="fade-left" data-aos-duration="2000">
                 Laoreet gravida congue aliquam etiam facilisi porta mollis.
                 Platea feugiat a scelerisque imperdiet parturient enim venenatis
                 vitae ut sed luctus. Nisl primis vulputate si interdum conubia
@@ -113,11 +109,12 @@ function About() {
                 venenatis consectetuer libero lectus.
               </p>
               <a href="-"> Discover More</a>
-              <img src={book2} alt="img" className="w-100 h-50 img-fluid" />
+              <img src={book2} alt="img" className="w-100 h-50 img-fluid" data-aos="fade-left" data-aos-duration="2000"/>
             </div>
           </div>
         </div>
       </div>
+
 
       {/* third section */}
       <div class="container">
@@ -201,13 +198,13 @@ function About() {
         </div>
       </div>
 
-      {/* third */}
+      {/* Four Section */}
       <section className="py-5" style={{ background: "#f8f8f8" }}>
         <div className="container">
           <div className="row">
             <div className="danger-blog col-md-4">
               <h6 className="text-uppercase">The Team</h6>
-              <h2>
+              <h2 className="text-start">
                 Our <br />
                 Creative <br />
                 Team
@@ -276,7 +273,7 @@ function About() {
         </div>
       </section>
 
-      {/* eight section */}
+      {/* Five section */}
       <div className="container py-4">
         <div className="row">
           <div className="col-md-6">

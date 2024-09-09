@@ -10,7 +10,7 @@ export default function User() {
 
   useEffect(() => {
     axios
-      .get("https://ldfs6814-8085.inc1.devtunnels.ms/user/get")
+      .get("http://localhost:8085/user/get")
       .then((response) => {
         setItems(response.data);
       })
@@ -21,7 +21,7 @@ export default function User() {
 
   useEffect(() => {
     axios
-      .get("https://ldfs6814-8085.inc1.devtunnels.ms/admin/get")
+      .get("http://localhost:8085/admin/get")
       .then((response) => {
         setAdmin(response.data);
       })
