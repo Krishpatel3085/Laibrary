@@ -28,7 +28,6 @@ function About() {
       slidesToShow: 1,
       adaptiveHeight: true,
     });
-
   }, []);
 
   return (
@@ -53,8 +52,14 @@ function About() {
                   About
                 </span>
               </h4>
-              <h2 className="text-center text-light" data-aos="fade-up"
-     data-aos-anchor-placement="top-bottom" data-aos-duration="2000">About Us</h2>
+              <h2
+                className="text-center text-light"
+                data-aos="fade-up"
+                data-aos-anchor-placement="top-bottom"
+                data-aos-duration="2000"
+              >
+                About Us
+              </h2>
             </div>
           </div>
         </div>
@@ -63,10 +68,20 @@ function About() {
       {/* second */}
       <div className="container pt-4">
         <div className="row text-center py-2">
-          <h2 data-aos="fade-up"
-     data-aos-anchor-placement="center-center" data-aos-duration="2000">Welcome to Bookarazi</h2>
-          <p data-aos="fade-up"
-     data-aos-anchor-placement="center-center" data-aos-duration="2000">For bookworms, by passionate writers </p>
+          <h2
+            data-aos="fade-up"
+            data-aos-anchor-placement="center-center"
+            data-aos-duration="2000"
+          >
+            Welcome to Bookarazi
+          </h2>
+          <p
+            data-aos="fade-up"
+            data-aos-anchor-placement="center-center"
+            data-aos-duration="2000"
+          >
+            For bookworms, by passionate writers{" "}
+          </p>
         </div>
       </div>
 
@@ -109,12 +124,17 @@ function About() {
                 venenatis consectetuer libero lectus.
               </p>
               <a href="-"> Discover More</a>
-              <img src={book2} alt="img" className="w-100 h-50 img-fluid" data-aos="fade-left" data-aos-duration="2000"/>
+              <img
+                src={book2}
+                alt="img"
+                className="w-100 h-50 img-fluid"
+                data-aos="fade-left"
+                data-aos-duration="2000"
+              />
             </div>
           </div>
         </div>
       </div>
-
 
       {/* third section */}
       <div class="container">
@@ -203,21 +223,42 @@ function About() {
         <div className="container">
           <div className="row">
             <div className="danger-blog col-md-4">
-              <h6 className="text-uppercase">The Team</h6>
-              <h2 className="text-start">
+              <h6
+                className="text-uppercase"
+                data-aos="fade-down-right"
+                data-aos-duration="2000"
+              >
+                The Team
+              </h6>
+              <h2
+                className="text-start"
+                data-aos="fade-up-right"
+                data-aos-duration="2000"
+              >
                 Our <br />
                 Creative <br />
                 Team
               </h2>
-              <p>
+              <p data-aos="fade-up-right" data-aos-duration="2000">
                 Volutpat placerat sollicitudin per tristique magnis iaculis arcu
                 torquent turpis.
               </p>
 
-              <button className="btn btn-danger">View All Member</button>
+              <button
+                className="btn btn-danger"
+                data-aos="fade-up-right"
+                data-aos-duration="2000"
+              >
+                View All Member
+              </button>
             </div>
+
             <div className="john-blog col-md-8 d-flex gap-4">
-              <div className="john">
+              <div
+                className="john"
+                data-aos="flip-down"
+                data-aos-duration="2000"
+              >
                 <img
                   src={book3}
                   alt="img"
@@ -225,16 +266,28 @@ function About() {
                   id="img-blog"
                 />
                 <div className="overlay">
-                  <p>John D. Black</p>
-                  <h6>Director</h6>
-                  <div className="icon">
+                  <p data-aos="zoom-in-right" data-aos-duration="2000">
+                    John D. Black
+                  </p>
+                  <h6 data-aos="zoom-in-right" data-aos-duration="2000">
+                    Director
+                  </h6>
+                  <div
+                    className="icon"
+                    data-aos="fade-up"
+                    data-aos-duration="3000"
+                  >
                     <i className="fab fa-twitter"></i>
                     <i className="fab fa-facebook"></i>
                     <i className="fab fa-instagram"></i>
                   </div>
                 </div>
               </div>
-              <div className="john">
+              <div
+                className="john"
+                data-aos="flip-down"
+                data-aos-duration="2000"
+              >
                 <img
                   src={book5}
                   alt="img"
@@ -242,16 +295,22 @@ function About() {
                   id="img-blog"
                 />
                 <div className="overlay">
-                  <p>Amanda Baughn</p>
-                  <h6 className="">Author</h6>
-                  <div className="icon">
+                  <p data-aos-duration="2000">Amanda Baughn</p>
+                  <h6  data-aos-duration="2000">Author</h6>
+                  <div className="icon"  
+                    data-aos="fade-up"
+                    data-aos-duration="3000">
                     <i className="fab fa-twitter"></i>
                     <i className="fab fa-facebook"></i>
                     <i className="fab fa-instagram"></i>
                   </div>
                 </div>
               </div>
-              <div className="john">
+              <div
+                className="john"
+                data-aos="flip-down"
+                data-aos-duration="2000"
+              >
                 <img
                   src={book4}
                   alt="img"
@@ -259,9 +318,11 @@ function About() {
                   id="img-blog"
                 />
                 <div className="overlay">
-                  <p>Joehar</p>
-                  <h6 className="">Author</h6>
-                  <div className="icon">
+                  <p data-aos="zoom-in-right" data-aos-duration="2000">Joehar</p>
+                  <h6 className="" data-aos="zoom-in-right" data-aos-duration="2000">Author</h6>
+                  <div className="icon"  
+                    data-aos="fade-up"
+                    data-aos-duration="3000">
                     <i className="fab fa-twitter"></i>
                     <i className="fab fa-facebook"></i>
                     <i className="fab fa-instagram"></i>

@@ -8,6 +8,7 @@ import $ from "jquery"; // Import jQuery
 import "./first.css";
 import AdminNav from "./AdminNav";
 import Cookies from "js-cookie";
+import './adminMedia.css'
 
 function First() {
   const [user, setUser] = useState();
