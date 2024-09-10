@@ -7,7 +7,6 @@ const { orderRouter } = require('./src/Routes/order');
 const { SendOtp, VerifyOtp } = require('./src/Controlers/otp');
 const path=require("path");
 require('dotenv').config()
-MONGO_URL = 'mongodb+srv://f388krish:xkhbo697@lms-app.zbqpg.mongodb.net/Book-Detail'
 
 const cors = require("cors");
 const cookieParse = require('cookie-parser')
