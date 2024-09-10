@@ -4,14 +4,14 @@ const { book_routes } = require("./src/Routes/Book");
 const { user_router } = require("./src/Routes/user");
 const { admin_router } = require("./src/Routes/Admin");
 const { orderRouter } = require('./src/Routes/order');
-const { SendOtp  , VerifyOtp} = require('./src/Controlers/otp');
+const { SendOtp, VerifyOtp } = require('./src/Controlers/otp');
+const PORT = 8085;
+MONGO_URL = 'mongodb+srv://f388krish:xkhbo697@lms-app.zbqpg.mongodb.net/Book-Detail'
 
 const cors = require("cors");
-const dotenv = require('dotenv');
 const cookieParse = require('cookie-parser')
 
 const app = express();
-dotenv.config()
 app.use(express.json())
 app.use(cookieParse())
 app.use(cors());
@@ -25,8 +25,8 @@ app.post('/send-otp', SendOtp)
 app.post('/verify-otp', VerifyOtp)
 
 
-app.listen(process.env.PORT, async () => {
-    await mongoose.connect(process.env.MONGO_URL)
+app.listen(PORT, async () => {
+    await mongoose.connect(MONGO_URL)
     console.log("Connected to MongoDB Succefully")
-    console.log(`server Started on http//localhost:${process.env.PORT}/`)
+    console.log(`server Started on http//localhost:${PORT}/`)
 }) 
