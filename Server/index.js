@@ -5,6 +5,7 @@ const { user_router } = require("./src/Routes/user");
 const { admin_router } = require("./src/Routes/Admin");
 const { orderRouter } = require('./src/Routes/order');
 const { SendOtp, VerifyOtp } = require('./src/Controlers/otp');
+const path=require("path");
 const PORT = 8085;
 MONGO_URL = 'mongodb+srv://f388krish:xkhbo697@lms-app.zbqpg.mongodb.net/Book-Detail'
 
@@ -16,6 +17,9 @@ app.use(express.json())
 app.use(cookieParse())
 app.use(cors());
 
+const _dirname=path.dirname("")
+const buildpath = path.join(_dirname,"../public/build")
+app.use(express.static(buildpath));
 
 app.use('/book', book_routes)
 app.use('/user', user_router)
