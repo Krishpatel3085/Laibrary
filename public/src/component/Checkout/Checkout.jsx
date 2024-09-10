@@ -98,7 +98,7 @@ function Checkout() {
                 </td>
                 <td>
                   <img
-                    src={CheckOutUrl + "/book/upload/" + item.imageUrl}
+                    src={APi_URL + "/book/upload/" + item.imageUrl}
                     className="card-img-top"
                     alt={item.title}
                   />
