@@ -19,7 +19,7 @@ app.use(cors());
 const _dirname=path.dirname("")
 const buildpath = path.join(_dirname,"../public/build")
 app.use(express.static(buildpath));
-
+dotenv.config()
 app.use('/book', book_routes)
 app.use('/user', user_router)
 app.use('/admin', admin_router)
