@@ -5,7 +5,7 @@ import main_img from '../images/main_login.jpg';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Cookies from 'js-cookie';
-
+import { APi_URL } from '../../Utils/apiConfig';
 function Login() {
   const [email, setEmail] = useState('');
   const [userName, setUsername] = useState('');
@@ -15,7 +15,7 @@ function Login() {
   const LoginUser = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8085/user/login', {
+      const response = await axios.post(APi_URL + 'user/login', {
         email,
         userName,
         password,
@@ -24,7 +24,7 @@ function Login() {
         Cookies.set('userEmail', email, { expires: 7 });
         Cookies.set('username', userName, { expires: 7 });
         alert('Login successfully 👍');
-        navigate('/home');  
+        navigate('/home');
       }
     } catch (error) {
       alert(error.response?.data?.message || 'User Not Found or Invalid Credentials 👎');
@@ -53,23 +53,23 @@ function Login() {
                   <div className="card-body p-lg-5 text-black">
                     <form onSubmit={LoginUser}>
                       <div className="d-flex align-items-center mb-3 pb-1">
-                     <img src={logo_main}  alt="img" style={{width:"100px",height:"120px"}}/>
+                        <img src={logo_main} alt="img" style={{ width: "100px", height: "120px" }} />
                       </div>
                       <h5 className="fw-normal mb-3 pb-3" style={{ letterSpacing: 1 }}>Sign into your account</h5>
                       <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example17">Email address</label>
-                        <input  type="email"  id="form2Example17" className="form-control form-control-lg" placeholder="Enter your Email"
-                          value={email}  onChange={(e) => setEmail(e.target.value)} required />
+                        <input type="email" id="form2Example17" className="form-control form-control-lg" placeholder="Enter your Email"
+                          value={email} onChange={(e) => setEmail(e.target.value)} required />
                       </div>
                       <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example17">UserName</label>
-                        <input  type="username"  id="form2Example17" className="form-control form-control-lg" placeholder="Enter your Username"
-                          value={userName}  onChange={(e) => setUsername(e.target.value)} required />
+                        <input type="username" id="form2Example17" className="form-control form-control-lg" placeholder="Enter your Username"
+                          value={userName} onChange={(e) => setUsername(e.target.value)} required />
                       </div>
                       <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example27">Password</label>
                         <input
-                          type="password"  id="form2Example27"  className="form-control form-control-lg"  placeholder="Enter Your Password"  value={password} onChange={(e) => setPassword(e.target.value)}  required  />
+                          type="password" id="form2Example27" className="form-control form-control-lg" placeholder="Enter Your Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
                       </div>
                       <div className="pt-1 mb-4">
                         <button

@@ -27,16 +27,15 @@ import "slick-carousel";
 import "slick-carousel/slick/slick.css"; // Add the CSS for slick
 import "slick-carousel/slick/slick-theme.css";
 import Cookies from "js-cookie";
-
+import { APi_URL } from "../../Utils/apiConfig";
 function Home() {
   const [items, setItems] = useState([]);
   const navigate = useNavigate();
 
-  const backend = "http://localhost:8085/";
 
   useEffect(() => {
     axios
-      .get(backend + "/book/getbook")
+      .get(APi_URL + "book/getbook")
       .then((response) => {
         setItems(response.data.data);
       })
@@ -53,7 +52,7 @@ function Home() {
     const userName = Cookies.get("username");
 
     try {
-      const response = await axios.post(backend + "/checkout/order", {
+      const response = await axios.post(APi_URL + "checkout/order", {
         itemId: item._id,
         title: item.title,
         price: item.price,
@@ -340,7 +339,7 @@ function Home() {
                     variant="top"
                     className="card_sell_img img-fluid"
                     onClick={() => handleImageClick(item._id)}
-                    src={backend + `/book/upload/${item.url}`}
+                    src={APi_URL + `book/upload/${item.url}`}
                   />
                   <Card.Body>
                     <Card.Title>{item.title}</Card.Title>

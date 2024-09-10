@@ -4,6 +4,7 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import '../Component/first.css'
+import { APi_URL } from '../../Utils/apiConfig';
 export default function BookForm() {
 
   const [title, setTitle] = useState("");
@@ -29,7 +30,7 @@ export default function BookForm() {
     formData.append("url", file);
 
     try {
-      await axios.post("http://localhost:8085/book/createbook", formData, {
+      await axios.post(APi_URL + "book/createbook", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

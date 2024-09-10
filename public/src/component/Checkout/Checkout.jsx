@@ -5,12 +5,13 @@ import Footer from "../footer/Footer";
 import Table from "react-bootstrap/Table";
 import "./checkout.css";
 import Cookies from "js-cookie";
+import { APi_URL } from "../../Utils/apiConfig";
 
 function Checkout() {
   const [cart, setCart] = useState([]);
   const [gtotal, setGtotal] = useState(0);
 
-  const CheckOutUrl = ("http://localhost:8085/")
+
   useEffect(() => {
     const fetchCartData = async () => {
       const userName = Cookies.get("username");
@@ -21,7 +22,7 @@ function Checkout() {
       }
 
       try {
-        const response = await axios.get(CheckOutUrl + `/checkout/getorder`,
+        const response = await axios.get(APi_URL + `checkout/getorder`,
           {
             params: { username: userName } // Pass username as query parameter
           }
@@ -62,7 +63,7 @@ function Checkout() {
 
   const deleteItem = async (id) => {
     try {
-      await axios.delete(CheckOutUrl + `/checkout/orderDelete/${id}`);
+      await axios.delete(APi_URL + `checkout/orderDelete/${id}`);
       // Remove the deleted item from state
       setCart(cart.filter(item => item._id !== id));
     } catch (error) {
