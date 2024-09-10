@@ -9,7 +9,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Cookies from "js-cookie";
-
+import { APi_URL } from "../../Utils/apiConfig";
 function NavBar() {
   const [active, setActive] = useState("home");
   const [user, setUser] = useState(null);
@@ -26,7 +26,7 @@ function NavBar() {
   const gotologout = () => {
     Cookies.remove("username");
     Cookies.remove("userEmail");
-    
+
     navigate("/login ");
   };
 
@@ -36,7 +36,7 @@ function NavBar() {
 
   useEffect(() => {
     axios
-      .get("https://ldfs6814-8085.inc1.devtunnels.ms/user/get")
+      .get(APi_URL + "user/get")
       .then((response) => {
         setUser(response.data.data);
         const userName = Cookies.get("username");
@@ -79,25 +79,22 @@ function NavBar() {
             >
               <NavDropdown.Item
                 onClick={() => handleNavigation("/team", "team")}
-                className={`navbar__dropdown-link ${
-                  active === "team" ? "active" : ""
-                }`}
+                className={`navbar__dropdown-link ${active === "team" ? "active" : ""
+                  }`}
               >
                 TEAM
               </NavDropdown.Item>
               <NavDropdown.Item
                 onClick={() => handleNavigation("/contact", "contact")}
-                className={`navbar__dropdown-link ${
-                  active === "contact" ? "active" : ""
-                }`}
+                className={`navbar__dropdown-link ${active === "contact" ? "active" : ""
+                  }`}
               >
                 CONTACT
               </NavDropdown.Item>
               <NavDropdown.Item
                 onClick={() => handleNavigation("/blog", "blog")}
-                className={`navbar__dropdown-link ${
-                  active === "blog" ? "active" : ""
-                }`}
+                className={`navbar__dropdown-link ${active === "blog" ? "active" : ""
+                  }`}
               >
                 BLOG
               </NavDropdown.Item>

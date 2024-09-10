@@ -2,7 +2,7 @@ import React from 'react'
 import Table from 'react-bootstrap/Table';
 import { useState, useEffect } from "react";
 import axios from "axios";
-
+import { APi_URL } from '../../Utils/apiConfig';
 export default function User() {
 
   const [items, setItems] = useState([]);
@@ -10,7 +10,7 @@ export default function User() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8085/user/get")
+      .get(APi_URL + "/user/get")
       .then((response) => {
         setItems(response.data);
       })
@@ -21,7 +21,7 @@ export default function User() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8085/admin/get")
+      .get(APi_URL + "/admin/get")
       .then((response) => {
         setAdmin(response.data);
       })

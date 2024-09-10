@@ -2,7 +2,7 @@ import axios from 'axios';
 import main_img from '../img/registration.jpeg';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import { APi_URL } from '../../Utils/apiConfig';
 const AdminRegistration = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -32,7 +32,7 @@ const AdminRegistration = () => {
 
     try {
       setLoading(true);
-      const response = await axios.post("http://localhost:8085/admin/register", formData, {
+      const response = await axios.post(APi_URL + "admin/register", formData, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -60,7 +60,7 @@ const AdminRegistration = () => {
   const sendOtp = async () => {
     try {
       setLoading(true);
-      await axios.post('http://localhost:8085/send-otp', { email });
+      await axios.post(APi_URL + 'send-otp', { email });
       setIsOtpSent(true);
       setMessage('OTP sent to your email');
     } catch (error) {
@@ -74,7 +74,7 @@ const AdminRegistration = () => {
   const verifyOtp = async () => {
     try {
       setLoading(true);
-      const response = await axios.post('http://localhost:8085/verify-otp', { email, otp: otp.toString() });
+      const response = await axios.post(APi_URL + 'verify-otp', { email, otp: otp.toString() });
       setIsOtpVerified(true);
       setMessage(response.data.msg);
     } catch (error) {

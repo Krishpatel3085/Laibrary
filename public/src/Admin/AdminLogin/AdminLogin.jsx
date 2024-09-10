@@ -1,9 +1,9 @@
 // src/AdminLogin.js
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Cookies from 'js-cookie';
-
+import { APi_URL } from "../../Utils/apiConfig";
 import "./adminLogin.css";
 
 import main_img from "../img/IG_ziGVl8gI2PKZ.png";
@@ -18,7 +18,7 @@ const AdminLogin = () => {
   const LoginAdmin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8085/admin/login', {
+      const response = await axios.post(APi_URL + 'admin/login', {
         email,
         userName,
         password,
@@ -27,7 +27,7 @@ const AdminLogin = () => {
         Cookies.set('userEmail', email, { expires: 7 });
         Cookies.set('username', userName, { expires: 7 });
         alert('Login successfully 👍');
-        navigate('/first');  
+        navigate('/first');
       }
     } catch (error) {
       alert(error.response?.data?.message || 'User Not Found or Invalid Credentials 👎');
@@ -74,7 +74,7 @@ const AdminLogin = () => {
                           type="email"
                           id="form2Example17"
                           className="form-control form-control-lg"
-                          placeholder="Enter your Email"  value={email}  onChange={(e) => setEmail(e.target.value)}
+                          placeholder="Enter your Email" value={email} onChange={(e) => setEmail(e.target.value)}
                           required
                         />
                       </div>
@@ -86,7 +86,7 @@ const AdminLogin = () => {
                           type="username"
                           id="form2Example17"
                           className="form-control form-control-lg"
-                          placeholder="Enter your Username"  value={userName}  onChange={(e) => setUsername(e.target.value)}
+                          placeholder="Enter your Username" value={userName} onChange={(e) => setUsername(e.target.value)}
                           required
                         />
                       </div>
@@ -98,7 +98,7 @@ const AdminLogin = () => {
                           type="password"
                           id="form2Example27"
                           className="form-control form-control-lg"
-                          placeholder="Enter Your Password"  value={password} onChange={(e) => setPassword(e.target.value)} 
+                          placeholder="Enter Your Password" value={password} onChange={(e) => setPassword(e.target.value)}
                           required
                         />
                       </div>

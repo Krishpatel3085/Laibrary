@@ -5,7 +5,7 @@ import "./details.css";
 import NavBar from '../NavBar/Nav';
 import Footer from '../footer/Footer';
 import professional from '../images/professional.jpg'
-
+import { APi_URL } from "../../Utils/apiConfig";
 
 
 function Details() {
@@ -18,7 +18,7 @@ function Details() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8085/book/get1book/${_id}`
+          APi_URL + `book/get1book/${_id}`
         );
         console.log("API Response:", response);
         if (response.data && response.data.data) {
@@ -48,45 +48,45 @@ function Details() {
       <NavBar />
 
       <section id="contenet">
-      <div className="detail-card py-5">
-        <div className="container">
-          <div className="row">
-            <div className="Img_url col-md-5">
-              <img 
-                src={
-                  "http://localhost:8085/book/upload/" + item.url
-                }
-                width={"500px"} height={"auto"}
-              alt="img" />
-            </div>
-            <div className="share_menu col-md-7 p-4">
-              <div className="detail-price">
-                <span className="text-secondary">
-                  <strike>${item.price2}.00</strike>
-                </span>
-
-                <span className="text-danger fw-bold ">
-                  <u>${item.price}.00</u>
-                </span>
+        <div className="detail-card py-5">
+          <div className="container">
+            <div className="row">
+              <div className="Img_url col-md-5">
+                <img
+                  src={
+                    APi_URL + "book/upload/" + item.url
+                  }
+                  width={"500px"} height={"auto"}
+                  alt="img" />
               </div>
-              <h2>{item.title}</h2>
-              <p>{item.description}</p>
-              <h5>Share:
-                <span style={{ color: "#395692" }}><i class="bi bi-facebook"></i></span>
-                <span style={{ color: "#1c9dec" }}><i class="bi bi-twitter"></i></span>
-                <span style={{ color: "#0073af" }}><i class="bi bi-linkedin"></i></span>
-                <span style={{ color: "#334358" }}><i class="bi bi-instagram"></i></span>
-              </h5>
-              <hr />
-              <p>
-                <span> <b> Author:</b>  {item.author}</span> <br />
-                <span> <b> Language:</b>  {item.language}</span>
-              </p>
-              <button>ADD TO CART</button>
+              <div className="share_menu col-md-7 p-4">
+                <div className="detail-price">
+                  <span className="text-secondary">
+                    <strike>${item.price2}.00</strike>
+                  </span>
+
+                  <span className="text-danger fw-bold ">
+                    <u>${item.price}.00</u>
+                  </span>
+                </div>
+                <h2>{item.title}</h2>
+                <p>{item.description}</p>
+                <h5>Share:
+                  <span style={{ color: "#395692" }}><i class="bi bi-facebook"></i></span>
+                  <span style={{ color: "#1c9dec" }}><i class="bi bi-twitter"></i></span>
+                  <span style={{ color: "#0073af" }}><i class="bi bi-linkedin"></i></span>
+                  <span style={{ color: "#334358" }}><i class="bi bi-instagram"></i></span>
+                </h5>
+                <hr />
+                <p>
+                  <span> <b> Author:</b>  {item.author}</span> <br />
+                  <span> <b> Language:</b>  {item.language}</span>
+                </p>
+                <button>ADD TO CART</button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
       </section>
 
       {/* second section */}

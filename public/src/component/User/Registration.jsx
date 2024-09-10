@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './user.css';
 import main_img from '../images/main_login.jpg';
 import axios from 'axios';
-
+import { APi_URL } from '../../Utils/apiConfig';
 function Registration() {
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
@@ -21,7 +21,7 @@ function Registration() {
     formData.append('username', username);
 
     try {
-      await axios.post("http://localhost:8085/user/register ", formData, {
+      await axios.post(APi_URL + "user/register ", formData, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -50,7 +50,7 @@ function Registration() {
               <div className="card card-registration my-4">
                 <div className="row g-0 ">
                   <div className="col-xl-6 d-none d-xl-block">
-                    <img 
+                    <img
                       src={main_img}
                       alt="Sample"
                       className="img-fluid w-100 m-0"
@@ -169,7 +169,7 @@ function Registration() {
                         </div>
                       </form>
                     </div>
-                  </div> 
+                  </div>
                 </div>
               </div>
             </div>
