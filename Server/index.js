@@ -6,8 +6,8 @@ const { admin_router } = require("./src/Routes/Admin");
 const { orderRouter } = require('./src/Routes/order');
 const { SendOtp, VerifyOtp } = require('./src/Controlers/otp');
 const path=require("path");
-const PORT = 8085;
-MONGO_URL = 'mongodb+srv://f388krish:xkhbo697@lms-app.zbqpg.mongodb.net/Book-Detail?retryWrites=true&w=majority'
+require('dotenv').config()
+MONGO_URL = 'mongodb+srv://f388krish:xkhbo697@lms-app.zbqpg.mongodb.net/Book-Detail'
 
 const cors = require("cors");
 const cookieParse = require('cookie-parser')
@@ -29,8 +29,8 @@ app.post('/send-otp', SendOtp)
 app.post('/verify-otp', VerifyOtp)
 
 
-app.listen(PORT, async () => {
-    await mongoose.connect(MONGO_URL)
+app.listen(process.env.PORT, async () => {
+    await mongoose.connect(process.env.MONGO_URL)
     console.log("Connected to MongoDB Succefully")
-    console.log(`server Started on http//localhost:${PORT}/`)
+    console.log(`server Started on http//localhost:${process.env.PORT}/`)
 }) 
