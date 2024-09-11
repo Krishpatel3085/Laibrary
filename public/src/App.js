@@ -41,8 +41,8 @@ function App() {
 
 
         {/* Protected Routes */}
-        <Route path="/first" element={<First />} />
         <Route element={<PrivateRoute />}>
+          <Route path="/first" element={<First />} />
         </Route>
       </Routes>
     </>

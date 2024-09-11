@@ -18,6 +18,7 @@ const AdminLogin = () => {
   const gotoRagister = () => {
     navigate('/adminRegistration')
   }
+
   const LoginAdmin = async (e) => {
     e.preventDefault();
     try {
@@ -119,6 +120,7 @@ const AdminLogin = () => {
                       <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>
                         Don't have an account?{" "}
                         <a
+                          href='#'
                           onClick={gotoRagister}
                           style={{ color: "#393f81" }}
                         >
