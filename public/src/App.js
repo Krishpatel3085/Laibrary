@@ -39,7 +39,6 @@ function App() {
         <Route path="/adminlogin" element={<AdminLogin />} />
         <Route path="/adminRegistration" element={<AdminRegistration />} />
 
-
         {/* Protected Routes */}
         <Route element={<PrivateRoute />}>
           <Route path="/first" element={<First />} />
