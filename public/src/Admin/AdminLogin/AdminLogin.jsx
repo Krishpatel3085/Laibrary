@@ -15,6 +15,9 @@ const AdminLogin = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
+  const gotoRagister = () => {
+    navigate('/adminRegistration')
+  }
   const LoginAdmin = async (e) => {
     e.preventDefault();
     try {
@@ -117,6 +120,7 @@ const AdminLogin = () => {
                         Don't have an account?{" "}
                         <a
                           href="/adminRegistration"
+                          onClick={gotoRagister}
                           style={{ color: "#393f81" }}
                         >
                           Register here
