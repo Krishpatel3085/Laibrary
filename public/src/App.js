@@ -36,13 +36,13 @@ function App() {
         <Route path="/details/:_id" element={<Details />} />
 
         {/* admin Login Routes */}
-        {/* <Route path="/adminlogin" element={<AdminLogin />} />
-        <Route path="/adminRegistration" element={<AdminRegistration />} /> */}
+        <Route path="/adminlogin" element={<AdminLogin />} />
+        <Route path="/adminRegistration" element={<AdminRegistration />} />
 
 
         {/* Protected Routes */}
-          <Route path="/first" element={<First />} />
         <Route element={<PrivateRoute />}>
+          <Route path="/first" element={<First />} />
         </Route>
       </Routes>
     </>

@@ -10,7 +10,7 @@ export default function Main() {
   };
 
   const gotoAdmin = () => {
-    navigate("/first");
+    navigate("/adminlogin");
   };
   return (
     <>
