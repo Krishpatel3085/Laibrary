@@ -24,7 +24,7 @@ function App() {
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<Login />} />
         <Route path="/registration" element={<Registration />} />
-        
+
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/event" element={<Event />} />
@@ -41,7 +41,7 @@ function App() {
 
 
         {/* Protected Routes */}
-          <Route path="/first" element={<First />} />
+        <Route path="/first" element={<First />} />
         <Route element={<PrivateRoute />}>
         </Route>
       </Routes>
