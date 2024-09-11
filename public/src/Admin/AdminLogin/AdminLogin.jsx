@@ -119,7 +119,6 @@ const AdminLogin = () => {
                       <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>
                         Don't have an account?{" "}
                         <a
-                          href="/adminRegistration"
                           onClick={gotoRagister}
                           style={{ color: "#393f81" }}
                         >
