@@ -57,7 +57,7 @@ function Team() {
       {/* Second section */}
       <div className="container-fluid mb-4">
         <div className="container p-5 custom-container">
-          <div className="row align-items-center">
+          <div className="row align-items-center overflow-hidden">
             <div className="col-md-6">
               <div className="about_author">
                 <h6
@@ -137,7 +137,7 @@ function Team() {
           </div>
 
           {/* second row */}
-          <div className="row d-flex ">
+          <div className="row d-flex overflow-hidden">
             <div className="col-md-3">
               <div
                 className="john"
@@ -244,7 +244,7 @@ function Team() {
               </div>
             </div>
           </div>
-          <div className="row d-flex py-4">
+          <div className="row d-flex py-4 overflow-hidden">
             <div className="col-md-3">
               <div className="john">
                 <img

@@ -172,7 +172,7 @@ function Shop() {
       {/* Third Section */}
       <section className="mb-3" id="back_images">
         <div className="container  d-flex align-items-center ">
-          <div className="row">
+          <div className="row overflow-hidden">
             <div className="col-md-6 mb-4 mb-md-0">
               <div className="lectus" >
                 <h6 className="text-uppercase font-weight-bold mb-3 text-danger" data-aos="zoom-out-down" data-aos-duration="2000">

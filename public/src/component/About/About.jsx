@@ -67,7 +67,7 @@ function About() {
 
       {/* second */}
       <div className="container pt-4">
-        <div className="row text-center py-2">
+        <div className="row text-center py-2 overflow-hidden">
           <h2
             data-aos="fade-up"
             data-aos-anchor-placement="center-center"
@@ -87,7 +87,7 @@ function About() {
 
       <div className="container " id="writers">
         <div className="welcome  mb-3">
-          <div className="row px-4 pt-4">
+          <div className="row px-4 pt-4 overflow-hidden">
             <div className="col-md-6">
               <p data-aos="fade-down" data-aos-duration="2000">
                 Euismod magna dui sagittis curabitur convallis pulvinar. Mollis
@@ -138,7 +138,7 @@ function About() {
 
       {/* third section */}
       <div class="container">
-        <div class="row py-5">
+        <div class="row py-5 overflow-hidden">
           <div class="col-md-6 col-lg-6">
             <img
               src={Hand_book}
@@ -221,7 +221,7 @@ function About() {
       {/* Four Section */}
       <section className="py-5" style={{ background: "#f8f8f8" }}>
         <div className="container">
-          <div className="row">
+          <div className="row overflow-hidden">
             <div className="danger-blog col-md-4">
               <h6
                 className="text-uppercase"

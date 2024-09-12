@@ -23,6 +23,7 @@ function NavBar() {
   const gotocheckout = () => {
     navigate("/checkout");
   };
+
   const gotologout = () => {
     Cookies.remove("username");
     Cookies.remove("userEmail");
@@ -34,6 +35,10 @@ function NavBar() {
     navigate("/login ");
   };
 
+  const gotoAdminlogin=()=>{
+    navigate("/adminlogin");
+  }
+  
   useEffect(() => {
     axios
       .get(APi_URL + "user/get")
@@ -143,13 +148,18 @@ function NavBar() {
             >
               <NavDropdown.Item onClick={() => gotologin()}>
                 {" "}
-                <i className="bi bi-person-circle"></i> &nbsp; Login
+                <i className="bi bi-person-circle"></i> &nbsp;User Login
+              </NavDropdown.Item>
+              <NavDropdown.Item onClick={() => gotoAdminlogin()}>
+                {" "}
+                <i className="bi bi-person-circle"></i> &nbsp;Admin Login
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item onClick={() => gotologout()}>
                 <i class="fa-solid fa-right-to-bracket"></i> &nbsp; Logout
               </NavDropdown.Item>
             </NavDropdown>
+            
           </Nav>
         </Navbar.Collapse>
       </Container>

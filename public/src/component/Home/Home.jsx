@@ -32,7 +32,6 @@ function Home() {
   const [items, setItems] = useState([]);
   const navigate = useNavigate();
 
-
   useEffect(() => {
     axios
       .get(APi_URL + "book/getbook")
@@ -390,21 +389,29 @@ function Home() {
       </div>
 
       {/* four section */}
-      <div className="container-fluid mb-4">
+      <div className="container-fluid mb-4 ">
         <div className="container p-5 custom-container">
-          <div className="row align-items-center">
+          <div className="row align-items-center overflow-hidden" >
             <div className="col-md-6">
               <div className="about_author">
-                <h6 className="text-danger" data-aos="fade-right"
-     data-aos-duration="2000">
+                <h6
+                  className="text-danger"
+                  data-aos="fade-right"
+                  data-aos-duration="2000"
+                >
                   About Author
                 </h6>
-                <h2 className="text-dark text-start" data-aos="fade-right" data-aos-duration="2000">
+                <h2
+                  className="text-dark text-start"
+                  data-aos="fade-right"
+                  data-aos-duration="2000"
+                >
                   Writing books makes the world go round
                 </h2>
                 <span
                   data-aos="fade-up"
-                  data-aos-anchor-placement="bottom-bottom" data-aos-duration="2000"
+                  data-aos-anchor-placement="bottom-bottom"
+                  data-aos-duration="2000"
                 >
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
                   elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus
@@ -413,7 +420,8 @@ function Home() {
                 <p
                   className="mt-2"
                   data-aos="fade-up"
-                  data-aos-anchor-placement="bottom-bottom" data-aos-duration="2000"
+                  data-aos-anchor-placement="bottom-bottom"
+                  data-aos-duration="2000"
                 >
                   Interdum donec fringilla consectetuer senectus proin odio
                   ultricies tincidunt. Leo molestie bibendum eget aenean
@@ -423,13 +431,20 @@ function Home() {
               <button
                 className="author_btn fw-bold"
                 data-aos="fade-up"
-                data-aos-anchor-placement="bottom-bottom" data-aos-duration="2000"
+                data-aos-anchor-placement="bottom-bottom"
+                data-aos-duration="2000"
               >
                 Discover More
               </button>
             </div>
             <div className="col-md-6">
-              <img src={writing} alt="img" className="img-fluid custom-img" data-aos="fade-left" data-aos-duration="2000" />
+              <img
+                src={writing}
+                alt="img"
+                className="img-fluid custom-img"
+                data-aos="fade-left"
+                data-aos-duration="2000"
+              />
             </div>
           </div>
         </div>
@@ -441,28 +456,46 @@ function Home() {
           <div class="col-md-6 col-lg-6">
             <img
               src={Hand_book}
-              class="img-fluid custom-img h-100 w-100" data-aos="zoom-in-right" data-aos-duration="2000"
-              alt="Handbook" 
+              class="img-fluid custom-img h-100 w-100"
+              data-aos="zoom-in-right"
+              data-aos-duration="2000"
+              alt="Handbook"
             />
           </div>
           <div class="col-md-6 col-lg-6">
             <div class="content ps-3">
-              <h2 className="text-start" data-aos="flip-up" data-aos-duration="2000">
+              <h2
+                className="text-start"
+                data-aos="flip-up"
+                data-aos-duration="2000"
+              >
                 It is more than just <br /> writing books
               </h2>
-              <p className="text-dark fs-6" data-aos="zoom-in-up" data-aos-duration="2000">
+              <p
+                className="text-dark fs-6"
+                data-aos="zoom-in-up"
+                data-aos-duration="2000"
+              >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
                 tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
               </p>
               <div class="row">
-                <div class="col-md-6 mb-4" data-aos="zoom-in-up" data-aos-duration="2000">
+                <div
+                  class="col-md-6 mb-4"
+                  data-aos="zoom-in-up"
+                  data-aos-duration="2000"
+                >
                   <i class="fa-solid fa-rocket text-danger mb-2"></i>
-                  <span >Publishing</span>
+                  <span>Publishing</span>
                   <p>
                     Maecenas etiam platea et hac viverra aliquam magnis sapien.
                   </p>
                 </div>
-                <div class="col-md-6 mb-4" data-aos="zoom-in-up" data-aos-duration="2000">
+                <div
+                  class="col-md-6 mb-4"
+                  data-aos="zoom-in-up"
+                  data-aos-duration="2000"
+                >
                   <i class="fa-solid fa-cart-arrow-down text-danger mb-2"></i>
                   <span>Selling Book</span>
                   <p>
@@ -471,14 +504,22 @@ function Home() {
                 </div>
               </div>
               <div class="row">
-                <div class="col-md-6 mb-4" data-aos="zoom-in-up" data-aos-duration="2000">
+                <div
+                  class="col-md-6 mb-4"
+                  data-aos="zoom-in-up"
+                  data-aos-duration="2000"
+                >
                   <i class="fa-solid fa-book text-danger mb-2"></i>
                   <span>Editing</span>
                   <p>
                     Maecenas etiam platea et hac viverra aliquam magnis sapien.
                   </p>
                 </div>
-                <div class="col-md-6 mb-4" data-aos="zoom-in-up" data-aos-duration="2000">
+                <div
+                  class="col-md-6 mb-4"
+                  data-aos="zoom-in-up"
+                  data-aos-duration="2000"
+                >
                   <i class="fa-solid fa-users text-danger mb-2"></i>
                   <span>Community</span>
                   <p>
@@ -494,17 +535,35 @@ function Home() {
       {/* setion six */}
       <section className="mb-3" id="back_images">
         <div className="container  d-flex align-items-center ">
-          <div className="row">
+          <div className="row overflow-hidden">
             <div className="col-md-6 mb-4 mb-md-0">
-              <div className="lectus" >
-                <h6 className="text-uppercase font-weight-bold mb-3 text-danger" data-aos="zoom-out-down" data-aos-duration="2000">
+              <div className="lectus">
+                <h6
+                  className="text-uppercase font-weight-bold mb-3 text-danger"
+                  data-aos="zoom-out-down"
+                  data-aos-duration="2000"
+                >
                   New Release
                 </h6>
-                <h3 className="font-weight-bold mb-3" data-aos="zoom-out-down" data-aos-duration="2000">Me & My Dad</h3>
-                <h5 className="font-italic mb-4" data-aos="zoom-out-down" data-aos-duration="2000">
+                <h3
+                  className="font-weight-bold mb-3"
+                  data-aos="zoom-out-down"
+                  data-aos-duration="2000"
+                >
+                  Me & My Dad
+                </h3>
+                <h5
+                  className="font-italic mb-4"
+                  data-aos="zoom-out-down"
+                  data-aos-duration="2000"
+                >
                   A novelette book by John Doe
                 </h5>
-                <p className="text-justify mb-4" data-aos="zoom-out-down" data-aos-duration="2000">
+                <p
+                  className="text-justify mb-4"
+                  data-aos="zoom-out-down"
+                  data-aos-duration="2000"
+                >
                   Morbi proin condimentum litora duis lectus vivamus parturient
                   torquent. Phasellus fames lectus molestie iaculis lacus
                   condimentum duis. Ac ligula etiam magna efficitur quisque in.
@@ -514,14 +573,30 @@ function Home() {
                   habitasse orci. Elementum ullamcorper libero magna montes ut
                   orci suspendisse magnis nam id ligula.
                 </p>
-                <span className="font-weight-bold mb-2 d-block fs-3" data-aos="zoom-out-down" data-aos-duration="2000">
+                <span
+                  className="font-weight-bold mb-2 d-block fs-3"
+                  data-aos="zoom-out-down"
+                  data-aos-duration="2000"
+                >
                   Price : <span className="text-danger fs-3"> $40.00</span>{" "}
                 </span>
-                <Button className="add_to_cart" data-aos="zoom-out-down" data-aos-duration="2000">Add to Cart</Button>
+                <Button
+                  className="add_to_cart"
+                  data-aos="zoom-out-down"
+                  data-aos-duration="2000"
+                >
+                  Add to Cart
+                </Button>
               </div>
             </div>
             <div className="col-md-6">
-              <img src={chid} alt="img" className="img-fluid w-100 h-100" data-aos="fade-left" data-aos-duration="2000"/>
+              <img
+                src={chid}
+                alt="img"
+                className="img-fluid w-100 h-100"
+                data-aos="fade-left"
+                data-aos-duration="2000"
+              />
             </div>
           </div>
         </div>
@@ -531,8 +606,20 @@ function Home() {
       <div className="container py-4">
         <div className="row py-3">
           <div className="col-12 d-flex justify-content-between align-items-center">
-            <h2 className="text-dark" data-aos="fade-down" data-aos-duration="2000">Blog & News</h2>
-            <button className="btn btn-danger" data-aos="fade-down" data-aos-duration="2000">View All Articles</button>
+            <h2
+              className="text-dark"
+              data-aos="fade-down"
+              data-aos-duration="2000"
+            >
+              Blog & News
+            </h2>
+            <button
+              className="btn btn-danger"
+              data-aos="fade-down"
+              data-aos-duration="2000"
+            >
+              View All Articles
+            </button>
           </div>
         </div>
         <div className="row py-3">
@@ -541,23 +628,42 @@ function Home() {
               src={read_book}
               alt="Read Book"
               className="w-100 img-fluid"
-              id="read_book"  data-aos="flip-up" data-aos-duration="2000"
+              id="read_book"
+              data-aos="flip-up"
+              data-aos-duration="2000"
             />
-            <h5 className="py-3"  data-aos="flip-up" data-aos-duration="2000">How to Get Started on Bookstagram in 2022</h5>
-            <h6 className="text-danger py-2"  data-aos="flip-up" data-aos-duration="2000">May 10, 2022 ~ No Comments</h6>
-            <p  data-aos="flip-up">
+            <h5 className="py-3" data-aos="flip-up" data-aos-duration="2000">
+              How to Get Started on Bookstagram in 2022
+            </h5>
+            <h6
+              className="text-danger py-2"
+              data-aos="flip-up"
+              data-aos-duration="2000"
+            >
+              May 10, 2022 ~ No Comments
+            </h6>
+            <p data-aos="flip-up">
               Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
               commodo ligula eget dolor. Aenean massa. Cum sociis natoque
               penatibus et magnis dis parturient montes, nascetur
             </p>
-            <a href="-" className="text-decoration-none text-dark"  data-aos="flip-up" data-aos-duration="2000">
+            <a
+              href="-"
+              className="text-decoration-none text-dark"
+              data-aos="flip-up"
+              data-aos-duration="2000"
+            >
               Continue Reading »
             </a>
           </div>
 
-          <div className="col-md-6" >
+          <div className="col-md-6">
             <div className="row ">
-              <div className="col-4" data-aos="zoom-out" data-aos-duration="2000">
+              <div
+                className="col-4"
+                data-aos="zoom-out"
+                data-aos-duration="2000"
+              >
                 <img
                   src={one_book}
                   alt="One Book"
@@ -565,12 +671,16 @@ function Home() {
                   id="comment"
                 />
               </div>
-              <div className="Bookstagram col-8" data-aos="zoom-out" data-aos-duration="2000">
+              <div
+                className="Bookstagram col-8"
+                data-aos="zoom-out"
+                data-aos-duration="2000"
+              >
                 <h5>How to Get Started on Bookstagram in 2022</h5>
                 <span className="text-danger fs-6">
                   May 10, 2022 ~ No Comments
                 </span>
-                <p className="py-2" >
+                <p className="py-2">
                   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
                   Aenean commodo ligula eget dolor. Aenean massa.
                 </p>
@@ -578,7 +688,11 @@ function Home() {
             </div>
 
             <div className="row pt-3">
-              <div className="col-4" data-aos="zoom-out" data-aos-duration="2000">
+              <div
+                className="col-4"
+                data-aos="zoom-out"
+                data-aos-duration="2000"
+              >
                 <img
                   src={second_book}
                   alt="One Book"
@@ -586,7 +700,11 @@ function Home() {
                   id="comment"
                 />
               </div>
-              <div className="Bookstagram col-8" data-aos="zoom-out" data-aos-duration="2000">
+              <div
+                className="Bookstagram col-8"
+                data-aos="zoom-out"
+                data-aos-duration="2000"
+              >
                 <h5>How to Get Started on Bookstagram in 2022</h5>
                 <span className="text-danger fs-6">
                   May 10, 2022 ~ No Comments
@@ -599,7 +717,11 @@ function Home() {
             </div>
 
             <div className="row pt-3 ">
-              <div className="col-4" data-aos="zoom-out" data-aos-duration="2000">
+              <div
+                className="col-4"
+                data-aos="zoom-out"
+                data-aos-duration="2000"
+              >
                 <img
                   src={third_book}
                   alt="One Book"
@@ -607,7 +729,11 @@ function Home() {
                   id="comment"
                 />
               </div>
-              <div className="Bookstagram col-8" data-aos="zoom-out" data-aos-duration="2000">
+              <div
+                className="Bookstagram col-8"
+                data-aos="zoom-out"
+                data-aos-duration="2000"
+              >
                 <h5>How to Get Started on Bookstagram in 2022</h5>
                 <span className="text-danger fs-6">
                   May 10, 2022 ~ No Comments
@@ -630,18 +756,34 @@ function Home() {
               src={review}
               alt="img"
               className="img-fluid w-100 "
-              id="review_img" data-aos="flip-left"
+              id="review_img"
+              data-aos="flip-left"
               data-aos-easing="ease-out-cubic"
               data-aos-duration="2000"
             />
           </div>
           <div className="col-md-6">
-            <h6 className="text-danger text-capitalize" data-aos="fade-up"
-     data-aos-anchor-placement="center-bottom" data-aos-duration="2000">Testimonials </h6>
-            <h2 className="text-start" data-aos="fade-up"
-     data-aos-anchor-placement="center-bottom " data-aos-duration="2000">Customer Reviews</h2>
-            <p data-aos="fade-up"
-     data-aos-anchor-placement="center-bottom" data-aos-duration="2000">
+            <h6
+              className="text-danger text-capitalize"
+              data-aos="fade-up"
+              data-aos-anchor-placement="center-bottom"
+              data-aos-duration="2000"
+            >
+              Testimonials{" "}
+            </h6>
+            <h2
+              className="text-start"
+              data-aos="fade-up"
+              data-aos-anchor-placement="center-bottom "
+              data-aos-duration="2000"
+            >
+              Customer Reviews
+            </h2>
+            <p
+              data-aos="fade-up"
+              data-aos-anchor-placement="center-bottom"
+              data-aos-duration="2000"
+            >
               Porttitor eleifend facilisi euismod litora etiam consectetur.
               Vivamus platea quisque mauris si blandit diam id a primis
               himenaeos. Natoque vulputate duis nec mauris tristique integer mi.
@@ -652,12 +794,21 @@ function Home() {
             <div className="sliders">
               <div className="one d-flex gap-3 align-items-start p-2">
                 <div className="imgs">
-                  <img src={slide_1} alt="img" data-aos="fade-up"
-     data-aos-anchor-placement="center-bottom" data-aos-duration="2000" />
+                  <img
+                    src={slide_1}
+                    alt="img"
+                    data-aos="fade-up"
+                    data-aos-anchor-placement="center-bottom"
+                    data-aos-duration="2000"
+                  />
                 </div>
                 <div className="text mt-2">
-                  <p className="text-secondary fs-5" data-aos="fade-up"
-     data-aos-anchor-placement="center-bottom" data-aos-duration="2000">
+                  <p
+                    className="text-secondary fs-5"
+                    data-aos="fade-up"
+                    data-aos-anchor-placement="center-bottom"
+                    data-aos-duration="2000"
+                  >
                     {" "}
                     <i>
                       {" "}
@@ -676,8 +827,12 @@ function Home() {
                   <img src={slide_2} alt="img" />
                 </div>
                 <div className="text mt-2 ">
-                  <p className="text-secondary fs-5" data-aos="fade-up"
-     data-aos-anchor-placement="center-bottom" data-aos-duration="2000">
+                  <p
+                    className="text-secondary fs-5"
+                    data-aos="fade-up"
+                    data-aos-anchor-placement="center-bottom"
+                    data-aos-duration="2000"
+                  >
                     {" "}
                     <i>
                       {" "}
