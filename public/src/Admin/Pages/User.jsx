@@ -10,7 +10,7 @@ export default function User() {
 
   useEffect(() => {
     axios
-      .get(APi_URL + "/user/get")
+      .get(APi_URL + "user/get")
       .then((response) => {
         setItems(response.data);
       })
@@ -21,7 +21,7 @@ export default function User() {
 
   useEffect(() => {
     axios
-      .get(APi_URL + "/admin/get")
+      .get(APi_URL + "admin/get")
       .then((response) => {
         setAdmin(response.data);
       })
