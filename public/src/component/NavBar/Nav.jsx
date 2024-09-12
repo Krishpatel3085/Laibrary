@@ -66,7 +66,7 @@ function NavBar() {
         <Navbar.Collapse id="navbarScroll">
           <Nav className="me-auto my-2 my-lg-0 d-flex align-items-center gap-3" navbarScroll>
             <Nav.Link
-              onClick={() => handleNavigation("/", "home")}
+              onClick={() => handleNavigation("/ ", "home")}
               className={`navbar__link ${active === "home" ? "active" : ""}`}
             >
               HOME
