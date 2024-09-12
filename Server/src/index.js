@@ -1,10 +1,10 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const { book_routes } = require("./src/Routes/Book");
-const { user_router } = require("./src/Routes/user");
-const { admin_router } = require("./src/Routes/Admin");
-const { orderRouter } = require('./src/Routes/order');
-const { SendOtp, VerifyOtp } = require('./src/Controlers/otp');
+const { book_routes } = require("./Routes/Book");
+const { user_router } = require("./Routes/user");
+const { admin_router } = require("./Routes/Admin");
+const { orderRouter } = require('./Routes/order');
+const { SendOtp, VerifyOtp } = require('./Controlers/otp');
 const dotenv = require('dotenv');
 
 const cors = require("cors");
