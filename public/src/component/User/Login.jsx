@@ -79,13 +79,13 @@ function Login() {
                           Login
                         </button>
                       </div>
-                      <a className="small text-muted" href="#!">Forgot password?</a>
+                      <span className="small text-muted" >Forgot password?</span>
                       <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>
                         Don't have an account?{" "}
                         <a href="/registration" style={{ color: "#393f81" }}>Register here</a>
                       </p>
-                      <a href="#!" className="small text-muted">Terms of use.</a>
-                      <a href="#!" className="small text-muted">Privacy policy</a>
+                      <span className="small text-muted me-2">Terms of use.</span>
+                      <span className="small text-muted">Privacy policy</span>
                     </form>
                   </div>
                 </div>

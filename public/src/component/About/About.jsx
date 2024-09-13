@@ -123,7 +123,7 @@ function About() {
                 sit cursus mollis enim. Lacus ridiculus nisi risus quam enim
                 venenatis consectetuer libero lectus.
               </p>
-              <a href="-"> Discover More</a>
+              <span> Discover More</span>
               <img
                 src={book2}
                 alt="img"
