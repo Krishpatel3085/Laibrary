@@ -56,13 +56,13 @@ export default function Footer() {
               <h4>Know More</h4>
               <ul className="list-unstyled">
                 <li>
-                  <a href="-">About Us</a>
+                  <span>About Us</span>
                 </li>
                 <li>
-                  <a href="-">Company Story</a>
+                  <span>Company Story</span>
                 </li>
                 <li>
-                  <a href="-">Our blog</a>
+                  <span>Our blog</span>
                 </li>
               </ul>
             </div>
@@ -75,13 +75,13 @@ export default function Footer() {
               <h4>Shop </h4>
               <ul className="list-unstyled">
                 <li>
-                  <a href="-">Books</a>
+                  <span>Books</span>
                 </li>
                 <li>
-                  <a href="-">Order Status</a>
+                  <span>Order Status</span>
                 </li>
                 <li>
-                  <a href="-">Coupon</a>
+                  <span>Coupon</span>
                 </li>
               </ul>
             </div>
@@ -94,16 +94,16 @@ export default function Footer() {
               <h4>Contact</h4>
               <ul className="list-unstyled">
                 <li>
-                  <a href="-">Meet our Authors</a>
+                  <span>Meet our Authors</span>
                 </li>
                 <li>
-                  <a href="-">Contact Form</a>
+                  <span>Contact Form</span>
                 </li>
                 <li>
-                  <a href="-">FAQS</a>
+                  <span>FAQS</span>
                 </li>
                 <li>
-                  <a href="-">Privacy Policy</a>
+                  <span>Privacy Policy</span>
                 </li>
               </ul>
             </div>
@@ -136,9 +136,6 @@ export default function Footer() {
             <div className="col-md-12">
               <p
                 className="text-center"
-                data-aos="flip-left"
-                data-aos-easing="ease-out-cubic"
-                data-aos-duration="2000"
               >
                 Copyright © 2024. All rights reserved.
               </p>

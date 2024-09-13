@@ -350,11 +350,11 @@ function Team() {
             <p  data-aos="flip-up">
               Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
               commodo ligula eget dolor. Aenean massa. Cum sociis natoque
-              penatibus et magnis dis parturient montes, nascetur
+              penatibus et magnis dis parturient montes, nascetur.
             </p>
-            <a href="-" className="text-decoration-none text-dark"  data-aos="flip-up" data-aos-duration="2000">
+            <span className="text-decoration-none text-dark"  data-aos="flip-up" data-aos-duration="2000">
               Continue Reading »
-            </a>
+            </span>
           </div>
 
           <div className="col-md-6" >

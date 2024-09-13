@@ -32,6 +32,7 @@ function Home() {
   const [items, setItems] = useState([]);
   const navigate = useNavigate();
 
+
   useEffect(() => {
     axios
       .get(APi_URL + "book/getbook")
@@ -315,9 +316,9 @@ function Home() {
               Discover Your Next Book
             </h3>
             <span>
-              <a href="-" data-aos="flip-up" ata-aos-duration="3000">
-                View All Book
-              </a>
+              <span className="text-dark" data-aos="flip-up" ata-aos-duration="3000">
+                <u>View All Book</u>
+              </span>
             </span>
           </div>
         </div>
@@ -647,14 +648,13 @@ function Home() {
               commodo ligula eget dolor. Aenean massa. Cum sociis natoque
               penatibus et magnis dis parturient montes, nascetur
             </p>
-            <a
-              href="-"
+            <span
               className="text-decoration-none text-dark"
               data-aos="flip-up"
               data-aos-duration="2000"
             >
               Continue Reading »
-            </a>
+            </span>
           </div>
 
           <div className="col-md-6">
@@ -869,6 +869,7 @@ function Home() {
           </div>
         </div>
       </div>
+      
       <Footer />
     </>
   );

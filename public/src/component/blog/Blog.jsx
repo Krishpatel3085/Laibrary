@@ -40,7 +40,7 @@ function Blog() {
             <h4>How to Get Started on Bookstagram in 2022</h4>
             <span className='pb-4'>May 10, 2024  No Comments</span>
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,  nascetur</p>
-            <a href="-" className='text-decoration-none text-dark'>Continue Reading »</a>
+            <span className='text-decoration-none text-dark'>Continue Reading »</span>
           </div>
         
         
@@ -49,7 +49,7 @@ function Blog() {
             <h4>The 61 Greatest Indie Books of All Time</h4>
             <span>May 10, 2024  No Comments</span>
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,  nascetur</p>
-            <a href="-" className='text-decoration-none text-dark'>Continue Reading »</a>
+            <span className='text-decoration-none text-dark'>Continue Reading »</span>
           </div>
 
 
@@ -58,7 +58,7 @@ function Blog() {
             <h4>Books you won’t be able to put down on World Book Day</h4>
             <span>May 10, 2024  No Comments</span>
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,  nascetur</p>
-            <a href="-" className='text-decoration-none text-dark'>Continue Reading »</a>
+            <span className='text-decoration-none text-dark'>Continue Reading »</span>
           </div>
         
         </div>
@@ -68,21 +68,21 @@ function Blog() {
             <h4>How to Get Started on Bookstagram in 2022</h4>
             <span className='pb-4'>May 10, 2024  No Comments</span>
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,  nascetur</p>
-            <a href="-" className='text-decoration-none text-dark'>Continue Reading »</a>
+            <span className='text-decoration-none text-dark'>Continue Reading »</span>
           </div>
           <div className="commited col-md-4 pb-3" data-aos="zoom-in-down"  data-aos-duration="2000">
             <img src={man} alt="img" className='img-fluid w-100' id='book-img' />
             <h4>The 61 Greatest Indie Books of All Time</h4>
             <span>May 10, 2024  No Comments</span>
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,  nascetur</p>
-            <a href="-" className='text-decoration-none text-dark'>Continue Reading »</a>
+            <span className='text-decoration-none text-dark'>Continue Reading »</span>
           </div>
           <div className="commited col-md-4 pb-3" data-aos="zoom-in-down"  data-aos-duration="2000">
             <img src={books} alt="img" className='img-fluid w-100' id='book-img' />
             <h4>Books you won’t be able to put down on World Book Day</h4>
             <span>May 10, 2024  No Comments</span>
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,  nascetur</p>
-            <a href="-" className='text-decoration-none text-dark'>Continue Reading »</a>
+            <span className='text-decoration-none text-dark'>Continue Reading »</span>
           </div>
         </div>
       </div>

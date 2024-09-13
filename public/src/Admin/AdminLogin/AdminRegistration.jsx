@@ -32,7 +32,7 @@ const AdminRegistration = () => {
 
     try {
       setLoading(true);
-      const response = await axios.post(APi_URL + "admin/register", formData, {
+       await axios.post(APi_URL + "admin/register", formData, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -48,6 +48,8 @@ const AdminRegistration = () => {
       setIsOtpVerified(false);
 
       alert("Registration Successful.& A confirmation email has been sent.");
+      console.log(isOtpSent);
+      
       navigate("/adminlogin");
     } catch (error) {
       console.error("Error:", error);
