@@ -6,9 +6,6 @@ const { admin_router } = require("./Routes/Admin");
 const { orderRouter } = require('./Routes/order');
 const { SendOtp, VerifyOtp } = require('./Controlers/otp');
 const dotenv = require('dotenv');
-const multers3 = require('multer-s3')
-
-const { upload } = require('./Controlers/Book')
 
 const aws = require('aws-sdk')
 const cors = require("cors");
