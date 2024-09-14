@@ -2,23 +2,31 @@ const express = require("express");
 const Books = require("../Model/Book");
 const cors = require("cors");
 const multer = require("multer");
-const path = require("path");
-const fs = require("fs");
+// const path = require("path");
+// const fs = require("fs");
+const dotenv = require('dotenv');
+dotenv.config()
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "upload");
-  },
-  filename: function (req, file, cb) {
-    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 10000);
-    cb(null, uniqueSuffix + "-" + file.originalname);
-  },
-});
+const aws = require('aws-sdk');
+const multers3 = require('multer-s3')
+const BUCKET_NAME = process.env.BUCKET_NAME;
+const s3 = new aws.S3();
 
-const upload = multer({ storage });
+const upload = multer({
+  storage: multers3({
+    s3: s3,
+    bucket: BUCKET_NAME,
+    metadata: function (req, file, cb) {
+      cb(null, { fieldname: file.fieldname })
+    },
+    key: function (req, file, cb) {
+      cb(null, file.originalname);
+    },
+  })
+})
+
 const app = express();
 app.use(express.json());
-
 app.use(cors());
 
 // Data Get
@@ -36,7 +44,7 @@ const getData = async (req, res) => {
 const getSingelData = async (req, res) => {
   try {
     const id = req.params["id"]
-    const data = await Books.findOne({_id: id});
+    const data = await Books.findOne({ _id: id });
     res.json({ data });
   } catch (error) {
     console.error("Error fetching data:", error);
@@ -45,9 +53,9 @@ const getSingelData = async (req, res) => {
 };
 
 // Data Create
-const addData =  async (req, res) => {
+const addData = async (req, res) => {
   try {
-    const { title, author, price,price2, description, isbin, language } = req.body;
+    const { title, author, price, price2, description, isbin, language } = req.body;
     const url = req.file ? req.file.filename : "";
     await Books.create({
       title,
@@ -69,30 +77,30 @@ const addData =  async (req, res) => {
 // Data Update
 const updateData = async (req, res) => {
   const id = req.params["id"];
-  const { title, author, price,price2, description, isbin, language } = req.body;
+  const { title, author, price, price2, description, isbin, language } = req.body;
   let url;
 
   try {
     if (req.file) {
       const book = await Books.findById(id);
-      if (book.url) {
-        const oldImgPath = path.join(__dirname, "upload", book.url);
-        fs.unlink(oldImgPath, (err) => {
-          if (err) console.error(`Error removing old file: ${err}`);
-        });
+      if (book && book.url) {
+        // Delete the old image from S3
+        await s3.deleteObject({
+          Bucket: BUCKET_NAME,
+          Key: book.url,
+        }).promise();
       }
-      url = req.file.filename;
+      // Set the URL to the new file's filename
+      url = req.file.key;
     } else {
       const book = await Books.findById(id);
       url = book.url;
     }
-
     const updatedBook = await Books.findByIdAndUpdate(
       id,
-      { title, author, price,price2, description, isbin, language, url },
+      { title, author, price, price2, description, isbin, language, url },
       { new: true }
     );
-
     res.json({ Msg: "Put Successfully", updatedBook });
   } catch (error) {
     console.error("Error updating data:", error);
@@ -108,20 +116,15 @@ const deleteData = async (req, res) => {
     if (!book) {
       return res.status(404).json({ Msg: "Book not found" });
     }
-    const imgPath = path.join(__dirname, "upload", book.url);
-    fs.unlink(imgPath, async (err) => {
-      if (err) {
-        console.error(`Error removing file: ${err}`);
-      } else {
-        console.log(`File ${imgPath} has been successfully removed.`);
-      }
-      await Books.deleteOne({ _id: id });
-      res.json({ Msg: "Delete Successfully" });
-    });
+    const filename = req.params.filename;
+    await s3.deleteObject({ Bucket: BUCKET_NAME, Key: filename }).promise();
+    await Books.deleteOne({ _id: id });
+    res.json({ Msg: "Delete Successfully" });
+
   } catch (error) {
     console.error("Error deleting data:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
-module.exports = { deleteData, addData, updateData, upload  ,getData,  getSingelData};
+module.exports = { deleteData, addData, updateData, upload, getData, getSingelData };
