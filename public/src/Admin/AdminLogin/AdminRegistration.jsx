@@ -32,7 +32,7 @@ const AdminRegistration = () => {
 
     try {
       setLoading(true);
-      const response = await axios.post(APi_URL + "admin/register", formData, {
+      await axios.post(APi_URL + "admin/register", formData, {
         headers: {
           'Content-Type': 'application/json'
         }

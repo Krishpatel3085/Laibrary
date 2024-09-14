@@ -15,7 +15,7 @@ function First() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true); // Manage sidebar state
 
   useEffect(() => {
-    const username = Cookies.get("username");
+    const username = Cookies.get("Admin-username");
     setUser(username);
   }, []);
   
