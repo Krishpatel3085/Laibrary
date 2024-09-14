@@ -92,9 +92,9 @@ function Checkout() {
             {cart.map((item, index) => (
               <tr key={index}>
                 <td>
-                  <a href="-" onClick={() => deleteItem(item._id)}>
+                  <span onClick={() => deleteItem(item._id)}>
                     <i className="bi bi-x-circle"></i>
-                  </a>
+                  </span>
                 </td>
                 <td>
                   <img

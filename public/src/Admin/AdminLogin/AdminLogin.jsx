@@ -114,25 +114,25 @@ const AdminLogin = () => {
                           Login
                         </button>
                       </div>
-                      <a className="small text-muted" href="#!">
+                      <p className="small text-muted">
                         Forgot password?
-                      </a>
+                      </p>
                       <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>
                         Don't have an account?{" "}
-                        <a
-                          href='#'
+                        <span
+                          
                           onClick={gotoRagister}
                           style={{ color: "#393f81" }}
                         >
-                          Register here
-                        </a>
+                         <u> Register here</u>
+                        </span>
                       </p>
-                      <a href="#!" className="small text-muted">
+                      <span className="small text-muted me-2">
                         Terms of use.
-                      </a>
-                      <a href="#!" className="small text-muted">
+                      </span>
+                      <span className="small text-muted">
                         Privacy policy
-                      </a>
+                      </span>
                     </form>
                   </div>
                 </div>

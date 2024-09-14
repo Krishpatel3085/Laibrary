@@ -121,7 +121,7 @@ function Shop() {
           <div className="next col-md-12 d-flex justify-content-between align-content-center">
             <h3 data-aos="flip-up" ata-aos-duration="3000">Discover Your Next Book</h3>
             <span>
-              <a href="-" data-aos="flip-up" ata-aos-duration="3000">View All Book</a>
+              <span data-aos="flip-up" ata-aos-duration="3000"><u>View All Book</u></span>
             </span>
           </div>
         </div>

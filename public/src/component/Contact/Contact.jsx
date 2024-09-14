@@ -152,8 +152,7 @@ function Contact() {
             <button
               type="submit"
               className="form-control rounded-pill border-0 text-light"
-              id="submit"  data-aos="flip-up"  data-aos-duration="2000"
-            >
+              id="submit"  data-aos="flip-up"  data-aos-duration="2000"  >
               <i class="fa-solid fa-envelope-open-text me-2"></i> Send My
               Message
             </button>

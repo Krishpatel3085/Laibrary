@@ -59,7 +59,7 @@ function NavBar() {
   return (
     <Navbar expand="lg" className="navbar position-fixed w-100 p-2">
       <Container fluid className="d-flex align-items-center">
-        <Navbar.Brand href="#">
+        <Navbar.Brand>
           <img src={logo_main} id="user_main_logo" alt="Main Logo" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
