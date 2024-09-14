@@ -28,8 +28,8 @@ const AdminLogin = () => {
         password,
       });
       if (response.data) {
-        Cookies.set('userEmail', email, { expires: 7 });
-        Cookies.set('username', userName, { expires: 7 });
+        Cookies.set('Admin-userEmail', email, { expires: 7 });
+        Cookies.set('Admin-username', userName, { expires: 7 });
         alert('Login successfully 👍');
         navigate('/first');
       }

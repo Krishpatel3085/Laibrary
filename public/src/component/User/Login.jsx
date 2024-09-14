@@ -21,8 +21,8 @@ function Login() {
         password,
       });
       if (response.data) {
-        Cookies.set('userEmail', email, { expires: 7 });
-        Cookies.set('username', userName, { expires: 7 });
+        Cookies.set('User-userEmail', email, { expires: 7 });
+        Cookies.set('User-username', userName, { expires: 7 });
         alert('Login successfully 👍');
         navigate('/home');
       }
@@ -31,8 +31,11 @@ function Login() {
       console.error("Login error:", error.response?.data);
       navigate('/')
     }
-  };
 
+  };
+  const gotoRagister = () => {
+    navigate('/registration')
+  }
   return (
 
     <section className="vh-100">
@@ -82,7 +85,7 @@ function Login() {
                       <span className="small text-muted" >Forgot password?</span>
                       <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>
                         Don't have an account?{" "}
-                        <a href="/registration" style={{ color: "#393f81" }}>Register here</a>
+                        <a href="/registration" onClick={gotoRagister} style={{ color: "#393f81" }}>Register here</a>
                       </p>
                       <span className="small text-muted me-2">Terms of use.</span>
                       <span className="small text-muted">Privacy policy</span>

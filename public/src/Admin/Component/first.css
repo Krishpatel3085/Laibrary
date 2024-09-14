@@ -7,6 +7,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 .App {
   background-color: white;
   color: black;
@@ -19,25 +20,27 @@
   color: #4cceac;
 }
 
-  /* .topbar Nav {
+/* .topbar Nav {
     background-color: #1c2437;
   } */
 
 .topbar .icons i {
   color: white;
 }
+
 .topbar input {
   background-color: #1c2437;
   border: none;
 }
 
 .maina {
-  background-color:whitesmoke;
+  background-color: whitesmoke;
   min-width: 86vw;
   width: 100%;
   height: 100vh;
   overflow-x: hidden;
 }
+
 /* =======================
       Dashboard Css 
  =======================X*/
@@ -68,9 +71,10 @@
 .transection {
   width: 1200px;
   margin-top: 20px;
-  background-color:white;
+  background-color: white;
   color: black;
 }
+
 .transection {
   background-color: white;
   color: black;
@@ -81,6 +85,7 @@
   width: 100%;
   height: 415px;
 }
+
 .transection tr td button {
   background-color: #1a866a;
   border: none;
@@ -93,6 +98,7 @@
 #dash {
   font-size: 24px;
 }
+
 /* ==================== 
       Form CSS
  =====================*/
@@ -116,7 +122,8 @@
   color: black;
   border: none;
 }
-.BookForm{
+
+.BookForm {
   color: black;
 }
 
@@ -210,9 +217,11 @@ aside p {
 aside button {
   text-align: start;
 }
+
 aside button span {
   color: black;
 }
+
 aside button span i {
   margin-right: 10px;
 }
@@ -220,14 +229,17 @@ aside button span i {
 /* Aside.css */
 
 .sidebar-open {
-  width: 250px; /* Width of the sidebar when open */
+  width: 250px;
+  /* Width of the sidebar when open */
   transition: width 0.3s ease;
 }
 
 .sidebar-closed {
-  width: 80px; /* Width of the sidebar when closed */
+  width: 80px;
+  /* Width of the sidebar when closed */
   transition: width 0.3s ease;
-  overflow: hidden; /* Hide overflow content when collapsed */
+  overflow: hidden;
+  /* Hide overflow content when collapsed */
 }
 
 .title {
@@ -256,7 +268,8 @@ aside button span i {
 
 .profile img {
   width: 100%;
-  max-width: 180px; /* Adjust as needed */
+  max-width: 180px;
+  /* Adjust as needed */
 }
 
 .menus i {
@@ -271,7 +284,8 @@ aside button span i {
 .sidebar-closed .title h4,
 .sidebar-closed .profile,
 .sidebar-closed .menus p {
-  display: none; /* Hide these elements when the sidebar is closed */
+  display: none;
+  /* Hide these elements when the sidebar is closed */
 }
 
 #AdminNav {
@@ -282,6 +296,7 @@ aside button span i {
 .maina-big {
   width: 100%;
 }
+
 .AdminNav-toggle {
   min-width: 96%;
 }
@@ -301,25 +316,30 @@ aside button span i {
   transition: all linear 0.4s;
 }
 
+#profileDropdown2 {
+  margin-right: 102px;
+}
+
 /* =======================
         them Css
 ========================== */
 .aside-them2 {
   color: white;
 }
-.maina-them{
+
+.maina-them {
   background-color: #141a28;
 }
 
-.dark-them{
+.dark-them {
   background-color: #1c2437;
   color: white;
 }
-.form-them{
+
+.form-them {
   background-color: #1c2437;
 }
-.text-them{
+
+.text-them {
   color: white;
 }
-
-

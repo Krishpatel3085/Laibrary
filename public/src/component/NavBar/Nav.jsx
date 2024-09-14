@@ -27,8 +27,8 @@ function NavBar() {
   };
 
   const gotologout = () => {
-    Cookies.remove("username");
-    Cookies.remove("userEmail");
+    Cookies.remove("User-username");
+    Cookies.remove("User-userEmail");
     setUser(""); // Clear user state on logout
     navigate("/login");
   };
@@ -42,7 +42,7 @@ function NavBar() {
   };
 
   useEffect(() => {
-    const userName = Cookies.get("username");
+    const userName = Cookies.get("User-username");
     setUser(userName || ""); // Set user state from cookies if available
 
     axios
