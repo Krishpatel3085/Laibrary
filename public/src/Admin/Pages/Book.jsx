@@ -91,7 +91,7 @@ export default function Book() {
             <div className="row no-gutters">
               <h2 className="text-center"> --- Update ---</h2>
               <div className="col-md-4">
-                <img src={APi_URL + `book/upload/${editedBook.url}`} className="img-fluid" alt='img' />
+                <img src={editedBook.url}className="img-fluid" alt='img' />
               </div>
               <div className="col-md-8">
                 <div className="card-body">
@@ -148,7 +148,7 @@ export default function Book() {
                   <div className="card book-card p-3 ">
                     <div className="row no-gutters">
                       <div className="col-md-4">
-                        <img src={APi_URL + 'book/upload/' + item.url} alt='img-upload' className="img-fluid" />
+                        <img src={item.url} alt='img-upload' className="img-fluid" />
                       </div>
                       <div className="col-md-8">
                         <div className="card-body ">

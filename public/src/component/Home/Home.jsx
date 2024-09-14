@@ -339,7 +339,7 @@ function Home() {
                     variant="top"
                     className="card_sell_img img-fluid"
                     onClick={() => handleImageClick(item._id)}
-                    src={APi_URL + `book/upload/${item.url}`}
+                    src={item.url}
                   />
                   <Card.Body>
                     <Card.Title>{item.title}</Card.Title>
