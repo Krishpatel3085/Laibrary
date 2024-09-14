@@ -30,15 +30,12 @@ export default function AdminNav() {
     $("h2").toggleClass("text-them");
   };
 
-
-  const gotoAdminlogin = () => {
-    navigate('/adminlogin')
-  }
   const gotologout = () => {
     Cookies.remove("Admin-username");
     Cookies.remove("Admin-userEmail");
     navigate("/");
   }
+  
   return (
     <div className={isDarkTheme ? "dark-theme" : "light-theme"}> {/* Toggle theme class */}
       <Navbar expand="lg" className="bg-body-tertiary position-fixed" id='AdminNav'>
