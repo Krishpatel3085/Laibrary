@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  background-color: #ffffff;
+  box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.25);
+  z-index: 10;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  color: #fff;
+  background-color: #0d6efd;
+  width: auto;
+}
+.shopping_icon {
+  width: 40px;
+  height: 40px;
+  font-size: 27px;
+
+  color: black;
+  padding: 8px;
+  /* background-color: rgba(128, 128, 128, 0.2); */
+}
+
+.navbar__link,
+.navbar__dropdown-link {
+  text-decoration: none;
+  color: black;
+  padding: 10px 22px;
+  border-radius: 20px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.navbar__link:hover,
+.navbar__dropdown-link:hover,
+.navbar__link:focus,
+.navbar__dropdown-link:focus {
+  width: auto;
+  border-radius: 20px;
+  background-color: #eedfcc3b;
+}
+
+.navbar__link.active,
+.navbar__dropdown-link.active {
+  background-color: #eedfcc;
+}
+
+.d-flex {
+  display: flex;
+  align-items: center;
+}
+
+.gap-3 {
+  gap: 1rem;
+}
+#user_main_logo{
+  width: 60px;
+  height: 60px;
+}
+.header-button {
+  background-color: black;
+  border-color: black;
+  color: white;
+}
+
+.header-button:hover {
+  background-color: #333;
+  border-color: #333;
+}
+
+
+.navbar__link.active {
+  background-color: #eedfcc;
+  color: black !important;
+}
+
+/* profile  */
+#dropdownMenuButton2 {
+  background-color: white;
+  color: black;
+  padding-bottom: 15px;
+  border: none;
+  border-radius: 50px
+}
+
+.userData {
+  font-size: 20px;
+  color: black;
+  margin-top: 10px;
+}
+
+.userData i {
+  margin-right: 10px;
+  font-size: 22px;
+}
+
+#profileDropdown {
+  margin-top: 4px;
+  margin-left: 52px;
+}

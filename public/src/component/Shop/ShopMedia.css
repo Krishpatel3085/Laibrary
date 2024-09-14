@@ -1,0 +1,111 @@
+@media (min-width:1200px) and (max-width:1440px) {
+    #Shop h4 {
+        padding-top: 32vh;
+    }
+
+    .Discover p {
+        font-size: 17px;
+    }
+
+    .next h3 {
+        font-size: 40px;
+    }
+
+}
+
+
+@media (min-width:992px) and (max-width:1199px) {
+    #Shop h4 {
+        padding-top: 39vh;
+    }
+
+    .Discover h2 {
+        font-size: 45px;
+    }
+
+
+
+}
+
+
+
+@media (min-width:768px) and (max-width:991px) {
+    .Discover h2 {
+        font-size: 43px;
+    }
+
+    .Discover p {
+        font-size: 16px;
+    }
+
+}
+
+
+@media (min-width:576px) and (max-width:767px) {
+
+    /* first */
+    #Shop {
+        height: 350px;
+    }
+
+    #Shop h2 {
+        font-size: 45px;
+    }
+
+    .Discover h2 {
+        font-size: 40px;
+    }
+
+    .Discover p {
+        font-size: 15px;
+    }
+
+    .lectus h3 {
+        font-size: 44px;
+    }
+
+    footer .mail {
+        width: auto;
+    }
+
+}
+
+
+@media (max-width:575px) {
+    #Shop {
+        height: 359px;
+    }
+
+    .Discover h2 {
+        font-size: 38px;
+    }
+
+    .Discover p {
+        font-size: 14px;
+    }
+
+    .lectus {
+        padding: 61px 0px 0;
+    }
+
+    .lectus h3 {
+        font-size: 39px;
+    }
+
+    #Shop h2 {
+        padding-top: 10px;
+        font-size: 43px;
+    }
+
+    .Discover p {
+        font-size: 14px;
+    }
+
+    .next h3,
+    .next span a {
+        font-size: 14px;
+    }
+
+
+
+}
