@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* bookDetails page  */
+.card-img-top {
+  object-fit: cover;
+  height: 200px;
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* bookDetails page Close */
+
+.details{
+  margin-top: 150px;
+}                             
+.maina{
+  background-color: #141a28;
+  color: white;
+}
+
+/* User CSS */
+h2{
+  color: black;
+}
+
