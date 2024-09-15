@@ -1,0 +1,345 @@
+/* =======================
+      Comman Css 
+ =======================X*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  background-color: white;
+  color: black;
+}
+
+.dashboard p,
+.Books p,
+.Users p,
+.BookForm p {
+  color: #4cceac;
+}
+
+/* .topbar Nav {
+    background-color: #1c2437;
+  } */
+
+.topbar .icons i {
+  color: white;
+}
+
+.topbar input {
+  background-color: #1c2437;
+  border: none;
+}
+
+.maina {
+  background-color: whitesmoke;
+  min-width: 86vw;
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+/* =======================
+      Dashboard Css 
+ =======================X*/
+
+.Boxs {
+  margin-inline-start: 10px;
+  width: 398px;
+  background-color: white;
+  color: black;
+}
+
+.Boxs i {
+  font-size: 18px;
+  color: #4cceac;
+}
+
+.Boxs p {
+  margin-top: -5px;
+}
+
+.line-chart {
+  margin-top: 20px;
+  background-color: white;
+  color: black;
+
+}
+
+.transection {
+  width: 1200px;
+  margin-top: 20px;
+  background-color: white;
+  color: black;
+}
+
+.transection {
+  background-color: white;
+  color: black;
+  border: none;
+}
+
+.transection {
+  width: 100%;
+  height: 415px;
+}
+
+.transection tr td button {
+  background-color: #1a866a;
+  border: none;
+  color: white;
+  padding: 4px;
+  font-size: 15px;
+  border-radius: 5px;
+}
+
+#dash {
+  font-size: 24px;
+}
+
+/* ==================== 
+      Form CSS
+ =====================*/
+#formBasicBookName::placeholder,
+#formBasicBookAuthor::placeholder,
+#formBasicBookYear::placeholder,
+#formBasicBookISBIN::placeholder,
+#formBasicBookLanguage::placeholder,
+#formBasicBookDescription::placeholder,
+#formFile {
+  color: #6c7293;
+}
+
+.form Button {
+  background-color: #0d614a;
+  border: none;
+}
+
+.inputF {
+  background-color: white;
+  color: black;
+  border: none;
+}
+
+.BookForm {
+  color: black;
+}
+
+/* ==================== 
+      Book CSS
+ =====================*/
+
+.book-card {
+  width: 792px;
+  background-color: white;
+  color: black;
+}
+
+.book-card img {
+  height: 270px;
+}
+
+.mas {
+  height: 300px;
+}
+
+.carda button {
+  width: 70px;
+  padding: 2px;
+  background-color: rgb(187, 150, 65);
+  color: black;
+  font-weight: 500;
+}
+
+.summary {
+  width: auto;
+  height: 50px;
+  overflow: hidden;
+}
+
+.book-card-2 {
+  width: 750px;
+}
+
+.book-card-2 input {
+  margin-inline-start: 10px;
+  padding-left: 10px;
+  color: #6c7293;
+  border: none;
+}
+
+.book-card-2 textarea {
+  color: #6c7293;
+  border: none;
+  background-color: #191c24;
+}
+
+/* =======================
+          User
+========================== */
+.Users table tr {
+  border: none;
+}
+
+.Users thead,
+tfoot {
+  color: white;
+  background-color: #6870fa;
+}
+
+.Users tbody td {
+  color: white;
+  background-color: #1c2437;
+}
+
+/* =======================
+         Admin Nav Css
+========================== */
+
+aside {
+  background-color: white;
+  color: black;
+  height: 100vh;
+  width: 13%;
+}
+
+.profile img {
+  width: 180px;
+  height: auto;
+}
+
+aside p {
+  color: grey;
+}
+
+aside button {
+  text-align: start;
+}
+
+aside button span {
+  color: black;
+}
+
+aside button span i {
+  margin-right: 10px;
+}
+
+/* Aside.css */
+
+.sidebar-open {
+  width: 250px;
+  /* Width of the sidebar when open */
+  transition: width 0.3s ease;
+}
+
+.sidebar-closed {
+  width: 80px;
+  /* Width of the sidebar when closed */
+  transition: width 0.3s ease;
+  overflow: hidden;
+  /* Hide overflow content when collapsed */
+}
+
+.title {
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.title h4 {
+  margin: 15px;
+}
+
+.toggle-button {
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile img {
+  width: 100%;
+  max-width: 180px;
+  /* Adjust as needed */
+}
+
+.menus i {
+  font-size: 1.5em;
+  margin-right: 10px;
+}
+
+.sidebar-closed .menus {
+  justify-content: center;
+}
+
+.sidebar-closed .title h4,
+.sidebar-closed .profile,
+.sidebar-closed .menus p {
+  display: none;
+  /* Hide these elements when the sidebar is closed */
+}
+
+#AdminNav {
+  width: 88.5%;
+}
+
+/* main Admin toggle */
+.maina-big {
+  width: 100%;
+}
+
+.AdminNav-toggle {
+  min-width: 96%;
+}
+
+.book-card-toggle {
+  width: 872px;
+  transition: all linear 0.4s;
+}
+
+.boxs-toggle {
+  transition: all linear 0.4s;
+  width: 431px;
+}
+
+.transection-toggle {
+  width: 714px;
+  transition: all linear 0.4s;
+}
+
+#profileDropdown2 {
+  margin-right: 102px;
+}
+
+/* =======================
+        them Css
+========================== */
+.aside-them2 {
+  color: white;
+}
+
+.maina-them {
+  background-color: #141a28;
+}
+
+.dark-them {
+  background-color: #1c2437;
+  color: white;
+}
+
+.form-them {
+  background-color: #1c2437;
+}
+
+.text-them {
+  color: white;
+}

@@ -1,0 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.cart{
+    padding-top: 15vh;
+}
+.cart  table img{
+  width: 40px;
+  height: 60px;
+}

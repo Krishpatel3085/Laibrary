@@ -1,0 +1,105 @@
+@media (min-width:1200px) and (max-width:1440px) {
+
+    /* first */
+    #blog h4 {
+        padding-top: 35vh;
+    }
+
+    /* second */
+    .commited {
+        width: 363px;
+    }
+
+    .commited h4 {
+        font-size: 24px;
+    }
+
+}
+
+
+@media (min-width:992px) and (max-width:1199px) {
+
+    /* first */
+    #blog h4 {
+        padding-top: 42vh;
+    }
+
+
+    /* second */
+    .commited {
+        width: 301px;
+    }
+
+    .commited h4 {
+        font-size: 20px;
+    }
+
+    .commited p {
+        font-size: 14px;
+    }
+
+
+}
+
+
+@media (min-width:768px) and (max-width:991px) {
+    #blog {
+        height: 400px;
+    }
+
+    #blog h4 {
+        padding-top: 31vh;
+    }
+    
+
+    /* secoond */
+    .commited {
+        width: 223px;
+    }
+
+    .commited h4 {
+        font-size: 14px;
+    }
+
+    .commited p {
+        padding-top: 4px;
+        font-size: 12px;
+    }
+
+
+}
+
+
+@media (min-width:576px) and (max-width:767px) {
+    #blog {
+        height: 350px;
+    }
+
+    .commited {
+        width: 256px;
+    }
+
+    .commited h4 {
+        font-size: 17px;
+    }
+
+
+
+}
+
+
+@media (max-width:575px) {
+
+    #blog{
+        height: 359px;
+    }
+
+    #blog h4 {
+        padding-top: 29vh;
+    }
+
+    .commited h4 {
+        font-size: 20px;
+    }
+
+}
