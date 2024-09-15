@@ -81,9 +81,13 @@ const updateData = async (req, res) => {
   let url;
   try {
     const book = await Books.findById(id);
+    console.log(id)
     if (!book) {
       return res.status(404).json({ error: "Book not found" });
     }
+    console.log(book)
+    // Log req.file for debugging
+    console.log("Uploaded file:", req.file);
 
     if (req.file) {
       if (book.url) {
