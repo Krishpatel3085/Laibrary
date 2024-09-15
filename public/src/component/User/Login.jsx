@@ -24,7 +24,7 @@ function Login() {
         Cookies.set('User-userEmail', email, { expires: 7 });
         Cookies.set('User-username', userName, { expires: 7 });
         alert('Login successfully 👍');
-        navigate('/home');
+        navigate('/');
       }
     } catch (error) {
       alert(error.response?.data?.message || 'User Not Found or Invalid Credentials 👎');
