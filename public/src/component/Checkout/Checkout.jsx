@@ -11,7 +11,6 @@ function Checkout() {
   const [cart, setCart] = useState([]);
   const [gtotal, setGtotal] = useState(0);
 
-
   useEffect(() => {
     const fetchCartData = async () => {
       const userName = Cookies.get("username");
@@ -22,23 +21,17 @@ function Checkout() {
       }
 
       try {
-        const response = await axios.get(APi_URL + `checkout/getorder`,
-          {
-            params: { username: userName } // Pass username as query parameter
-          }
-        );
+        const response = await axios.get(APi_URL + `checkout/getorder`, {
+          params: { username: userName }, // Pass username as query parameter
+        });
 
-        console.log(response.data);
+        console.log("Fetched Cart Data:", response.data); // Debugging response
 
         const fetchedData = response.data || [];
-
         // Filter items by username (if needed)
-        const filteredData = fetchedData.filter(item => item.username === userName);
-
-        // Merge cart items with the same title
+        const filteredData = fetchedData.filter((item) => item.username === userName);
         const mergedCart = filteredData.reduce((acc, item) => {
           const existingItem = acc.find((i) => i.title === item.title);
-
           if (existingItem) {
             existingItem.quantity += item.quantity;
             existingItem.subtotal = existingItem.price * existingItem.quantity;
@@ -48,7 +41,11 @@ function Checkout() {
           }
           return acc;
         }, []);
+
         setCart(mergedCart);
+        console.log("Mergdcart",mergedCart)
+
+        // Calculate grand total
         const total = mergedCart.reduce((sum, item) => sum + item.price * item.quantity, 0);
         setGtotal(total);
 
@@ -65,7 +62,10 @@ function Checkout() {
     try {
       await axios.delete(APi_URL + `checkout/orderDelete/${id}`);
       // Remove the deleted item from state
-      setCart(cart.filter(item => item._id !== id));
+      setCart(cart.filter((item) => item._id !== id));
+      // Recalculate the grand total
+      const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+      setGtotal(total);
     } catch (error) {
       console.error("There was an error deleting the item!", error);
     }
@@ -89,26 +89,32 @@ function Checkout() {
             </tr>
           </thead>
           <tbody>
-            {cart.map((item, index) => (
-              <tr key={index}>
-                <td>
-                  <span onClick={() => deleteItem(item._id)}>
-                    <i className="bi bi-x-circle"></i>
-                  </span>
-                </td>
-                <td>
-                  <img
-                    src={APi_URL + "/book/upload/" + item.imageUrl}
-                    className="card-img-top"
-                    alt={item.title}
-                  />
-                </td>
-                <td>{item.title}</td>
-                <td>{item.price.toFixed(2)}</td>
-                <td>{item.quantity}</td>
-                <td>{(item.price * item.quantity).toFixed(2)}</td>
+            {cart.length > 0 ? (
+              cart.map((item, index) => (
+                <tr key={index}>
+                  <td>
+                    <span onClick={() => deleteItem(item._id)}>
+                      <i className="bi bi-x-circle"></i>
+                    </span>
+                  </td>
+                  <td>
+                    <img
+                      src={`${APi_URL}/book/upload/${item.imageUrl}`}
+                      className="card-img-top"
+                      alt={item.title}
+                    />
+                  </td>
+                  <td>{item.title}</td>
+                  <td>{item.price.toFixed(2)}</td>
+                  <td>{item.quantity}</td>
+                  <td>{(item.price * item.quantity).toFixed(2)}</td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan={6}>Your cart is empty.</td>
               </tr>
-            ))}
+            )}
 
             <tr>
               <td colSpan={5}>

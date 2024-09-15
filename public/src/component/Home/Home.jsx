@@ -49,7 +49,13 @@ function Home() {
   };
 
   const addToCart = async (item) => {
-    const userName = Cookies.get("username");
+    const userName = Cookies.get("User-username");
+
+    if (!userName) {
+      alert("Please log in to add items to the cart.");
+      navigate("/login"); // Redirect to login page
+      return;
+    }
 
     try {
       const response = await axios.post(APi_URL + "checkout/order", {

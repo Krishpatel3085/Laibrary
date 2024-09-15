@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './user.css';
 import main_img from '../images/main_login.jpg';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 import { APi_URL } from '../../Utils/apiConfig';
 function Registration() {
   const [firstname, setFirstname] = useState('');
@@ -9,6 +11,7 @@ function Registration() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
+  const navigate = useNavigate();
 
   const CreateUser = async (e) => {
     e.preventDefault();
@@ -34,6 +37,7 @@ function Registration() {
       setUsername('');
 
       alert("Ragistration Success")
+      navigate('/login')
     } catch (error) {
       console.error("Error:", error);
       alert("user alrady exist")
