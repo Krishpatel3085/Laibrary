@@ -76,24 +76,24 @@ const addData = async (req, res) => {
 
 // Data Update
 const updateData = async (req, res) => {
-  const id = req.params["id"];
+  const id = req.params.id;
   const { title, author, price, price2, description, isbin, language } = req.body;
   let url;
-
   try {
-    // Find the existing book first
     const book = await Books.findById(id);
+    console.log(id)
     if (!book) {
       return res.status(404).json({ error: "Book not found" });
     }
+    console.log(book)
+    // Log req.file for debugging
+    console.log("Uploaded file:", req.file);
 
     if (req.file) {
       if (book.url) {
-        // Extract the key from the existing S3 URL
-        const key = book.url.split('.com/')[1];
         await s3.deleteObject({
           Bucket: BUCKET_NAME,
-          Key: key,
+          Key: book.url,
         }).promise();
       }
       // Set the new file's URL
@@ -101,6 +101,8 @@ const updateData = async (req, res) => {
     } else {
       url = book.url;
     }
+
+    // Update the book details
     const updatedBook = await Books.findByIdAndUpdate(
       id,
       { title, author, price, price2, description, isbin, language, url },
@@ -109,10 +111,12 @@ const updateData = async (req, res) => {
 
     res.json({ Msg: "Put Successfully", updatedBook });
   } catch (error) {
-    console.error("Error updating data:", error);
+    console.error("Error updating data:", error.message);
+    console.error(error.stack);
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
+
 
 
 // Data Delete
@@ -126,7 +130,6 @@ const deleteData = async (req, res) => {
       return res.status(404).json({ Msg: "Book not found" });
     }
 
-    // If the book has a URL, delete the corresponding file from S3
     if (book.url) {
       const key = book.url.split('.com/')[1];
       await s3.deleteObject({ Bucket: BUCKET_NAME, Key: key }).promise();
