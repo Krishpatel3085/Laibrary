@@ -72,6 +72,21 @@ function Registration() {
                       </h3>
                       <form onSubmit={CreateUser}>
                         <div className="row">
+                          <div className="col-md-12">
+                            <div data-mdb-input-init="" className="form-outline mb-4">
+                              <label className="form-label" htmlFor="inputPassword3">
+                                UserName
+                              </label>
+                              <input
+                                type="text"
+                                id="form3Example97"
+                                className="form-control form-control-lg"
+                                placeholder='Create User Name'
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                              />
+                            </div>
+                          </div>
                           <div className="col-md-12 mb-4">
                             <div data-mdb-input-init="" className="form-outline">
                               <label className="form-label" htmlFor="form3Example1m">
@@ -142,21 +157,6 @@ function Registration() {
                                 id="form3Example97"
                                 className="form-control form-control-lg"
                                 placeholder='Enter Confirm Password'
-                              />
-                            </div>
-                          </div>
-                          <div className="col-md-12">
-                            <div data-mdb-input-init="" className="form-outline mb-4">
-                              <label className="form-label" htmlFor="inputPassword3">
-                                UserName
-                              </label>
-                              <input
-                                type="text"
-                                id="form3Example97"
-                                className="form-control form-control-lg"
-                                placeholder='Create User Name'
-                                value={username}
-                                onChange={(e) => setUsername(e.target.value)}
                               />
                             </div>
                           </div>

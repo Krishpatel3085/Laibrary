@@ -115,19 +115,20 @@ export default function Footer() {
             >
               <h4>Stay Connected</h4>
               <p>Stay connected and get interesting news & coupon</p>
-              <ul className="list-unstyled icon d-flex gap-2 text-center "  data-aos="fade-up"
-     data-aos-duration="2000">
-                <li>
-                  <i class="fa-brands fa-facebook-f"   data-aos="fade-down"  data-aos-duration="3000"></i>
+              <ul className="list-unstyled icon-footer d-flex gap-3 text-center " data-aos="fade-up"
+                data-aos-duration="2000">
+
+                <li data-bs-toggle="tooltip" data-bs-placement="bottom" title="Facebook">
+                  <i class="fa-brands fa-facebook-f" data-aos="fade-down" data-aos-duration="3000"></i>
                 </li>
-                <li>
-                  <i class="fa-brands fa-twitter"   data-aos="fade-down"  data-aos-duration="3000"></i>
+                <li data-bs-toggle="tooltip" data-bs-placement="bottom" title="Twitter">
+                  <i class="fa-brands fa-twitter" data-aos="fade-down" data-aos-duration="3000"></i>
                 </li>
-                <li>
-                  <i class="fa-brands fa-youtube"   data-aos="fade-down"  data-aos-duration="3000"></i>
+                <li data-bs-toggle="tooltip" data-bs-placement="bottom" title="Youtube">
+                  <i class="fa-brands fa-youtube" data-aos="fade-down" data-aos-duration="3000"></i>
                 </li>
-                <li>
-                  <i class="fa-brands fa-instagram"   data-aos="fade-down"  data-aos-duration="3000"></i>
+                <li data-bs-toggle="tooltip" data-bs-placement="bottom" title="Instagram">
+                  <i class="fa-brands fa-instagram" data-aos="fade-down" data-aos-duration="3000"></i>
                 </li>
               </ul>
             </div>
