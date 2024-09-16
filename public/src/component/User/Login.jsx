@@ -85,7 +85,7 @@ function Login() {
                       <span className="small text-muted" >Forgot password?</span>
                       <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>
                         Don't have an account?{" "}
-                        <span onClick={gotoRagister} style={{ color: "#393f81" }}> <u> Register here</u>
+                        <span onClick={gotoRagister} style={{ color: "#393f81" }}> <u className='Ragister'> Register here</u>
                         </span>
                       </p>
                       <span className="small text-muted me-2">Terms of use.</span>

@@ -34,15 +34,18 @@ footer span {
   color: white;
   line-height: 40px;
 }
-footer a:hover {
-  color: #f13b3a;
-}
 
-.icon li i {
+
+.icon-footer li i {
   width: 30px;
   height: 30px;
   padding: 5px;
-  border-radius: 50%;
+  border-radius: 10%;
   background-color: rgb(243, 227, 207);
   color: black;
+  cursor: pointer;
+}
+.icon-footer li i:hover{
+  color: white;
+  background-color: #f13b3a;
 }
