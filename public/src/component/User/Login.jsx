@@ -23,11 +23,11 @@ function Login() {
       if (response.data) {
         Cookies.set('User-userEmail', email, { expires: 7 });
         Cookies.set('User-username', userName, { expires: 7 });
-        alert('Login successfully 👍');
+        alert('✔️ Login successfully 👍');
         navigate('/');
       }
     } catch (error) {
-      alert(error.response?.data?.message || 'User Not Found or Invalid Credentials 👎');
+      alert(error.response?.data?.message || ' 🙅‍♂️ User Not Found or Invalid Credentials 👎');
       console.error("Login error:", error.response?.data);
       navigate('/')
     }

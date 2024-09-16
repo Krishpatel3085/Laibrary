@@ -14,7 +14,7 @@ import { APi_URL } from "../../Utils/apiConfig";
 function NavBar() {
   const [active, setActive] = useState("home");
   const [user, setUser] = useState("");
-
+  const [cartLength, setCartLength] = useState(0);
   const navigate = useNavigate();
 
   const handleNavigation = (path, name) => {
@@ -29,7 +29,8 @@ function NavBar() {
   const gotologout = () => {
     Cookies.remove("User-username");
     Cookies.remove("User-userEmail");
-    setUser(""); // Clear user state on logout
+    setUser(""); 
+    setCartLength(0); 
     navigate("/login");
   };
 
@@ -44,7 +45,6 @@ function NavBar() {
   useEffect(() => {
     const userName = Cookies.get("User-username");
     setUser(userName || ""); // Set user state from cookies if available
-
     axios
       .get(APi_URL + "user/get")
       .then((response) => {
@@ -55,6 +55,29 @@ function NavBar() {
         console.error("There was an error fetching the data!", error);
       });
   }, []);
+
+  useEffect(() => {
+    const userName = Cookies.get("User-username");
+    setUser(userName || ""); // Set user state from cookies if available
+
+    const fetchCartData = async () => {
+      if (userName) {
+        try {
+          const response = await axios.get(APi_URL + `checkout/getorder`, {
+            params: { username: userName },
+          });
+
+          const fetchedData = response.data || [];
+          setCartLength(fetchedData.length); // Set cart length
+
+        } catch (error) {
+          console.error("Error fetching cart data:", error);
+        }
+      }
+    };
+
+    fetchCartData();
+  }, [user]);
 
   return (
     <Navbar expand="lg" className="navbar position-fixed w-100 p-2">
@@ -121,8 +144,12 @@ function NavBar() {
           </Form>
           <Nav>
             <Nav.Link href="#addToCart" className="me-3" onClick={gotocheckout}>
-              <span className="shopping_icon">
+              <span className="shopping_icon position-relative">
                 <i className="fa-solid fa-bag-shopping"></i>
+
+                <span class="position-absolute top-2 start-100 translate-middle badge rounded-pill bg-danger fs-6">
+                {cartLength}
+                </span>
               </span>
             </Nav.Link>
 

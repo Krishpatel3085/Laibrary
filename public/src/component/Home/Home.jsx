@@ -52,7 +52,7 @@ function Home() {
     const userName = Cookies.get("User-username");
 
     if (!userName) {
-      alert("Please log in to add items to the cart.");
+      alert("🙏Please log in to add items to the cart.");
       navigate("/login"); // Redirect to login page
       return;
     }
@@ -69,13 +69,13 @@ function Home() {
       });
 
       if (response.data) {
-        alert("Item added to cart successfully");
+        alert("✅ Item added to cart successfully ");
         navigate("/checkout", {
           state: { cartItem: { ...item, quantity: 1 } },
         });
       } else {
         alert(
-          `Failed to add item to cart: ${
+          `⚠️ Failed to add item to cart: ${
             response.data.message || "Unknown error"
           }`
         );

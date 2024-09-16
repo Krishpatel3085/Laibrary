@@ -36,11 +36,11 @@ function Registration() {
       setPassword('');
       setUsername('');
 
-      alert("Ragistration Success")
+      alert(" ✅ Ragistration Success 👍")
       navigate('/login')
     } catch (error) {
       console.error("Error:", error);
-      alert("user alrady exist")
+      alert("💁‍♂️ user alrady exist")
 
     }
   }
