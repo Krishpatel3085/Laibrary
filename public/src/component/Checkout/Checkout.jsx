@@ -13,7 +13,7 @@ function Checkout() {
 
   useEffect(() => {
     const fetchCartData = async () => {
-      const userName = Cookies.get("username");
+      const userName = Cookies.get("User-username");
 
       if (!userName) {
         alert("No user is logged in");
@@ -61,16 +61,18 @@ function Checkout() {
   const deleteItem = async (id) => {
     try {
       await axios.delete(APi_URL + `checkout/orderDelete/${id}`);
-      // Remove the deleted item from state
-      setCart(cart.filter((item) => item._id !== id));
-      // Recalculate the grand total
-      const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+      
+      const updatedCart = cart.filter((item) => item._id !== id);
+      setCart(updatedCart);
+  
+      const total = updatedCart.reduce((sum, item) => sum + item.price * item.quantity, 0);
       setGtotal(total);
+  
     } catch (error) {
       console.error("There was an error deleting the item!", error);
     }
   };
-
+  
   return (
     <>
       <NavBar />
@@ -99,7 +101,7 @@ function Checkout() {
                   </td>
                   <td>
                     <img
-                      src={`${APi_URL}/book/upload/${item.imageUrl}`}
+                      src={item.imageUrl}
                       className="card-img-top"
                       alt={item.title}
                     />
