@@ -29,8 +29,8 @@ function NavBar() {
   const gotologout = () => {
     Cookies.remove("User-username");
     Cookies.remove("User-userEmail");
-    setUser(""); 
-    setCartLength(0); 
+    setUser("");
+    setCartLength(0);
     navigate("/login");
   };
 
@@ -66,11 +66,12 @@ function NavBar() {
           const response = await axios.get(APi_URL + `checkout/getorder`, {
             params: { username: userName },
           });
-          
-          const fetchedData = response.data || [];
-          const filteredData = fetchedData.filter((item) => item.username === userName);
-          setCartLength(filteredData.length); // Set cart length
 
+          const fetchedData = response.data || [];
+          const filteredData = fetchedData.filter(
+            (item) => item.username === userName
+          );
+          setCartLength(filteredData.length); // Set cart length
         } catch (error) {
           console.error("Error fetching cart data:", error);
         }
@@ -87,8 +88,11 @@ function NavBar() {
           <img src={logo_main} id="user_main_logo" alt="Main Logo" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll" >
-          <Nav className="me-auto my-2 my-lg-0 d-flex align-items-center gap-3" navbarScroll>
+        <Navbar.Collapse id="navbarScroll">
+          <Nav
+            className="me-auto my-2 my-lg-0 d-flex align-items-center gap-3"
+            navbarScroll
+          >
             <Nav.Link
               onClick={() => handleNavigation("/ ", "home")}
               className={`navbar__link ${active === "home" ? "active" : ""}`}
@@ -101,22 +105,32 @@ function NavBar() {
             >
               ABOUT
             </Nav.Link>
-            <NavDropdown title="PAGES" id="navbarScrollingDropdown" className="navbar__link">
+            <NavDropdown
+              title="PAGES"
+              id="navbarScrollingDropdown"
+              className="navbar__link"
+            >
               <NavDropdown.Item
                 onClick={() => handleNavigation("/team", "team")}
-                className={`navbar__dropdown-link ${active === "team" ? "active" : ""}`}
+                className={`navbar__dropdown-link ${
+                  active === "team" ? "active" : ""
+                }`}
               >
                 TEAM
               </NavDropdown.Item>
               <NavDropdown.Item
                 onClick={() => handleNavigation("/contact", "contact")}
-                className={`navbar__dropdown-link ${active === "contact" ? "active" : ""}`}
+                className={`navbar__dropdown-link ${
+                  active === "contact" ? "active" : ""
+                }`}
               >
                 CONTACT
               </NavDropdown.Item>
               <NavDropdown.Item
                 onClick={() => handleNavigation("/blog", "blog")}
-                className={`navbar__dropdown-link ${active === "blog" ? "active" : ""}`}
+                className={`navbar__dropdown-link ${
+                  active === "blog" ? "active" : ""
+                }`}
               >
                 BLOG
               </NavDropdown.Item>
@@ -134,7 +148,7 @@ function NavBar() {
               SHOP
             </Nav.Link>
           </Nav>
-          <Form className="d-flex me-3 " >
+          <Form className="d-flex me-3 ">
             <Form.Control
               type="search"
               placeholder=" Search...."
@@ -150,7 +164,7 @@ function NavBar() {
                 <i className="fa-solid fa-bag-shopping"></i>
 
                 <span className="round_arow position-absolute top-2 start-100 translate-middle badge rounded-pill bg-danger fs-6">
-                {cartLength}
+                  {cartLength}
                 </span>
               </span>
             </Nav.Link>
@@ -158,7 +172,8 @@ function NavBar() {
             <NavDropdown
               title={
                 <span className="userData">
-                  Hi! {user} <i className="bi bi-person-circle"></i>
+                  Hi! {user  ?  user  : "Guest"}{" "}
+                  <i className="bi bi-person-circle"></i>
                 </span>
               }
               id="profileDropdown"
