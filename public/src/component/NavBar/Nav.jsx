@@ -58,7 +58,7 @@ function NavBar() {
 
   useEffect(() => {
     const userName = Cookies.get("User-username");
-    setUser(userName || ""); // Set user state from cookies if available
+    setUser(userName); // Set user state from cookies if available
 
     const fetchCartData = async () => {
       if (userName) {
@@ -66,9 +66,10 @@ function NavBar() {
           const response = await axios.get(APi_URL + `checkout/getorder`, {
             params: { username: userName },
           });
-
+          
           const fetchedData = response.data || [];
-          setCartLength(fetchedData.length); // Set cart length
+          const filteredData = fetchedData.filter((item) => item.username === userName);
+          setCartLength(filteredData.length); // Set cart length
 
         } catch (error) {
           console.error("Error fetching cart data:", error);
