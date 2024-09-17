@@ -235,6 +235,8 @@
 
 /* mobile */
 @media (min-width: 576px) and (max-width: 767px) {
+  
+
   /* firs section */
   .main-section {
     height: auto;
@@ -339,6 +341,14 @@
 }
 
 @media (max-width: 575px) {
+  #searchBar{
+    display: none;
+  }
+  .navbar>.container-fluid {
+    height: auto;
+    background-color: white;
+}
+
   .navbar-nav .dropdown-menu {
     width: 211px;
   }
