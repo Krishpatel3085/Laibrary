@@ -21,6 +21,21 @@
 
 /* Laptop */
 @media (min-width: 992px) and (max-width: 1199px) {
+  .shopping_icon {
+    padding: 0;
+  }
+
+  #profileDropdown {
+    margin-top: 3px;
+    margin-left: 5px;
+  }
+
+  #user_main_logo {
+    margin-top: 0px;
+  }
+  .round_arow {
+    margin-bottom: 5px;
+  }
   /* firs section */
   .main-section {
     height: 90vh;
@@ -99,6 +114,12 @@
 
 /* tablet */
 @media (min-width: 768px) and (max-width: 991px) {
+
+  .navbar>.container-fluid{
+    height:auto;
+    background-color: white;
+  }
+
   /* firs section */
   .main-section {
     height: auto;
@@ -159,11 +180,12 @@
   .card_sell_img {
     height: 200px;
   }
-  .font_extra strike ,.font_extra u{
+  .font_extra strike,
+  .font_extra u {
     font-size: 15px;
   }
 
-  .card-title{
+  .card-title {
     font-size: 14px;
   }
   /* four */
@@ -317,6 +339,10 @@
 }
 
 @media (max-width: 575px) {
+  .navbar-nav .dropdown-menu {
+    width: 211px;
+  }
+
   .main-section {
     height: auto;
   }

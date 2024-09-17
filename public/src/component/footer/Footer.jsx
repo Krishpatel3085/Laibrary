@@ -8,7 +8,7 @@ export default function Footer() {
     <div>
       <footer>
         <div className="container ">
-          <div className="row">
+          <div className="row overflow-hidden">
             <div className="col-md-12 py-5">
               <h2
                 className="text-center text-white"
@@ -47,7 +47,7 @@ export default function Footer() {
               <hr className="bg-secondary " style={{ height: "2px" }} />
             </div>
           </div>
-          <div className="row mt-5" id="story">
+          <div className="row mt-5 overflow-hidden" id="story">
             <div
               className="col-md-3 col-sm-6"
               data-aos="zoom-out-right"
@@ -133,7 +133,7 @@ export default function Footer() {
               </ul>
             </div>
           </div>
-          <div className="row">
+          <div className="row overflow-hidden">
             <div className="col-md-12">
               <p
                 className="text-center"
