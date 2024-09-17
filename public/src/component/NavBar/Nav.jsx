@@ -81,7 +81,7 @@ function NavBar() {
   }, [user]);
 
   return (
-    <Navbar expand="lg" className="navbar position-fixed w-100 p-2">
+    <Navbar expand="lg" className="navbar position-fixed w-100  p-2">
       <Container fluid className="d-flex align-items-center">
         <Navbar.Brand>
           <img src={logo_main} id="user_main_logo" alt="Main Logo" />
@@ -99,7 +99,7 @@ function NavBar() {
               onClick={() => handleNavigation("/about", "about")}
               className={`navbar__link ${active === "about" ? "active" : ""}`}
             >
-              ABOUT US
+              ABOUT
             </Nav.Link>
             <NavDropdown title="PAGES" id="navbarScrollingDropdown" className="navbar__link">
               <NavDropdown.Item
@@ -148,7 +148,7 @@ function NavBar() {
               <span className="shopping_icon position-relative">
                 <i className="fa-solid fa-bag-shopping"></i>
 
-                <span class="position-absolute top-2 start-100 translate-middle badge rounded-pill bg-danger fs-6">
+                <span className="round_arow position-absolute top-2 start-100 translate-middle badge rounded-pill bg-danger fs-6">
                 {cartLength}
                 </span>
               </span>
