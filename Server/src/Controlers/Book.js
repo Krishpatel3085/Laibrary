@@ -1,9 +1,5 @@
-const express = require("express");
 const Books = require("../Model/Book");
-const cors = require("cors");
 const multer = require("multer");
-// const path = require("path");
-// const fs = require("fs");
 const dotenv = require('dotenv');
 dotenv.config()
 
@@ -25,9 +21,6 @@ const upload = multer({
   })
 })
 
-const app = express();
-app.use(express.json());
-app.use(cors());
 
 // Data Get
 const getData = async (req, res) => {
@@ -56,7 +49,9 @@ const getSingelData = async (req, res) => {
 const addData = async (req, res) => {
   try {
     const { title, author, price, price2, description, isbin, language } = req.body;
+    const User = req.user["id"];
     const url = req.file ? `https://${BUCKET_NAME}.s3.amazonaws.com/${req.file.key}` : "";
+
     await Books.create({
       title,
       author,
@@ -66,6 +61,7 @@ const addData = async (req, res) => {
       isbin,
       language,
       url,
+      User
     });
     res.json({ Msg: "Post Successfully" });
   } catch (error) {
@@ -88,6 +84,10 @@ const updateData = async (req, res) => {
     console.log(book)
     // Log req.file for debugging
     console.log("Uploaded file:", req.file);
+
+    if (book.User.toString() !== req.user.id) {
+      return res.status(403).json({ error: "Forbidden: You do not have permission to update this book." });
+    }
 
     if (req.file) {
       if (book.url) {
@@ -130,12 +130,16 @@ const deleteData = async (req, res) => {
       return res.status(404).json({ Msg: "Book not found" });
     }
 
-    if (book.url) {
-      const key = book.url.split('.com/')[1];
-      await s3.deleteObject({ Bucket: BUCKET_NAME, Key: key }).promise();
+    console.log('Requesting user ID:', req.user.id);
+    if (book.User.toString() !== req.user.id) {
+      return res.status(403).json({ error: "Forbidden: You do not have permission to delete this book." });
     }
 
-    // Delete the book from the database
+    if (book.url) {
+      const key = book.url.split('.com/')[1];
+      await s3.send(new DeleteObjectCommand({ Bucket: BUCKET_NAME, Key: key }));
+    }
+
     await Books.deleteOne({ _id: id });
     res.json({ Msg: "Delete Successfully" });
 
@@ -144,6 +148,7 @@ const deleteData = async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
+
 
 
 module.exports = { deleteData, addData, updateData, upload, getData, getSingelData };

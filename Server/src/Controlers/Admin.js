@@ -1,29 +1,12 @@
-const express = require("express");
 const Users_Admin = require("../Model/Admin");
-const cors = require("cors");
 const jwt = require("jsonwebtoken");
 
-const app = express();
-app.use(express.json());
-app.use(cors());
-
-// Middleware to authenticate token
-const authenticateToken = (req, res, next) => {
-    const token = req.headers['authorization'] && req.headers['authorization'].split(' ')[1];
-    if (!token) return res.status(401).json({ message: "Access denied, no token provided" });
-
-    jwt.verify(token, "your_secret_key", (err, user) => {
-        if (err) return res.status(403).json({ message: "Invalid token" });
-        req.user = user;
-        next();
-    });
-};
 
 // Create User
 const createAdmin = async (req, res) => {
     try {
-        const {  email, password, username } = req.body;
-        if ( !email || !password || !username) {
+        const { email, password, username } = req.body;
+        if (!email || !password || !username) {
             return res.status(400).json({ message: "All fields are required" });
         }
         const existingUser = await Users_Admin.findOne({ email });
@@ -62,14 +45,20 @@ const loginAdmin = async (req, res) => {
         if (user.password !== password) {
             return res.status(400).json({ message: "Invalid credentials" });
         }
-        const token = jwt.sign({ userId: user._id, email: user.email }, "your_secret_key", { expiresIn: "1h" });
-        res.json({ token, userId: user._id, username: user.username });
+        console.log("data")
+
+        const tokenData = { id: user._id, username: user.username, email: user.email };
+        const token = jwt.sign(tokenData, process.env.JWT_SECRET, { expiresIn: "1h" });
+        res.json({
+            token: token,
+            id: user._id,
+            username: user.username
+        });
     } catch (error) {
         console.error("Can't Login User ", error);
         res.status(500).json({ message: error.message });
     }
 };
 
-app.get('/users', authenticateToken, getAdmin);
 
 module.exports = { getAdmin, loginAdmin, createAdmin };
