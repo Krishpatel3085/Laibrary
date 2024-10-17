@@ -30,19 +30,30 @@ export default function BookForm() {
     formData.append("url", file);
 
     try {
-      await axios.post(APi_URL + "book/createbook", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
-      setTitle("");
-      setAuthor("");
-      setPrice("");
-      setPrice2("");
-      setLanguage("");
-      setIsbin("");
-      setDescription("");
-      setFile(null);
+
+      const token = localStorage.getItem('token')
+
+      if (token) {
+        await axios.post(APi_URL + "book/createbook", formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            'Authorization': ` Bearer ${token}`
+          },
+        });
+        alert("Book created Success")
+        setTitle("");
+        setAuthor("");
+        setPrice("");
+        setPrice2("");
+        setLanguage("");
+        setIsbin("");
+        setDescription("");
+        setFile(null);
+      } else {
+        alert("data not created")
+      }
+
+
     } catch (error) {
       console.error("Error:", error);
     }

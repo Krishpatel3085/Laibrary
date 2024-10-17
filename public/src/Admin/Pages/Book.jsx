@@ -12,6 +12,7 @@ export default function Book() {
 
 
   useEffect(() => {
+
     axios
       .get(APi_URL + "book/getbook/")
       .then((response) => {
@@ -22,23 +23,35 @@ export default function Book() {
       });
   }, []);
 
-  const deleteItem = (id) => {
-    axios
-      .delete(APi_URL + `book/delete/${id}`)
-      .then((response) => {
-        // Remove the deleted item from state
+
+  // Delete Book
+  const deleteItem = async (id) => {
+    const token = localStorage.getItem('token');
+    try {
+      if (token) {
+        const response = await axios.delete(APi_URL + `book/delete/${id}`, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+            'Authorization': `Bearer ${token}`
+          }
+        });
+        console.log(response.data);
         setItems(items.filter(item => item._id !== id));
-      })
-      .catch((error) => {
-        console.error("There was an error deleting the item!", error);
-      });
+        alert("data deleted successfully")
+      }
+    } catch (error) {
+      console.error("There was an error deleting the item!", error);
+      alert("Forbidden: You do not have permission to delete this book.");
+    }
   };
+
 
   const editItem = (item) => {
     setEditedBook(item);
   };
 
-  const updateItem = () => {
+  // Edite Book
+  const updateItem = async () => {
     const formData = new FormData();
     formData.append("title", editedBook.title);
     formData.append("author", editedBook.author);
@@ -51,20 +64,25 @@ export default function Book() {
       formData.append("url", imageFile);
     }
 
-    axios
-      .put(APi_URL + `book/updatebook/${editedBook._id}`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      })
-      .then((response) => {
+    const token = localStorage.getItem('token')
+    try {
+      if (token) {
+        const response = await axios.put(APi_URL + `book/updatebook/${editedBook._id}`, formData, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            'Authorization': ` Bearer ${token}`
+          },
+        })
         setItems(items.map(item => (item._id === editedBook._id ? response.data.updatedBook : item)));
+        alert("data Edited successfully")
         setEditedBook(null);
         setImageFile(null);
-      })
-      .catch((error) => {
-        console.error("There was an error updating the item!", error);
-      });
+      }
+    } catch (error) {
+      console.error("There was an error updating the item!", error);
+      alert("Forbidden: You do not have permission to Edit this book")
+    }
+
   };
 
   const handleChange = (e) => {
@@ -91,7 +109,7 @@ export default function Book() {
             <div className="row no-gutters">
               <h2 className="text-center"> --- Update ---</h2>
               <div className="col-md-4">
-                <img src={editedBook.url}className="img-fluid" alt='img' />
+                <img src={editedBook.url} className="img-fluid" alt='img' />
               </div>
               <div className="col-md-8">
                 <div className="card-body">
