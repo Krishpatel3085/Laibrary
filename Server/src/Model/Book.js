@@ -24,7 +24,14 @@ const Books = new mongoose.Schema({
     },
     url: {
         type: String
-    }
-})
+    },
+    User: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Users_Admin'
+    },
+},
+    {
+        timestamps: true,
+    })
 
-module.exports = mongoose.model('Books', Books)  // books
+module.exports = mongoose.model('Books', Books)  
