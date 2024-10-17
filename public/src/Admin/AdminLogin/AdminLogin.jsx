@@ -27,6 +27,11 @@ const AdminLogin = () => {
         userName,
         password,
       });
+      console.log(response);
+
+// token store in localstorage
+      localStorage.setItem('token',response.data.token)
+
       if (response.data) {
         Cookies.set('Admin-userEmail', email, { expires: 7 });
         Cookies.set('Admin-username', userName, { expires: 7 });
@@ -120,11 +125,11 @@ const AdminLogin = () => {
                       <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>
                         Don't have an account?{" "}
                         <span
-                          
+
                           onClick={gotoRagister}
                           style={{ color: "#393f81" }}
                         >
-                         <u> Register here</u>
+                          <u> Register here</u>
                         </span>
                       </p>
                       <span className="small text-muted me-2">
