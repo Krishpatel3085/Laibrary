@@ -34,11 +34,16 @@ const getAdmin = async (req, res) => {
 // Login User and Generate Token
 const loginAdmin = async (req, res) => {
     try {
-        const { email, password } = req.body;
-        if (!email || !password) {
-            return res.status(400).json({ message: "Username , Email and password are required" });
-        }
-        const user = await Users_Admin.findOne({ email });
+        // const { email, password } = req.body;
+        // if (!email || !password) {
+        //     return res.status(400).json({ message: "Username , Email and password are required" });
+        // }
+        // const user = await Users_Admin.findOne({ email });
+
+        const { identifier, password } = req.body;
+        const user = await Users_Admin.findOne({
+            $or: [{ email: identifier }, { username: identifier }],
+        });
         if (!user) {
             return res.status(404).json({ message: "User not found" });
         }
