@@ -138,7 +138,7 @@ const deleteData = async (req, res) => {
 
     if (book.url) {
       const key = book.url.split('.com/')[1];
-      await s3.send(new DeleteObjectCommand({ Bucket: BUCKET_NAME, Key: key }));
+      await s3.deleteObject({ Bucket: BUCKET_NAME, Key: key }).promise();
     }
 
     await Books.deleteOne({ _id: id });
