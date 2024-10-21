@@ -131,6 +131,7 @@ const deleteData = async (req, res) => {
     }
 
     console.log('Requesting user ID:', req.user.id);
+    console.log('Requesting Book User ID:', book.User);
     if (book.User.toString() !== req.user.id) {
       return res.status(403).json({ error: "Forbidden: You do not have permission to delete this book." });
     }
