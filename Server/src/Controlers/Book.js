@@ -85,7 +85,10 @@ const updateData = async (req, res) => {
     // Log req.file for debugging
     console.log("Uploaded file:", req.file);
 
-    if (book.User.toString() !== req.user.id) {
+    const isOwner = book.User.toString() === req.user.id;
+    const isAdmin = req.user.role === 'admin'; // Assuming you have a role field in your user model
+
+    if (!isOwner && !isAdmin) {
       return res.status(403).json({ error: "Forbidden: You do not have permission to update this book." });
     }
 
@@ -132,8 +135,11 @@ const deleteData = async (req, res) => {
 
     console.log('Requesting user ID:', req.user.id);
     console.log('Requesting Book User ID:', book.User);
-    if (book.User.toString() !== req.user.id) {
-      return res.status(403).json({ error: "Forbidden: You do not have permission to delete this book." });
+    const isOwner = book.User.toString() === req.user.id;
+    const isAdmin = req.user.role === 'admin'; // Assuming you have a role field in your user model
+    console.log("Admin Is Conformed",req.user.role)
+    if (!isOwner && !isAdmin) {
+      return res.status(403).json({ error: "Forbidden: You do not have permission to Delete this book." });
     }
 
     if (book.url) {
