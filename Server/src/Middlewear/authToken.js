@@ -7,7 +7,7 @@ const authenticateToken = (req, res, next) => {
         let verification = null;
         verification = jwt.verify(token, "xkhbo697")
 
-        req.user = { id: verification["id"], username: verification["username"] }
+        req.user = { id: verification["id"], username: verification["username"]  , role : verification["role"]}
         req.token = token
         next();
     } catch (error) {
