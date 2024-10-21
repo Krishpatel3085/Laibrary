@@ -34,11 +34,6 @@ const getAdmin = async (req, res) => {
 // Login User and Generate Token
 const loginAdmin = async (req, res) => {
     try {
-        // const { email, password } = req.body;
-        // if (!email || !password) {
-        //     return res.status(400).json({ message: "Username , Email and password are required" });
-        // }
-        // const user = await Users_Admin.findOne({ email });
 
         const { identifier, password } = req.body;
         const user = await Users_Admin.findOne({
@@ -52,12 +47,13 @@ const loginAdmin = async (req, res) => {
         }
         console.log("data")
 
-        const tokenData = { id: user._id, username: user.username, email: user.email };
+        const tokenData = { id: user._id, username: user.username, email: user.email ,role: user.role };
         const token = jwt.sign(tokenData, process.env.JWT_SECRET, { expiresIn: "1h" });
         res.json({
             token: token,
             id: user._id,
-            username: user.username
+            username: user.username,
+            role: user.role
         });
     } catch (error) {
         console.error("Can't Login User ", error);
