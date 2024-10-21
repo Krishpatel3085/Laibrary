@@ -47,14 +47,22 @@ const loginAdmin = async (req, res) => {
         }
         console.log("data")
 
-        const tokenData = { id: user._id, username: user.username, email: user.email ,role: user.role };
+        const tokenData = {
+            id: user._id,
+            username: user.username,
+            email: user.email,
+            role: user.role
+        };
+
+        console.log("Generated token data:", tokenData);
         const token = jwt.sign(tokenData, process.env.JWT_SECRET, { expiresIn: "1h" });
         res.json({
-            token: token,
+            token,
             id: user._id,
             username: user.username,
             role: user.role
         });
+
     } catch (error) {
         console.error("Can't Login User ", error);
         res.status(500).json({ message: error.message });
