@@ -82,13 +82,20 @@ const updateData = async (req, res) => {
       return res.status(404).json({ error: "Book not found" });
     }
 
+    console.log('Requesting user ID:', req.user.id);
+    console.log("User checking", req.user)
+    console.log('Requesting Book User ID:', book.User);
 
     const isOwner = book.User.toString() === req.user.id;
-    const isAdmin = req.user.role === 'admin'; // Assuming you have a role field in your user model
+    const isAdmin = req.user.role === 'admin'; 
+
+    console.log('Admin is Checking:', isAdmin);
+    console.log('isOwner is Checking:', isOwner);
 
     if (!isOwner && !isAdmin) {
       return res.status(403).json({ error: "Forbidden: You do not have permission to update this book." });
     }
+    
 
     if (req.file) {
       if (book.url) {
@@ -132,12 +139,12 @@ const deleteData = async (req, res) => {
     }
 
     console.log('Requesting user ID:', req.user.id);
-    console.log("User checking",req.user)
+    console.log("User checking", req.user)
     console.log('Requesting Book User ID:', book.User);
-    
+
     const isOwner = book.User.toString() === req.user.id;
     const isAdmin = req.user.role === 'admin';
-    
+
     console.log('Admin is Checking:', isAdmin);
     if (!isOwner && !isAdmin) {
       return res.status(403).json({ error: "Forbidden: You do not have permission to update this book." });
