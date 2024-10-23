@@ -76,6 +76,7 @@ const updateData = async (req, res) => {
   const { title, author, price, price2, description, isbin, language } = req.body;
   let url;
   try {
+    console.log("Data Get in body",req.body)
     const book = await Books.findById(id);
     console.log(id)
     if (!book) {

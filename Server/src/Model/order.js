@@ -8,6 +8,10 @@ const orderSchema = new mongoose.Schema({
     price: { type: Number }, // Added validation for price
     imageUrl : {type:String},
     username :{ type :String},
+    User: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Users_Admin'
+    },
     totalAmount: { type: Number}, // Added validation for total amount
     createdAt: {
         type: Date,
