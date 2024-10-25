@@ -1,431 +1,195 @@
 import React from "react";
-import "./event.css";
-import "./EventMedia.css";
-import NavBar from "../NavBar/Nav";
+import Button from 'react-bootstrap/Button';
 import Footer from "../footer/Footer";
+import { Accordion } from 'react-bootstrap';
+import { Clock, MapPin } from "lucide-react";
+import event from '../images/main_home.jpg';
+import young from '../images/young-student.jpg';
+import getting from '../images/getting-knowledge.jpg';
+import women from '../images/young-woman_1.jpg';
+import hand from '../images/hand-holding.jpg';
+import group from '../images/group-of-college.jpg';
+import collage from '../images/woman-reading.jpg';
+import Header from "../NavBar/Header";
 
 function Event() {
+  // Event section
+  const events = [
+    {
+      id: 1,
+      title: "Festival of Books",
+      description: "Lorem ipsum dolor sit amet consectetur adipiscing elit dolor",
+      location: "JCC, Jakarta",
+      date: "May 14, 2024",
+      image: young,
+    },
+    {
+      id: 2,
+      title: "Guide presents a reading corner",
+      description: "Lorem ipsum dolor sit amet consectetur adipiscing elit dolor",
+      location: "Istora GBK, Jakarta",
+      date: "May 21, 2024",
+      image: getting,
+    },
+    {
+      id: 3,
+      title: "Read free books in Jakarta",
+      description: "Lorem ipsum dolor sit amet consectetur adipiscing elit dolor",
+      location: "JCC, Jakarta",
+      date: "May 28, 2024",
+      image: women,
+    },
+    {
+      id: 4,
+      title: "Promotion Book",
+      description: "Lorem ipsum dolor sit amet consectetur adipiscing elit dolor",
+      location: "ICE BSD, Tangerang",
+      date: "June 4, 2024",
+      image: hand,
+    },
+    {
+      id: 5,
+      title: "New Friends with Books",
+      description: "Lorem ipsum dolor sit amet consectetur adipiscing elit dolor",
+      location: "JCC, Jakarta",
+      date: "May 14, 2024",
+      image: group,
+    },
+    {
+      id: 6,
+      title: "Book Signing",
+      description: "Lorem ipsum dolor sit amet consectetur adipiscing elit dolor",
+      location: "Istora GBK, Jakarta",
+      date: "May 21, 2024",
+      image: collage,
+    },
+  ];
+
+  // FAQ section
+  const faqs = [
+    {
+      question: "Where Can I Find Information?",
+      answer: "Imperdiet velit taciti at viverra rhoncus facilisis diam. Hac gravida eget natoque rutrum sapien dis pretium libero. Ut est lectus mus nisi fermentum montes dapibus eu. Auctor fusce cubilia justo a lacinia.",
+    },
+    {
+      question: "What Are Your Terms And Conditions?",
+      answer: "Imperdiet velit taciti at viverra rhoncus facilisis diam. Hac gravida eget natoque rutrum sapien dis pretium libero. Ut est lectus mus nisi fermentum montes dapibus eu. Auctor fusce cubilia justo a lacinia.",
+    },
+    {
+      question: "Can I Buy Directly From The Factory?",
+      answer: "Imperdiet velit taciti at viverra rhoncus facilisis diam. Hac gravida eget natoque rutrum sapien dis pretium libero. Ut est lectus mus nisi fermentum montes dapibus eu. Auctor fusce cubilia justo a lacinia.",
+    },
+    {
+      question: "What Kinds of Payment Do You Accept?",
+      answer: "Imperdiet velit taciti at viverra rhoncus facilisis diam. Hac gravida eget natoque rutrum sapien dis pretium libero. Ut est lectus mus nisi fermentum montes dapibus eu. Auctor fusce cubilia justo a lacinia.",
+    },
+    {
+      question: "When do I receive my order?",
+      answer: "Imperdiet velit taciti at viverra rhoncus facilisis diam. Hac gravida eget natoque rutrum sapien dis pretium libero. Ut est lectus mus nisi fermentum montes dapibus eu. Auctor fusce cubilia justo a lacinia.",
+    },
+  ];
+
   return (
     <>
-      <NavBar />
+      <Header />
 
-      <section id="event">
-        <div className="container-fluid">
-          <div className="row text-center ">
-            <div className="col-md-12">
-              <div className="upComing">
-                <h4
-                  className="text-light"
-                  data-aos="fade-right"
-                  data-aos-offset="300"
-                  data-aos-easing="ease-in-sine"
-                  data-aos-duration="1500"
-                >
-                  Home{" "}
-                  <span className="mx-3">
-                    <i class="bi bi-book"></i>
-                  </span>{" "}
-                  Event
-                </h4>
-                <h2
-                  className="text-center text-light pb-3 mb-2"
-                  data-aos="fade-up"
-                  data-aos-anchor-placement="top-bottom"
-                  data-aos-duration="2000"
-                >
-                  Upcoming Events
-                </h2>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <div className="min-h-screen bg-gray-50">
+        <section className="bg-gray-900 text-white py-20 flex items-center justify-center"
+          style={{
+            backgroundImage: `url(${event})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            height: '400px'
+          }} >
 
-      {/* second  */}
-      <div className="container">
-        <div className="row py-5">
-          <div className="Festival  col-md-12 text-center">
-            <h6
-              className="text-danger text-uppercase"
-              data-aos="zoom-in"
-              data-aos-duration="2000"
-            >
-              Event
-            </h6>
-            <h2 data-aos="flip-up" data-aos-duration="2000">
-              Book promotions
+          <div className="container mx-auto px-4 text-center">
+            <h4 className="mb-4">
+              <span className='text-dark text-2xl'>
+                Home <span className="mx-3">📚</span>About
+              </span>
+            </h4>
+            <h2 className="text-4xl font-bold">
+              About Us
             </h2>
-            <p className="mb-2" data-aos="flip-up" data-aos-duration="2000">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-              tellus, luctus nec <br /> ullamcorper mattis, pulvinar dapibus
-              leo.
-            </p>
           </div>
-        </div>
+        </section>
 
-        <div className="row d-flex gap-3 py-2">
-          <div
-            className="reading col-md-6 d-flex gap-3 p-0 mb-3"
-            data-aos="zoom-in-right"
-            data-aos-duration="2000"
-          >
-            <div className="books six_book text-center">
-              <button className="addCart">View More</button>
-            </div>
-            <div
-              className="dolor"
-              data-aos="zoom-out-down"
-              data-aos-duration="2000"
-            >
-              <h2 className="text-start">Festival of Books</h2>
-              <p>
-                Lorem ipsum dolor sit amet <br /> consectetur adipiscing elit
-                dolor
+        <section className="py-20">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h6 className="text-red-500 uppercase mb-2">Event</h6>
+              <h2 className="text-3xl font-bold mb-4">Book promotions</h2>
+              <p className="max-w-2xl mx-auto">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec
+                ullamcorper mattis, pulvinar dapibus leo.
               </p>
-              <li>
-                <i class="fa-solid fa-location-dot me-3"></i>JCC, Jakarta
-              </li>
-              <li>
-                <i class="fa-regular fa-clock me-2 "></i> May 14, 2024
-              </li>
             </div>
-          </div>
-          <div
-            className="reading col-md-6 d-flex gap-3 p-0 mb-3"
-            data-aos="zoom-in-left"
-            data-aos-duration="2000"
-          >
-            <div className="books one_book text-center">
-              <button className="addCart">View More</button>
-            </div>
-            <div
-              className="dolor"
-              data-aos="zoom-out-down"
-              data-aos-duration="2000"
-            >
-              <h2 className="text-start">Guide presents a reading corner</h2>
-              <p>
-                Lorem ipsum dolor sit amet <br /> consectetur adipiscing elit
-                dolor
-              </p>
-              <li>
-                <i class="fa-solid fa-location-dot me-3"></i>Istora GBK, Jakarta
-              </li>
-              <li>
-                <i class="fa-regular fa-clock me-2 "></i>May 21, 2024
-              </li>
-            </div>
-          </div>
-        </div>
 
-        <div className="row d-flex gap-3 py-2">
-          <div
-            className="reading col-md-6 d-flex gap-3 p-0 mb-3"
-            data-aos="zoom-in-right"
-            data-aos-duration="2000"
-          >
-            <div className="books second_book six_book text-center">
-              <button className="addCart">View More</button>
-            </div>
-            <div
-              className="dolor"
-              data-aos="zoom-out-down"
-              data-aos-duration="2000"
-            >
-              <h2 className="text-start">Read free books in Jakarta</h2>
-              <p>
-                Lorem ipsum dolor sit amet <br /> consectetur adipiscing elit
-                dolor
-              </p>
-              <li>
-                <i class="fa-solid fa-location-dot me-3"></i>JCC, Jakarta
-              </li>
-              <li>
-                <i class="fa-regular fa-clock me-2 "></i>May 28, 2024
-              </li>
-            </div>
-          </div>
-          <div
-            className="reading col-md-6 d-flex gap-3 p-0 mb-3"
-            data-aos="zoom-in-left"
-            data-aos-duration="2000"
-          >
-            <div className="books third_book text-center">
-              <button className="addCart">View More</button>
-            </div>
-            <div
-              className="dolor"
-              data-aos="zoom-out-down"
-              data-aos-duration="2000"
-            >
-              <h2 className="text-start">Promotion Book</h2>
-              <p>
-                Lorem ipsum dolor sit amet <br /> consectetur adipiscing elit
-                dolor
-              </p>
-              <li>
-                <i class="fa-solid fa-location-dot me-3"></i> ICE BSD, Tangerang
-              </li>
-              <li>
-                <i class="fa-regular fa-clock me-2 "></i>June 4, 2024
-              </li>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {events.map((event) => (
+                <div key={event.id} className="flex flex-col md:flex-row gap-4 bg-white rounded-lg shadow-md overflow-hidden" data-aos="zoom-in-right">
+                  <div className="md:w-1/2 relative group">
+                    <img
+                      src={event.image}
+                      alt={event.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <Button className="bg-red-600 text-white px-4 py-2 rounded-lg border-0 transition-colors cursor-pointer">
+                        View More
+                      </Button>
+                    </div>
+                  </div>
+                  <div className="md:w-1/2 p-6">
+                    <h2 className="text-xl font-semibold mb-2">{event.title}</h2>
+                    <p className="text-gray-600 mb-4">{event.description}</p>
+                    <div className="flex items-center mb-2">
+                      <MapPin className="mr-2 text-gray-500" />
+                      <span>{event.location}</span>
+                    </div>
+                    <div className="flex items-center">
+                      <Clock className="mr-2 text-gray-500" />
+                      <span>{event.date}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
+        </section>
 
-        <div className="row d-flex gap-3 py-2">
-          <div
-            className="reading col-md-6 d-flex gap-3 p-0 mb-3"
-            data-aos="zoom-in-right"
-            data-aos-duration="2000"
-          >
-            <div className="books four_book six_book text-center">
-              <button className="addCart">View More</button>
-            </div>
-            <div
-              className="dolor"
-              data-aos="zoom-out-down"
-              data-aos-duration="2000"
-            >
-              <h2 className="text-start">New Friends with Books</h2>
-              <p>
-                Lorem ipsum dolor sit amet <br /> consectetur adipiscing elit
-                dolor
-              </p>
-              <li>
-                <i class="fa-solid fa-location-dot me-3"></i>JCC, Jakarta
-              </li>
-              <li>
-                <i class="fa-regular fa-clock me-2 "></i> May 14, 2024
-              </li>
-            </div>
-          </div>
-          <div
-            className="reading col-md-6 d-flex gap-3 p-0 mb-3"
-            data-aos="zoom-in-left"
-            data-aos-duration="2000"
-          >
-            <div className="books five_book text-center">
-              <button className="addCart">View More</button>
-            </div>
-            <div
-              className="dolor"
-              data-aos="zoom-out-down"
-              data-aos-duration="2000"
-            >
-              <h2 className="text-start">Book Signing</h2>
-              <p>
-                Lorem ipsum dolor sit amet <br /> consectetur adipiscing elit
-                dolor
-              </p>
-              <li>
-                <i class="fa-solid fa-location-dot me-3"></i>Istora GBK, Jakarta
-              </li>
-              <li>
-                <i class="fa-regular fa-clock me-2 "></i>May 21, 2024{" "}
-              </li>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* third */}
-      <div className="container py-3">
-        <div className="row py-3">
-          <div className="question col-md-5">
-            <h6
-              className="text-uppercase"
-              data-aos="fade-down"
-              data-aos-easing="linear"
-              data-aos-duration="1500"
-            >
-              Most popular questions
-            </h6>
-            <h2
-              className="text-start"
-              data-aos="fade-down"
-              data-aos-easing="linear"
-              data-aos-duration="1500"
-            >
-              Frequently asked <br /> questions
-            </h2>
-            <p  data-aos="fade-right"
-     data-aos-offset="300"
-     data-aos-easing="ease-in-sine">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br /> Ut
-              elit tellus, luctus nec ullamcorper mattis, pulvinar <br />
-              dapibus leo.
-            </p>
-          </div>
-          <div className="col-md-7">
-            <div class="accordion accordion-flush" id="accordionFlushExample">
-              <div class="accordion-item"  data-aos="flip-left"
-     data-aos-easing="ease-out-cubic"
-     data-aos-duration="2000">
-                <h2 class="accordion-header" id="flush-headingOne">
-                  <button
-                    class="accordion-button collapsed"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#flush-collapseOne"
-                    aria-expanded="false"
-                    aria-controls="flush-collapseOne"
-                  >
-                    Where Can I Find Information?
-                  </button>
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="flex flex-col md:flex-row gap-12">
+              <div className="md:w-1/2">
+                <h6 className="text-red-600 uppercase mb-2" data-aos="fade-down">Most popular questions</h6>
+                <h2 className="text-3xl font-bold mb-4" data-aos="fade-down">
+                  Frequently asked questions
                 </h2>
-                <div
-                  id="flush-collapseOne"
-                  class="accordion-collapse collapse"
-                  aria-labelledby="flush-headingOne"
-                  data-bs-parent="#accordionFlushExample"
-                >
-                  <div class="accordion-body">
-                    Imperdiet velit taciti at viverra rhoncus facilisis diam.
-                    Hac gravida eget natoque rutrum sapien dis pretium libero.
-                    Ut est lectus mus nisi fermentum montes dapibus eu. Auctor
-                    fusce cubilia justo a lacinia. This is the first item's
-                    accordion body.
-                  </div>
-                </div>
+                <p className="text-gray-600" data-aos="fade-right">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, <br /> luctus nec ullamcorper mattis, pulvinar
+                  dapibus leo.
+                </p>
               </div>
-              <div class="accordion-item"  data-aos="flip-left"
-     data-aos-easing="ease-out-cubic"
-     data-aos-duration="2000">
-                <h2 class="accordion-header" id="flush-headingTwo">
-                  <button
-                    class="accordion-button collapsed"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#flush-collapseTwo"
-                    aria-expanded="false"
-                    aria-controls="flush-collapseTwo"
-                  >
-                    What Are Your Terms And Conditions?
-                  </button>
-                </h2>
-                <div
-                  id="flush-collapseTwo"
-                  class="accordion-collapse collapse"
-                  aria-labelledby="flush-headingTwo"
-                  data-bs-parent="#accordionFlushExample"
-                >
-                  <div class="accordion-body">
-                    Imperdiet velit taciti at viverra rhoncus facilisis diam.
-                    Hac gravida eget natoque rutrum sapien dis pretium libero.
-                    Ut est lectus mus nisi fermentum montes dapibus eu. Auctor
-                    fusce cubilia justo a lacinia. This is the second item's
-                    accordion body. Let's imagine this being filled with some
-                    actual content.
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item"  data-aos="flip-left"
-     data-aos-easing="ease-out-cubic"
-     data-aos-duration="2000">
-                <h2 class="accordion-header" id="flush-headingThree">
-                  <button
-                    class="accordion-button collapsed"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#flush-collapseThree"
-                    aria-expanded="false"
-                    aria-controls="flush-collapseThree"
-                  >
-                    Can I Buy Directly From The Factory?
-                  </button>
-                </h2>
-                <div
-                  id="flush-collapseThree"
-                  class="accordion-collapse collapse"
-                  aria-labelledby="flush-headingThree"
-                  data-bs-parent="#accordionFlushExample"
-                >
-                  <div class="accordion-body">
-                    Imperdiet velit taciti at viverra rhoncus facilisis diam.
-                    Hac gravida eget natoque rutrum sapien dis pretium libero.
-                    Ut est lectus mus nisi fermentum montes dapibus eu. Auctor
-                    fusce cubilia justo a lacinia. This is the third item's
-                    accordion body. Nothing more exciting happening here in
-                    terms of content, but just filling up the space to make it
-                    look, at least at first glance, a bit more representative of
-                    how this would look in a real-world application.
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item"  data-aos="flip-left"
-     data-aos-easing="ease-out-cubic"
-     data-aos-duration="2000">
-                <h2 class="accordion-header" id="flush-headingFour">
-                  <button
-                    class="accordion-button collapsed"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#flush-collapseFour"
-                    aria-expanded="false"
-                    aria-controls="flush-collapseFour"
-                  >
-                    What Kinds of Payment Do You Accept?
-                  </button>
-                </h2>
-                <div
-                  id="flush-collapseFour"
-                  class="accordion-collapse collapse"
-                  aria-labelledby="flush-headingFour"
-                  data-bs-parent="#accordionFlushExample"
-                >
-                  <div class="accordion-body">
-                    Imperdiet velit taciti at viverra rhoncus facilisis diam.
-                    Hac gravida eget natoque rutrum sapien dis pretium libero.
-                    Ut est lectus mus nisi fermentum montes dapibus eu. Auctor
-                    fusce cubilia justo a lacinia. This is the fourth item's
-                    accordion body. Nothing more exciting happening here in
-                    terms of content, but just filling up the space to make it
-                    look, at least at first glance, a bit more representative of
-                    how this would look in a real-world application.
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item"  data-aos="flip-left"
-     data-aos-easing="ease-out-cubic"
-     data-aos-duration="2000">
-                <h2 class="accordion-header" id="flush-headingFive">
-                  <button
-                    class="accordion-button collapsed"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#flush-collapseFive"
-                    aria-expanded="false"
-                    aria-controls="flush-collapseFive"
-                  >
-                    When do I receive my order?
-                  </button>
-                </h2>
-                <div
-                  id="flush-collapseFive"
-                  class="accordion-collapse collapse"
-                  aria-labelledby="flush-headingFive"
-                  data-bs-parent="#accordionFlushExample"
-                >
-                  <div class="accordion-body">
-                    Imperdiet velit taciti at viverra rhoncus facilisis diam.
-                    Hac gravida eget natoque rutrum sapien dis pretium libero.
-                    Ut est lectus mus nisi fermentum montes dapibus eu. Auctor
-                    fusce cubilia justo a lacinia. This is the fifth item's
-                    accordion body. Nothing more exciting happening here in
-                    terms of content, but just filling up the space to make it
-                    look, at least at first glance, a bit more representative of
-                    how this would look in a real-world application.
-                  </div>
-                </div>
+              <div className="md:w-1/2">
+                <Accordion defaultActiveKey="0" className="w-full">
+                  {faqs.map((faq, index) => (
+                    <Accordion.Item key={index} eventKey={index.toString()} data-aos="flip-left">
+                      <Accordion.Header>{faq.question}</Accordion.Header>
+                      <Accordion.Body>{faq.answer}</Accordion.Body>
+                    </Accordion.Item>
+                  ))}
+                </Accordion>
               </div>
             </div>
           </div>
-        </div>
+        </section>
       </div>
 
       <Footer />
     </>
   );
 }
+
 export default Event;

@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import './user.css';
-import main_img from '../images/main_login.jpg';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
 import { APi_URL } from '../../Utils/apiConfig';
+import main_img from '../images/main_login.jpg';
+
 function Registration() {
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
@@ -24,7 +23,7 @@ function Registration() {
     formData.append('username', username);
 
     try {
-      await axios.post(APi_URL + "user/register ", formData, {
+      await axios.post(APi_URL + "user/register", formData, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -36,151 +35,118 @@ function Registration() {
       setPassword('');
       setUsername('');
 
-      alert(" ✅ Ragistration Success 👍")
-      navigate('/login')
+      alert(" ✅ Registration Success 👍");
+      navigate('/login');
     } catch (error) {
       console.error("Error:", error);
-      alert("💁‍♂️ user alrady exist")
-
+      alert("💁‍♂️ User already exists");
     }
-  }
+  };
 
   return (
-    <>
-      <section className="h-100">
-        <div className="container py-2 ">
-          <div className="row d-flex justify-content-center align-items-center">
-            <div className="col">
-              <div className="card card-registration my-4">
-                <div className="row g-0 ">
-                  <div className="col-xl-6 d-none d-xl-block">
-                    <img
-                      src={main_img}
-                      alt="Sample"
-                      className="img-fluid w-100 m-0"
-                      id='card-img'
-                      style={{
-                        borderTopLeftRadius: ".25rem",
-                        borderBottomLeftRadius: ".25rem"
-                      }}
-                    />
-                  </div>
-                  <div className="col-xl-6">
-                    <div className="card-body p-md-5 text-black">
-                      <h3 className="mb-5 text-uppercase">
-                        Registration form
-                      </h3>
-                      <form onSubmit={CreateUser}>
-                        <div className="row">
-                          <div className="col-md-12">
-                            <div data-mdb-input-init="" className="form-outline mb-4">
-                              <label className="form-label" htmlFor="inputPassword3">
-                                UserName
-                              </label>
-                              <input
-                                type="text"
-                                id="form3Example97"
-                                className="form-control form-control-lg"
-                                placeholder='Create User Name'
-                                value={username}
-                                onChange={(e) => setUsername(e.target.value)}
-                              />
-                            </div>
-                          </div>
-                          <div className="col-md-12 mb-4">
-                            <div data-mdb-input-init="" className="form-outline">
-                              <label className="form-label" htmlFor="form3Example1m">
-                                First name
-                              </label>
-                              <input
-                                type="text"
-                                id="form3Example1m"
-                                value={firstname}
-                                onChange={(e) => setFirstname(e.target.value)}
-                                className="form-control form-control-lg"
-                                placeholder='Enter Your First name'
-                              />
-                            </div>
-                          </div>
-                          <div className="col-md-12 mb-4">
-                            <div data-mdb-input-init="" className="form-outline">
-                              <label className="form-label" htmlFor="form3Example1m">
-                                Last name
-                              </label>
-                              <input
-                                type="text"
-                                id="form3Example1m"
-                                className="form-control form-control-lg"
-                                placeholder='Enter Your Last Name'
-                                value={lastname}
-                                onChange={(e) => setLastname(e.target.value)}
-                              />
-                            </div>
-                          </div>
-                          <div className="col-md-12">
-                            <div data-mdb-input-init="" className="form-outline mb-4">
-                              <label className="form-label" htmlFor="form3Example97">
-                                Email ID
-                              </label>
-                              <input
-                                type="email"
-                                id="form3Example97"
-                                className="form-control form-control-lg"
-                                placeholder='abc@gmail.com'
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                              />
-                            </div>
-                          </div>
-                          <div className="col-md-12">
-                            <div data-mdb-input-init="" className="form-outline mb-4">
-                              <label className="form-label" htmlFor="form3Example97">
-                                Password
-                              </label>
-                              <input
-                                type="password"
-                                id="inputPassword3"
-                                className="form-control form-control-lg"
-                                placeholder='Enter Password'
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                              />
-                            </div>
-                          </div>
-                          <div className="col-md-12">
-                            <div data-mdb-input-init="" className="form-outline mb-4">
-                              <label className="form-label" htmlFor="inputPassword3">
-                                Confirm Password
-                              </label>
-                              <input
-                                type="password"
-                                id="form3Example97"
-                                className="form-control form-control-lg"
-                                placeholder='Enter Confirm Password'
-                              />
-                            </div>
-                          </div>
-                          <button
-                            type="submit"
-                            data-mdb-button-init=""
-                            data-mdb-ripple-init=""
-                            className="btn btn-warning btn-lg ms-2"
-                          >
-                            Submit form
-                          </button>
-                          <h6 className='pt-3 text-center'>Already have an account? <a href="/login">Sing in</a></h6>
-
-                        </div>
-                      </form>
-                    </div>
-                  </div>
+    <section className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="container mx-auto py-5">
+        <div className="flex flex-col md:flex-row justify-center items-stretch">
+          {/* Image container hidden on mobile and tablet sizes */}
+          <div className="hidden md:flex items-center w-[400px] h-[800px] mr-2">
+            <img
+              src={main_img}
+              alt="Sample"
+              className="object-cover h-full rounded-l-lg"
+            />
+          </div>
+          {/* Registration form container */}
+          <div className="flex items-center w-full md:w-[600px] h-[800px] p-4 bg-white rounded-lg shadow-md">
+            <div className="w-full">
+              <h3 className="mb-5 text-2xl font-semibold text-center">
+                Registration Form
+              </h3>
+              <form onSubmit={CreateUser}>
+                <div className="mb-4">
+                  <label className="block text-sm font-medium mb-1" htmlFor="username">Username</label>
+                  <input
+                    type="text"
+                    id="username"
+                    className="block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-300"
+                    placeholder='Create User Name'
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    required
+                  />
                 </div>
-              </div>
+                <div className="mb-4">
+                  <label className="block text-sm font-medium mb-1" htmlFor="firstname">First Name</label>
+                  <input
+                    type="text"
+                    id="firstname"
+                    className="block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-300"
+                    placeholder='Enter Your First Name'
+                    value={firstname}
+                    onChange={(e) => setFirstname(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="mb-4">
+                  <label className="block text-sm font-medium mb-1" htmlFor="lastname">Last Name</label>
+                  <input
+                    type="text"
+                    id="lastname"
+                    className="block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-300"
+                    placeholder='Enter Your Last Name'
+                    value={lastname}
+                    onChange={(e) => setLastname(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="mb-4">
+                  <label className="block text-sm font-medium mb-1" htmlFor="email">Email ID</label>
+                  <input
+                    type="email"
+                    id="email"
+                    className="block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-300"
+                    placeholder='abc@gmail.com'
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="mb-4">
+                  <label className="block text-sm font-medium mb-1" htmlFor="password">Password</label>
+                  <input
+                    type="password"
+                    id="password"
+                    className="block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-300"
+                    placeholder='Enter Password'
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="mb-4">
+                  <label className="block text-sm font-medium mb-1" htmlFor="confirmPassword">Confirm Password</label>
+                  <input
+                    type="password"
+                    id="confirmPassword"
+                    className="block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-300"
+                    placeholder='Enter Confirm Password'
+                    required
+                  />
+                </div>
+                <div className="pt-1 mb-4">
+                  <button
+                    type="submit"
+                    className="w-full py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-200"
+                  >
+                    Submit Form
+                  </button>
+                </div>
+                <h6 className='pt-3 text-center'>Already have an account? <a href="/login" className="text-blue-500 hover:underline">Sign in</a></h6>
+              </form>
             </div>
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
 
