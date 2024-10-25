@@ -1,20 +1,17 @@
-import React from "react";
-import "./shop.css";
-import "./ShopMedia.css";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useState, useEffect } from "react";
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 import chid from "../images/father_book.png";
-import NavBar from "../NavBar/Nav";
 import Footer from "../footer/Footer";
 import { APi_URL } from "../../Utils/apiConfig";
+import Button from 'react-bootstrap/Button';
+import Main_bg from '../images/young-bookstore.jpg';
+import Header from "../NavBar/Header";
+
 function Shop() {
   const [items, setItems] = useState([]);
   const navigate = useNavigate();
 
-  
   useEffect(() => {
     axios
       .get(APi_URL + "book/getbook")
@@ -26,10 +23,6 @@ function Shop() {
       });
   }, []);
 
-  const handleImageClick = (id) => {
-    navigate(`/details/${id}`);
-  };
-
   const addToCart = async (item) => {
     try {
       const response = await axios.post(APi_URL + "checkout/order", {
@@ -39,16 +32,11 @@ function Shop() {
         quantity: 1,
       });
 
-      // Check if the response indicates success
       if (response.data) {
         alert("Item added to cart successfully");
         navigate("/checkout");
       } else {
-        alert(
-          `Failed to add item to cart: ${
-            response.data.message || "Unknown error"
-          }`
-        );
+        alert(`Failed to add item to cart: ${response.data.message || "Unknown error"}`);
       }
     } catch (error) {
       console.error("Error adding item to cart:", error);
@@ -56,157 +44,113 @@ function Shop() {
   };
 
   return (
-    <>
-      <NavBar />
-
-      {/* first */}
-      <section id="Shop">
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-md-12">
-              <h4
-                className="text-light text-center"
-                data-aos="fade-right"
-                data-aos-offset="300"
-                data-aos-easing="ease-in-sine"
-                data-aos-duration="1500"
-              >
-                <span>
-                  Home{" "}
-                  <span className="mx-3">
-                    <i class="bi bi-book fs-5 "></i>
-                  </span>{" "}
-                  Shop
-                </span>
-              </h4>
-              <h2
-                className="text-center text-light"
-                data-aos="fade-up"
-                data-aos-anchor-placement="top-bottom"
-                data-aos-duration="2000"
-              >
-                SHOP
-              </h2>
-            </div>
-          </div>
+    <div className="min-h-screen bg-white">
+      <Header />
+      <section className="bg-gray-900 text-white py-20 flex items-center justify-center"
+        style={{
+          backgroundImage: `url(${Main_bg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          height: '400px'
+        }}
+      >
+        <div className="container mx-auto px-4 text-center">
+          <h4 className="mb-4">
+            <span>
+              Home <span className="mx-3">📚</span> Shop
+            </span>
+          </h4>
+          <h2 className="text-4xl font-bold text-light">
+            SHOP
+          </h2>
         </div>
       </section>
 
       {/* Second Section */}
-      <div className="container">
-        <div className="row text-center">
-          <div className="Discover col-md-12">
-            <h2
-              data-aos="fade-left"
-              data-aos-anchor-placement="center-bottom"
-              data-aos-duration="2000"
-            >
+      <section className="py-10">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4" data-aos="fade-left" data-aos-duration="2000">
               Discover new books
             </h2>
-            <p
-              data-aos="fade-left"
-              data-aos-anchor-placement="center-bottom"
-              data-aos-duration="2000"
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-              tellus, luctus nec <br /> ullamcorper mattis, pulvinar dapibus
-              leo.
+            <p className="text-gray-600" data-aos="fade-left" data-aos-duration="2000">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec <br className="hidden md:block" /> ullamcorper mattis, pulvinar dapibus leo.
             </p>
           </div>
-        </div>
-      </div>
 
-      <div className="container py-5">
-        <div className="row border-top py-3">
-          <div className="next col-md-12 d-flex justify-content-between align-content-center">
-            <h3 data-aos="flip-up" ata-aos-duration="3000">Discover Your Next Book</h3>
-            <span>
-              <span data-aos="flip-up" ata-aos-duration="3000"><u>View All Book</u></span>
-            </span>
+          <div className="flex justify-between items-center mb-6 border-t border-gray-300 pt-4">
+            <h2 className="text-3xl font-bold text-start mb-4">Discover Your Next Book</h2>
+            <span className="text-blue-500 hover:underline cursor-pointer">View All Books</span>
           </div>
-        </div>
-        <div className="row pb-4" id="text_new">
-          {items && items.length > 0 ? (
-            items.map((item) => (
-              <div className="col-md-3 col-lg-3" data-aos="fade-up"
-              data-aos-duration="3000" key={item._id}>
-                <Card
-                  style={{ width: "auto", fontFamily: "Lora" }}
-                  className="api_card border-0 text-center"
-                >
-                  <Card.Img
-                    variant="top"
-                    className="card_sell_img img-fluid"
-                    onClick={() => handleImageClick(item._id)}
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {items.length > 0 ? (
+              items.map((item, index) => (
+                <div key={index} className="overflow-hidden h-[600px] border rounded-lg shadow-lg text-center">
+                  <img
                     src={item.url}
+                    alt={item.title}
+                    className="w-full h-[400px] object-cover mx-auto"
                   />
-                  <Card.Body>
-                    <Card.Title>{item.title}</Card.Title>
-                    <Card.Title>{item.author}</Card.Title>
-                    <Card.Text>
-                      <span className="font_extra me-1 text-dark fs-6">
-                        <strike>${item.price2}.00</strike>
-                      </span>
-                      <span className="font_extra text-danger fw-bold fs-5">
-                        <u>${item.price}.00</u>
-                      </span>
-                    </Card.Text>
+                  <div className="p-2 text-center">
+                    <h2 className="text-2xl font-bold pb-2">{item.title}</h2>
+                    <h3 className="text-lg pb-2">{item.author}</h3>
+                    <div className="flex justify-center items-center space-x-2 pb-2">
+                      <span className="text-base text-gray-500 line-through">${item.price2}.00</span>
+                      <span className="text-xl text-red-500 font-bold">${item.price}.00</span>
+                    </div>
                     <Button
-                      className="add_to_cart"
+                      className="w-28 text-red-500 border border-red-500 rounded-lg bg-white hover:text-black transition-all duration-300 ease-in-out" 
                       onClick={() => addToCart(item)}
                     >
-                      Add to Cart
+                      Shop Now
                     </Button>
-                  </Card.Body>
-                </Card>
-              </div>
-            ))
-          ) : (
-            <h4>
-              <b>Loading Books .....</b>
-            </h4>
-          )}
-        </div>
-      </div>
 
-      {/* Third Section */}
-      <section className="mb-3" id="back_images">
-        <div className="container  d-flex align-items-center ">
-          <div className="row overflow-hidden">
-            <div className="col-md-6 mb-4 mb-md-0">
-              <div className="lectus" >
-                <h6 className="text-uppercase font-weight-bold mb-3 text-danger" data-aos="zoom-out-down" data-aos-duration="2000">
-                  New Release
-                </h6>
-                <h3 className="font-weight-bold mb-3" data-aos="zoom-out-down" data-aos-duration="2000">Me & My Dad</h3>
-                <h5 className="font-italic mb-4" data-aos="zoom-out-down" data-aos-duration="2000">
-                  A novelette book by John Doe
-                </h5>
-                <p className="text-justify mb-4" data-aos="zoom-out-down" data-aos-duration="2000">
-                  Morbi proin condimentum litora duis lectus vivamus parturient
-                  torquent. Phasellus fames lectus molestie iaculis lacus
-                  condimentum duis. Ac ligula etiam magna efficitur quisque in.
-                  Malesuada mattis integer congue nulla id ipsum vestibulum
-                  mollis fames neque dictum. Ex vivamus vehicula natoque porta
-                  ipsum dis. Interdum viverra semper dolor dignissim urna
-                  habitasse orci. Elementum ullamcorper libero magna montes ut
-                  orci suspendisse magnis nam id ligula.
-                </p>
-                <span className="font-weight-bold mb-2 d-block fs-3" data-aos="zoom-out-down" data-aos-duration="2000">
-                  Price : <span className="text-danger fs-3"> $40.00</span>{" "}
-                </span>
-                <Button className="add_to_cart" data-aos="zoom-out-down" data-aos-duration="2000">Add to Cart</Button>
-              </div>
-            </div>
-            <div className="col-md-6">
-              <img src={chid} alt="img" className="img-fluid w-100 h-100" data-aos="fade-left" data-aos-duration="2000"/>
-            </div>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <p>Loading Books...</p>
+            )}
           </div>
         </div>
       </section>
 
+      {/* Third Section */}
+      <div className="w-full bg-[#f5f0e8] py-12">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8">
+            <div className="lg:w-1/2 p-6 lg:p-12">
+              <span className="text-red-500 font-semibold text-lg lg:text-xl">NEW RELEASE</span>
+              <h2 className="text-2xl lg:text-3xl font-bold mt-2 mb-4 text-gray-800 text-start">Me & My Dad</h2>
+              <p className="text-gray-600 text-md lg:text-lg mb-4">A novelette book by John Doe</p>
+              <p className="text-gray-600 text-sm lg:text-base mb-6">
+                Morbi pron condimentum urna duis lectus vivamus parturient torquent. Praesus fames lectus
+                molestie socils lacus condimentum duis. At ligula etiam magna efficitur quisque in. Maecenas
+                mattis integer sapien etiam dui sem quis libero. Fames magnis dictum. Et vivamus vehicula
+                interque portia diam sit. Interdum viverra semper dolor dignissim cum habitasse orci. Elementum
+                ullamcorper libero magna mortes ut orci suspendisse magna nam id ligula.
+              </p>
+              <p className="text-xl lg:text-2xl font-bold text-gray-800 mb-4">Price: <span className="text-red-500">$40.00</span></p>
+              <Button className="w-40 bg-red-500 hover:bg-red-600 text-white py-2 px-6 rounded-md border-0">
+                Add to Cart
+              </Button>
+            </div>
+
+            <div className="lg:w-1/2 flex justify-center p-6 lg:p-12">
+              <img
+                src={chid}
+                alt="Me & My Dad book cover"
+                className="rounded-lg max-w-full h-auto"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
       <Footer />
-    </>
+    </div>
   );
 }
 

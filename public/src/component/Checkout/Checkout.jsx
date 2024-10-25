@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import NavBar from "../NavBar/Nav";
 import Footer from "../footer/Footer";
-import Table from "react-bootstrap/Table";
-import "./checkout.css";
 import Cookies from "js-cookie";
 import { APi_URL } from "../../Utils/apiConfig";
+import Header from "../NavBar/Header";
 
-function Checkout() {
+export default  function Checkout() {
   const [cart, setCart] = useState([]);
   const [gtotal, setGtotal] = useState(0);
 
@@ -25,10 +23,7 @@ function Checkout() {
           params: { username: userName }, // Pass username as query parameter
         });
 
-        console.log("Fetched Cart Data:", response.data); // Debugging response
-
         const fetchedData = response.data || [];
-        // Filter items by username (if needed)
         const filteredData = fetchedData.filter((item) => item.username === userName);
         const mergedCart = filteredData.reduce((acc, item) => {
           const existingItem = acc.find((i) => i.title === item.title);
@@ -43,9 +38,7 @@ function Checkout() {
         }, []);
 
         setCart(mergedCart);
-        console.log("Mergdcart",mergedCart)
 
-        // Calculate grand total
         const total = mergedCart.reduce((sum, item) => sum + item.price * item.quantity, 0);
         setGtotal(total);
 
@@ -75,57 +68,61 @@ function Checkout() {
   
   return (
     <>
-      <NavBar />
+      <Header />
 
-      <div className="cart">
-        <h1 className="w-25 ms-5 text-center">Cart</h1>
-        <Table striped bordered className="w-75 m-auto text-center mb-5">
-          <thead>
-            <tr>
-              <th></th>
-              <th></th>
-              <th>Product</th>
-              <th>Price</th>
-              <th>Quantity</th>
-              <th>Subtotal</th>
-            </tr>
-          </thead>
-          <tbody>
-            {cart.length > 0 ? (
-              cart.map((item, index) => (
-                <tr key={index}>
-                  <td>
-                    <span onClick={() => deleteItem(item._id)}>
-                      <i className="bi bi-x-circle"></i>
-                    </span>
-                  </td>
-                  <td>
-                    <img
-                      src={item.imageUrl}
-                      className="card-img-top"
-                      alt={item.title}
-                    />
-                  </td>
-                  <td>{item.title}</td>
-                  <td>{item.price.toFixed(2)}</td>
-                  <td>{item.quantity}</td>
-                  <td>{(item.price * item.quantity).toFixed(2)}</td>
-                </tr>
-              ))
-            ) : (
+      <div className="cart container mx-auto px-4 ">
+        <h1 className="text-3xl font-bold text-center my-6">Cart</h1>
+        <div className="overflow-x-auto">
+          <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+            <thead className="bg-gray-800 text-white">
               <tr>
-                <td colSpan={6}>Your cart is empty.</td>
+                <th className="py-3 px-4 text-center">Remove</th>
+                <th className="py-3 px-4 text-center">Image</th>
+                <th className="py-3 px-4 text-center">Product</th>
+                <th className="py-3 px-4 text-center">Price</th>
+                <th className="py-3 px-4 text-center">Quantity</th>
+                <th className="py-3 px-4 text-center">Subtotal</th>
               </tr>
-            )}
+            </thead>
+            <tbody>
+              {cart.length > 0 ? (
+                cart.map((item, index) => (
+                  <tr key={index} className="text-center border-b">
+                    <td className="py-4">
+                      <span onClick={() => deleteItem(item._id)} className="cursor-pointer text-red-500 hover:text-red-700">
+                        <i className="bi bi-x-circle"></i>
+                      </span>
+                    </td>
+                    <td className="py-4">
+                      <img
+                        src={item.imageUrl}
+                        className="w-16 h-16 object-cover mx-auto"
+                        alt={item.title}
+                      />
+                    </td>
+                    <td className="py-4">{item.title}</td>
+                    <td className="py-4">${item.price.toFixed(2)}</td>
+                    <td className="py-4">{item.quantity}</td>
+                    <td className="py-4">${(item.price * item.quantity).toFixed(2)}</td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan={6} className="py-6 text-center text-gray-600">
+                    Your cart is empty.
+                  </td>
+                </tr>
+              )}
 
-            <tr>
-              <td colSpan={5}>
-                <b>Grand total</b>
-              </td>
-              <td><b>{gtotal.toFixed(2)}</b></td>
-            </tr>
-          </tbody>
-        </Table>
+              <tr>
+                <td colSpan={5} className="text-right py-4 font-semibold text-lg">
+                  Grand total:
+                </td>
+                <td className="py-4 font-bold text-lg">${gtotal.toFixed(2)}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <Footer />
@@ -133,4 +130,4 @@ function Checkout() {
   );
 }
 
-export default Checkout;
+
