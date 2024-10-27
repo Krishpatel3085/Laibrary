@@ -79,11 +79,11 @@ export default function Blog() {
           <div className="container mx-auto px-4 text-center">
             <h4 className="mb-4">
               <span className='text-dark'>
-                Home <span className="mx-3">📚</span>About
+                Home <span className="mx-3">📚</span>Blog
               </span>
             </h4>
             <h2 className="text-4xl font-bold">
-              About Us
+              Blog
             </h2>
           </div>
         </section>
