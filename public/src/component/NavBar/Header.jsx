@@ -16,6 +16,8 @@ function Header() {
         Cookies.remove("User-username");
         Cookies.remove("User-userEmail");
         localStorage.removeItem("token")
+        localStorage.removeItem("username")
+        localStorage.removeItem("useremail")
         setUser("");
         setCartLength(0);
         navigate("/login");
@@ -142,6 +144,9 @@ function Header() {
                             Hi! {user ? user : "Guest"} <i className="bi bi-person-circle ml-2"></i>
                         </button>
                         <div className="absolute right-0 hidden w-40 bg-white shadow-lg group-hover:block">
+                            <Link to='/profile' className="block px-4 py-2 text-gray-600 hover:bg-blue-600 hover:text-white">
+                                <i className="bi bi-person-circle"></i> Profile
+                            </Link>
                             <Link to='/login' className="block px-4 py-2 text-gray-600 hover:bg-blue-600 hover:text-white">
                                 <i className="bi bi-person-circle"></i> User Login
                             </Link>
@@ -187,6 +192,9 @@ function Header() {
                             Hi! {user ? user : "Guest"} <i className="bi bi-person-circle ml-2"></i>
                         </button>
                         <div className="absolute right-0 mt-4 hidden w-40 bg-white shadow-lg group-hover:block">
+                            <Link to='/profile' className="block px-4 py-2 text-gray-600 hover:bg-blue-600 hover:text-white">
+                                <i className="bi bi-person-circle"></i> Profile
+                            </Link>
                             <Link to='/login' className="block px-4 py-2 text-gray-600 hover:bg-blue-600 hover:text-white">
                                 <i className="bi bi-person-circle"></i> User Login
                             </Link>
