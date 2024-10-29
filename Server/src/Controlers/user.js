@@ -1,5 +1,5 @@
 const Users = require("../Model/user");
-
+const jwt = require("jsonwebtoken");
 // Create User
 const createUser = async (req, res) => {
     try {
@@ -33,7 +33,7 @@ const getUSer = async (req, res) => {
 const loginUser = async (req, res) => {
     try {
         const { email, password, username } = req.body;
-        if ((!email && !username) || !password ) {
+        if ((!email && !username) || !password) {
             return res.status(400).json({ message: "USername , Email and password are required" });
         }
         const user = await Users.findOne({
@@ -42,13 +42,24 @@ const loginUser = async (req, res) => {
         if (!user) {
             return res.status(404).json({ message: "User not found" });
         }
-        if (user.password !== password ) {
+        if (user.password !== password) {
             return res.status(400).json({ message: "Invalid credentials" });
         }
+
+        const tokenData = {
+            id: user._id,
+            username: user.username,
+            email: user.email,
+        };
+
+        console.log("Generated token data:", tokenData);
+        const token = jwt.sign(tokenData, process.env.JWT_SECRET, { expiresIn: "1h" });
+
         res.status(201).json(
             {
                 message: "User logged in successfully",
                 user: {
+                    token,
                     id: user._id,
                     username: user.username
                 }

@@ -10,6 +10,9 @@ app.use(cors());
 
 const checkout = async (req, res) => {
     const User = req.user["id"];
+    const userName = req.user["username"];
+
+    console.log(User)
     const { title, author, quantity, price, imageUrl, username } = req.body;
     const totalAmount = quantity * price; // Calculate total amount based on quantity and price
 
@@ -23,8 +26,7 @@ const checkout = async (req, res) => {
             await existingOrder.save();
             res.status(200).json({ message: 'Order updated successfully', order: existingOrder });
         } else {
-
-            const newOrder = await Order.create({ title, author, quantity, price, totalAmount, imageUrl, username, User });
+            const newOrder = await Order.create({ title, author, quantity, price, totalAmount, imageUrl, username: userName, User });
             res.status(201).json({ message: 'Order processed successfully', order: newOrder });
         }
     } catch (error) {
