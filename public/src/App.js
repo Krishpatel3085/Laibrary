@@ -10,6 +10,7 @@ import Blog from "./component/blog/Blog.jsx";
 import Team from "./component/Team/Team.jsx";
 import Shop from "./component/Shop/Shop.jsx";
 import Registration from "./component/User/Registration.jsx";
+import UserProfile from "./Pages/Profile.jsx";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="/shop" element={<Shop />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/details/:_id" element={<Details />} />
+        <Route path="/profile" element={<UserProfile />} />
       </Routes>
     </>
   );
