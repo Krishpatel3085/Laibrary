@@ -5,7 +5,7 @@ import Cookies from "js-cookie";
 import { APi_URL } from "../../Utils/apiConfig";
 import Header from "../NavBar/Header";
 
-export default  function Checkout() {
+export default function Checkout() {
   const [cart, setCart] = useState([]);
   const [gtotal, setGtotal] = useState(0);
 
@@ -22,9 +22,13 @@ export default  function Checkout() {
         const response = await axios.get(APi_URL + `checkout/getorder`, {
           params: { username: userName }, // Pass username as query parameter
         });
-
+        console.log("Checkout data fetch", response.data)
         const fetchedData = response.data || [];
+        
         const filteredData = fetchedData.filter((item) => item.username === userName);
+
+        console.log("filtered data", filteredData);
+
         const mergedCart = filteredData.reduce((acc, item) => {
           const existingItem = acc.find((i) => i.title === item.title);
           if (existingItem) {
@@ -54,24 +58,24 @@ export default  function Checkout() {
   const deleteItem = async (id) => {
     try {
       await axios.delete(APi_URL + `checkout/orderDelete/${id}`);
-      
+
       const updatedCart = cart.filter((item) => item._id !== id);
       setCart(updatedCart);
-  
+
       const total = updatedCart.reduce((sum, item) => sum + item.price * item.quantity, 0);
       setGtotal(total);
-  
+
     } catch (error) {
       console.error("There was an error deleting the item!", error);
     }
   };
-  
+
   return (
     <>
       <Header />
 
-      <div className="cart container mx-auto px-4 ">
-        <h1 className="text-3xl font-bold text-center my-6">Cart</h1>
+      <div className="cart container mx-auto px-4 pt-5 ">
+        <h1 className="text-3xl font-bold text-center my-6 pt-5">Cart</h1>
         <div className="overflow-x-auto">
           <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
             <thead className="bg-gray-800 text-white">

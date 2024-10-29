@@ -24,13 +24,17 @@ function Shop() {
   }, []);
 
   const addToCart = async (item) => {
+    const token = localStorage.getItem("token")
     try {
       const response = await axios.post(APi_URL + "checkout/order", {
         itemId: item._id,
         title: item.title,
+        imageUrl : item.url,
         price: item.price,
         quantity: 1,
-      });
+      },
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
 
       if (response.data) {
         alert("Item added to cart successfully");
@@ -101,7 +105,7 @@ function Shop() {
                       <span className="text-xl text-red-500 font-bold">${item.price}.00</span>
                     </div>
                     <Button
-                      className="w-28 text-red-500 border border-red-500 rounded-lg bg-white hover:text-black transition-all duration-300 ease-in-out" 
+                      className="w-28 text-red-500 border border-red-500 rounded-lg bg-white hover:text-black transition-all duration-300 ease-in-out"
                       onClick={() => addToCart(item)}
                     >
                       Shop Now

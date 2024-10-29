@@ -22,7 +22,8 @@ function Login() {
         password,
       });
       console.log(response);
-
+      const token = response.data.user.token
+      localStorage.setItem("token", token)
       if (response.data) {
         Cookies.set('User-userEmail', email, { expires: 7 });
         Cookies.set('User-username', userName, { expires: 7 });
