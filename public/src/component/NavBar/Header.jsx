@@ -15,6 +15,7 @@ function Header() {
     const gotologout = () => {
         Cookies.remove("User-username");
         Cookies.remove("User-userEmail");
+        localStorage.removeItem("token")
         setUser("");
         setCartLength(0);
         navigate("/login");
