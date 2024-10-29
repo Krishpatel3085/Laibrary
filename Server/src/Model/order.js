@@ -2,15 +2,15 @@ const mongoose = require('mongoose');
 
 const orderSchema = new mongoose.Schema({
 
-    title: { type: String},  // Added required validation
-    author: { type: String}, // Added required validation
-    quantity: { type: Number ,default:1 }, // Added validation for quantity
-    price: { type: Number }, // Added validation for price
+    title: { type: String}, 
+    author: { type: String}, 
+    quantity: { type: Number ,default:1 }, 
+    price: { type: Number }, 
     imageUrl : {type:String},
     username :{ type :String},
     User: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Users_Admin'
+        ref: 'Users'
     },
     totalAmount: { type: Number}, // Added validation for total amount
     createdAt: {
