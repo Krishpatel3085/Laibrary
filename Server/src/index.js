@@ -4,6 +4,7 @@ const { book_routes } = require("./Routes/Book");
 const { user_router } = require("./Routes/user");
 const { admin_router } = require("./Routes/Admin");
 const { orderRouter } = require('./Routes/order');
+const { PaymentRouter } = require('./Routes/payment');
 const { SendOtp, VerifyOtp } = require('./Controlers/otp');
 const dotenv = require('dotenv');
 
@@ -28,6 +29,7 @@ app.use('/book', book_routes)
 app.use('/user', user_router)
 app.use('/admin', admin_router)
 app.use('/checkout', orderRouter)
+app.use('/Payment', PaymentRouter)
 app.post('/send-otp', SendOtp)
 app.post('/verify-otp', VerifyOtp)
 
