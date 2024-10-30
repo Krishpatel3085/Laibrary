@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Button } from "../component/ui/Button"
 import { Input } from "../component/ui/Input"
 import { Card, CardContent, CardHeader, CardTitle } from "../component/ui/Card"
@@ -7,9 +7,13 @@ import { Avatar, AvatarFallback, AvatarImage } from "../component/ui/Avatar"
 import { ShoppingCart, User, CreditCard, Settings, LogOut } from "lucide-react"
 import Header from '../component/NavBar/Header'
 import Footer from '../component/footer/Footer'
+import { APi_URL } from '../Utils/apiConfig'
+import axios from 'axios'
+import Cookies from 'js-cookie'
 export default function UserProfile() {
     const [activeTab, setActiveTab] = useState("profile")
-    
+    const [cartItems, setcartItems] = useState("")
+
     const name = localStorage.getItem("username")
     const email = localStorage.getItem("useremail")
     const user = {
@@ -20,12 +24,57 @@ export default function UserProfile() {
 
     }
 
-    const cartItems = [
-        { id: 1, title: "The Great Gatsby", author: "F. Scott Fitzgerald", price: 12.99 },
-        { id: 2, title: "To Kill a Mockingbird", author: "Harper Lee", price: 14.99 },
-        { id: 3, title: "1984", author: "George Orwell", price: 11.99 },
-    ]
+    // const cartItems = [
+    //     { id: 1, title: "The Great Gatsby", author: "F. Scott Fitzgerald", price: 12.99 },
+    //     { id: 2, title: "To Kill a Mockingbird", author: "Harper Lee", price: 14.99 },
+    //     { id: 3, title: "1984", author: "George Orwell", price: 11.99 },
+    // ]
 
+    useEffect(() => {
+        const fetchCartData = async () => {
+            const userName = Cookies.get("User-username");
+
+            if (!userName) {
+                alert("No user is logged in");
+                return;
+            }
+
+            try {
+                const response = await axios.get(APi_URL + `checkout/getorder`, {
+                    params: { username: userName }, // Pass username as query parameter
+                });
+                console.log("Checkout data fetch", response.data)
+                const fetchedData = response.data || [];
+
+                const filteredData = fetchedData.filter((item) => item.username === userName);
+
+                console.log("filtered data", filteredData);
+
+                const mergedCart = filteredData.reduce((acc, item) => {
+                    const existingItem = acc.find((i) => i.title === item.title);
+                    if (existingItem) {
+                        existingItem.quantity += item.quantity;
+                        existingItem.subtotal = existingItem.price * existingItem.quantity;
+                    } else {
+                        item.subtotal = item.price * item.quantity;
+                        acc.push(item);
+                    }
+                    return acc;
+                }, []);
+
+                setcartItems(mergedCart);
+
+                // const total = mergedCart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+                // setGtotal(total);
+
+            } catch (error) {
+                console.error("Error fetching cart data:", error);
+                alert("There was an error fetching your cart.");
+            }
+        };
+
+        fetchCartData();
+    }, []);
     const transactions = [
         { id: 1, date: "2023-10-15", amount: 27.98, items: 2 },
         { id: 2, date: "2023-09-22", amount: 14.99, items: 1 },

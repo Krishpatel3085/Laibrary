@@ -31,6 +31,7 @@ function Shop() {
         title: item.title,
         imageUrl : item.url,
         price: item.price,
+        author : item.author,
         quantity: 1,
       },
       { headers: { Authorization: `Bearer ${token}` } }
