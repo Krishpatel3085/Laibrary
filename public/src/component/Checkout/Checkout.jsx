@@ -4,11 +4,45 @@ import Footer from "../footer/Footer";
 import Cookies from "js-cookie";
 import { APi_URL } from "../../Utils/apiConfig";
 import Header from "../NavBar/Header";
-import Button from 'react-bootstrap/Button';
+// import Button from 'react-bootstrap/Button';
 
-export default function Checkout() {
+
+import { Button } from "../ui/Button";
+import { Input } from "../ui/Input"
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "../ui/Dialog"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../ui/Select"
+import { X } from "lucide-react"
+
+export default function Component() {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
   const [cart, setCart] = useState([]);
   const [gtotal, setGtotal] = useState(0);
+  const [isSelectOpen, setIsSelectOpen] = useState(false); // Track dropdown state
+  const [selectedState, setSelectedState] = useState("");
+
+  const [customerName, setCustomerName] = useState('');
+  const [customerNumber, setCustomerNumber] = useState('');
+  const [address, setAddress] = useState('')
+
+  const [area, setArea] = useState('');
+  const [city, setCity] = useState('');
+  const [pincode, setPincode] = useState('');
+  const [landmark, setLandmark] = useState('');
+  const [state, setState] = useState('');
+
+
 
   useEffect(() => {
     const fetchCartData = async () => {
@@ -94,7 +128,7 @@ export default function Checkout() {
       const response = await axios.post(APi_URL + "Payment/createPayment", {
         amount: gtotal,
       });
-      console.log("check payment response", response)
+      console.log("Check payment response", response);
       const { data } = response.data;
 
       const options = {
@@ -103,21 +137,46 @@ export default function Checkout() {
         currency: "INR",
         order_id: data.id,
         handler: async (response) => {
+          console.log("Check payment verified", response);
 
+          // Construct the address locally to avoid async issues
+          // const completeAddress = `${landmark}+ ${area}+ ${city}+ ${pincode}+ ${state}`;
+          const completeAddress = landmark + area + city + pincode + state;
+          setAddress(completeAddress);
+          // setAddress(landmark + area + city + pincode + state )
           try {
-            await axios.post(APi_URL + "Payment/verifyPayment", {
+            const verificationResponse = await axios.post(APi_URL + "Payment/verifyPayment", {
               payment_id: response.razorpay_payment_id,
               order_id: response.razorpay_order_id,
               signature: response.razorpay_signature,
+              paymentMethod: "Razorpay",
+              adress: address,
+              customerName: customerName,
+              customerNumber: customerNumber,
+              amount: gtotal,
+              items: cart
             });
-            alert("Payment successful!");
-            setCart([]);
-            setGtotal(0);
+
+            if (verificationResponse.data.success) {
+              alert("Payment successful and data created!");
+              setCart([]);
+              setGtotal(0);
+            } else {
+              alert("Payment was verified, but data creation failed.");
+            }
           } catch (error) {
             console.error("Payment verification failed:", error);
             alert("There was an error verifying the payment.");
           }
         },
+        prefill: {
+          name: customerName,
+          contact: customerNumber,
+          email: "customer@example.com"
+        },
+        theme: {
+          color: "#3399cc"
+        }
       };
 
       const paymentObject = new window.Razorpay(options);
@@ -129,44 +188,58 @@ export default function Checkout() {
   };
 
 
-  return (
-    <>
-      <Header />
+  // Indian states
+  const indianStates = [
+    "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chhattisgarh",
+    "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jharkhand", "Karnataka",
+    "Kerala", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram",
+    "Nagaland", "Odisha", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu",
+    "Telangana", "Tripura", "Uttar Pradesh", "Uttarakhand", "West Bengal"
+  ]
+  const toggleSelect = () => {
+    setIsSelectOpen(!isSelectOpen);
+  };
 
-      <div className="cart container mx-auto px-4 pt-5 ">
-        <h1 className="text-3xl font-bold text-center my-6 pt-5">Cart</h1>
+  const handleSelect = (state) => {
+    setSelectedState(state); // Set selected state
+    setIsSelectOpen(false); // Close dropdown
+  };
+  return (
+    <div className="min-h-screen bg-white">
+      <Header />
+      {/* Main Content */}
+      <main className="container mx-auto px-4 py-8">
+        <h1 className="text-3xl font-bold text-center mb-8">Cart</h1>
+
+        {/* Cart Table */}
         <div className="overflow-x-auto">
-          <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
-            <thead className="bg-gray-800 text-white">
+          <table className="w-full">
+            <thead className="bg-gray-900 text-white">
               <tr>
-                <th className="py-3 px-4 text-center">Remove</th>
-                <th className="py-3 px-4 text-center">Image</th>
-                <th className="py-3 px-4 text-center">Product</th>
-                <th className="py-3 px-4 text-center">Price</th>
-                <th className="py-3 px-4 text-center">Quantity</th>
-                <th className="py-3 px-4 text-center">Subtotal</th>
+                <th className="py-4 px-6 text-left">Remove</th>
+                <th className="py-4 px-6 text-left">Image</th>
+                <th className="py-4 px-6 text-left">Product</th>
+                <th className="py-4 px-6 text-left">Price</th>
+                <th className="py-4 px-6 text-left">Quantity</th>
+                <th className="py-4 px-6 text-left">Subtotal</th>
               </tr>
             </thead>
             <tbody>
               {cart.length > 0 ? (
                 cart.map((item, index) => (
-                  <tr key={index} className="text-center border-b">
-                    <td className="py-4">
-                      <span onClick={() => deleteItem(item._id)} className="cursor-pointer text-red-500 hover:text-red-700">
-                        <i className="bi bi-x-circle"></i>
-                      </span>
+                  <tr className="border-b" key={index}>
+                    <td className="py-4 px-6">
+                      <Button variant="ghost" size="sm" onClick={() => deleteItem(item._id)}>
+                        <X className="h-4 w-4 text-red-500" />
+                      </Button>
                     </td>
-                    <td className="py-4">
-                      <img
-                        src={item.imageUrl}
-                        className="w-16 h-16 object-cover mx-auto"
-                        alt={item.title}
-                      />
+                    <td className="py-4 px-6">
+                      <img src={item.imageUrl} alt={item.title} className="w-20 h-20 object-cover" />
                     </td>
-                    <td className="py-4">{item.title}</td>
-                    <td className="py-4">${item.price.toFixed(2)}</td>
-                    <td className="py-4">{item.quantity}</td>
-                    <td className="py-4">${(item.price * item.quantity).toFixed(2)}</td>
+                    <td className="py-4 px-6">{item.title}</td>
+                    <td className="py-4 px-6">${item.price.toFixed(2)}</td>
+                    <td className="py-4 px-6">{item.quantity}</td>
+                    <td className="py-4 px-6">${(item.price * item.quantity).toFixed(2)}</td>
                   </tr>
                 ))
               ) : (
@@ -176,27 +249,143 @@ export default function Checkout() {
                   </td>
                 </tr>
               )}
-
-              <tr>
-                <td colSpan={4} className="text-right py-4 font-semibold text-lg">
-                  Grand total:
-                </td>
-                <td className="py-4 font-bold text-lg">${gtotal.toFixed(2)}
-
-                </td>
-                <td>
-                  <Button type="submit" onClick={handleRazorpay} className="bg-red-600 hover:bg-red-700 w-full sm:w-auto border-0">Checkout</Button>
-
-                </td>
-              </tr>
             </tbody>
           </table>
         </div>
-      </div>
 
+        {/* Total and Checkout */}
+        <div className="flex justify-end mt-8">
+          <div className="w-full max-w-md">
+            <div className="flex justify-between py-2">
+              <span className="font-bold">Grand total:</span>
+              <span className="font-bold">${gtotal.toFixed(2)}</span>
+            </div>
+            <Button className="w-full mt-4 bg-red-500 hover:bg-red-600 text-white" onClick={() =>
+              setIsModalOpen(true)}
+            >
+              Checkout
+            </Button>
+          </div>
+        </div>
+
+        {/* Checkout Modal */}
+        <Dialog isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+          <DialogContent className="sm:max-w-[600px]">
+            <DialogHeader>
+              <DialogTitle>Checkout Details</DialogTitle>
+            </DialogHeader>
+            <form className="space-y-6 mt-4"
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleRazorpay(); // Call Razorpay function here
+              }}
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <label htmlFor="name" className="text-sm font-medium">
+                    Customer Name
+                  </label>
+                  <Input id="name"
+                    value={customerName}
+                    onChange={(e) => setCustomerName(e.target.value)}
+                    required />
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="mobile" className="text-sm font-medium">
+                    Mobile Number
+                  </label>
+                  <Input id="mobile" type="tel"
+                    value={customerNumber}
+                    onChange={(e) => setCustomerNumber(e.target.value)}
+                    required />
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <h3 className="font-medium">Address Details</h3>
+
+                <div className="space-y-0 grid grid-cols-1">
+                  <label htmlFor="area" className="text-sm font-medium">
+                    Area, Street, Flat/House
+                  </label> <br />
+                  <Input id="area"
+                    value={area}
+                    onChange={(e) => setArea(e.target.value)}
+                    required />
+                </div>
+
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <label htmlFor="house" className="text-sm font-medium">
+                      House No, Flat/Company
+                    </label>
+                    <Input id="house"
+                      value={landmark}
+                      onChange={(e) => setLandmark(e.target.value)}
+                      required />
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="pincode" className="text-sm font-medium">
+                      Pincode
+                    </label>
+                    <Input id="pincode"
+                      value={pincode}
+                      onChange={(e) => setPincode(e.target.value)}
+                      required />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <label htmlFor="city" className="text-sm font-medium">
+                      Town/City
+                    </label>
+                    <Input id="city"
+                      value={city}
+                      onChange={(e) => setCity(e.target.value)}
+                      required />
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="state" className="text-sm font-medium">
+                      State
+                    </label>
+                    <Select
+                      value={state}
+                      onChange={(e) => setState(e.target.value)}
+                    >
+                      <SelectTrigger onClick={toggleSelect}>
+                        <SelectValue value={selectedState} />
+                      </SelectTrigger>
+                      <SelectContent isOpen={isSelectOpen}>
+                        {indianStates.map((state) => (
+                          <SelectItem
+                            key={state}
+                            value={state}
+                            onSelect={() => handleSelect(state)}
+
+                          >
+                            {state}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </div>
+              </div>
+
+              <Button
+                type="submit"
+                className="w-full bg-[#8b4513] hover:bg-[#d2691e] text-white"
+                onClick={handleRazorpay}
+              >
+                Proceed to Payment
+              </Button>
+            </form>
+          </DialogContent>
+        </Dialog>
+      </main>
       <Footer />
-    </>
-  );
+    </div>
+  )
 }
-
-
