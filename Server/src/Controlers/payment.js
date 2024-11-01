@@ -89,5 +89,16 @@ const verifyPayment = async (req, res) => {
     }
 };
 
+const getAllPayment = async (req, res) => {
+    try {
+        const data = await Address.find();
+        res.json({ data });
 
-module.exports = { verifyPayment, createPayorder }
+    } catch {
+        console.error("Error fetching payment:", error);
+        return res.status(500).json({ error: "Internal Server Error" });
+    }
+}
+
+
+module.exports = { verifyPayment, createPayorder, getAllPayment }
