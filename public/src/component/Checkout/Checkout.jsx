@@ -34,7 +34,6 @@ export default function Component() {
 
   const [customerName, setCustomerName] = useState('');
   const [customerNumber, setCustomerNumber] = useState('');
-  const [address, setAddress] = useState('')
 
   const [area, setArea] = useState('');
   const [city, setCity] = useState('');
@@ -139,18 +138,16 @@ export default function Component() {
         handler: async (response) => {
           console.log("Check payment verified", response);
 
-          // Construct the address locally to avoid async issues
-          // const completeAddress = `${landmark}+ ${area}+ ${city}+ ${pincode}+ ${state}`;
+         
           const completeAddress = landmark + area + city + pincode + state;
-          setAddress(completeAddress);
-          // setAddress(landmark + area + city + pincode + state )
+          
           try {
             const verificationResponse = await axios.post(APi_URL + "Payment/verifyPayment", {
               payment_id: response.razorpay_payment_id,
               order_id: response.razorpay_order_id,
               signature: response.razorpay_signature,
               paymentMethod: "Razorpay",
-              adress: address,
+              adress: completeAddress,
               customerName: customerName,
               customerNumber: customerNumber,
               amount: gtotal,
