@@ -100,5 +100,21 @@ const getAllPayment = async (req, res) => {
     }
 }
 
+// create 1 get1Payment
 
-module.exports = { verifyPayment, createPayorder, getAllPayment }
+const getPayment = async (req, res) => {
+    const id = req.params["id"]
+
+    try {
+        const payment = await Address.findOne({ _id: id });
+        if (!payment) return res.status(404).json({ message: "Payment not found" });
+        res.json({ payment });
+    } catch (erroe) {
+        console.log("Error fetching payment:", error);
+        return res.status(500).json({ error: "Internal Server Error" });
+    }
+
+}
+
+
+module.exports = { verifyPayment, createPayorder, getAllPayment ,getPayment}
