@@ -41,6 +41,7 @@ const createPayorder = async (req, res) => {
 const verifyPayment = async (req, res) => {
     const { order_id, payment_id, signature, customerName, paymentMethod, amount, items, customerNumber, adress } = req.body;
     const User = req.user["id"];
+    console.log("For Payment Create",User)
     console.log("Data get in req body", req.body)
     const secret = process.env.RAZORPAY_KEY_SECRET;
 
