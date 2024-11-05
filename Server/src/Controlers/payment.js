@@ -40,7 +40,7 @@ const createPayorder = async (req, res) => {
 
 const verifyPayment = async (req, res) => {
     const { order_id, payment_id, signature, customerName, paymentMethod, amount, items, customerNumber, adress } = req.body;
-
+    const User = req.user["id"];
     console.log("Data get in req body", req.body)
     const secret = process.env.RAZORPAY_KEY_SECRET;
 
@@ -58,6 +58,7 @@ const verifyPayment = async (req, res) => {
             paymentStatus: "Verified",
             adress: adress,
             amount: amount,
+            User: User,
             items: items.map(item => ({
                 itemName: item.title,
                 quantity: item.quantity,
@@ -117,4 +118,4 @@ const getPayment = async (req, res) => {
 }
 
 
-module.exports = { verifyPayment, createPayorder, getAllPayment ,getPayment}
+module.exports = { verifyPayment, createPayorder, getAllPayment, getPayment }
