@@ -115,6 +115,7 @@ export default function Component() {
   };
 
   const handleRazorpay = async () => {
+    const token = localStorage.getItem("token")
     const isLoaded = await loadScript("https://checkout.razorpay.com/v1/checkout.js");
 
     if (!isLoaded) {
@@ -138,9 +139,9 @@ export default function Component() {
         handler: async (response) => {
           console.log("Check payment verified", response);
 
-         
+
           const completeAddress = landmark + area + city + pincode + state;
-          
+
           try {
             const verificationResponse = await axios.post(APi_URL + "Payment/verifyPayment", {
               payment_id: response.razorpay_payment_id,
@@ -152,7 +153,13 @@ export default function Component() {
               customerNumber: customerNumber,
               amount: gtotal,
               items: cart
-            });
+            },
+              {
+                headers: {
+                  'Authorization': ` Bearer ${token}`
+                },
+              }
+            );
 
             if (verificationResponse.data.success) {
               alert("Payment successful and data created!");
