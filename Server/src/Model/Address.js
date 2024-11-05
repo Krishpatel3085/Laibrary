@@ -16,7 +16,11 @@ const addressSchema = new mongoose.Schema({
             quantity: { type: Number, required: true },
             price: { type: Number, required: true }
         }
-    ]
+    ],
+    User: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Users'
+    },
 });
 
 const Address = mongoose.model("Address", addressSchema);

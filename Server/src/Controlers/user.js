@@ -29,6 +29,19 @@ const getUSer = async (req, res) => {
     }
 };
 
+
+// Get one Users (Protected)
+const get1USer = async (req, res) => {
+    try {
+        const id = req.params["id"]
+        const user = await Users.findOne({ _id: id });
+        res.json(user);
+    } catch (error) {
+        console.error("Error fetching data:", error);
+        res.status(500).json({ message: error.message });
+    }
+};
+
 // Login User and Generate Token
 const loginUser = async (req, res) => {
     try {
@@ -73,4 +86,4 @@ const loginUser = async (req, res) => {
 };
 
 
-module.exports = { getUSer, loginUser, createUser };
+module.exports = { getUSer, loginUser, createUser, get1USer };
