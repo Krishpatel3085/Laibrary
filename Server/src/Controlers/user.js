@@ -86,4 +86,32 @@ const loginUser = async (req, res) => {
 };
 
 
-module.exports = { getUSer, loginUser, createUser, get1USer };
+const deleteUser = async (req, res) => {
+    const id = req.params["id"]
+    console.log(id)
+    try {
+        // Find the book first
+        const user = await Users.findOne({ _id: id });
+        if (!user) {
+            return res.status(404).json({ Msg: "User not found" });
+        }
+
+        console.log('Requesting user ID:', req.user.id);
+        console.log("User checking", req.user)
+        const isAdmin = req.user.role === 'admin';
+
+        console.log('Admin is Checking:', isAdmin);
+        if (!isAdmin) {
+            return res.status(403).json({ error: "Forbidden: You do not have permission to Delete this User." });
+        }
+
+        await Users.deleteOne({ _id: id });
+        res.json({ Msg: "Delete Successfully" });
+
+    } catch (error) {
+        console.error("Error deleting data:", error);
+        res.status(500).json({ error: "Internal Server Error" });
+    }
+};
+
+module.exports = { getUSer, loginUser, createUser, get1USer, deleteUser };
